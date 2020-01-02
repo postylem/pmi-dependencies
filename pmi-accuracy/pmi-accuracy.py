@@ -2,46 +2,29 @@
 Gets the undirected attachment accuracy score 
 for dependencies calculated from PMI (using XLNet),
 compared to gold dependency parses taken from a CONLL file.
+
+Default: run from directory where conllx file 
+with dependency labels (head_indices column) is located at
+ptb3-wsj-data/ptb3-wsj-dev.conllx
 -
 Jacob Louis Hoover
 January 2020
 """
 
-# import os
+import os
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
+import csv
 # import matplotlib.pyplot as plt
-
+from datetime import datetime
+from argparse import ArgumentParser
 from collections import namedtuple#, defaultdict
 from transformers import XLNetLMHeadModel, XLNetTokenizer
 import torch
 import torch.nn.functional as F
 
 import task
-
-# Load up pretrained model and tokenizer.
-MODEL = [(XLNetLMHeadModel, XLNetTokenizer, 'xlnet-base-cased')]
-for model_class, tokenizer_class, pretrained_weights in MODEL:
-  tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
-  model = model_class.from_pretrained(pretrained_weights)
-
-# Location of CONLL file with dependency labels (head_indices column)
-FILEPATH = '/Users/j/McGill/PhD-miasma/xlnet-pmi/ptb3-wsj-data/ptb3-wsj-dev.conllx'
-
-# Columns of CONLL file
-FIELDNAMES = ['index',
-              'sentence',
-              'lemma_sentence',
-              'upos_sentence',
-              'xpos_sentence',
-              'morph',
-              'head_indices',
-              'governance_relations',
-              'secondary_relations',
-              'extra_info']
-
-ObservationClass = namedtuple("Observation", FIELDNAMES)
 
 def generate_lines_for_sent(lines):
   '''Yields batches of lines describing a sentence in conllx.
@@ -272,11 +255,11 @@ class UnionFind:
         break
     return i_parent
 
-def prims_matrix_to_edges(matrix, words, maximum_spanning_tree=True, verbose=False):
+def prims_matrix_to_edges(matrix, words, maximum_spanning_tree=True):
   '''
   Constructs a maximum spanning tree using Prim's algorithm.
-  Input: matrix (ndArray of PMIs), tokenlist words corresponding list of tokens
-  (set maximum_spanning_tree=False to get minumum spanning tree instead).
+    (set maximum_spanning_tree=False to get minumum spanning tree instead).
+  Input: matrix (ndArray of PMIs), words (list of tokens)
   Excludes edges to/from punctuation symbols or empty strings.
   Returns: tree (list of edges).
   By John Hewitt, modified.
@@ -291,13 +274,11 @@ def prims_matrix_to_edges(matrix, words, maximum_spanning_tree=True, verbose=Fal
         continue
       pairs_to_weights[(i_index, j_index)] = dist
   edges = []
-  for (i_index, j_index), weight in sorted(pairs_to_weights.items(), key=lambda x: x[1],
-                                           reverse=maximum_spanning_tree):
+  for (i_index, j_index), _ in sorted(pairs_to_weights.items(), key=lambda x: x[1],
+                                      reverse=maximum_spanning_tree):
     if union_find.find(i_index) != union_find.find(j_index):
       union_find.union(i_index, j_index)
       edges.append((i_index, j_index))
-      if verbose:
-        print(f'({i_index}, {j_index}) : {weight}')
   return edges
 
 def get_edges_from_matrix(matrix, words, symmetrize_method='sum', verbose=False):
@@ -324,11 +305,11 @@ def get_edges_from_matrix(matrix, words, symmetrize_method='sum', verbose=False)
     raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
 
   if verbose:
-    print('Getting MST from matrix, using symmetrize_method = %s.'%symmetrize_method)
-  edges = prims_matrix_to_edges(matrix, words, maximum_spanning_tree=True, verbose=verbose)
+    print(f'Getting MST from matrix, using symmetrize_method = {symmetrize_method}.')
+  edges = prims_matrix_to_edges(matrix, words, maximum_spanning_tree=True)
   return edges
 
-def get_uuas(observation, use_tokenizer=False, verbose=False):
+def get_uuas_for_observation(observation, use_tokenizer=False, verbose=False):
   '''
   gets the unlabeled undirected attachment score for a given sentence (observation),
   by reading off the minimum spanning tree from a matrix of PTB dependency distances
@@ -344,7 +325,6 @@ def get_uuas(observation, use_tokenizer=False, verbose=False):
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
   gold_edges = prims_matrix_to_edges(gold_dist_matrix, observation.sentence,
                                      maximum_spanning_tree=False)
-
   # Calculate pmi edges from XLNet
   if use_tokenizer:
     xlnet_sentence = ' '.join(observation.sentence)
@@ -372,10 +352,68 @@ def get_uuas(observation, use_tokenizer=False, verbose=False):
     num_total = len(gold_edges)
     uuas = num_correct/float(num_total)
     scores.append(uuas)
-    print(f'uuas = #correct / #total = {num_correct}/{num_total} = \033[1m{uuas:.3f}\033[0m')
+    print(f'uuas = #correct / #total = {num_correct}/{num_total} = {uuas:.3f}')
   return scores
 
-if __name__ == '__main__':
+def report_uuas_batch(observations, batch_size, results_dir, verbose=False):
+  results_filepath = results_dir+'scores.csv'
+  all_scores = []
+  with open(results_filepath, mode='w') as results_file:
+    results_writer = csv.writer(results_file, delimiter=',')
+    for i, observation in enumerate(observations):
+      if i+1 > batch_size:
+        break
+      scores = get_uuas_for_observation(observation, use_tokenizer=False, verbose=verbose)
+      results_writer.writerow([i+1, scores[0], scores[1], scores[2], scores[3]])
+      all_scores.append(scores)
+  mean_scores = [float(sum(col))/len(col) for col in zip(*all_scores)]
+  if verbose:
+    print(f'\n---\nmean_scores[sum,triu,tril,none]: {mean_scores}')
+  return mean_scores
 
-  OBSERVATIONS = load_conll_dataset(FILEPATH, ObservationClass)
-  SCORES = get_uuas(OBSERVATIONS[62], use_tokenizer=False, verbose=False)
+
+
+if __name__ == '__main__':
+  ARGP = ArgumentParser()
+  ARGP.add_argument('--batch-size', type=int, default='20')
+  ARGP.add_argument('--model-size', default='xlnet-base-cased')
+  ARGP.add_argument('--connlx-file', default='ptb3-wsj-data/ptb3-wsj-test.conllx',
+                    help='path to PTB dependency file in conllx format')
+  ARGP.add_argument('--results-dir', default='results/',
+                    help='path to results directory')
+  CLI_ARGS = ARGP.parse_args()
+
+  print('Running pmi-accuracy.py with cli arguments:')
+  for arg, value in sorted(vars(CLI_ARGS).items()):
+    print(f"\t{arg}:\t{value}")
+
+  MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.model_size)]
+  for model_class, tokenizer_class, pretrained_weights in MODEL:
+    tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
+    model = model_class.from_pretrained(pretrained_weights)
+
+  # Columns of CONLL file
+  FIELDNAMES = ['index',
+                'sentence',
+                'lemma_sentence',
+                'upos_sentence',
+                'xpos_sentence',
+                'morph',
+                'head_indices',
+                'governance_relations',
+                'secondary_relations',
+                'extra_info']
+
+  ObservationClass = namedtuple("Observation", FIELDNAMES)
+
+  OBSERVATIONS = load_conll_dataset(CLI_ARGS.connlx_file, ObservationClass)
+
+  NOW = datetime.now()
+  DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
+  RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, DATE_SUFFIX + '/')
+  os.makedirs(RESULTS_DIR, exist_ok=True)
+  print(f'RESULTS_DIR: {RESULTS_DIR}\n')
+
+  MEAN_SCORES = report_uuas_batch(OBSERVATIONS, CLI_ARGS.batch_size, RESULTS_DIR, verbose=True)
+  with open(RESULTS_DIR+'mean_scores', mode='w') as file:
+    csv.writer(file, delimiter=',').writerow(MEAN_SCORES)
