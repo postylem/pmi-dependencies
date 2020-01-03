@@ -59,7 +59,7 @@ def load_conll_dataset(filepath, observation_class):
     filepath: the filesystem path to the conll dataset
 
   Returns:
-  A list of Observations 
+  A list of Observations
   '''
   observations = []
   lines = (x for x in open(filepath))
@@ -69,8 +69,8 @@ def load_conll_dataset(filepath, observation_class):
       conllx_lines.append(line.strip().split('\t'))
     # embeddings = [None for x in range(len(conllx_lines))]
     observation = observation_class(*zip(*conllx_lines)
-      # ,embeddings
-      )
+                                    # ,embeddings
+    )
     observations.append(observation)
   return observations
 
@@ -356,6 +356,12 @@ def get_uuas_for_observation(observation, use_tokenizer=False, verbose=False):
   return scores
 
 def report_uuas_batch(observations, batch_size, results_dir, verbose=False):
+  '''
+  Draft version.
+  Gets the uuas for observations[0:batch_size]
+  Writes to scores and mean_scores csv files.
+  Outputs array mean_scores for [sum, triu, tril, none]
+  '''
   results_filepath = results_dir+'scores.csv'
   all_scores = []
   with open(results_filepath, mode='w') as results_file:
@@ -376,9 +382,10 @@ def report_uuas_batch(observations, batch_size, results_dir, verbose=False):
 if __name__ == '__main__':
   ARGP = ArgumentParser()
   ARGP.add_argument('--batch-size', type=int, default='20')
-  ARGP.add_argument('--offline-path', 
-                    help='path to offline pretrained weights and config')
-  ARGP.add_argument('--model-size', default='xlnet-base-cased')
+  ARGP.add_argument('--offline-mode', action='store_true',
+                    help='set for "pytorch-transformers" (specify path in xlnet-spec)')
+  ARGP.add_argument('--xlnet-spec', default='xlnet-base-cased',
+                    help='specify "xlnet-base-cased" or "xlnet-large-cased", or path')
   ARGP.add_argument('--connlx-file', default='ptb3-wsj-data/ptb3-wsj-test.conllx',
                     help='path to PTB dependency file in conllx format')
   ARGP.add_argument('--results-dir', default='results/',
@@ -389,12 +396,12 @@ if __name__ == '__main__':
   for arg, value in sorted(vars(CLI_ARGS).items()):
     print(f"\t{arg}:\t{value}")
 
-  if CLI_ARGS.offline_path is not None:
+  if CLI_ARGS.offline_mode == True:
     from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
-    model_weights=path_to_xlnet_offline
-  
+  else:
+    from transformers import XLNetLMHeadModel, XLNetTokenizer
 
-  MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.model_size)]
+  MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
   for model_class, tokenizer_class, pretrained_weights in MODEL:
     tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
     model = model_class.from_pretrained(pretrained_weights)

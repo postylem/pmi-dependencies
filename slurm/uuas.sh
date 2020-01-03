@@ -23,8 +23,8 @@ pip install --no-index pytorch-transformers
 pip install --no-index -r $SOURCEDIR/requirements.txt
 
 PATH_PREFIX=~/wdir-morgan/xlnet-pmi
-BATCH_SIZE=${1?Error: no batch size specified}
+BATCH_SIZE=${1?Error: no batch size specified. Required.}
 
 START=`date +%s`
-python $PATH_PREFIX/pmi-accuracy/pmi-accuracy.py --batch-size $BATCH_SIZE --results-dir $PATH_PREFIX/results-cluster/
+python $PATH_PREFIX/pmi-accuracy/pmi-accuracy.py --offline-mode --batch-size $BATCH_SIZE --results-dir $PATH_PREFIX/results-cluster/ --xlnet-spec ~/wdir-morgan/proj4/XLNet/
 echo "Duration: $((($(date +%s)-$START)/60)) minutes"
