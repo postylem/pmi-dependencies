@@ -19,7 +19,7 @@ SOURCEDIR=~/wdir-morgan/xlnet-pmi
 virtualenv --no-download $SLURM_TMPDIR/env
 source $SLURM_TMPDIR/env/bin/activate
 pip install --no-index torch
-pip install --no-index transformers
+pip install --no-index pytorch-transformers
 pip install --no-index -r $SOURCEDIR/requirements.txt
 
 PATH_PREFIX=~/wdir-morgan/xlnet-pmi
