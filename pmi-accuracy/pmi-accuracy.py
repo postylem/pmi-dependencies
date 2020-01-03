@@ -20,7 +20,7 @@ import csv
 from datetime import datetime
 from argparse import ArgumentParser
 from collections import namedtuple#, defaultdict
-from transformers import XLNetLMHeadModel, XLNetTokenizer
+
 import torch
 import torch.nn.functional as F
 
@@ -376,6 +376,8 @@ def report_uuas_batch(observations, batch_size, results_dir, verbose=False):
 if __name__ == '__main__':
   ARGP = ArgumentParser()
   ARGP.add_argument('--batch-size', type=int, default='20')
+  ARGP.add_argument('--offline-path', 
+                    help='path to offline pretrained weights and config')
   ARGP.add_argument('--model-size', default='xlnet-base-cased')
   ARGP.add_argument('--connlx-file', default='ptb3-wsj-data/ptb3-wsj-test.conllx',
                     help='path to PTB dependency file in conllx format')
@@ -386,6 +388,11 @@ if __name__ == '__main__':
   print('Running pmi-accuracy.py with cli arguments:')
   for arg, value in sorted(vars(CLI_ARGS).items()):
     print(f"\t{arg}:\t{value}")
+
+  if CLI_ARGS.offline_path is not None:
+    from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
+    model_weights=path_to_xlnet_offline
+  
 
   MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.model_size)]
   for model_class, tokenizer_class, pretrained_weights in MODEL:
