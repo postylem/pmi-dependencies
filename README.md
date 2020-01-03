@@ -19,13 +19,31 @@ To run on computecanada cluster, which has `pytorch-transformers` (an earlier ve
 
 - `offline-mode`
 
-All this will do is change that import statement. But you will also need to specify a path to the pretrained model, since it won't be able to grab it from huggingface's [aws server](https://s3.amazonaws.com/models.huggingface.co/).  So, pre download `xlnet-base-cased-config.json` `xlnet-base-cased-pytorch_model.bin`, and `xlnet-base-cased-spiece.model`, and save them as:
+All this will do is change that import statement. But you will also need to specify a path to the pretrained model, since it won't be able to grab it from huggingface's [aws server](https://s3.amazonaws.com/models.huggingface.co/).  So, pre download `xlnet-base-cased-config.json` `xlnet-base-cased-pytorch_model.bin`, and `xlnet-base-cased-spiece.model`, and save them like so:
+
+```bash
+mkdir XLNet-base
+cd XLNet-base
+wget -O pytorch_model.bin https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-base-cased-pytorch_model.bin
+wget -O spiece.model https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-base-cased-spiece.model
+wget -O config.json https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-base-cased-config.json
+
+mkdir XLNet-large
+cd XLNet-large
+wget -O pytorch_model.bin https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-large-cased-pytorch_model.bin
+wget -O spiece.model https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-large-cased-spiece.model
+wget -O config.json https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-large-cased-config.json
 ```
-XLNet/
+
+!Watch out. The pytorch_model.bin files... they're large files.
+
+```
+XLNet-large/
 | config.json         699  
 | pytorch_model.bin  1,4G  
 | spiece.model       798K 
 ```
+
 Just specify the directory as `--xlnet-spec  XLNet/`
 
 So, to run on the cluster, do, for instance, something like:
