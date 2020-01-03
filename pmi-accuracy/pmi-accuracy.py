@@ -396,7 +396,7 @@ if __name__ == '__main__':
   for arg, value in sorted(vars(CLI_ARGS).items()):
     print(f"\t{arg}:\t{value}")
 
-  if CLI_ARGS.offline_mode == True:
+  if CLI_ARGS.offline_mode:
     from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
   else:
     from transformers import XLNetLMHeadModel, XLNetTokenizer
