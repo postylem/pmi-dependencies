@@ -366,7 +366,7 @@ def report_uuas_batch(observations, batch_size, results_dir, verbose=False):
   all_scores = []
   with open(results_filepath, mode='w') as results_file:
     results_writer = csv.writer(results_file, delimiter=',')
-    for i, observation in enumerate(observations):
+    for i, observation in enumerate(tqdm(observations)):
       if i+1 > batch_size:
         break
       scores = get_uuas_for_observation(observation, use_tokenizer=False, verbose=verbose)
