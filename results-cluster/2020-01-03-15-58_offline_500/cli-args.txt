@@ -1,0 +1,7 @@
+Running pmi-accuracy.py with cli arguments:
+        batch_size:     500
+        connlx_file:    ptb3-wsj-data/ptb3-wsj-test.conllx
+        offline_mode:   True
+        results_dir:    /home/postylem/wdir-morgan/xlnet-pmi/results-cluster/
+        xlnet_spec:     /home/postylem/wdir-morgan/xlnet-pmi/XLNet-base/
+RESULTS_DIR: /home/postylem/wdir-morgan/xlnet-pmi/results-cluster/2020-01-03-15-58/
