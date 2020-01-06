@@ -386,20 +386,25 @@ if __name__ == '__main__':
                     help='set for "pytorch-transformers" (specify path in xlnet-spec)')
   ARGP.add_argument('--xlnet-spec', default='xlnet-base-cased',
                     help='specify "xlnet-base-cased" or "xlnet-large-cased", or path')
-  ARGP.add_argument('--connlx-file', default='ptb3-wsj-data/ptb3-wsj-test.conllx',
+  ARGP.add_argument('--conllx-file', default='ptb3-wsj-data/ptb3-wsj-test.conllx',
                     help='path to PTB dependency file in conllx format')
   ARGP.add_argument('--results-dir', default='results/',
-                    help='path to results directory')
+                    help='path to results directory, ending with /')
   CLI_ARGS = ARGP.parse_args()
 
   print('Running pmi-accuracy.py with cli arguments:')
-  for arg, value in sorted(vars(CLI_ARGS).items()):
-    print(f"\t{arg}:\t{value}")
+  with open(RESULTS_DIR+'cli-args.txt', mode='w') as specfile:
+    for arg, value in sorted(vars(CLI_ARGS).items()):
+      specfile.write(f"\t{arg}:\t{value}\n")
+      print(f"\t{arg}:\t{value}")
+    specfile.close()
 
   if CLI_ARGS.offline_mode:
     from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
+    SPEC_STRING = 'offline'
   else:
     from transformers import XLNetLMHeadModel, XLNetTokenizer
+    SPEC_STRING = str(CLI_ARGS.xlnet_spec)
 
   MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
   for model_class, tokenizer_class, pretrained_weights in MODEL:
@@ -420,14 +425,15 @@ if __name__ == '__main__':
 
   ObservationClass = namedtuple("Observation", FIELDNAMES)
 
-  OBSERVATIONS = load_conll_dataset(CLI_ARGS.connlx_file, ObservationClass)
+  OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
   NOW = datetime.now()
   DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
-  RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, DATE_SUFFIX + '/')
+  SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.batch_size)
+  RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SPEC_SUFFIX + '_' + DATE_SUFFIX + '/')
   os.makedirs(RESULTS_DIR, exist_ok=True)
   print(f'RESULTS_DIR: {RESULTS_DIR}\n')
 
   MEAN_SCORES = report_uuas_batch(OBSERVATIONS, CLI_ARGS.batch_size, RESULTS_DIR, verbose=True)
-  with open(RESULTS_DIR+'mean_scores', mode='w') as file:
+  with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
     csv.writer(file, delimiter=',').writerow(MEAN_SCORES)

@@ -17,7 +17,7 @@ To get the accuracy score for each of the first few (default 20) sentences in th
 ### Running on cluster
 To run on computecanada cluster, which has `pytorch-transformers` (an earlier verion) installed in their wheel, we need to change the corresponding import statement.  This is done by setting the additional optional CLI
 
-- `offline-mode`
+- `--offline-mode`
 
 All this will do is change that import statement. But you will also need to specify a path to the pretrained model, since it won't be able to grab it from huggingface's [aws server](https://s3.amazonaws.com/models.huggingface.co/).  So, pre download `xlnet-base-cased-config.json` `xlnet-base-cased-pytorch_model.bin`, and `xlnet-base-cased-spiece.model`, and save them like so:
 
@@ -35,7 +35,7 @@ wget -O spiece.model https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-l
 wget -O config.json https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-large-cased-config.json
 ```
 
-!Watch out. The pytorch_model.bin files... they're large files.
+!Watch out. The pytorch_model.bin files... they're large files. Eg, 
 
 ```
 XLNet-large/
@@ -47,4 +47,12 @@ XLNet-large/
 Just specify the directory as `--xlnet-spec  XLNet/`
 
 So, to run on the cluster, do, for instance, something like:
-python pmi-accuracy/pmi-accuracy.py --offline-mode --batch-size 200 --results-dir results-cluster/ --xlnet-spec XLNet/
+`python pmi-accuracy/pmi-accuracy.py --offline-mode --batch-size 200 --results-dir results-cluster/ --xlnet-spec XLNet-base/`
+
+The results will be reported in a timestamped folder such as:
+```
+{results_dir}/xlnet-base-cased_{batch_size}_{date}/
+| cli-args.txt
+| scores.csv
+| mean_scores.csv
+```
