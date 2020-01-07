@@ -392,19 +392,26 @@ if __name__ == '__main__':
                     help='path to results directory, ending with /')
   CLI_ARGS = ARGP.parse_args()
 
-  print('Running pmi-accuracy.py with cli arguments:')
-  with open(RESULTS_DIR+'cli-args.txt', mode='w') as specfile:
-    for arg, value in sorted(vars(CLI_ARGS).items()):
-      specfile.write(f"\t{arg}:\t{value}\n")
-      print(f"\t{arg}:\t{value}")
-    specfile.close()
-
   if CLI_ARGS.offline_mode:
     from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
     SPEC_STRING = 'offline'
   else:
     from transformers import XLNetLMHeadModel, XLNetTokenizer
     SPEC_STRING = str(CLI_ARGS.xlnet_spec)
+
+  NOW = datetime.now()
+  DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
+  SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.batch_size)
+  RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SPEC_SUFFIX + '_' + DATE_SUFFIX + '/')
+  os.makedirs(RESULTS_DIR, exist_ok=True)
+  print(f'RESULTS_DIR: {RESULTS_DIR}\n')
+
+  print('Running pmi-accuracy.py with cli arguments:')
+  with open(RESULTS_DIR+'cli-args.txt', mode='w') as specfile:
+    for arg, value in sorted(vars(CLI_ARGS).items()):
+      specfile.write(f"\t{arg}:\t{value}\n")
+      print(f"\t{arg}:\t{value}")
+    specfile.close()
 
   MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
   for model_class, tokenizer_class, pretrained_weights in MODEL:
@@ -426,13 +433,6 @@ if __name__ == '__main__':
   ObservationClass = namedtuple("Observation", FIELDNAMES)
 
   OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
-
-  NOW = datetime.now()
-  DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
-  SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.batch_size)
-  RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SPEC_SUFFIX + '_' + DATE_SUFFIX + '/')
-  os.makedirs(RESULTS_DIR, exist_ok=True)
-  print(f'RESULTS_DIR: {RESULTS_DIR}\n')
 
   MEAN_SCORES = report_uuas_batch(OBSERVATIONS, CLI_ARGS.batch_size, RESULTS_DIR, verbose=True)
   with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
