@@ -10,7 +10,7 @@
 #SBATCH --output=%x-%j.out
 ###########################
 # For verbose version
-set -ex
+# set -ex
 
 module load python/3.7 cuda cudnn
 SOURCEDIR=~/wdir-morgan/xlnet-pmi
