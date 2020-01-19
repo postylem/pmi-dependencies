@@ -1,9 +1,9 @@
 """
-Gets the undirected attachment accuracy score
+Gets the undirected attachment accuracy score 
 for dependencies calculated from PMI (using XLNet),
 compared to gold dependency parses taken from a CONLL file.
 
-Default: run from directory where conllx file
+Default: run from directory where conllx file 
 with dependency labels (head_indices column) is located at
 ptb3-wsj-data/ptb3-wsj-dev.conllx
 -
@@ -70,9 +70,71 @@ def load_conll_dataset(filepath, observation_class):
     # embeddings = [None for x in range(len(conllx_lines))]
     observation = observation_class(*zip(*conllx_lines)
                                     # ,embeddings
-                                    )
+    )
     observations.append(observation)
   return observations
+
+
+def string_to_tokenlist(sen):
+  '''
+  Input: sentence as string
+  returns: simple list of tokens, according to tokenizer
+  '''
+  sentence_tokenlist = []
+  input_ids = torch.tensor(tokenizer.encode(sen))
+  for i in range(len(tokenizer.tokenize(sen))):
+    sentence_tokenlist.append(tokenizer.decode(input_ids[i].item()))
+  return sentence_tokenlist
+
+def get_logprob_masked_word(input_ids, index1):
+  '''
+  Computes log p( index1 | sentence with index1 masked )
+  '''
+  perm_mask = torch.zeros((1, input_ids.shape[1], input_ids.shape[1]), dtype=torch.float)
+  perm_mask[:, :, index1] = 1.0  # other tokens don't see target
+  target_mapping = torch.zeros((1, 1, input_ids.shape[1]), dtype=torch.float)
+  target_mapping[0, 0, index1] = 1.0  # predict one token at location index1
+  with torch.no_grad():
+    logits_outputs = model(input_ids, perm_mask=perm_mask, target_mapping=target_mapping)
+    outputs = F.log_softmax(logits_outputs[0][0][0], 0)
+    logprob = outputs[input_ids[0][index1].item()]
+  return logprob
+
+def get_logprob_masked_word_with_second_masked_word(input_ids, index1, index2):
+  '''
+  Computes log p( index1 | sentence with index1 and index2 masked )
+  '''
+  perm_mask = torch.zeros((1, input_ids.shape[1], input_ids.shape[1]), dtype=torch.float)
+  perm_mask[:, :, (index1, index2)] = 1.0  # other tokens don't see the word1 or word2.
+  target_mapping = torch.zeros((1, 1, input_ids.shape[1]), dtype=torch.float)
+  target_mapping[0, 0, index1] = 1.0  # predict one token at location index1
+  with torch.no_grad():
+    logits_outputs = model(input_ids, perm_mask=perm_mask, target_mapping=target_mapping)
+    outputs = F.log_softmax(logits_outputs[0][0][0], 0)
+    logprob = outputs[input_ids[0][index1].item()]
+  return logprob
+
+def get_pmi_from_idlist(word1, word2, input_ids, verbose=False):
+  '''
+  Input:
+    word1,word2: word indices (integers)
+    input_ids: list of ids (for tokenizer to decode)
+  returns: PMI(word1;word2|c), where c is the whole sentence except word1,word2
+  '''
+  input_ids = input_ids.unsqueeze(0) # because XLNet expects this format
+  # numerator = p(word1|word2,c) : predict word1 given the context (sentence with word1 masked)
+  log_numerator = get_logprob_masked_word(input_ids, word1)
+  # denominator = p(word1): predict word1 given sentence with word1 and word2 masked
+  log_denominator = get_logprob_masked_word_with_second_masked_word(input_ids, word1, word2)
+  pmi = (log_numerator - log_denominator).item()
+  if verbose:
+    print("log p(", '\033[1m', tokenizer.decode(input_ids[0][word1].item()),
+          '\033[0m', "|", '\033[4m', tokenizer.decode(input_ids[0][word2].item()),
+          '\033[0m', ", rest of sentence) = %.4f"%log_numerator.item(), sep='')
+    print("log p(", '\033[1m', tokenizer.decode(input_ids[0][word1].item()),
+          '\033[0m', "|rest of sentence) = %.4f"%log_denominator.item(),sep='')
+    print("PMI = %.4f"%pmi)
+  return pmi
 
 def get_pmi_matrix_from_idlist(input_ids, verbose=False):
   '''
@@ -98,10 +160,60 @@ def get_pmi_matrix_from_idlist(input_ids, verbose=False):
         pmis[word1_id][word2_id] = get_pmi_from_idlist(word1_id, word2_id, input_ids, verbose=False)
   return pmis
 
+def get_pmi_from_sentence(word1, word2, sentence, verbose=False):
+  '''
+  [ALERT! uses XLNet tokenizer to get tokens..]
+  Input:
+    word1,word2: word indices (integers)
+    sentence: string
+  returns: PMI(word1;word2|c), where c is the whole sentence except word1,word2
+  '''
+  input_ids = torch.tensor(tokenizer.encode(sentence)).unsqueeze(0)
+  pmi = get_pmi_from_idlist(word1, word2, input_ids, verbose=verbose)
+
+  if verbose:
+    tokens = string_to_tokenlist(sentence)
+    if word1 < word2:
+      first, second, style1, style2 = word1, word2, '\033[1m', '\033[4m'
+    else: first, second, style1, style2 = word2, word1, '\033[4m', '\033[1m'
+    print("sentence: ", ' '.join(tokens[:first]),
+          ' ', style1, tokens[first], '\033[0m', ' ',
+          ' '.join(tokens[first+1:second]),
+          ' ', style2, tokens[second], '\033[0m', ' ',
+          ' '.join(tokens[second+1:]),
+          sep='')
+  return pmi
+
+def get_pmi_matrix_from_sentence(sen, verbose=False):
+  '''
+  [ALERT! Uses XLNet tokenizer to get tokens]
+  Input: sentence (string).
+  Returns: an ndArray of PMIs
+  '''
+  slength = len(tokenizer.tokenize(sen))
+  input_ids = torch.tensor(tokenizer.encode(sen))
+  # print out the tokenized sentence
+  if verbose:
+    print("Getting PMI matrix for sentence:")
+    for i in range(slength):
+      print('%i:%s'%(i, tokenizer.decode(input_ids[i].item())), end='|')
+    print()
+  # pmi matrix
+  pmis = np.ndarray(shape=(slength, slength))
+  for word1_id in tqdm(range(slength), desc='[get_pmi_matrix]'):
+    # compute row of pmis given word1
+    for word2_id in tqdm(range(slength),
+                         leave=False,
+                         desc=f'{word1_id}:{tokenizer.decode(input_ids[word1_id].item())}'):
+      if word2_id == word1_id:
+        pmis[word1_id][word2_id] = np.NaN
+      else:
+        pmis[word1_id][word2_id] = get_pmi_from_sentence(word1_id, word2_id, sen, verbose=False)
+  return pmis
 
 def make_sentencepiece_tokenlist(ptb_tokenlist):
   '''
-  Takes list of tokens from plaintext of Treebank, formats them
+  Takes list of tokens from the Treebank, formats them
   as if they were sentencepiece tokens expected by XLNet
   '''
   sentencepiece_tokenlist = []
@@ -115,7 +227,6 @@ def make_sentencepiece_tokenlist(ptb_tokenlist):
     elif token == '-RRB-':
       token = ')'
     sentencepiece_tokenlist.append(token)
-  sentencepiece_tokenlist.append('<sep><cls>')
   return sentencepiece_tokenlist
 
 class UnionFind:
