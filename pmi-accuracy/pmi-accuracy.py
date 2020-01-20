@@ -74,35 +74,54 @@ def load_conll_dataset(filepath, observation_class):
     observations.append(observation)
   return observations
 
-def get_pmi_matrix_from_idlist(input_ids, verbose=False):
+def get_pmi_matrix_from_ids(sentence_as_ids, verbose=False):
   '''
-  Input: input_ids (list).
-  Returns: an ndArray of PMIs
+  Input:
+    sentence_as_ids: a torch.tensor of ids ending with 4,3 for <sep><cls>
+      (like the output of tokenizer.encode())
+  returns:
+    ndarray of PMIs PMI(w1;w2|c) for all values of w1,w2 from 0 up to sentence length:
+      (where c is the whole sentence except w1,w2)
   '''
-  # print out the tokenized sentence
   if verbose:
+    # print out the tokenized sentence
     print("Getting PMI matrix for sentence:")
-    for i, input_id in enumerate(input_ids):
+    for i, input_id in enumerate(sentence_as_ids):
       print(f'{i}:{tokenizer.decode(input_id.item())}|', end='')
     print()
-  # pmi matrix
-  pmis = np.ndarray(shape=(len(input_ids), len(input_ids)))
-  for word1_id in tqdm(range(len(input_ids)), desc='[get_pmi_matrix]'):
-    # compute row of pmis given word1
-    for word2_id in tqdm(range(len(input_ids)),
-                         leave=False,
-                         desc=f'{word1_id}:{tokenizer.decode(input_ids[word1_id].item())}'):
-      if word2_id == word1_id:
-        pmis[word1_id][word2_id] = np.NaN
-      else:
-        pmis[word1_id][word2_id] = get_pmi_from_idlist(word1_id, word2_id, input_ids, verbose=False)
-  return pmis
 
+  seqlen = sentence_as_ids.shape[0]
+  input_ids = sentence_as_ids.unsqueeze(0).repeat(seqlen**2, 1)
+
+  perm_mask = torch.zeros((seqlen**2, seqlen, seqlen), dtype=torch.float)
+  target_mapping = torch.zeros((seqlen**2, 1, seqlen), dtype=torch.float)
+  for w1 in range(seqlen):
+    perm_mask[(w1*seqlen):((w1+1)*seqlen), :, w1] = 1.0  # other tokens don't see w1 (target)
+    target_mapping[(w1*seqlen):((w1+1)*seqlen), :, w1] = 1.0 # predict just w1
+    for w2 in range(seqlen):
+      perm_mask[(w1*seqlen)+w2, :, w2] = 1 # for denominator only: other tokens don't see w2
+
+  with torch.no_grad():
+    # gives tuple ([seqlen**2,1,vocabsize],)
+    logits_outputs = model(input_ids, perm_mask=perm_mask, target_mapping=target_mapping)
+    # log softmax across the vocabulary (dimension 2 of the logits tensor)
+    outputs = F.log_softmax(logits_outputs[0], 2)
+    # reshape to be tensor.Size[seqlen,seqlen,vocabsize]
+    outputs = outputs.view(seqlen, seqlen, -1)
+
+  #only up to seqlen-2, because sentence_as_ids contains the extra <sep><cls> at the end
+  pmis = np.ndarray(shape=(seqlen-2, seqlen-2))
+  for w1 in range(seqlen-2):
+    for w2 in range(seqlen-2):
+      log_numerator2   = outputs[w1][w1][input_ids[1][w1].item()]
+      log_denominator2 = outputs[w1][w2][input_ids[1][w1].item()]
+      pmis[w1][w2] = (log_numerator2 - log_denominator2).item()
+  return pmis
 
 def make_sentencepiece_tokenlist(ptb_tokenlist):
   '''
   Takes list of tokens from plaintext of Treebank, formats them
-  as if they were sentencepiece tokens expected by XLNet
+  as if they were the sentencepiece tokens expected by XLNet
   '''
   sentencepiece_tokenlist = []
   for token in ptb_tokenlist:
@@ -202,7 +221,8 @@ def get_uuas_for_observation(observation, use_tokenizer=False, verbose=False):
   gets the unlabeled undirected attachment score for a given sentence (observation),
   by reading off the minimum spanning tree from a matrix of PTB dependency distances
   and comparing that to the maximum spanning tree from a matrix of PMIs
-  set use_tokenizer=True to use XLNet tokenizer (TODO, this is not worth much now)
+  (TODO, this is not worth much now:)
+  set use_tokenizer=True to use XLNet tokenizer
   '''
   if verbose:
     obs_df = pd.DataFrame(observation).T
@@ -213,15 +233,16 @@ def get_uuas_for_observation(observation, use_tokenizer=False, verbose=False):
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
   gold_edges = prims_matrix_to_edges(gold_dist_matrix, observation.sentence,
                                      maximum_spanning_tree=False)
-  # Calculate pmi edges from XLNet
+  # tokenize sentence
   if use_tokenizer:
     xlnet_sentence = ' '.join(observation.sentence)
     print(f"Joined xlnet_sentence, on which XLNetTokenizer will be run:\n{xlnet_sentence}")
     tokenlist = tokenizer.tokenize(xlnet_sentence)
   else: tokenlist = make_sentencepiece_tokenlist(observation.sentence)
 
+  # Calculate pmi edges from XLNet
   input_ids = torch.tensor(tokenizer.convert_tokens_to_ids(tokenlist))
-  pmi_matrix = get_pmi_matrix_from_idlist(input_ids, verbose=verbose)
+  pmi_matrix = get_pmi_matrix_from_ids(input_ids, verbose=verbose)
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
   for symmetrize_method in symmetrize_methods:
@@ -245,18 +266,16 @@ def get_uuas_for_observation(observation, use_tokenizer=False, verbose=False):
 
 def report_uuas_n(observations, n_observations, results_dir, verbose=False):
   '''
-  Draft version. 
+  Draft version.
   Gets the uuas for observations[0:n_observations]
   Writes to scores and mean_scores csv files.
   Outputs array mean_scores for [sum, triu, tril, none]
   '''
-  results_filepath = results_dir+'scores.csv'
+  results_filepath = os.path.join(results_dir,'scores.csv')
   all_scores = []
   with open(results_filepath, mode='w') as results_file:
     results_writer = csv.writer(results_file, delimiter=',')
-    for i, observation in enumerate(tqdm(observations)):
-      if i+1 > n_observations:
-        break
+    for i, observation in enumerate(tqdm(observations[:n_observations])):
       scores = get_uuas_for_observation(observation, use_tokenizer=False, verbose=verbose)
       results_writer.writerow([i+1, scores[0], scores[1], scores[2], scores[3]])
       all_scores.append(scores)

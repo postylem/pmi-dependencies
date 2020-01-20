@@ -6,6 +6,8 @@
 *.sublime-workspace
 *.pylintrc
 hewitt-repo/
+to-ignore/
+results/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
