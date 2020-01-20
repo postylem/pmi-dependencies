@@ -74,7 +74,7 @@ def load_conll_dataset(filepath, observation_class):
     observations.append(observation)
   return observations
 
-def get_pmi_matrix_from_ids(sentence_as_ids, verbose=False):
+def get_pmi_matrix_from_ids(sentence_as_ids, device, verbose=False):
   '''
   Input:
     sentence_as_ids: a torch.tensor of ids ending with 4,3 for <sep><cls>
@@ -102,20 +102,24 @@ def get_pmi_matrix_from_ids(sentence_as_ids, verbose=False):
       perm_mask[(w1*seqlen)+w2, :, w2] = 1 # for denominator only: other tokens don't see w2
 
   with torch.no_grad():
-    # gives tuple ([seqlen**2,1,vocabsize],)
-    logits_outputs = model(input_ids, perm_mask=perm_mask, target_mapping=target_mapping)
+    # model() gives tuple ([seqlen**2,1,vocabsize],)
+    logits_outputs = model(input_ids.to(device),
+                           perm_mask=perm_mask.to(device),
+                           target_mapping=target_mapping.to(device))
     # log softmax across the vocabulary (dimension 2 of the logits tensor)
     outputs = F.log_softmax(logits_outputs[0], 2)
     # reshape to be tensor.Size[seqlen,seqlen,vocabsize]
     outputs = outputs.view(seqlen, seqlen, -1)
 
   #only up to seqlen-2, because sentence_as_ids contains the extra <sep><cls> at the end
+  input_ids = input_ids.cpu().numpy() # .cpu() shouldn't strictly be necessary
+  outputs = outputs.cpu().numpy()
   pmis = np.ndarray(shape=(seqlen-2, seqlen-2))
   for w1 in range(seqlen-2):
     for w2 in range(seqlen-2):
-      log_numerator2   = outputs[w1][w1][input_ids[1][w1].item()]
-      log_denominator2 = outputs[w1][w2][input_ids[1][w1].item()]
-      pmis[w1][w2] = (log_numerator2 - log_denominator2).item()
+      log_numerator2   = outputs[w1][w1][input_ids[1][w1]]
+      log_denominator2 = outputs[w1][w2][input_ids[1][w1]]
+      pmis[w1][w2] = (log_numerator2 - log_denominator2)
   return pmis
 
 def make_sentencepiece_tokenlist(ptb_tokenlist):
@@ -217,11 +221,12 @@ def get_edges_from_matrix(matrix, words, symmetrize_method='sum', verbose=False)
   edges = prims_matrix_to_edges(matrix, words, maximum_spanning_tree=True)
   return edges
 
-def score_observation(observation, use_tokenizer=False, verbose=False):
+def score_observation(observation, device, use_tokenizer=False, verbose=False):
   '''
   gets the unlabeled undirected attachment score for a given sentence (observation),
   by reading off the minimum spanning tree from a matrix of PTB dependency distances
   and comparing that to the maximum spanning tree from a matrix of PMIs
+  specify 'cuda' or 'cpu' as device
   (TODO, this is not worth much now:)
   set use_tokenizer=True to use XLNet tokenizer
   returns: number_of_unks (int), list_of_scores (list of floats)
@@ -244,7 +249,7 @@ def score_observation(observation, use_tokenizer=False, verbose=False):
 
   # Calculate pmi edges from XLNet
   input_ids = torch.tensor(tokenizer.convert_tokens_to_ids(tokenlist))
-  pmi_matrix = get_pmi_matrix_from_ids(input_ids, verbose=verbose)
+  pmi_matrix = get_pmi_matrix_from_ids(input_ids, device=device, verbose=verbose)
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
   for symmetrize_method in symmetrize_methods:
@@ -267,10 +272,10 @@ def score_observation(observation, use_tokenizer=False, verbose=False):
   number_of_unks = tokenizer.convert_tokens_to_ids(tokenlist).count(0)
   return scores, number_of_unks
 
-def report_uuas_n(observations, n_observations, results_dir, verbose=False):
+def report_uuas_n(observations, results_dir, device, n_obs='all', verbose=False):
   '''
   Draft version.
-  Gets the uuas for observations[0:n_observations]
+  Gets the uuas for observations[0:n_obs]
   Writes to scores and mean_scores csv files.
   Returns: list of mean_scores for [sum, triu, tril, none] (ignores NaN values)
   '''
@@ -280,8 +285,10 @@ def report_uuas_n(observations, n_observations, results_dir, verbose=False):
     results_writer = csv.writer(results_file, delimiter=',')
     results_writer.writerow(['sentence_index', 'sentence_length', 'unks',
                              'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none'])
-    for i, observation in enumerate(tqdm(observations[:n_observations])):
-      scores, unks = score_observation(observation, use_tokenizer=False, verbose=verbose)
+    if n_obs == 'all':
+      n_obs = len(observations)
+    for i, observation in enumerate(tqdm(observations[:n_obs])):
+      scores, unks = score_observation(observation, device=device, use_tokenizer=False, verbose=verbose)
       results_writer.writerow([i, len(observation.sentence), unks,
                                scores[0], scores[1], scores[2], scores[3]])
       all_scores.append(scores)
@@ -294,7 +301,7 @@ def report_uuas_n(observations, n_observations, results_dir, verbose=False):
 
 if __name__ == '__main__':
   ARGP = ArgumentParser()
-  ARGP.add_argument('--n_observations', type=int, default='20',
+  ARGP.add_argument('--n_observations', default='all',
                     help='number of sentences to look at')
   ARGP.add_argument('--offline-mode', action='store_true',
                     help='set for "pytorch-transformers" (specify path in xlnet-spec)')
@@ -316,7 +323,7 @@ if __name__ == '__main__':
 
   NOW = datetime.now()
   DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
-  SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.n_observations)
+  SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.n_observations) if CLI_ARGS.n_observations != 'all' else SPEC_STRING
   RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SPEC_SUFFIX + '_' + DATE_SUFFIX + '/')
   os.makedirs(RESULTS_DIR, exist_ok=True)
   print(f'RESULTS_DIR: {RESULTS_DIR}\n')
@@ -327,11 +334,6 @@ if __name__ == '__main__':
       specfile.write(f"\t{arg}:\t{value}\n")
       print(f"\t{arg}:\t{value}")
     specfile.close()
-
-  MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
-  for model_class, tokenizer_class, pretrained_weights in MODEL:
-    tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
-    model = model_class.from_pretrained(pretrained_weights)
 
   # Columns of CONLL file
   FIELDNAMES = ['index',
@@ -346,9 +348,17 @@ if __name__ == '__main__':
                 'extra_info']
 
   ObservationClass = namedtuple("Observation", FIELDNAMES)
-
   OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
-  MEAN_SCORES = report_uuas_n(OBSERVATIONS, CLI_ARGS.n_observations, RESULTS_DIR, verbose=True)
+  DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+  print('Using device:', DEVICE)
+
+  MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
+  for model_class, tokenizer_class, pretrained_weights in MODEL:
+    tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
+    model = model_class.from_pretrained(pretrained_weights)
+    model = model.to(DEVICE)
+
+  MEAN_SCORES = report_uuas_n(OBSERVATIONS, RESULTS_DIR, n_obs=CLI_ARGS.n_observations, device=DEVICE, verbose=True)
   with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
     csv.writer(file, delimiter=',').writerow(MEAN_SCORES)
