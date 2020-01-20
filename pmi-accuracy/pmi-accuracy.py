@@ -128,13 +128,14 @@ def make_sentencepiece_tokenlist(ptb_tokenlist):
     if token[0].isalpha():
       token = '▁' + token
     elif token[0] == "'":
-      token = '('
+      token = token # "'s" should really be "'","s"
     elif token == '-LRB-':
       token = '('
     elif token == '-RRB-':
       token = ')'
     sentencepiece_tokenlist.append(token)
-  sentencepiece_tokenlist.append('<sep><cls>')
+  sentencepiece_tokenlist.append('<sep>')
+  sentencepiece_tokenlist.append('<cls>')
   return sentencepiece_tokenlist
 
 class UnionFind:
@@ -216,13 +217,14 @@ def get_edges_from_matrix(matrix, words, symmetrize_method='sum', verbose=False)
   edges = prims_matrix_to_edges(matrix, words, maximum_spanning_tree=True)
   return edges
 
-def get_uuas_for_observation(observation, use_tokenizer=False, verbose=False):
+def score_observation(observation, use_tokenizer=False, verbose=False):
   '''
   gets the unlabeled undirected attachment score for a given sentence (observation),
   by reading off the minimum spanning tree from a matrix of PTB dependency distances
   and comparing that to the maximum spanning tree from a matrix of PMIs
   (TODO, this is not worth much now:)
   set use_tokenizer=True to use XLNet tokenizer
+  returns: number_of_unks (int), list_of_scores (list of floats)
   '''
   if verbose:
     obs_df = pd.DataFrame(observation).T
@@ -259,31 +261,35 @@ def get_uuas_for_observation(observation, use_tokenizer=False, verbose=False):
     print("correct: ", correct)
     num_correct = len(correct)
     num_total = len(gold_edges)
-    uuas = num_correct/float(num_total)
+    uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
     scores.append(uuas)
     print(f'uuas = #correct / #total = {num_correct}/{num_total} = {uuas:.3f}')
-  return scores
+  number_of_unks = tokenizer.convert_tokens_to_ids(tokenlist).count(0)
+  return scores, number_of_unks
 
 def report_uuas_n(observations, n_observations, results_dir, verbose=False):
   '''
   Draft version.
   Gets the uuas for observations[0:n_observations]
   Writes to scores and mean_scores csv files.
-  Outputs array mean_scores for [sum, triu, tril, none]
+  Returns: list of mean_scores for [sum, triu, tril, none] (ignores NaN values)
   '''
   results_filepath = os.path.join(results_dir, 'scores.csv')
   all_scores = []
   with open(results_filepath, mode='w') as results_file:
     results_writer = csv.writer(results_file, delimiter=',')
+    results_writer.writerow(['sentence_index', 'sentence_length', 'unks',
+                             'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none'])
     for i, observation in enumerate(tqdm(observations[:n_observations])):
-      scores = get_uuas_for_observation(observation, use_tokenizer=False, verbose=verbose)
-      results_writer.writerow([i+1, len(observation.sentence), scores[0], scores[1], scores[2], scores[3]])
+      scores, unks = score_observation(observation, use_tokenizer=False, verbose=verbose)
+      results_writer.writerow([i, len(observation.sentence), unks,
+                               scores[0], scores[1], scores[2], scores[3]])
       all_scores.append(scores)
-  mean_scores = [float(sum(col))/len(col) for col in zip(*all_scores)]
+  # return means as list
+  mean_scores = np.nanmean(np.array(all_scores), axis=0).tolist()
   if verbose:
     print(f'\n---\nmean_scores[sum,triu,tril,none]: {mean_scores}')
   return mean_scores
-
 
 
 if __name__ == '__main__':
@@ -320,7 +326,6 @@ if __name__ == '__main__':
     for arg, value in sorted(vars(CLI_ARGS).items()):
       specfile.write(f"\t{arg}:\t{value}\n")
       print(f"\t{arg}:\t{value}")
-    specfile.write("scores.csv header row: [sentence_index, sentence_length, sym=sum, sym=triu, sym=tril, sym=none]")
     specfile.close()
 
   MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
