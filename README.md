@@ -19,13 +19,32 @@ The current hack is the following:
 - transform plaintext version of PTB sentences (tokens delineated with spaces) into fake sentencepiece tokenized text, that is, prefixing most PTB tokens with a `▁`.
 - use the result as input to XLNet.  This results in a good number of words mapped to id=0 (= `<unk>`) when these tokens are fed into `XLNetTokenizer.convert_tokens_to_ids()`, which might be a problem.
 
+## Running
 
+I think a minimal setup is something like:
+```bash
+conda create -n pmienv python=3.7
+conda activate pmienv
+conda install numpy pandas tqdm transformers
+conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+pip install transformers
+```
+Then run 
+
+```bash
+python pmi-accuracy/pmi-accuracy.py > out.txt
+```
+<!-- 
+or more like perhaps 
+`nohup python pmi-accuracy/pmi-accuracy.py --n_observations 100 > out100 2> err100 &` 
+or use tmux.
+-->
 --------------------------------------------------
 
 ### Dec 2019 version: no batches 
-[pmi-accuracy_nobatch.py](pmi-accuracy/pmi-accuracy_nobatch.py) gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
+File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py), gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
 ```bash
-python pmi-accuracy/pmi-accuracy.py > out.txt
+python pmi-accuracy/old.pmi-accuracy_nobatch.py > out.txt
 ```
 To get the accuracy score for each of the first few (default 20) sentences in the file (default `ptb3-wsj-data/ptb3-wsj-test.conllx`).  CLI options:
 

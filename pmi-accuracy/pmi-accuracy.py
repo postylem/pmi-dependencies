@@ -271,13 +271,13 @@ def report_uuas_n(observations, n_observations, results_dir, verbose=False):
   Writes to scores and mean_scores csv files.
   Outputs array mean_scores for [sum, triu, tril, none]
   '''
-  results_filepath = os.path.join(results_dir,'scores.csv')
+  results_filepath = os.path.join(results_dir, 'scores.csv')
   all_scores = []
   with open(results_filepath, mode='w') as results_file:
     results_writer = csv.writer(results_file, delimiter=',')
     for i, observation in enumerate(tqdm(observations[:n_observations])):
       scores = get_uuas_for_observation(observation, use_tokenizer=False, verbose=verbose)
-      results_writer.writerow([i+1, scores[0], scores[1], scores[2], scores[3]])
+      results_writer.writerow([i+1, len(observation.sencence), scores[0], scores[1], scores[2], scores[3]])
       all_scores.append(scores)
   mean_scores = [float(sum(col))/len(col) for col in zip(*all_scores)]
   if verbose:
@@ -316,10 +316,11 @@ if __name__ == '__main__':
   print(f'RESULTS_DIR: {RESULTS_DIR}\n')
 
   print('Running pmi-accuracy.py with cli arguments:')
-  with open(RESULTS_DIR+'cli-args.txt', mode='w') as specfile:
+  with open(RESULTS_DIR+'spec.txt', mode='w') as specfile:
     for arg, value in sorted(vars(CLI_ARGS).items()):
       specfile.write(f"\t{arg}:\t{value}\n")
       print(f"\t{arg}:\t{value}")
+    specfile.write("scores.csv header row: [sentence_index, sentence_length, sym=sum, sym=triu, sym=tril, sym=none]")
     specfile.close()
 
   MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
