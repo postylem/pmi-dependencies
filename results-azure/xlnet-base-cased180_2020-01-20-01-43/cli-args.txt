@@ -1,0 +1,5 @@
+	conllx_file:	ptb3-wsj-data/ptb3-wsj-test.conllx
+	n_observations:	180
+	offline_mode:	False
+	results_dir:	results/
+	xlnet_spec:	xlnet-base-cased
