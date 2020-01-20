@@ -103,7 +103,7 @@ def get_pmi_matrix_from_ids(sentence_as_ids, device, verbose=False):
 
   with torch.no_grad():
     # model() gives tuple ([seqlen**2,1,vocabsize],)
-    logits_outputs = model(input_ids.to(device),
+    logits_outputs = model(input_ids.half().to(device),
                            perm_mask=perm_mask.to(device),
                            target_mapping=target_mapping.to(device))
     # log softmax across the vocabulary (dimension 2 of the logits tensor)
@@ -357,7 +357,7 @@ if __name__ == '__main__':
   for model_class, tokenizer_class, pretrained_weights in MODEL:
     tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
     model = model_class.from_pretrained(pretrained_weights)
-    model = model.to(DEVICE)
+    model = model.half().to(DEVICE) # for 16-bit floating point
 
   MEAN_SCORES = report_uuas_n(OBSERVATIONS, RESULTS_DIR, n_obs=CLI_ARGS.n_observations, device=DEVICE, verbose=True)
   with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
