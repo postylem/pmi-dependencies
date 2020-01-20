@@ -277,7 +277,7 @@ def report_uuas_n(observations, n_observations, results_dir, verbose=False):
     results_writer = csv.writer(results_file, delimiter=',')
     for i, observation in enumerate(tqdm(observations[:n_observations])):
       scores = get_uuas_for_observation(observation, use_tokenizer=False, verbose=verbose)
-      results_writer.writerow([i+1, len(observation.sencence), scores[0], scores[1], scores[2], scores[3]])
+      results_writer.writerow([i+1, len(observation.sentence), scores[0], scores[1], scores[2], scores[3]])
       all_scores.append(scores)
   mean_scores = [float(sum(col))/len(col) for col in zip(*all_scores)]
   if verbose:
