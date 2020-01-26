@@ -103,7 +103,7 @@ def get_pmi_matrix_from_ids(sentence_as_ids, device, verbose=False):
 
   with torch.no_grad():
     # model() gives tuple ([seqlen**2,1,vocabsize],)
-    logits_outputs = model(input_ids.half().to(device),
+    logits_outputs = model(input_ids.to(device),
                            perm_mask=perm_mask.to(device),
                            target_mapping=target_mapping.to(device))
     # log softmax across the vocabulary (dimension 2 of the logits tensor)
@@ -287,8 +287,17 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', verbose=False)
                              'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none'])
     if n_obs == 'all':
       n_obs = len(observations)
+
+    long_sentence_count = 0
     for i, observation in enumerate(tqdm(observations[:n_obs])):
-      scores, unks = score_observation(observation, device=device, use_tokenizer=False, verbose=verbose)
+      if len(observation.sentence) > 55:
+        # Hack for now, to skip long sentences
+        print(f"SKIPPING LONG SENTENCE ({len(observation.sentence)} tokens)")
+        scores = [np.NaN,np.NaN,np.NaN,np.NaN]
+        unks = np.NaN
+        long_sentence_count += 1
+      else: 
+        scores, unks = score_observation(observation, device=device, use_tokenizer=False, verbose=verbose)
       results_writer.writerow([i, len(observation.sentence), unks,
                                scores[0], scores[1], scores[2], scores[3]])
       all_scores.append(scores)
@@ -296,7 +305,7 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', verbose=False)
   mean_scores = np.nanmean(np.array(all_scores), axis=0).tolist()
   if verbose:
     print(f'\n---\nmean_scores[sum,triu,tril,none]: {mean_scores}')
-  return mean_scores
+  return n_obs, long_sentence_count, mean_scores
 
 
 if __name__ == '__main__':
@@ -320,6 +329,10 @@ if __name__ == '__main__':
   else:
     from transformers import XLNetLMHeadModel, XLNetTokenizer
     SPEC_STRING = str(CLI_ARGS.xlnet_spec)
+
+  N_OBS = CLI_ARGS.n_observations
+  if N_OBS != 'all':
+    N_OBS = int(N_OBS)
 
   NOW = datetime.now()
   DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
@@ -352,13 +365,20 @@ if __name__ == '__main__':
 
   DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   print('Using device:', DEVICE)
+  if DEVICE.type == 'cuda':
+    print(torch.cuda.get_device_name(0))
+    print('Memory Usage:')
+    print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3,1), 'GB')
+    print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3,1), 'GB')  
 
   MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
   for model_class, tokenizer_class, pretrained_weights in MODEL:
     tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
     model = model_class.from_pretrained(pretrained_weights)
-    model = model.half().to(DEVICE) # for 16-bit floating point
+    model = model.to(DEVICE)
 
-  MEAN_SCORES = report_uuas_n(OBSERVATIONS, RESULTS_DIR, n_obs=CLI_ARGS.n_observations, device=DEVICE, verbose=True)
+  N_SENTS, SKIPPED, MEANS = report_uuas_n(OBSERVATIONS, RESULTS_DIR, n_obs=N_OBS, device=DEVICE, verbose=True)
   with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
-    csv.writer(file, delimiter=',').writerow(MEAN_SCORES)
+    writer = csv.writer(file, delimiter=',')
+    writer.writerow(['n_sentences','total_skipped','mean_sum','mean_triu','mean_tril','mean_none'])
+    writer.writerow([N_SENTS, SKIPPED, MEANS[0], MEANS[1], MEANS[2], MEANS[3]])
