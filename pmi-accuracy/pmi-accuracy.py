@@ -316,7 +316,7 @@ if __name__ == '__main__':
                     help='set for "pytorch-transformers" (specify path in xlnet-spec)')
   ARGP.add_argument('--xlnet-spec', default='xlnet-base-cased',
                     help='specify "xlnet-base-cased" or "xlnet-large-cased", or path')
-  ARGP.add_argument('--conllx-file', default='ptb3-wsj-data/ptb3-wsj-test.conllx',
+  ARGP.add_argument('--conllx-file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
                     help='path/to/treebank.conllx: dependency file, in conllx format')
   ARGP.add_argument('--results-dir', default='results/',
                     help='specify path/to/results/directory/')
@@ -368,8 +368,8 @@ if __name__ == '__main__':
   if DEVICE.type == 'cuda':
     print(torch.cuda.get_device_name(0))
     print('Memory Usage:')
-    print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3,1), 'GB')
-    print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3,1), 'GB')  
+    print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
+    print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
 
   MODEL = [(XLNetLMHeadModel, XLNetTokenizer, CLI_ARGS.xlnet_spec)]
   for model_class, tokenizer_class, pretrained_weights in MODEL:
@@ -379,6 +379,8 @@ if __name__ == '__main__':
 
   N_SENTS, SKIPPED, MEANS = report_uuas_n(OBSERVATIONS, RESULTS_DIR, n_obs=N_OBS, device=DEVICE, verbose=True)
   with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
-    writer = csv.writer(file, delimiter=',')
-    writer.writerow(['n_sentences','total_skipped','mean_sum','mean_triu','mean_tril','mean_none'])
-    writer.writerow([N_SENTS, SKIPPED, MEANS[0], MEANS[1], MEANS[2], MEANS[3]])
+    WRITER = csv.writer(file, delimiter=',')
+    WRITER.writerow(['n_sentences', 'total_skipped',
+                     'mean_sum', 'mean_triu', 'mean_tril', 'mean_none'])
+    WRITER.writerow([N_SENTS, SKIPPED,
+                     MEANS[0], MEANS[1], MEANS[2], MEANS[3]])
