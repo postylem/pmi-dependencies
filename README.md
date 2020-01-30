@@ -21,12 +21,12 @@ The current hack is the following:
 
 ## Running
 
-I think a minimal setup is something like:
+I think a minimal setup is something like the following (depending on the version of cuda you have):
 ```bash
 conda create -n pmienv python=3.7
 conda activate pmienv
 conda install numpy pandas tqdm transformers
-conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 pip install transformers
 ```
 Then run 
