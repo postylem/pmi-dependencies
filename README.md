@@ -1,6 +1,6 @@
 # PMI dependencies from XLNet
 
-cf [this colab nootebook](https://colab.research.google.com/drive/1kJdXQpXhNbTqqdLatH_qfJCeuRD_9ggW#scrollTo=vCfdPAT2QNXd) for some small-scale playing around.
+cf [scratch nootebook](https://colab.research.google.com/drive/1kJdXQpXhNbTqqdLatH_qfJCeuRD_9ggW#scrollTo=vCfdPAT2QNXd) or [minimal working example notebook](https://colab.research.google.com/drive/1VVcYrRLOUizEbvKvD5_zERHJQLqB_gu4)
 
 Comments are there about the fact that these estimates of PMI are non-symmetric, and how that is dealt with.
 
@@ -14,14 +14,17 @@ Tokenization is a little bit of an issue, since XLNet is trained on text which i
 
 What XLNet expects: tokenized input, according to the sentencepiece format, where one of the biggest peculiarities is that tokens begin with `▁` (U+2581, "LOWER ONE EIGHTH BLOCK") if preceded by whitespace.
 
-The current hack is the following:
+One method was a hack: 
 
 - transform plaintext version of PTB sentences (tokens delineated with spaces) into fake sentencepiece tokenized text, that is, prefixing most PTB tokens with a `▁`.
 - use the result as input to XLNet.  This results in a good number of words mapped to id=0 (= `<unk>`) when these tokens are fed into `XLNetTokenizer.convert_tokens_to_ids()`, which might be a problem.
 
+A new method:
+- Use sentencepiece tokenizer, just use l-to-r linear chain rule decomposition within words to build up PTB tokens from these smaller subword tokens.  Get PMI between spans of subword tokens corresponding to PTB tokens.  
+
 ## Running
 
-I think a minimal setup is something like the following (depending on the version of cuda you have):
+I think a minimal setup is something like the following (depending on the version of cuda), as I did on the Azure machine:
 ```bash
 conda create -n pmienv python=3.7
 conda activate pmienv
@@ -50,7 +53,7 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 | mean_scores.csv
 ```
 - `spec.txt` - just saves the CLI arguments
-- `scores.csv` - one row per sentence, reporting the sentence length, number of `<unk>`s and uuas with the four different ways of symmetrizing
+- `scores.csv` - one row per sentence, reporting the sentence length, number of `<unk>`s and uuas with the four different ways of symmetrizing. Just for quick inspection.
 - `mean_scores.csv` - mean uuas over all sentences in one line ignoring NaNs
 
 --------------------------------------------------
