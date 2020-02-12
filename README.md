@@ -43,6 +43,17 @@ or more like perhaps
 or use tmux.
 -->
 
+### Saving PMI matrices:
+
+With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back like this, if needed:
+
+```python
+if CLI_ARGS.save_matrices:
+  npzfile = np.load(RESULTS_DIR+'pmi_matrices.npz')
+  print(sorted(npzfile.files))
+  print(npzfile['sentence_0'])
+```
+
 ### Reporting
 
 The results will be reported in a timestamped folder in the `/results` dir (or other if specified) like:
@@ -51,10 +62,12 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 | spec.txt
 | scores.csv
 | mean_scores.csv
+| pmi_matrices.npz
 ```
 - `spec.txt` - just saves the CLI arguments
 - `scores.csv` - one row per sentence, reporting the sentence length, number of `<unk>`s and uuas with the four different ways of symmetrizing. Just for quick inspection.
 - `mean_scores.csv` - mean uuas over all sentences in one line ignoring NaNs
+- `pmi_matrices.npz` - an .npz archive of numpy arrays, with the key 'sentence_`i`' for sentence observation number `i`.
 
 --------------------------------------------------
 
