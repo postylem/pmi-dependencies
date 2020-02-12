@@ -149,6 +149,7 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
   perm_mask, target_mapping = make_mask_and_mapping(len(flattened_sentence), indices)
 
   batch_size = perm_mask.size(0)
+  print(batch_size)
   input_ids = torch.tensor(sentence_as_ids).repeat(batch_size, 1)
 
   with torch.no_grad():
