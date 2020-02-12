@@ -127,13 +127,22 @@ def word_index_to_subword_indices(word_index, nested_list):
   return list(range(count, count+len(nested_list[word_index])))
 
 
+def make_chunks(m, n):
+  ''' makes tuples of indices for batching '''
+  r = m%n
+  d = m//n
+  chunked = []
+  for i in range(d):
+    chunked.append((n*i, n*(i+1)))
+  if r != 0:
+    chunked.append((d*n, d*n+r))
+  return chunked
+
 # Getting a PMI matrix
 def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
   '''
   input: ptb_tokenlist: PTB-tokenized sentence as list
   return: pmi matrix
-  TODO: batch_size is determined by the sentence length
-    (this maybe isn't optimal, but it's easier for now).
   '''
   subwords_nested = make_subword_lists(ptb_tokenlist) # note, adds on <cls> and <sep> at the end.
   # indices[i] = list of subtoken indices in subtoken list corresponding to word i in ptb_tokenlist
@@ -148,20 +157,25 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
   sentence_as_ids = tokenizer.convert_tokens_to_ids(flattened_sentence)
   perm_mask, target_mapping = make_mask_and_mapping(len(flattened_sentence), indices)
 
-  batch_size = perm_mask.size(0)
-  print(batch_size)
-  input_ids = torch.tensor(sentence_as_ids).repeat(batch_size, 1)
+  # m = the length of the sentence batch; bs = xlnet batch size
+  m = perm_mask.size(0)
+  batch_size = 50
+  index_tuples = make_chunks(m,batch_size)
 
-  with torch.no_grad():
-    logits_outputs = model(input_ids.to(device),
-                           perm_mask=perm_mask.to(device),
-                           target_mapping=target_mapping.to(device))
-    # note, logits_output is a tuple: ([batch_size,1,vocabsize],)
-    # log softmax across the vocabulary (dimension 2 of the logits tensor)
-    outputs = F.log_softmax(logits_outputs[0], 2)
+  list_of_output_tensors = []
+  for index_tuple in index_tuples:
+    input_ids = torch.tensor(sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
+    with torch.no_grad():
+      logits_outputs = model(input_ids.to(device),
+                             perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(device),
+                             target_mapping=target_mapping[index_tuple[0]:index_tuple[1]].to(device))
+      # note, logits_output is a tuple: ([batch_size,1,vocabsize],)
+      # log softmax across the vocabulary (dimension 2 of the logits tensor)
+      outputs = F.log_softmax(logits_outputs[0], 2)
+      list_of_output_tensors.append(outputs)
 
-  outputs = outputs.cpu().numpy()
-  pmis = get_pmi_matrix_from_outputs(outputs, indices, sentence_as_ids)
+  outputs_all_batches = torch.cat(list_of_output_tensors).cpu().numpy()
+  pmis = get_pmi_matrix_from_outputs(outputs_all_batches, indices, sentence_as_ids)
   return pmis
 
 def get_pmi_matrix_from_outputs(outputs, indices, sentence_as_ids):
