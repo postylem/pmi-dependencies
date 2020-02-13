@@ -16,16 +16,16 @@ from tqdm import tqdm
 import numpy as np
 import pandas as pd
 import csv
+# import matplotlib.pyplot as plt
 from datetime import datetime
 from argparse import ArgumentParser
-from collections import namedtuple
+from collections import namedtuple#, defaultdict
 
 import torch
 import torch.nn.functional as F
 
 import task
 
-# Data input
 def generate_lines_for_sent(lines):
   '''Yields batches of lines describing a sentence in conllx.
 
@@ -74,13 +74,40 @@ def load_conll_dataset(filepath, observation_class):
     observations.append(observation)
   return observations
 
-# Tokenization
+def get_pmi_matrix_using_spans(ptb_tokenlist, device):
+  ''' Input: sentence (string). Returns: an ndArray of PMIs '''
+  slength = len(ptb_tokenlist)
+  pmis = np.ndarray(shape=(slength, slength))
+  for w1_index in tqdm(range(slength)):
+    for w2_index in tqdm(range(slength), leave=False,
+                         desc=' %i:%s'%(w1_index, ptb_tokenlist[w1_index])):
+      if w2_index == w1_index:
+        pmis[w1_index][w2_index] = np.NaN # precaution. should not be necessary
+      else:
+        pmis[w1_index][w2_index] = get_pmi_between_PTBwords(w1_index, w2_index, ptb_tokenlist, 
+                                                            device=device, verbose=False)
+  return pmis
+
+def word_index_to_subword_indices(word_index, nested_list):
+  '''
+  Convert from word index for nested list of subword tokens,
+  to list of subword token indices
+  '''
+  if word_index > len(nested_list):
+    raise ValueError('word_index exceeds length of nested_list')
+  count = 0
+  for subword_list in nested_list[:word_index]:
+    count += len(subword_list)
+  # maybe can do this with functools.reduce
+  # count = reduce(lambda x, y: len(x) + len(y),nested_list[:word_index])
+  return list(range(count, count+len(nested_list[word_index])))
+
 def make_subword_lists(ptb_tokenlist):
   '''
   Takes list of items from Penn Treebank tokenized text,
   runs the tokenizer to decompose into the subword tokens expected by XLNet.
   Implements some simple custom adjustments to make the results more like what might be expected.
-  [TODO: this could be improved, if it is important.
+  [TODO: this could be improved, if it is important.  
   For instance, currently it puts an extra space before opening quotes]
   Returns: a list with a sublist for each Treebank item
   '''
@@ -112,156 +139,61 @@ def make_subword_lists(ptb_tokenlist):
       subword_lists[i-1][-1]+='n'
   return subword_lists
 
-def word_index_to_subword_indices(word_index, nested_list):
+def get_pmi_between_PTBwords(w1, w2, ptb_tokenlist, device, verbose=False):
   '''
-  Convert from word index for nested list of subword tokens,
-  to list of subword token indices
+  Input:
+    w1,w2: indices of the words in the ptb_tokenlist (ints)
+    ptb_tokenlist: PTB-tokenized sentence as list
+  returns: PMI(w1;w2|c), where c is the whole sentence except w1,w2
   '''
-  if word_index > len(nested_list):
-    raise ValueError('word_index exceeds length of nested_list')
-  count = 0
-  for subword_list in nested_list[:word_index]:
-    count += len(subword_list)
-  # maybe can do this with functools.reduce
-  # count = reduce(lambda x, y: len(x) + len(y),nested_list[:word_index])
-  return list(range(count, count+len(nested_list[word_index])))
-
-
-def make_chunks(m, n):
-  ''' makes tuples of indices for batching '''
-  r = m%n
-  d = m//n
-  chunked = []
-  for i in range(d):
-    chunked.append((n*i, n*(i+1)))
-  if r != 0:
-    chunked.append((d*n, d*n+r))
-  return chunked
-
-# Getting a PMI matrix
-def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
-  '''
-  input: ptb_tokenlist: PTB-tokenized sentence as list
-  return: pmi matrix
-  '''
-  subwords_nested = make_subword_lists(ptb_tokenlist) # note, adds on <cls> and <sep> at the end.
-  # indices[i] = list of subtoken indices in subtoken list corresponding to word i in ptb_tokenlist
-  indices = [word_index_to_subword_indices(i, subwords_nested) for i, _ in enumerate(subwords_nested[:-2])]
-
+  subwords_nested = make_subword_lists(ptb_tokenlist)
+  w1_indices = word_index_to_subword_indices(w1, subwords_nested)
+  w2_indices = word_index_to_subword_indices(w2, subwords_nested)
   flattened_sentence = [tok for sublist in subwords_nested for tok in sublist]
   if verbose:
-    print(f"PTB tokenlist, on which tokenizer will be run:\n{ptb_tokenlist}")
-    print(f"resulting subtokens:\n{flattened_sentence}")
-    print(f"correspondence indices:\n{indices}")
-
+    print("original sentence", ptb_tokenlist)
+    print("input sentence", flattened_sentence)
+    print(f"Getting PMI between word {w1} (indices {w1_indices}) and word {w2} (indices {w2_indices}).")
   sentence_as_ids = tokenizer.convert_tokens_to_ids(flattened_sentence)
-  perm_mask, target_mapping = make_mask_and_mapping(len(flattened_sentence), indices)
+  pmi = pmi_between_spans(w1_indices, w2_indices, sentence_as_ids, device=device, verbose=False)
+  return pmi
 
-  # m = the length of the sentence batch; bs = xlnet batch size
-  m = perm_mask.size(0)
-  batch_size = 50
-  index_tuples = make_chunks(m, batch_size)
-
-  list_of_output_tensors = []
-  for index_tuple in tqdm(index_tuples, leave=False):
-    input_ids = torch.tensor(sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
-    with torch.no_grad():
-      logits_outputs = model(input_ids.to(device),
-                             perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(device),
-                             target_mapping=target_mapping[index_tuple[0]:index_tuple[1]].to(device))
-      # note, logits_output is a tuple: ([batch_size,1,vocabsize],)
-      # log softmax across the vocabulary (dimension 2 of the logits tensor)
-      outputs = F.log_softmax(logits_outputs[0], 2)
-      list_of_output_tensors.append(outputs)
-
-  outputs_all_batches = torch.cat(list_of_output_tensors).cpu().numpy()
-  pmis = get_pmi_matrix_from_outputs(outputs_all_batches, indices, sentence_as_ids)
-  return pmis
-
-def get_pmi_matrix_from_outputs(outputs, indices, sentence_as_ids):
+def pmi_between_spans(w1_indices, w2_indices, sentence_as_ids, device, verbose=False):
   '''
-  Gets pmi matrix from the outputs of xlnet
+  Calculates the XLNet PMI estimate betwen the two spans, with a LtoR chain rule assumption within spans.
+  Input:
+    w1_indices, w2_indices: lists of indices (ints)
+    sentence_as_ids: a list of ids (ending with [4,3])
   '''
-  # make a list pad, where pad[i] the number of items
-  # in the batch before the ith word's predictions
-  lengths = [len(l) for l in indices]
-  cumsum = np.empty(len(lengths)+1, dtype=int)
-  np.cumsum(lengths, out=cumsum[1:])
-  cumsum[:1] = 0
-  pad = list(len(indices)*2*(cumsum))
-
-  pmis = np.ndarray(shape=(len(indices), len(indices)))
-  for i, _ in enumerate(indices):
-    for j, _ in enumerate(indices):
-      start = pad[i]+j*2*len(indices[i])
-      end = start+2*len(indices[i])
-      subset = outputs[start:end]
-      pmis[i][j] = get_pmi_from_outputs(subset, indices[i], sentence_as_ids)
-  return pmis
-
-def get_pmi_from_outputs(outputs, w1_indices, sentence_as_ids):
-  '''
-  Gets a PMI estimate from XLNet output by collecting and summing over the
-  subword predictions, and subtracting the prediction without context from the
-  prediction with context
-  '''
+  seqlen = len(sentence_as_ids)
   len1 = len(w1_indices)
-  outputs = outputs.reshape(2, len1, -1) # reshape to be tensor.Size[2,len1,vocabsize]
+  batch_size = len1*2 #  times 2 for numerator and denominator
+  input_ids = torch.tensor(sentence_as_ids).repeat(batch_size, 1)
+
+  perm_mask = torch.zeros((batch_size, seqlen, seqlen), dtype=torch.float)
+  target_mapping = torch.zeros((batch_size, 1, seqlen), dtype=torch.float)
+  for i, index in enumerate(w1_indices):
+    perm_mask[(i, len1+i), :, index:w1_indices[-1]+1] = 1.0   # mask the other w1 tokens to the right
+    perm_mask[len1+i, :, w2_indices] = 1.0
+    target_mapping[(i, len1+i), :, index] = 1.0 # predict just subtoken i of w1
+  if verbose:
+    print(f'Batch dimension = {batch_size}')
+    print(f'perm_mask[:0]\n{perm_mask[:,0]}')
+    print(f'target_mapping\n{target_mapping}')
+
+  with torch.no_grad():
+    logits_outputs = model(input_ids.to(device), perm_mask=perm_mask.to(device),
+                           target_mapping=target_mapping.to(device)) # gives tuple ([batch_size,1,vocabsize],)
+    outputs = F.log_softmax(logits_outputs[0], 2) # log softmax across the vocabulary (dimension 2 of the logits tensor)
+    outputs = outputs.view(2, len1, -1) # reshape to be tensor.Size[2,len1,vocabsize]
+
+  outputs = outputs.cpu().numpy()
   log_numerator = sum(outputs[0][i][sentence_as_ids[w1_index]] for i, w1_index in enumerate(w1_indices))
   log_denominator = sum(outputs[1][i][sentence_as_ids[w1_index]] for i, w1_index in enumerate(w1_indices))
   pmi = (log_numerator - log_denominator)
   return pmi
 
-def make_mask_and_mapping(seqlen, indices):
-  '''
-  input:
-    seqlen (int): the length of the sentence as subtokens (flattened)
-    indices (list): a list with seqlen entries.
-      key = index in ptb tokenlist (int),
-      value = indices in subtoken list (list)
-  output: perm_mask, target_mapping
-    specification tensors for the whole sentence, for XLNet input;
-    batchsize of each will be twice the subtoken length of the sentence
-  '''
-  perm_masks = []
-  target_mappings = []
-  for i, _ in enumerate(indices):
-    for j, _ in enumerate(indices):
-      pm_ij, tm_ij = make_mask_and_mapping_single_pair(indices[i], indices[j], seqlen)
-      perm_masks.append(pm_ij)
-      target_mappings.append(tm_ij)
-  perm_mask = torch.cat(perm_masks, 0)
-  target_mapping = torch.cat(target_mappings, 0)
 
-  return perm_mask, target_mapping
-
-def make_mask_and_mapping_single_pair(w1_indices, w2_indices, seqlen):
-  '''
-  Takes two spans of integers (representing the indices of the subtokens
-  of two PTB tokens), and returns a permutation mask tensor and an target
-  mapping tensor for use in XLNet. The first dimension of the tensors will
-  be twice the length of w1_indices.
-  input:
-    w1_indices,
-    w2_indices: lists of indices (ints)
-    seqlen = the length of the sentence as subtokens (flattened)
-  returns:
-    perm_mask: a tensor of shape (2*len1, seqlen, seqlen)
-    target_mapping: a tensor of shape (2*len1, 1, seqlen)
-  '''
-  len1 = len(w1_indices)
-  batch_size = len1*2 #  times 2 for numerator and denominator
-
-  perm_mask = torch.zeros((batch_size, seqlen, seqlen), dtype=torch.float)
-  target_mapping = torch.zeros((batch_size, 1, seqlen), dtype=torch.float)
-  for i, index in enumerate(w1_indices):
-    perm_mask[(i, len1+i), :, index:w1_indices[-1]+1] = 1.0 # mask the other w1 tokens to the right
-    perm_mask[len1+i, :, w2_indices] = 1.0
-    target_mapping[(i, len1+i), :, index] = 1.0 # predict just subtoken i of w1
-  return perm_mask, target_mapping
-
-
-# Recovering an MST
 class UnionFind:
   '''
   Naive UnionFind (for computing MST_edges with Prim's algorithm).
@@ -297,12 +229,13 @@ def MST_edges(matrix, words, maximum_spanning_tree=True):
   Based on code by John Hewitt.
   '''
   pairs_to_weights = {}
-  excluded = ["", "'", "''", ",", ".", ";", "!", "?", ":", "``", "-LRB-", "-RRB-"]
   union_find = UnionFind(len(matrix))
   for i_index, line in enumerate(matrix):
     for j_index, dist in enumerate(line):
-      if words[i_index] in excluded: continue
-      if words[j_index] in excluded: continue
+      if words[i_index] in ["", "'", "''", ",", ".", ":", "``", "-LRB-", "-RRB-"]:
+        continue
+      if words[j_index] in ["", "'", "''", ",", ".", ":", "``", "-LRB-", "-RRB-"]:
+        continue
       pairs_to_weights[(i_index, j_index)] = dist
   edges = []
   for (i_index, j_index), _ in sorted(pairs_to_weights.items(), 
@@ -313,7 +246,7 @@ def MST_edges(matrix, words, maximum_spanning_tree=True):
       edges.append((i_index, j_index))
   return edges
 
-def get_edges_from_matrix(matrix, words, symmetrize_method='sum'):
+def get_edges_from_matrix(matrix, words, symmetrize_method='sum', verbose=False):
   '''
   Gets Maximum Spanning Tree (list of edges) from pmi matrix, using the specified method.
   input:
@@ -336,11 +269,11 @@ def get_edges_from_matrix(matrix, words, symmetrize_method='sum'):
   elif symmetrize_method != 'none':
     raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
 
+  if verbose:
+    print(f'Getting MST from matrix, using symmetrize_method = {symmetrize_method}.')
   edges = MST_edges(matrix, words, maximum_spanning_tree=True)
   return edges
 
-
-# Running experiment
 def score_observation(observation, device, verbose=False):
   '''
   gets the unlabeled undirected attachment score for a given sentence (observation),
@@ -352,29 +285,32 @@ def score_observation(observation, device, verbose=False):
   if verbose:
     obs_df = pd.DataFrame(observation).T
     obs_df.columns = FIELDNAMES
-    print("\nGold observation\n", obs_df.loc[:, ['index', 'sentence', 'head_indices']], sep='')
+    print("Gold observation\n", obs_df.loc[:, ['index', 'sentence', 'head_indices']], sep='')
 
   # Get gold edges from conllx file
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
   gold_edges = MST_edges(gold_dist_matrix, observation.sentence,
                          maximum_spanning_tree=False)
   ptb_tokenlist = observation.sentence
+  print(f"PTB tokenlist, on which tokenizer will be run:\n{ptb_tokenlist}")
 
   # Calculate pmi edges from XLNet
-  pmi_matrix = ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device=device, verbose=verbose)
-
+  pmi_matrix = get_pmi_matrix_using_spans(ptb_tokenlist, device=device)
+  if verbose:
+    with np.printoptions(precision=2, suppress=True):
+      print(f"PMI MATRIX _______ \n{pmi_matrix}\n________")
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
   for symmetrize_method in symmetrize_methods:
     pmi_edges[symmetrize_method] = get_edges_from_matrix(
-      pmi_matrix, ptb_tokenlist, symmetrize_method=symmetrize_method)
+      pmi_matrix, ptb_tokenlist, symmetrize_method=symmetrize_method, verbose=verbose)
 
   scores = []
   gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
   print(f'gold set: {sorted(gold_edges_set)}\n')
   for symmetrize_method in symmetrize_methods:
     pmi_edges_set = {tuple(sorted(x)) for x in pmi_edges[symmetrize_method]}
-    print(f'pmi_edges[{symmetrize_method}]: {sorted(pmi_edges_set)}')
+    print(f'pmi_edges[{symmetrize_method:4}]: {sorted(pmi_edges_set)}')
     correct = gold_edges_set.intersection(pmi_edges_set)
     print("correct: ", correct)
     num_correct = len(correct)
@@ -382,40 +318,11 @@ def score_observation(observation, device, verbose=False):
     uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
     scores.append(uuas)
     print(f'uuas = {num_correct}/{num_total} = {uuas:.3f}\n')
-  return pmi_matrix, scores, gold_edges, pmi_edges
+  return scores
 
-def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', label2=''):
-  ''' Turns edge sets on word (nodes) into tikz dependency LaTeX. '''
-  gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
-  predicted_edges_set = {tuple(sorted(x)) for x in predicted_edges}
-  correct_edges = list(gold_edges_set.intersection(predicted_edges_set))
-  incorrect_edges = list(predicted_edges_set.difference(gold_edges_set))
-  num_correct = len(correct_edges)
-  num_total = len(gold_edges)
-  uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
-  with open(tikz_filepath, 'a') as fout:
-    string = """\\begin{dependency}[hide label, edge unit distance=.5ex]
-\\begin{deptext}[column sep=0.0cm]
-"""
-    string += "\\& ".join([x.replace('$', '\$').replace('&', '+') for x in words]) + " \\\\" + '\n'
-    string += "\\end{deptext}" + '\n'
-    for i_index, j_index in gold_edges:
-      string += f'\\depedge{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
-    for i_index, j_index in correct_edges:
-      string += f'\\depedge[edge style={{blue, opacity=0.5}}, edge below]{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
-    for i_index, j_index in incorrect_edges:
-      string += f'\\depedge[edge style={{red, opacity=0.5}}, edge below]{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
-    string += f"""\\node (R) at (\\matrixref.east) {{}};
-\\node (R1) [right of = R] {{\\begin{{footnotesize}}{label1}\\end{{footnotesize}}}};
-\\node (R2) at (R1.north) {{\\begin{{footnotesize}}{label2}\\end{{footnotesize}}}};
-\\node (R3) at (R1.south) {{\\begin{{footnotesize}}{uuas:.2f}\\end{{footnotesize}}}};
-\\end{{dependency}}\n
-"""
-    fout.write('\n\n')
-    fout.write(string)
-
-def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, verbose=False):
+def report_uuas_n(observations, results_dir, device, n_obs='all', verbose=False):
   '''
+  Draft version.
   Gets the uuas for observations[0:n_obs]
   Writes to scores and mean_scores csv files.
   Returns:
@@ -423,57 +330,24 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
     number of long sentences (int)
     list of mean_scores for [sum, triu, tril, none] (ignores NaN values)
   '''
-  scores_filepath = os.path.join(results_dir, 'scores.csv')
+  results_filepath = os.path.join(results_dir, 'scores.csv')
   all_scores = []
-
-  if save:
-    save_filepath = os.path.join(results_dir, 'pmi_matrices.npz')
-    savez_dict = dict()
-
-  with open(scores_filepath, mode='w') as scores_file:
-    scores_writer = csv.writer(scores_file, delimiter=',')
-    scores_writer.writerow(['sentence_index', 'sentence_length',
-                            'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none'])
+  with open(results_filepath, mode='w') as results_file:
+    results_writer = csv.writer(results_file, delimiter=',')
+    results_writer.writerow(['sentence_index', 'sentence_length',
+                             'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none'])
     if n_obs == 'all':
       n_obs = len(observations)
 
     for i, observation in enumerate(tqdm(observations[:n_obs])):
-      if verbose:
-        print(f'\n---> observation {i} / {n_obs}')
-      pmi_matrix, scores, gold_edges, pmi_edges = score_observation(observation, 
-                                                                    device=device, 
-                                                                    verbose=verbose)
-      scores_writer.writerow([i, len(observation.sentence),
-                              scores[0], scores[1], scores[2], scores[3]])
+      scores = score_observation(observation, device=device, verbose=verbose)
+      results_writer.writerow([i, len(observation.sentence),
+                               scores[0], scores[1], scores[2], scores[3]])
       all_scores.append(scores)
-
-      if save:
-        savez_dict[f'sentence_{i}'] = pmi_matrix
-
-      os.makedirs(os.path.join(results_dir, 'tikz'), exist_ok=True)
-      tikz_filepath = os.path.join(results_dir, 'tikz', f'{i}.tikz')
-      for symmetrize_method in ['sum', 'triu', 'tril', 'none']:
-        '''prints tikz comparing predicted with gold
-        for each of the four symmetrize methods in a single file'''
-        print_tikz(tikz_filepath, pmi_edges[symmetrize_method],
-                   gold_edges, observation.sentence,
-                   label1=symmetrize_method, label2=i)
-
-  tex_filepath = os.path.join(results_dir, 'dependencies.tex')
-  with open(tex_filepath, mode='w') as tex_file:
-    tex_file.write("""\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}
-\\pgfkeys{%\n/depgraph/reserved/edge style/.style = {%\n-, % arrow properties
-semithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round
-},%\n}\n\\begin{document}\n% % Put dependency plots here, like\n\\input{tikz/0.tikz}
-\\end{document}""")
 
   mean_scores = np.nanmean(np.array(all_scores), axis=0).tolist()
   if verbose:
-    print(f'\n---\nmean_scores\n[sum,triu,tril,none]: {mean_scores}')
-
-  if save:
-    np.savez(save_filepath, **savez_dict)
-
+    print(f'\n---\nmean_scores[sum,triu,tril,none]: {mean_scores}')
   return n_obs, mean_scores
 
 
@@ -482,15 +356,13 @@ if __name__ == '__main__':
   ARGP.add_argument('--n_observations', default='all',
                     help='number of sentences to look at')
   ARGP.add_argument('--offline_mode', action='store_true',
-                    help='to use "pytorch-transformers" (specify path in xlnet-spec)')
+                    help='set for "pytorch-transformers" (specify path in xlnet-spec)')
   ARGP.add_argument('--xlnet_spec', default='xlnet-base-cased',
                     help='specify "xlnet-base-cased" or "xlnet-large-cased", or path')
   ARGP.add_argument('--conllx_file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
                     help='path/to/treebank.conllx: dependency file, in conllx format')
   ARGP.add_argument('--results_dir', default='results/',
                     help='specify path/to/results/directory/')
-  ARGP.add_argument('--save_matrices', action='store_true',
-                    help='to save PMI matrices to disk.')
   CLI_ARGS = ARGP.parse_args()
 
   if CLI_ARGS.offline_mode:
@@ -548,9 +420,8 @@ if __name__ == '__main__':
     model = model_class.from_pretrained(pretrained_weights)
     model = model.to(DEVICE)
 
-  N_SENTS, MEANS = report_uuas_n(OBSERVATIONS, RESULTS_DIR,
-                                 n_obs=N_OBS, device=DEVICE,
-                                 save=CLI_ARGS.save_matrices, verbose=True)
+  N_SENTS, MEANS = report_uuas_n(OBSERVATIONS, RESULTS_DIR, 
+                                 n_obs=N_OBS, device=DEVICE, verbose=True)
   with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
     WRITER = csv.writer(file, delimiter=',')
     WRITER.writerow(['n_sentences',
