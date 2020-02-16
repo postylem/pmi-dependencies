@@ -128,7 +128,14 @@ def word_index_to_subword_indices(word_index, nested_list):
 
 
 def make_chunks(m, n):
-  ''' makes tuples of indices for batching '''
+  ''' 
+  makes tuples of indices for batching 
+  input: 
+    m = number of items
+    n = size of chunks
+  returns: list of indices of form (start,finish) 
+  for use in indexing into a list of length m in chunks of size n
+  '''
   r = m%n
   d = m//n
   chunked = []
@@ -157,10 +164,8 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
   sentence_as_ids = tokenizer.convert_tokens_to_ids(flattened_sentence)
   perm_mask, target_mapping = make_mask_and_mapping(len(flattened_sentence), indices)
 
-  # m = the length of the sentence batch; bs = xlnet batch size
-  m = perm_mask.size(0)
-  batch_size = 50
-  index_tuples = make_chunks(m, batch_size)
+  # start and finish indices of BATCH_SIZE sized chunks
+  index_tuples = make_chunks(perm_mask.size(0), BATCH_SIZE)
 
   list_of_output_tensors = []
   for index_tuple in tqdm(index_tuples, leave=False):
@@ -169,7 +174,7 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
       logits_outputs = model(input_ids.to(device),
                              perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(device),
                              target_mapping=target_mapping[index_tuple[0]:index_tuple[1]].to(device))
-      # note, logits_output is a tuple: ([batch_size,1,vocabsize],)
+      # note, logits_output is a tuple: ([BATCH_SIZE,1,vocabsize],)
       # log softmax across the vocabulary (dimension 2 of the logits tensor)
       outputs = F.log_softmax(logits_outputs[0], 2)
       list_of_output_tensors.append(outputs)
@@ -340,7 +345,7 @@ def get_edges_from_matrix(matrix, words, symmetrize_method='sum'):
   return edges
 
 
-# Running experiment
+# Running and reporting
 def score_observation(observation, device, verbose=False):
   '''
   gets the unlabeled undirected attachment score for a given sentence (observation),
@@ -385,7 +390,7 @@ def score_observation(observation, device, verbose=False):
   return pmi_matrix, scores, gold_edges, pmi_edges
 
 def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', label2=''):
-  ''' Turns edge sets on word (nodes) into tikz dependency LaTeX. '''
+  ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
   gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
   predicted_edges_set = {tuple(sorted(x)) for x in predicted_edges}
   correct_edges = list(gold_edges_set.intersection(predicted_edges_set))
@@ -393,11 +398,11 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', lab
   num_correct = len(correct_edges)
   num_total = len(gold_edges)
   uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
+  # replace non-TeXsafe characters... add as needed
+  tex_replace = { '$':'\$', '&':'\&', '%':'\%', '~':'\textasciitilde', '#':'\#'}
   with open(tikz_filepath, 'a') as fout:
-    string = """\\begin{dependency}[hide label, edge unit distance=.5ex]
-\\begin{deptext}[column sep=0.0cm]
-"""
-    string += "\\& ".join([x.replace('$', '\$').replace('&', '+') for x in words]) + " \\\\" + '\n'
+    string = "\\begin{dependency}[hide label, edge unit distance=.5ex]\n\\begin{deptext}[column sep=0.0cm]\n"
+    string += "\\& ".join([tex_replace[x] if x in tex_replace else x for x in words]) + " \\\\" + '\n'
     string += "\\end{deptext}" + '\n'
     for i_index, j_index in gold_edges:
       string += f'\\depedge{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
@@ -405,12 +410,11 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', lab
       string += f'\\depedge[edge style={{blue, opacity=0.5}}, edge below]{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
     for i_index, j_index in incorrect_edges:
       string += f'\\depedge[edge style={{red, opacity=0.5}}, edge below]{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
-    string += f"""\\node (R) at (\\matrixref.east) {{}};
-\\node (R1) [right of = R] {{\\begin{{footnotesize}}{label1}\\end{{footnotesize}}}};
-\\node (R2) at (R1.north) {{\\begin{{footnotesize}}{label2}\\end{{footnotesize}}}};
-\\node (R3) at (R1.south) {{\\begin{{footnotesize}}{uuas:.2f}\\end{{footnotesize}}}};
-\\end{{dependency}}\n
-"""
+    string += "\\node (R) at (\\matrixref.east) {{}};\n"
+    string += f"\\node (R1) [right of = R] {{\\begin{{footnotesize}}{label1}\\end{{footnotesize}}}};"
+    string += f"\\node (R2) at (R1.north) {{\\begin{{footnotesize}}{label2}\\end{{footnotesize}}}};"
+    string += f"\\node (R3) at (R1.south) {{\\begin{{footnotesize}}{uuas:.2f}\\end{{footnotesize}}}};"
+    string += f"\\end{{dependency}}\n"
     fout.write('\n\n')
     fout.write(string)
 
@@ -440,8 +444,8 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
     for i, observation in enumerate(tqdm(observations[:n_obs])):
       if verbose:
         print(f'\n---> observation {i} / {n_obs}')
-      pmi_matrix, scores, gold_edges, pmi_edges = score_observation(observation, 
-                                                                    device=device, 
+      pmi_matrix, scores, gold_edges, pmi_edges = score_observation(observation,
+                                                                    device=device,
                                                                     verbose=verbose)
       scores_writer.writerow([i, len(observation.sentence),
                               scores[0], scores[1], scores[2], scores[3]])
@@ -491,6 +495,8 @@ if __name__ == '__main__':
                     help='specify path/to/results/directory/')
   ARGP.add_argument('--save_matrices', action='store_true',
                     help='to save PMI matrices to disk.')
+  ARGP.add_argument('--batch_size', default='64',
+                    help='xlnet batch size')
   CLI_ARGS = ARGP.parse_args()
 
   if CLI_ARGS.offline_mode:
@@ -547,6 +553,7 @@ if __name__ == '__main__':
     tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
     model = model_class.from_pretrained(pretrained_weights)
     model = model.to(DEVICE)
+  BATCH_SIZE = CLI_ARGS.batch_size
 
   N_SENTS, MEANS = report_uuas_n(OBSERVATIONS, RESULTS_DIR,
                                  n_obs=N_OBS, device=DEVICE,

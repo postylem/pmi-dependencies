@@ -12,19 +12,18 @@ Comments are there about the fact that these estimates of PMI are non-symmetric,
 #### Tokenization
 Tokenization is a little bit of an issue, since XLNet is trained on text which is tokenized on the subword level (by Google's [sentencepiece](https://github.com/google/sentencepiece)).  The PTB is tokenized already (_not_ at the subword level), and in order to use the gold parses from the PTB, subword tokenization must be ignored (we're not going to get an accuracy score for dependencies at the level of morphology).
 
-What XLNet expects: tokenized input, according to the sentencepiece format, where one of the biggest peculiarities is that tokens begin with `▁` (U+2581, "LOWER ONE EIGHTH BLOCK") if preceded by whitespace.
+What XLNet expects: tokenized input, according to the sentencepiece format, where `▁` (U+2581, "LOWER ONE EIGHTH BLOCK") corresponds to whitespace.
 
-One method was a hack: 
-
+<!-- A hack method: 
 - transform plaintext version of PTB sentences (tokens delineated with spaces) into fake sentencepiece tokenized text, that is, prefixing most PTB tokens with a `▁`.
 - use the result as input to XLNet.  This results in a good number of words mapped to id=0 (= `<unk>`) when these tokens are fed into `XLNetTokenizer.convert_tokens_to_ids()`, which might be a problem.
-
-A new method:
+ -->
+So I did the following:
 - Use sentencepiece tokenizer, just use l-to-r linear chain rule decomposition within words to build up PTB tokens from these smaller subword tokens.  Get PMI between spans of subword tokens corresponding to PTB tokens.  
 
 ## Running
 
-I think a minimal setup is something like the following (depending on the version of cuda), as I did on the Azure machine:
+Minimal setup is something like the following (depending on the version of cuda). This is what I did on the Azure machine:
 ```bash
 conda create -n pmienv python=3.7
 conda activate pmienv
@@ -32,8 +31,8 @@ conda install numpy pandas tqdm transformers
 conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 pip install transformers
 ```
-Then run 
 
+Then to run: 
 ```bash
 python pmi-accuracy/pmi-accuracy.py > out.txt
 ```
@@ -42,17 +41,6 @@ or more like perhaps
 `nohup python pmi-accuracy/pmi-accuracy.py --n_observations 100 > out100 2> err100 &` 
 or use tmux.
 -->
-
-### Saving PMI matrices:
-
-With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back like this, if needed:
-
-```python
-if CLI_ARGS.save_matrices:
-  npzfile = np.load(RESULTS_DIR+'pmi_matrices.npz')
-  print(sorted(npzfile.files))
-  print(npzfile['sentence_0'])
-```
 
 ### Reporting
 
@@ -63,11 +51,29 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 | scores.csv
 | mean_scores.csv
 | pmi_matrices.npz
+| dependencies.tex
+| tikz/
 ```
 - `spec.txt` - just saves the CLI arguments
 - `scores.csv` - one row per sentence, reporting the sentence length, number of `<unk>`s and uuas with the four different ways of symmetrizing. Just for quick inspection.
 - `mean_scores.csv` - mean uuas over all sentences in one line ignoring NaNs
 - `pmi_matrices.npz` - an .npz archive of numpy arrays, with the key 'sentence_`i`' for sentence observation number `i`.
+- `dependencies.tex` - a template to run to quickly visualize the predictions (which are in the tikz folder) 
+
+
+### Saving PMI matrices:
+
+With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back in afterward like this:
+
+```python
+if CLI_ARGS.save_matrices:
+  npzfile = np.load(RESULTS_DIR+'pmi_matrices.npz')
+  print(sorted(npzfile.files))
+  print(npzfile['sentence_0'])
+```
+
+### Output dependencies as tikz:
+To look at the dependency graphs predicted with PMI, say, sentence 42, add a line `\input{tikz/42.tikz}`to the dependencies.tex file, and compile.
 
 --------------------------------------------------
 
