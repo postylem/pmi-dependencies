@@ -5,9 +5,12 @@
 *.sublime-project
 *.sublime-workspace
 *.pylintrc
-hewitt-repo/
 to-ignore/
 results/
+
+# repos
+hewitt-repo/
+marvin-repo-LM_syneval-master/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

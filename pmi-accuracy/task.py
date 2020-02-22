@@ -17,6 +17,29 @@ class Task:
     """
     raise NotImplementedError
 
+class LinearBaselineTask(Task):
+  """Maps observations to linear baseline dependency parse distances between words."""
+
+  @staticmethod
+  def labels(observation):
+    """Maps observation to a torch tensor of distance labels 
+    corresponding to linear distance L to R in the string.
+
+    Args:
+      observation: a single Observation class for a sentence:
+    Returns:
+      A torch tensor of shape (sentence_length, sentence_length) of distances
+      in the parse tree which simply increase with position in the string.
+    """
+    sentence_length = len(observation[0]) #All observation fields must be of same length
+    distances = torch.zeros((sentence_length, sentence_length))
+    for i in range(sentence_length):
+      for j in range(i, sentence_length):
+        i_j_distance = abs(i-j) # = distance in the string
+        distances[i][j] = i_j_distance
+        distances[j][i] = i_j_distance
+    return distances
+
 class ParseDistanceTask(Task):
   """Maps observations to dependency parse distances between words."""
 
@@ -49,7 +72,7 @@ class ParseDistanceTask(Task):
 
     Args:
       observation: an Observation namedtuple, with a head_indices field.
-          or None, if head_indies != None
+          or None, if head_indices != None
       i: one of the two words to compute the distance between.
       j: one of the two words to compute the distance between.
       head_indices: the head indices (according to a dependency parse) of all

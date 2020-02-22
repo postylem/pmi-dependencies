@@ -164,7 +164,7 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
   sentence_as_ids = tokenizer.convert_tokens_to_ids(flattened_sentence)
   perm_mask, target_mapping = make_mask_and_mapping(len(flattened_sentence), indices)
 
-  # start and finish indices of BATCH_SIZE sized chunks
+  # start and finish indices of BATCH_SIZE sized chunks (0,BATCH_SIZE),(BATCH_SIZE+1,2*BATCH_SIZE), ... 
   index_tuples = make_chunks(perm_mask.size(0), BATCH_SIZE)
 
   list_of_output_tensors = []
@@ -269,7 +269,7 @@ def make_mask_and_mapping_single_pair(w1_indices, w2_indices, seqlen):
 # Recovering an MST
 class UnionFind:
   '''
-  Naive UnionFind (for computing MST_edges with Prim's algorithm).
+  Naive UnionFind (for computing MST with Prim's algorithm).
   '''
   def __init__(self, n):
     self.parents = list(range(n))
@@ -292,7 +292,7 @@ class UnionFind:
         break
     return i_parent
 
-def MST_edges(matrix, words, maximum_spanning_tree=True):
+def prims_MST_edges(matrix, words, maximum_spanning_tree=True):
   '''
   Constructs a maximum spanning tree using Prim's algorithm.
     (set maximum_spanning_tree=False to get minumum spanning tree instead).
@@ -310,7 +310,7 @@ def MST_edges(matrix, words, maximum_spanning_tree=True):
       if words[j_index] in excluded: continue
       pairs_to_weights[(i_index, j_index)] = dist
   edges = []
-  for (i_index, j_index), _ in sorted(pairs_to_weights.items(), 
+  for (i_index, j_index), _ in sorted(pairs_to_weights.items(),
                                       key=lambda x: float('-inf') if (x[1] != x[1]) else x[1],
                                       reverse=maximum_spanning_tree):
     if union_find.find(i_index) != union_find.find(j_index):
@@ -318,11 +318,12 @@ def MST_edges(matrix, words, maximum_spanning_tree=True):
       edges.append((i_index, j_index))
   return edges
 
-def get_edges_from_matrix(matrix, words, symmetrize_method='sum'):
+def get_MST_from_nonsymmetric_matrix(matrix, words, symmetrize_method='sum'):
   '''
-  Gets Maximum Spanning Tree (list of edges) from pmi matrix, using the specified method.
+  Gets Maximum Spanning Tree (list of edges) from a nonsymmetric (PMI) matrix,
+  using the specified method.
   input:
-    matrix: an array of pmis
+    matrix: an array of PMIs
     words: a list of tokens
     symmetrize_method:
       'sum' (default): sums matrix with transpose of matrix;
@@ -341,7 +342,7 @@ def get_edges_from_matrix(matrix, words, symmetrize_method='sum'):
   elif symmetrize_method != 'none':
     raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
 
-  edges = MST_edges(matrix, words, maximum_spanning_tree=True)
+  edges = prims_MST_edges(matrix, words, maximum_spanning_tree=True)
   return edges
 
 
@@ -361,33 +362,41 @@ def score_observation(observation, device, verbose=False):
 
   # Get gold edges from conllx file
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
-  gold_edges = MST_edges(gold_dist_matrix, observation.sentence,
-                         maximum_spanning_tree=False)
-  ptb_tokenlist = observation.sentence
+  gold_edges = prims_MST_edges(gold_dist_matrix, observation.sentence, maximum_spanning_tree=False)
+  # Make linear-order baseline
+  linear_dist_matrix = task.LinearBaselineTask.labels(observation)
+  linear_edges = prims_MST_edges(linear_dist_matrix, observation.sentence, maximum_spanning_tree=False)
 
-  # Calculate pmi edges from XLNet
+  # Calculate PMI edges from XLNet
+  ptb_tokenlist = observation.sentence
   pmi_matrix = ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device=device, verbose=verbose)
 
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
   for symmetrize_method in symmetrize_methods:
-    pmi_edges[symmetrize_method] = get_edges_from_matrix(
+    pmi_edges[symmetrize_method] = get_MST_from_nonsymmetric_matrix(
       pmi_matrix, ptb_tokenlist, symmetrize_method=symmetrize_method)
 
-  scores = []
+  num_gold = len(gold_edges)
   gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
   print(f'gold set: {sorted(gold_edges_set)}\n')
+  linear_edges_set = {tuple(sorted(x)) for x in linear_edges}
+  print(f'> linear baseline set: {sorted(linear_edges_set)}')
+  common = gold_edges_set.intersection(linear_edges_set)
+  linear_baseline_score = len(common)/float(num_gold) if num_gold != 0 else np.NaN
+  print(f'> linear_baseline_score = {linear_baseline_score:.3f}\n')
+
+  scores = []
   for symmetrize_method in symmetrize_methods:
     pmi_edges_set = {tuple(sorted(x)) for x in pmi_edges[symmetrize_method]}
-    print(f'pmi_edges[{symmetrize_method}]: {sorted(pmi_edges_set)}')
+    print(f'  pmi_edges[{symmetrize_method}]: {sorted(pmi_edges_set)}')
     correct = gold_edges_set.intersection(pmi_edges_set)
-    print("correct: ", correct)
+    print("  correct: ", correct)
     num_correct = len(correct)
-    num_total = len(gold_edges)
-    uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
+    uuas = num_correct/float(num_gold) if num_gold != 0 else np.NaN
     scores.append(uuas)
-    print(f'uuas = {num_correct}/{num_total} = {uuas:.3f}\n')
-  return pmi_matrix, scores, gold_edges, pmi_edges
+    print(f'  uuas = {num_correct}/{num_gold} = {uuas:.3f}\n')
+  return pmi_matrix, scores, gold_edges, pmi_edges, linear_baseline_score
 
 def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
@@ -424,11 +433,11 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
   Writes to scores and mean_scores csv files.
   Returns:
     number of sentences in total (int)
-    number of long sentences (int)
     list of mean_scores for [sum, triu, tril, none] (ignores NaN values)
   '''
   scores_filepath = os.path.join(results_dir, 'scores.csv')
   all_scores = []
+  all_linear_baseline_scores = []
 
   if save:
     save_filepath = os.path.join(results_dir, 'pmi_matrices.npz')
@@ -437,19 +446,19 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
   with open(scores_filepath, mode='w') as scores_file:
     scores_writer = csv.writer(scores_file, delimiter=',')
     scores_writer.writerow(['sentence_index', 'sentence_length',
-                            'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none'])
+                            'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none',
+                            'linear_baseline_score'])
     if n_obs == 'all':
       n_obs = len(observations)
 
     for i, observation in enumerate(tqdm(observations[:n_obs])):
       if verbose:
         print(f'\n---> observation {i} / {n_obs}')
-      pmi_matrix, scores, gold_edges, pmi_edges = score_observation(observation,
-                                                                    device=device,
-                                                                    verbose=verbose)
+      score_returns = score_observation(observation, device=device, verbose=verbose)
+      pmi_matrix, scores, gold_edges, pmi_edges, linear_baseline_score = score_returns
       scores_writer.writerow([i, len(observation.sentence),
-                              scores[0], scores[1], scores[2], scores[3]])
-      all_scores.append(scores)
+                              scores[0], scores[1], scores[2], scores[3],
+                              linear_baseline_score])
 
       if save:
         savez_dict[f'sentence_{i}'] = pmi_matrix
@@ -463,17 +472,20 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
                    gold_edges, observation.sentence,
                    label1=symmetrize_method, label2=i)
 
+      # Just for means
+      all_scores.append(scores)
+      all_linear_baseline_scores.append(linear_baseline_score)
+
   tex_filepath = os.path.join(results_dir, 'dependencies.tex')
   with open(tex_filepath, mode='w') as tex_file:
-    tex_file.write("""\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}
-\\pgfkeys{%\n/depgraph/reserved/edge style/.style = {%\n-, % arrow properties
-semithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round
-},%\n}\n\\begin{document}\n% % Put dependency plots here, like\n\\input{tikz/0.tikz}
-\\end{document}""")
+    tex_file.write("\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}\n\\pgfkeys{%\n/depgraph/reserved/edge style/.style = {%\n-, % arrow properties\nsemithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round\n},%\n}\n\\begin{document}\n% % Put dependency plots here, like\n\\input{tikz/0.tikz}\n\\end{document}")
 
   mean_scores = np.nanmean(np.array(all_scores), axis=0).tolist()
   if verbose:
-    print(f'\n---\nmean_scores\n[sum,triu,tril,none]: {mean_scores}')
+    print('\n---\nmean_scores:')
+    for x in zip(['sum', 'triu', 'tril', 'none'],mean_scores):
+      print(f'    {x[0]} = {x[1]}')
+    print(f'linear_baseline = {np.nanmean(all_linear_baseline_scores)}')
 
   if save:
     np.savez(save_filepath, **savez_dict)
@@ -495,7 +507,7 @@ if __name__ == '__main__':
                     help='specify path/to/results/directory/')
   ARGP.add_argument('--save_matrices', action='store_true',
                     help='to save PMI matrices to disk.')
-  ARGP.add_argument('--batch_size', default='64',
+  ARGP.add_argument('--batch_size', default=64,
                     help='xlnet batch size')
   CLI_ARGS = ARGP.parse_args()
 
@@ -558,6 +570,8 @@ if __name__ == '__main__':
   N_SENTS, MEANS = report_uuas_n(OBSERVATIONS, RESULTS_DIR,
                                  n_obs=N_OBS, device=DEVICE,
                                  save=CLI_ARGS.save_matrices, verbose=True)
+
+  # Write mean scores just for sanity check
   with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
     WRITER = csv.writer(file, delimiter=',')
     WRITER.writerow(['n_sentences',
