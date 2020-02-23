@@ -16,7 +16,6 @@ from tqdm import tqdm
 import numpy as np
 import pandas as pd
 import csv
-import shutil
 from datetime import datetime
 from argparse import ArgumentParser
 from collections import namedtuple
@@ -25,7 +24,6 @@ import torch
 import torch.nn.functional as F
 
 import task
-import gettree
 
 # Data input
 def generate_lines_for_sent(lines):
@@ -77,11 +75,10 @@ def load_conll_dataset(filepath, observation_class):
   return observations
 
 # Tokenization
-def make_subword_lists(ptb_tokenlist, add_special_tokens=False):
+def make_subword_lists(ptb_tokenlist):
   '''
   Takes list of items from Penn Treebank tokenized text,
-  runs the tokenizer to decompose into the subword tokens expected by XLNet, 
-  including appending special characters '<sep>' and '<cls>', if specified.
+  runs the tokenizer to decompose into the subword tokens expected by XLNet.
   Implements some simple custom adjustments to make the results more like what might be expected.
   [TODO: this could be improved, if it is important.
   For instance, currently it puts an extra space before opening quotes]
@@ -97,9 +94,8 @@ def make_subword_lists(ptb_tokenlist, add_special_tokens=False):
     elif word == '-RRB-': word = ')'
     word_tokens = tokenizer.tokenize(word)
     subword_lists.append(word_tokens)
-  if add_special_tokens:
-    subword_lists.append(['<sep>'])
-    subword_lists.append(['<cls>'])
+  subword_lists.append(['<sep>'])
+  subword_lists.append(['<cls>'])
   # Custom adjustments below
   for i, subword_list_i in enumerate(subword_lists):
     if subword_list_i[0][0] == '▁' and subword_lists[i-1][-1] in ('(','[','{'):
@@ -118,8 +114,8 @@ def make_subword_lists(ptb_tokenlist, add_special_tokens=False):
 
 def word_index_to_subword_indices(word_index, nested_list):
   '''
-  Convert from word index (for nested list of subword tokens),
-  to list of subword token indices at that word index
+  Convert from word index for nested list of subword tokens,
+  to list of subword token indices
   '''
   if word_index > len(nested_list):
     raise ValueError('word_index exceeds length of nested_list')
@@ -149,15 +145,14 @@ def make_chunks(m, n):
   return chunked
 
 # Getting a PMI matrix
-def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, paddings=([], []), verbose=False):
+def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, verbose=False):
   '''
   input: ptb_tokenlist: PTB-tokenized sentence as list
-    paddings: tuple (prepad_tokenlist,postpad_tokenlist) each a list of PTB-tokens
   return: pmi matrix
   '''
-  subwords_nested = make_subword_lists(ptb_tokenlist, add_special_tokens=False)
+  subwords_nested = make_subword_lists(ptb_tokenlist) # note, adds on <cls> and <sep> at the end.
   # indices[i] = list of subtoken indices in subtoken list corresponding to word i in ptb_tokenlist
-  indices = [word_index_to_subword_indices(i, subwords_nested) for i, _ in enumerate(subwords_nested)]
+  indices = [word_index_to_subword_indices(i, subwords_nested) for i, _ in enumerate(subwords_nested[:-2])]
 
   flattened_sentence = [tok for sublist in subwords_nested for tok in sublist]
   if verbose:
@@ -165,14 +160,9 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, paddings=([], []), verbos
     print(f"resulting subtokens:\n{flattened_sentence}")
     print(f"correspondence indices:\n{indices}")
 
-  # Now add padding after (and/or before, if sentence is near end of corpus)
-  prepadding = [i for x in make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
-  postpadding = [i for x in make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
-  print(f"\n/¯¯¯¯¯¯ SUBWORD PADDING LISTS:\nprepadding\t{prepadding}\npostpadding\t{postpadding}\n")
-  padded_input = [*prepadding, *flattened_sentence, *postpadding]
-  print(f"padded_input:\n{padded_input}\n\\______\n")
-  perm_mask, target_mapping = make_mask_and_mapping(indices,
-                                                    padlens=(len(prepadding), len(postpadding)))
+  sentence_as_ids = tokenizer.convert_tokens_to_ids(flattened_sentence)
+  perm_mask, target_mapping = make_mask_and_mapping(indices)
+
   # print("check batch dimension is 2*len(indices)*len(flattened(indices))",
   #       target_mapping.size(0) == perm_mask.size(0) ==
   #       2*len(indices)*(len([i for x in indices for i in x])))
@@ -180,10 +170,9 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, paddings=([], []), verbos
   # start and finish indices of BATCH_SIZE sized chunks (0,BATCH_SIZE),(BATCH_SIZE+1,2*BATCH_SIZE), ... 
   index_tuples = make_chunks(perm_mask.size(0), BATCH_SIZE)
 
-  padded_sentence_as_ids = tokenizer.convert_tokens_to_ids(padded_input)
   list_of_output_tensors = []
   for index_tuple in tqdm(index_tuples, desc=f'batch size {BATCH_SIZE}', leave=False):
-    input_ids = torch.tensor(padded_sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
+    input_ids = torch.tensor(sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
     with torch.no_grad():
       logits_outputs = model(input_ids.to(device),
                              perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(device),
@@ -194,7 +183,7 @@ def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device, paddings=([], []), verbos
       list_of_output_tensors.append(outputs)
 
   outputs_all_batches = torch.cat(list_of_output_tensors).cpu().numpy()
-  pmis = get_pmi_matrix_from_outputs(outputs_all_batches, indices, padded_sentence_as_ids)
+  pmis = get_pmi_matrix_from_outputs(outputs_all_batches, indices, sentence_as_ids)
   return pmis
 
 def get_pmi_matrix_from_outputs(outputs, indices, sentence_as_ids):
@@ -229,14 +218,12 @@ def get_pmi_from_outputs(outputs, w1_indices, sentence_as_ids):
   pmi = (log_numerator - log_denominator)
   return pmi
 
-def make_mask_and_mapping(indices, padlens=(0, 2)):
+def make_mask_and_mapping(indices):
   '''
   input:
     indices (list): a list with len(ptb_tokenlist) entries.
       key (int): index in ptb tokenlist
       value (list): indices in subtoken list corresponding to that index
-    padlens: tuple of ints, length of padding before, and after, resp.
-      by default, no prepadding and postpadding only 2 special characters.
   output: perm_mask, target_mapping
     specification tensors for the whole sentence, for XLNet input;
       - predict each position in each ptb-word once per ptb-word in the sentence
@@ -247,11 +234,8 @@ def make_mask_and_mapping(indices, padlens=(0, 2)):
   '''
   perm_masks = []
   target_mappings = []
-  prepad, postpad = padlens
-  # seqlen = number of items in indices flattened, plus padding lengths
-  seqlen = prepad + len([i for x in indices for i in x]) + postpad
-  # increment each index in nested list by prepadding amount prepad
-  indices = [[i+prepad for i in l] for l in indices]
+  # seqlen = number of items in indices flattened (add two for <sep>, <cls>)
+  seqlen = len([i for x in indices for i in x]) + 2
   for i, _ in enumerate(indices):
     for j, _ in enumerate(indices):
       pm_ij, tm_ij = make_mask_and_mapping_single_pair(indices[i], indices[j], seqlen)
@@ -271,7 +255,7 @@ def make_mask_and_mapping_single_pair(w1_indices, w2_indices, seqlen):
   input:
     w1_indices,
     w2_indices: lists of indices (ints)
-    seqlen = the length of the sentence as subtokens (with padding, special tokens)
+    seqlen = the length of the sentence as subtokens (with special tokens)
   returns:
     perm_mask: a tensor of shape (2*len1, seqlen, seqlen)
     target_mapping: a tensor of shape (2*len1, 1, seqlen)
@@ -287,13 +271,91 @@ def make_mask_and_mapping_single_pair(w1_indices, w2_indices, seqlen):
     target_mapping[(i, len1+i), :, index] = 1.0 # predict just subtoken i of w1
   return perm_mask, target_mapping
 
+# Recovering an MST
+class UnionFind:
+  '''
+  Naive UnionFind (for computing MST with Prim's algorithm).
+  '''
+  def __init__(self, n):
+    self.parents = list(range(n))
+  def union(self, i, j):
+    '''
+    join i and j
+    '''
+    if self.find(i) != self.find(j):
+      i_parent = self.find(i)
+      self.parents[i_parent] = j
+  def find(self, i):
+    '''
+    find parent of i
+    '''
+    i_parent = i
+    while True:
+      if i_parent != self.parents[i_parent]:
+        i_parent = self.parents[i_parent]
+      else:
+        break
+    return i_parent
+
+def prims_MST_edges(matrix, words, maximum_spanning_tree=True):
+  '''
+  Constructs a maximum spanning tree using Prim's algorithm.
+    (set maximum_spanning_tree=False to get minumum spanning tree instead).
+  Input: matrix (ndArray of PMIs), words (list of tokens)
+  Excludes edges to/from punctuation symbols or empty strings, and sets np.NaN to -inf
+  Returns: tree (list of edges).
+  Based on code by John Hewitt.
+  '''
+  pairs_to_weights = {}
+  excluded = ["", "'", "''", ",", ".", ";", "!", "?", ":", "``", "-LRB-", "-RRB-"]
+  union_find = UnionFind(len(matrix))
+  for i_index, line in enumerate(matrix):
+    for j_index, dist in enumerate(line):
+      if words[i_index] in excluded: continue
+      if words[j_index] in excluded: continue
+      pairs_to_weights[(i_index, j_index)] = dist
+  edges = []
+  for (i_index, j_index), _ in sorted(pairs_to_weights.items(),
+                                      key=lambda x: float('-inf') if (x[1] != x[1]) else x[1],
+                                      reverse=maximum_spanning_tree):
+    if union_find.find(i_index) != union_find.find(j_index):
+      union_find.union(i_index, j_index)
+      edges.append((i_index, j_index))
+  return edges
+
+def get_MST_from_nonsymmetric_matrix(matrix, words, symmetrize_method='sum'):
+  '''
+  Gets Maximum Spanning Tree (list of edges) from a nonsymmetric (PMI) matrix,
+  using the specified method.
+  input:
+    matrix: an array of PMIs
+    words: a list of tokens
+    symmetrize_method:
+      'sum' (default): sums matrix with transpose of matrix;
+      'triu': uses only the upper triangle of matrix;
+      'tril': uses only the lower triangle of matrix;
+      'none': uses the optimum weight for each unordered pair of edges.
+  returns: tree (list of edges)
+  '''
+
+  if symmetrize_method == 'sum':
+    matrix = matrix + np.transpose(matrix)
+  elif symmetrize_method == 'triu':
+    matrix = np.triu(matrix) + np.transpose(np.triu(matrix))
+  elif symmetrize_method == 'tril':
+    matrix = np.tril(matrix) + np.transpose(np.tril(matrix))
+  elif symmetrize_method != 'none':
+    raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
+
+  edges = prims_MST_edges(matrix, words, maximum_spanning_tree=True)
+  return edges
+
 # Running and reporting
-def score_observation(observation, device, paddings=([], []), verbose=False):
+def score_observation(observation, device, verbose=False):
   '''
   gets the unlabeled undirected attachment score for a given sentence (observation),
   by reading off the minimum spanning tree from a matrix of PTB dependency distances
   and comparing that to the maximum spanning tree from a matrix of PMIs
-  padding may be added, as tuple of lists of observations for pre- and post-padding resp.
   specify 'cuda' or 'cpu' as device
   returns: list_of_scores (list of floats)
   '''
@@ -304,23 +366,20 @@ def score_observation(observation, device, paddings=([], []), verbose=False):
 
   # Get gold edges from conllx file
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
-  gold_edges = gettree.MST.prims(gold_dist_matrix, observation.sentence, maximum_spanning_tree=False)
+  gold_edges = prims_MST_edges(gold_dist_matrix, observation.sentence, maximum_spanning_tree=False)
   # Make linear-order baseline
   linear_dist_matrix = task.LinearBaselineTask.labels(observation)
-  linear_edges = gettree.MST.prims(linear_dist_matrix, observation.sentence, maximum_spanning_tree=False)
+  linear_edges = prims_MST_edges(linear_dist_matrix, observation.sentence, maximum_spanning_tree=False)
 
   # Calculate PMI edges from XLNet
-  prepad_tokenlist = [i for x in [obs.sentence for obs in paddings[0]] for i in x]
-  postpad_tokenlist = [i for x in [obs.sentence for obs in paddings[1]] for i in x]
-  pmi_matrix = ptb_tokenlist_to_pmi_matrix(observation.sentence, device=device,
-                                           paddings=(prepad_tokenlist,postpad_tokenlist),
-                                           verbose=verbose)
+  ptb_tokenlist = observation.sentence
+  pmi_matrix = ptb_tokenlist_to_pmi_matrix(ptb_tokenlist, device=device, verbose=verbose)
 
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
   for symmetrize_method in symmetrize_methods:
-    pmi_edges[symmetrize_method] = gettree.MST.tree(
-      pmi_matrix, observation.sentence, symmetrize_method=symmetrize_method)
+    pmi_edges[symmetrize_method] = get_MST_from_nonsymmetric_matrix(
+      pmi_matrix, ptb_tokenlist, symmetrize_method=symmetrize_method)
 
   num_gold = len(gold_edges)
   gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
@@ -372,36 +431,6 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', lab
     fout.write('\n\n')
     fout.write(string)
 
-def get_padding(i, observations):
-  '''
-  gets adjacent observations from PTB to add as padding,
-  so total length is at least LONG_ENOUGH ptb_tokens long
-  input: index and observations
-  returns:
-    prepadding_observations: list of observations
-    postpadding_observations: list of observations
-  '''
-  j = i
-  k = i
-  pad_index_set = set()
-  total_len = len(observations[i][0])
-  # a length threshold to avoid short sentences on which XLNet performs badly at prediction
-  while total_len < LONG_ENOUGH:
-    if j + 1 < len(observations) and j + 1 not in pad_index_set:
-      j += 1
-      pad_index_set.add(j)
-      total_len += len(observations[j][0])
-    elif k - 1 >= 0 and k - 1 not in pad_index_set:
-      k -= 1
-      pad_index_set.add(k)
-      total_len += len(observations[k][0])
-    else: raise ValueError(f'Not enough context to pad up to size {LONG_ENOUGH}!')
-  if pad_index_set != set():
-    print(f'Using sentence(s) {pad_index_set} as padding for sentence {i}.')
-  prepadding_observations = [observations[x] for x in pad_index_set if x < i]
-  postpadding_observations = [observations[x] for x in pad_index_set if x > i]
-  return prepadding_observations, postpadding_observations
-
 def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, verbose=False):
   '''
   Gets the uuas for observations[0:n_obs]
@@ -427,13 +456,10 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
       n_obs = len(observations)
 
     for i, observation in enumerate(tqdm(observations[:n_obs], desc='computing PMIs')):
+      
       if verbose:
         print(f'\n---> observation {i} / {n_obs}')
-
-      paddings = get_padding(i, observations)
-
-      score_returns = score_observation(observation,
-                                        device=device, paddings=paddings, verbose=verbose)
+      score_returns = score_observation(observation, device=device, verbose=verbose)
       pmi_matrix, scores, gold_edges, pmi_edges, linear_baseline_score = score_returns
       scores_writer.writerow([i, len(observation.sentence),
                               scores[0], scores[1], scores[2], scores[3],
@@ -455,9 +481,6 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
       all_scores.append(scores)
       all_linear_baseline_scores.append(linear_baseline_score)
 
-  shutil.make_archive(os.path.join(results_dir, 'tikz'), 'zip', os.path.join(results_dir, 'tikz'))
-  shutil.rmtree(os.path.join(results_dir, 'tikz/'))
-
   tex_filepath = os.path.join(results_dir, 'dependencies.tex')
   with open(tex_filepath, mode='w') as tex_file:
     tex_file.write("\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}\n\\pgfkeys{%\n/depgraph/reserved/edge style/.style = {%\n-, % arrow properties\nsemithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round\n},%\n}\n\\begin{document}\n% % Put dependency plots here, like\n\\input{tikz/0.tikz}\n\\end{document}")
@@ -465,9 +488,9 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
   mean_scores = np.nanmean(np.array(all_scores), axis=0).tolist()
   if verbose:
     print('\n---\nmean_scores:')
-    for mzip in zip(['sum', 'triu', 'tril', 'none'], mean_scores):
-      print(f'\t{mzip[0]} = {mzip[1]}')
-    print(f'\tlinear_baseline = {np.nanmean(all_linear_baseline_scores)}')
+    for x in zip(['sum', 'triu', 'tril', 'none'],mean_scores):
+      print(f'    {x[0]} = {x[1]}')
+    print(f'linear_baseline = {np.nanmean(all_linear_baseline_scores)}')
 
   if save:
     np.savez(save_filepath, **savez_dict)
@@ -490,10 +513,7 @@ if __name__ == '__main__':
                     help='to save PMI matrices to disk.')
   ARGP.add_argument('--batch_size', default=64, type=int,
                     help='xlnet batch size')
-  ARGP.add_argument('--long_enough', default=30, type=int,
-                    help='(int) pad sentences to be at least this long')
   CLI_ARGS = ARGP.parse_args()
-
 
   if CLI_ARGS.offline_mode:
     # import pytorch transformers instead of transformers, for use on Compute Canada
@@ -551,7 +571,6 @@ if __name__ == '__main__':
     model = model.to(DEVICE)
   BATCH_SIZE = CLI_ARGS.batch_size
 
-  LONG_ENOUGH = CLI_ARGS.long_enough
   N_SENTS, MEANS = report_uuas_n(OBSERVATIONS, RESULTS_DIR,
                                  n_obs=N_OBS, device=DEVICE,
                                  save=CLI_ARGS.save_matrices, verbose=True)

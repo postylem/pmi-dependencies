@@ -4,7 +4,6 @@ Class taken from structural-probes/task.py by John Hewitt
 """
 
 import torch
-import pandas as pd
 
 class Task:
   """Abstract class representing a linguistic task mapping texts to labels."""
@@ -18,11 +17,14 @@ class Task:
     raise NotImplementedError
 
 class LinearBaselineTask(Task):
-  """Maps observations to linear baseline dependency parse distances between words."""
+  """
+  Ignores everything but observation length, 
+  and maps observations to simple string-distance matrix as baseline
+  """
 
   @staticmethod
   def labels(observation):
-    """Maps observation to a torch tensor of distance labels 
+    """Maps observation to a torch tensor of distance labels
     corresponding to linear distance L to R in the string.
 
     Args:
