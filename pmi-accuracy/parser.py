@@ -219,22 +219,22 @@ class DepParse:
     if complete:
       r = complete_backtrack[s][t][direction]
       if direction == 0:
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, s, r, 0, 1, heads)
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, r, t, 0, 0, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 0, 1, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r, t, 0, 0, heads)
         return
       else:
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, s, r, 1, 0, heads)
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, r, t, 1, 1, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 1, 0, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r, t, 1, 1, heads)
         return
     else:
       r = incomplete_backtrack[s][t][direction]
       if direction == 0:
         heads[s] = t
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, s, r, 1, 1, heads)
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, r+1, t, 0, 1, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 1, 1, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r+1, t, 0, 1, heads)
         return
       else:
         heads[t] = s
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, s, r, 1, 1, heads)
-        self.backtrack_eisner(incomplete_backtrack, complete_backtrack, r+1, t, 0, 1, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 1, 1, heads)
+        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r+1, t, 0, 1, heads)
         return
