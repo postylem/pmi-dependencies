@@ -191,7 +191,7 @@ class DepParse:
     #   h = heads[m]
     #   value_proj += scores[h, m]
 
-    edgelist = [enumerate(heads)]
+    edgelist = list(enumerate(heads))
     # Eisner edges, sorted, removing the root node (taking indices [2:] and shifting all values -1)
     sortededges_noroot = sorted({tuple(sorted(tuple([i-1 for i in edge]))) for edge in edgelist})[2:]
     # Now with indices translated to give word-to-word edges (simply skipping puncuation indices)

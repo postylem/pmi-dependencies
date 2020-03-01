@@ -115,7 +115,6 @@ def score_observation(observation, device, paddings=([], []), verbose=False):
   print(f'  linear_baseline_uuas = {linear_baseline_score:.3f}\n')
 
 
-
   scores = []
   scores_proj = []
   for symmetrize_method in symmetrize_methods:
@@ -136,7 +135,7 @@ def score_observation(observation, device, paddings=([], []), verbose=False):
     print(f'  uuas = {num_correct}/{num_gold} = {uuas:.3f}')
     print(f'  proj = {num_correct_proj}/{num_gold} = {uuas_proj:.3f}\n')
 
-  return pmi_matrix, scores, gold_edges, pmi_edges, linear_baseline_score
+  return pmi_matrix, scores, scores_proj, gold_edges, pmi_edges, pmi_edges_proj, linear_baseline_score
 
 def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
@@ -232,9 +231,10 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
 
       score_returns = score_observation(observation,
                                         device=device, paddings=paddings, verbose=verbose)
-      pmi_matrix, scores, gold_edges, pmi_edges, linear_baseline_score = score_returns
+      pmi_matrix, scores, scores_proj, gold_edges, pmi_edges, pmi_edges_proj, linear_baseline_score = score_returns
       scores_writer.writerow([i, len(observation.sentence),
                               scores[0], scores[1], scores[2], scores[3],
+                              scores_proj[0], scores_proj[1], scores_proj[2], scores_proj[3],
                               linear_baseline_score])
 
       if save:
@@ -248,6 +248,14 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
         print_tikz(tikz_filepath, pmi_edges[symmetrize_method],
                    gold_edges, observation.sentence,
                    label1=symmetrize_method, label2=i)
+
+      tikz_filepath = os.path.join(results_dir, 'tikz', f'{i}proj.tikz')
+      for symmetrize_method in ['sum', 'triu', 'tril', 'none']:
+        '''prints tikz comparing predicted with gold
+        for each of the four symmetrize methods in a single file'''
+        print_tikz(tikz_filepath, pmi_edges_proj[symmetrize_method],
+                   gold_edges, observation.sentence,
+                   label1="proj "+symmetrize_method, label2=i)
 
       # Just for means
       all_scores.append(scores)
