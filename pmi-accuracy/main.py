@@ -89,10 +89,14 @@ def score_observation(observation, device, paddings=([], []), verbose=False):
   mstparser = parser.DepParse('mst', pmi_matrix, observation.sentence)
   # Get gold edges distance tensor from conllx file
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
-  gold_edges = mstparser.prims(gold_dist_matrix, observation.sentence, maximum_spanning_tree=False)
+  print(gold_dist_matrix)
+  gold_edges = parser.DepParse('mst', gold_dist_matrix, observation.sentence).tree(symmetrize_method='none',
+                                                                                   prims_maximum_spanning_tree=False)
   # Make linear-order baseline distance tensor
   linear_dist_matrix = task.LinearBaselineTask.labels(observation)
-  linear_edges = mstparser.prims(linear_dist_matrix, observation.sentence, maximum_spanning_tree=False)
+  print(linear_dist_matrix)
+  linear_edges = parser.DepParse('mst', linear_dist_matrix, observation.sentence).tree(symmetrize_method='none',
+                                                                                   prims_maximum_spanning_tree=False)
 
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
@@ -218,6 +222,7 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
     scores_writer = csv.writer(scores_file, delimiter=',')
     scores_writer.writerow(['sentence_index', 'sentence_length',
                             'uuas_sum', 'uuas_triu', 'uuas_tril', 'uuas_none',
+                            'proj_sum', 'proj_triu', 'proj_tril', 'proj_none',
                             'linear_baseline_score'])
     if n_obs == 'all':
       n_obs = len(observations)
