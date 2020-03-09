@@ -84,26 +84,26 @@ def score_observation(observation, device, paddings=([], []), verbose=False):
   pmi_matrix = XLNETMODEL.ptb_tokenlist_to_pmi_matrix(
   	observation.sentence, device=device, paddings=(prepad_tokenlist, postpad_tokenlist), verbose=verbose)
 
-  # Instantiate a DepParse object, with the parsetype 'mst'
-  mstparser = parser.DepParse('mst', pmi_matrix, observation.sentence)
-  # Get gold edges distances tensor from conllx file
+  # Get gold edges distances tensor from conllx file (note 'mst' will always give projective gold edges)
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
   gold_edges = parser.DepParse('mst', gold_dist_matrix, observation.sentence).tree(symmetrize_method='none',
-                                                                                   prims_maximum_spanning_tree=False)
+                                                                                   maximum_spanning_tree=False)
   # Make linear-order baseline distances tensor
   linear_dist_matrix = task.LinearBaselineTask.labels(observation)
   linear_edges = parser.DepParse('mst', linear_dist_matrix, observation.sentence).tree(symmetrize_method='none',
-                                                                                   prims_maximum_spanning_tree=False)
-
+                                                                                   maximum_spanning_tree=False)
+  # Instantiate a DepParse object, with the parsetype 'mst', to get pmi mst parse
+  mstparser = parser.DepParse('mst', pmi_matrix, observation.sentence)
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
   for symmetrize_method in symmetrize_methods:
     pmi_edges[symmetrize_method] = mstparser.tree(symmetrize_method=symmetrize_method)
 
-  # getting some projective edges
+  # Instantiate a DepParse object, with parsetype 'projective', to get pmi projective parse
   projparser = parser.DepParse('projective', pmi_matrix, observation.sentence)
   pmi_edges_proj = {}
   for symmetrize_method in symmetrize_methods:
+    # note, with Eisner's, symmetrize_method='none' basically gets a directed parse
     pmi_edges_proj[symmetrize_method] = projparser.tree(symmetrize_method=symmetrize_method)
 
   num_gold = len(gold_edges)
@@ -180,7 +180,7 @@ def get_padding(i, observations):
   k = i
   pad_index_set = set()
   total_len = len(observations[i][0])
-  # a length threshold to avoid short sentences on which XLNet performs badly at prediction
+  # to avoid short sentences on which XLNet performs badly at prediction
   while total_len < LONG_ENOUGH:
     if j - 1 >= 0 and j - 1 not in pad_index_set:
       j -= 1
@@ -371,13 +371,13 @@ if __name__ == '__main__':
                                  n_obs=N_OBS, device=DEVICE,
                                  save=CLI_ARGS.save_matrices, verbose=True)
 
-  # Write mean scores just for sanity check
-  with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
-    WRITER = csv.writer(file, delimiter=',')
-    WRITER.writerow(['n_sentences',
-                     'mean_sum', 'mean_triu', 'mean_tril', 'mean_none'])
-    WRITER.writerow([N_SENTS,
-                     MEANS[0], MEANS[1], MEANS[2], MEANS[3]])
+  # # Write mean scores just for sanity check
+  # with open(RESULTS_DIR+'mean_scores.csv', mode='w') as file:
+  #   WRITER = csv.writer(file, delimiter=',')
+  #   WRITER.writerow(['n_sentences',
+  #                    'mean_sum', 'mean_triu', 'mean_tril', 'mean_none'])
+  #   WRITER.writerow([N_SENTS,
+  #                    MEANS[0], MEANS[1], MEANS[2], MEANS[3]])
 
 
 ## Playing around with the output, getting started

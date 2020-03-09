@@ -38,7 +38,7 @@ class DepParse:
     self.matrix = matrix
     self.words = words
 
-  def tree(self, symmetrize_method='sum', prims_maximum_spanning_tree=True):
+  def tree(self, symmetrize_method='sum', maximum_spanning_tree=True):
     '''
     Gets a Spanning Tree (list of edges) from a nonsymmetric (PMI) matrix,
     using the specified method. and using maximum spanning tree for prims, 
@@ -64,11 +64,13 @@ class DepParse:
       raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
 
     if self.parsetype == "mst":
-      edges = self.prims(sym_matrix, self.words, maximum_spanning_tree=prims_maximum_spanning_tree)
+      edges = self.prims(sym_matrix, self.words, maximum_spanning_tree=maximum_spanning_tree)
     elif self.parsetype == "projective":
       edges = self.eisners(sym_matrix, self.words)
     else: 
       raise ValueError("Unknown parsetype.  Choose 'mst' or 'projective'")
+    if self.parsetype == "projective" and not maximum_spanning_tree:
+      raise ValueError("Please only use Eisner's algorithm for maximum_spanning_tree.")
     return edges
 
   @staticmethod

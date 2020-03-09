@@ -41,20 +41,35 @@ class XLNet(LanguageModel):
     flattened_sentence = [tok for sublist in subwords_nested for tok in sublist]
     if verbose:
       print(f"PTB tokenlist, on which tokenizer will be run:\n{ptb_tokenlist}")
-      print(f"resulting subtokens:\n{flattened_sentence}")
+      print(f"flattened list of resulting subtokens:\n{flattened_sentence}")
       print(f"correspondence indices:\n{indices}")
 
     # Now add padding after (and/or before, if sentence is near end of corpus)
     prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
     postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
+
+    # NOW JUST A SOMETHING TO MESS AROUND. DELETE THIS.
+    padtextlist = """In 1991 , the remains of Russian Tsar Nicholas II and his family
+                (except for Alexei and Maria) are discovered .
+                The voice of Nicholas 's young son , Tsarevich Alexei Nikolaevich, narrates the
+                remainder of the story . 1883 Western Siberia ,
+                a young Grigori Rasputin is asked by his father and a group of men to perform magic .
+                Rasputin has a vision and denounces one of the men as a horse thief . Although his
+                father initially slaps him for making such an accusation , Rasputin watches as the
+                man is chased outside and beaten . Twenty years later , Rasputin sees a vision of
+                the Virgin Mary , prompting him to become a priest . Rasputin quickly becomes famous,
+                 with people , even a bishop , begging for his blessing . <eod>""".split()
+    paddings = (padtextlist, [])
+    prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
+    postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
+
     print(f"\n/¯¯¯¯¯¯ SUBWORD PADDING LISTS:\nprepadding\t{prepadding}\npostpadding\t{postpadding}\n")
     padded_input = [*prepadding, *flattened_sentence, *postpadding]
     print(f"padded_input:\n{padded_input}\n\\______\n")
     perm_mask, target_mapping = self.make_mask_and_mapping(
       indices, padlens=(len(prepadding), len(postpadding)))
-    print(f"check batch dim {target_mapping.size(0)} is 2*len(indices)*len(flattened(indices)):",
-          target_mapping.size(0) == perm_mask.size(0) ==
-          2*len(indices)*(len([i for x in indices for i in x])))
+    if not target_mapping.size(0) == perm_mask.size(0) == 2*len(indices)*(len([i for x in indices for i in x])):
+      raise ValueError("Something's wrong. Check batch dimension on perm mask and target mapping tensors!")
 
     # start and finish indices of batchsized chunks (0,batchsize),(batchsize+1,2*batchsize), ... 
     index_tuples = self.make_chunks(perm_mask.size(0), self.batchsize)
@@ -114,9 +129,11 @@ class XLNet(LanguageModel):
   def make_mask_and_mapping(self, indices, padlens=(0, 2)):
     '''
     input:
-      indices (list): a list with len(ptb_tokenlist) entries.
-        key (int): index in ptb tokenlist
-        value (list): indices in subtoken list corresponding to that index
+      indices (list): a list with len(ptb_tokenlist) elements, each element being a list of subword indices. 
+        (e.g. [[0, 1], [2], [3, 4]])
+        so, the nth item is a list of indices in flattened subtoken list that correspond to nth ptb word
+        ( e.g. the example above is for the ptb tokenlist ('Odds', 'and', 'Ends') 
+          with corresponding subtokenlist ['▁Odd', 's', '▁and', '▁End', 's'] )
       padlens: tuple of ints, length of padding before, and after, resp.
         by default, no prepadding and postpadding only 2 special characters.
     output: perm_mask, target_mapping
@@ -127,16 +144,19 @@ class XLNet(LanguageModel):
       thus, batchsize of perm_mask and target_mapping will each be
         2 * len(indices) * len(flattened(indices))
     '''
+    print(f"making mask and mapping for {indices}, with padlengths {padlens}")
     perm_masks = []
     target_mappings = []
-    prepad, postpad = padlens
+    prepadlen, postpadlen = padlens
     # seqlen = number of items in indices flattened, plus padding lengths
-    seqlen = prepad + len([i for x in indices for i in x]) + postpad
+    seqlen = prepadlen + len([i for x in indices for i in x]) + postpadlen
     # increment each index in nested list by prepadding amount prepad
-    indices = [[i+prepad for i in l] for l in indices]
-    for i, _ in enumerate(indices):
-      for j, _ in enumerate(indices):
-        pm_ij, tm_ij = self.make_mask_and_mapping_single_pair(indices[i], indices[j], seqlen)
+    print(f'indices raw:\n{indices}')
+    indices_incremented = [[i+prepadlen for i in l] for l in indices]
+    print(f'indices incremented by {prepadlen}:\n{indices_incremented}')
+    for word_i in indices_incremented:
+      for word_j in indices_incremented:
+        pm_ij, tm_ij = self.make_mask_and_mapping_single_pair(word_i, word_j, seqlen)
         perm_masks.append(pm_ij)
         target_mappings.append(tm_ij)
     perm_mask = torch.cat(perm_masks, 0)
@@ -149,21 +169,20 @@ class XLNet(LanguageModel):
     '''
     Takes two spans of integers (representing the indices of the subtokens
     of two PTB tokens), and returns a permutation mask tensor and an target
-    mapping tensor for use in XLNet. The first dimension of the tensors will
-    be twice the length of w1_indices.
+    mapping tensor for use in XLNet. The first dimension (batch_dim) of each
+    of these tensors will be twice the length of w1_indices.
     input:
-      w1_indices,
-      w2_indices: lists of indices (ints)
+      w1_indices, w2_indices: lists of indices (ints)
       seqlen = the length of the sentence as subtokens (with padding, special tokens)
     returns:
       perm_mask: a tensor of shape (2*len1, seqlen, seqlen)
       target_mapping: a tensor of shape (2*len1, 1, seqlen)
     '''
     len1 = len(w1_indices)
-    batch_size = len1*2 #  times 2 for numerator and denominator
+    batch_dim = len1*2 #  times 2 for numerator and denominator
 
-    perm_mask = torch.zeros((batch_size, seqlen, seqlen), dtype=torch.float)
-    target_mapping = torch.zeros((batch_size, 1, seqlen), dtype=torch.float)
+    perm_mask = torch.zeros((batch_dim, seqlen, seqlen), dtype=torch.float)
+    target_mapping = torch.zeros((batch_dim, 1, seqlen), dtype=torch.float)
     for i, index in enumerate(w1_indices):
       perm_mask[(i, len1+i), :, index:w1_indices[-1]+1] = 1.0 # mask the other w1 tokens to the right
       perm_mask[len1+i, :, w2_indices] = 1.0
@@ -174,7 +193,7 @@ class XLNet(LanguageModel):
   def make_subword_lists(self, ptb_tokenlist, add_special_tokens=False):
     '''
     Takes list of items from Penn Treebank tokenized text,
-    runs the tokenizer to decompose into the subword tokens expected by XLNet, 
+    runs the tokenizer to decompose into the subword tokens expected by XLNet,
     including appending special characters '<sep>' and '<cls>', if specified.
     Implements some simple custom adjustments to make the results more like what might be expected.
     [TODO: this could be improved, if it is important.
@@ -215,6 +234,8 @@ class XLNet(LanguageModel):
     '''
     Convert from word index (for nested list of subword tokens),
     to list of subword token indices at that word index
+    ( e.g. for inputs word_index = 2, nested_list=[['▁Odd', 's'], ['▁and'], ['▁End', 's']]
+      the output is [3, 4])
     '''
     if word_index > len(nested_list):
       raise ValueError('word_index exceeds length of nested_list')
@@ -227,13 +248,14 @@ class XLNet(LanguageModel):
 
   @staticmethod
   def make_chunks(m, n):
-    ''' 
-    makes tuples of indices for batching 
-    input: 
+    '''
+    makes (start,finish) tuples of indices 
+    for use in indexing into a list of length m in chunks of size n
+    
+    input:
       m = number of items
       n = size of chunks
-    returns: list of indices of form (start,finish) 
-    for use in indexing into a list of length m in chunks of size n
+    returns: list of tuples of indices of form (start,finish)
     '''
     r = m%n
     d = m//n
