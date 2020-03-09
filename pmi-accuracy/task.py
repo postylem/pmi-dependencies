@@ -1,6 +1,6 @@
 """
 Gets dependency distance from CONLL file
-Class taken from structural-probes/task.py by John Hewitt
+ParseDistanceTask closely based on structural-probes/task.py by John Hewitt
 """
 
 import torch

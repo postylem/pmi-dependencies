@@ -1,21 +1,30 @@
 # PMI dependencies from XLNet
 
-cf my messy scratch nootebook [here](https://colab.research.google.com/drive/1kJdXQpXhNbTqqdLatH_qfJCeuRD_9ggW#scrollTo=vCfdPAT2QNXd) or cleaner minimal example notebook [here](https://colab.research.google.com/drive/1VVcYrRLOUizEbvKvD5_zERHJQLqB_gu4)
-
-Some comments are there about the dealing with the fact that these estimates of PMI are non-symmetric, subword tokenization, etc.
-
 ## Accuracy of XLNet PMI dependencies
 
-[pmi-accuracy.py](pmi-accuracy/pmi-accuracy.py) gets PMI-based dependencies for sentences in PTB (uses [XLNetLMHeadModel](https://huggingface.co/transformers/model_doc/xlnet.html#xlnetlmheadmodel) to get PMI estimates), and calculates undirected attachment score.  
+```
+pmi-accuracy/
+| main.py
+| parser.py
+| task.py
+| languagemodel.py
+```
 
-[gettrees.py](pmi-accuracy/gettrees.py) gets MST from matrix, other ways of getting trees to be implemented.
+running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentences in PTB, using a language model (currently just [XLNetLMHeadModel](https://huggingface.co/transformers/model_doc/xlnet.html#xlnetlmheadmodel)) to get PMI estimates, extracts a tree, calculates undirected attachment score, reports the results, writes the matrices, etc.  
+
+[langaugemodel.py](pmi-accuracy/langaugemodel.py) has a class for XLNet (todo, add one for BERT), with method to get a PMI matrix from a sentence (that is, from a list of Penn Treebank tokens).
+
+[parser.py](pmi-accuracy/parser.py) has the methods to get either a simple MST (Prim's algorithm) or a projective MST (Eisner's algorithm) from the PMI matrices.
+
+[task.py](pmi-accuracy/task.py) has stuff for dealing with the raw PTB and getting a distance matrix (.conllx file -> torch tensor), to extract parse distance matrix, or linear string-distance matrix.
+
 
 ### Baselines
 
-- `LinearBaselineTask`, defined in task.py, will make a matrix whose entries are simply word-to-word distance in the string.  Recovering an min spanning tree from this matrix will give a relatively strong baseline.
+- `LinearBaselineTask`, defined in [task.py](pmi-accuracy/task.py), will make a matrix whose entries are simply word-to-word distance in the string.  Recovering an min spanning tree from this matrix will give a relatively strong baseline.
 
 TODO:
-- randomized baseline?
+- randomized baseline?  Perhaps not very high priority.
 
 ## Running
 
@@ -28,16 +37,17 @@ conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 pip install transformers
 ```
 
-Then to run: 
+With `pmienv` active, to run: 
+
 ```bash
-python pmi-accuracy/pmi-accuracy.py > out.txt
+python pmi-accuracy/main.py > out
 ```
 
-or more like perhaps 
+or something more specific like:
 ```bash
-nohup python pmi-accuracy/pmi-accuracy.py > out.txt 2> err.txt &
+nohup python pmi-accuracy/main.py --long_enough 30 --batch_size 32 --n_observations 100 > out 2> err &
 ```
-or use tmux.
+
 
 CLI options:
 
@@ -48,9 +58,10 @@ CLI options:
 - `--results_dir`: the root folder for results to be generated. A run of the script will generate a timestamped subfolder with results within this directory (default=`results/`)
 - `--save_matrices`: option to save PMI matrices (as numpy arrays) to the results directory.
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
-- `--long_enough`: (int) default=30. Since XLNet does badly on short sentences, sentences in the PTB which are less than long_enough words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running XLNet on longer inputs does slow the testing down somewhat.
+- `--long_enough`: (int) default=30. Since XLNet does badly on short sentences, sentences in the PTB which are less than long_enough words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running XLNet on longer inputs does slow the testing down somewhat.  **Set to 1 to just not do padding at all.**
 
 ## Notes
+
 ### Tokenization
 Tokenization is a little bit of an issue, since XLNet is trained on text which is tokenized on the subword level (by Google's [sentencepiece](https://github.com/google/sentencepiece)).  The PTB is tokenized already (_not_ at the subword level), and in order to use the gold parses from the PTB, subword tokenization must be ignored (we're not going to get an accuracy score for dependencies at the level of morphology).
 
@@ -71,16 +82,15 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 {results_dir}/xlnet-base-cased_{n_observations}_{date}/
 | spec.txt
 | scores.csv
-| mean_scores.csv
 | pmi_matrices.npz
 | dependencies.tex
 | tikz.zip
 ```
 - `spec.txt` - echo of CLI arguments, for reference.
 - `scores.csv` - one row per sentence, reporting the sentence length, uuas with the four different ways of symmetrizing, and baseline uuas.
-- `mean_scores.csv` - for quick inspection, a print out of mean uuas over all sentences ignoring NaNs
 - `pmi_matrices.npz` - an .npz archive of numpy arrays, with the key 'sentence_`i`' for sentence observation number `i`.
 - `dependencies.tex` - a template to run to quickly visualize the predictions (which are in the tikz folder) 
+- `tikz.zip` - a zipped directory of all the tikz dependencies for visualizing.
 
 
 ### Saving PMI matrices:
@@ -88,14 +98,22 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back in afterward like this:
 
 ```python
-if CLI_ARGS.save_matrices:
-  npzfile = np.load(RESULTS_DIR+'pmi_matrices.npz')
-  print(sorted(npzfile.files))
-  print(npzfile['sentence_0'])
+npzfile = np.load(RESULTS_DIR + 'pmi_matrices.npz')
+print(sorted(npzfile.files))
+matrix_0 = npzfile['sentence_0']
 ```
 
 ### Output dependencies as tikz:
 To look at the dependency graphs predicted with PMI, say, sentence 42, add a line `\input{tikz/42.tikz}`to the dependencies.tex file, and compile.  (Unzip tikz.zip first)
+
+
+### Notes:
+
+a messy scratch notebook is [here](https://colab.research.google.com/drive/1kJdXQpXhNbTqqdLatH_qfJCeuRD_9ggW#scrollTo=vCfdPAT2QNXd) 
+a minimal example notebook from a few iterations ago [here](https://colab.research.google.com/drive/1VVcYrRLOUizEbvKvD5_zERHJQLqB_gu4)
+
+Some prose is there about the dealing with the fact that these estimates of PMI are non-symmetric, subword tokenization, etc.
+
 
 --------------------------------------------------
 

@@ -1,6 +1,6 @@
 """
 Methods for getting probability estimates from a language model
-Classes could exist for XLNet, BERT, ELMo, baselines...
+Classes should exist for XLNet, BERT, ...ELMo, baselines...
 
 -
 Jacob Louis Hoover
@@ -13,7 +13,7 @@ import torch
 import torch.nn.functional as F
 
 class LanguageModel:
-  """Abstract class for getting probability estimates"""
+  """Abstract class for getting probability estimates.  (Do I need abstract classes?)"""
 
   @staticmethod
   def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist):
@@ -48,29 +48,30 @@ class XLNet(LanguageModel):
     prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
     postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
 
-    # NOW JUST A SOMETHING TO MESS AROUND. DELETE THIS.
-    padtextlist = """In 1991 , the remains of Russian Tsar Nicholas II and his family
-                (except for Alexei and Maria) are discovered .
-                The voice of Nicholas 's young son , Tsarevich Alexei Nikolaevich, narrates the
-                remainder of the story . 1883 Western Siberia ,
-                a young Grigori Rasputin is asked by his father and a group of men to perform magic .
-                Rasputin has a vision and denounces one of the men as a horse thief . Although his
-                father initially slaps him for making such an accusation , Rasputin watches as the
-                man is chased outside and beaten . Twenty years later , Rasputin sees a vision of
-                the Virgin Mary , prompting him to become a priest . Rasputin quickly becomes famous,
-                 with people , even a bishop , begging for his blessing . <eod>""".split()
-    paddings = (padtextlist, [])
-    prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
-    postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
+    # # To use static prepadding text, and no postpadding, which is what Michaela used,
+    # # uncomment this (but, it doesn't seem to change anything drastically):
+    # padtextlist = """In 1991 , the remains of Russian Tsar Nicholas II and his family
+    #             (except for Alexei and Maria) are discovered .
+    #             The voice of Nicholas 's young son , Tsarevich Alexei Nikolaevich, narrates the
+    #             remainder of the story . 1883 Western Siberia ,
+    #             a young Grigori Rasputin is asked by his father and a group of men to perform magic .
+    #             Rasputin has a vision and denounces one of the men as a horse thief . Although his
+    #             father initially slaps him for making such an accusation , Rasputin watches as the
+    #             man is chased outside and beaten . Twenty years later , Rasputin sees a vision of
+    #             the Virgin Mary , prompting him to become a priest . Rasputin quickly becomes famous,
+    #              with people , even a bishop , begging for his blessing . <eod>""".split()
+    # paddings = (padtextlist, [])
+    # prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
+    # postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
 
-    print(f"\n/¯¯¯¯¯¯ SUBWORD PADDING LISTS:\nprepadding\t{prepadding}\npostpadding\t{postpadding}\n")
+    print(f"\n/¯¯¯¯¯¯ WHAT's GOING ON WITH THE PADDING? :\nprepadding\t{prepadding}\npostpadding\t{postpadding}\n")
     padded_input = [*prepadding, *flattened_sentence, *postpadding]
-    print(f"padded_input:\n{padded_input}\n\\______\n")
-    perm_mask, target_mapping = self.make_mask_and_mapping(
-      indices, padlens=(len(prepadding), len(postpadding)))
+    print(f"padded_input:\n{padded_input}")
+    perm_mask, target_mapping = self.make_mask_and_mapping(indices, padlens=(len(prepadding), len(postpadding)))
     if not target_mapping.size(0) == perm_mask.size(0) == 2*len(indices)*(len([i for x in indices for i in x])):
-      raise ValueError("Something's wrong. Check batch dimension on perm mask and target mapping tensors!")
+      raise ValueError("Uh oh! Check batch dimension on perm mask and target mapping tensors.")
 
+    print(f"perm_mask first lines:\n{perm_mask[:,]}")
     # start and finish indices of batchsized chunks (0,batchsize),(batchsize+1,2*batchsize), ... 
     index_tuples = self.make_chunks(perm_mask.size(0), self.batchsize)
 
@@ -144,16 +145,15 @@ class XLNet(LanguageModel):
       thus, batchsize of perm_mask and target_mapping will each be
         2 * len(indices) * len(flattened(indices))
     '''
-    print(f"making mask and mapping for {indices}, with padlengths {padlens}")
     perm_masks = []
     target_mappings = []
     prepadlen, postpadlen = padlens
     # seqlen = number of items in indices flattened, plus padding lengths
     seqlen = prepadlen + len([i for x in indices for i in x]) + postpadlen
     # increment each index in nested list by prepadding amount prepad
-    print(f'indices raw:\n{indices}')
+    print(f'subword indices raw:\n{indices}')
     indices_incremented = [[i+prepadlen for i in l] for l in indices]
-    print(f'indices incremented by {prepadlen}:\n{indices_incremented}')
+    print(f'incremented by prepadlen={prepadlen}:\n{indices_incremented}\n\\______\n')
     for word_i in indices_incremented:
       for word_j in indices_incremented:
         pm_ij, tm_ij = self.make_mask_and_mapping_single_pair(word_i, word_j, seqlen)
@@ -167,10 +167,9 @@ class XLNet(LanguageModel):
   @staticmethod
   def make_mask_and_mapping_single_pair(w1_indices, w2_indices, seqlen):
     '''
-    Takes two spans of integers (representing the indices of the subtokens
-    of two PTB tokens), and returns a permutation mask tensor and an target
-    mapping tensor for use in XLNet. The first dimension (batch_dim) of each
-    of these tensors will be twice the length of w1_indices.
+    Takes two lists of integers (representing the indices of the subtokens of two PTB tokens, resp.)
+    and returns a permutation mask tensor and an target mapping tensor for use in XLNet.
+    The first dimension (batch_dim) of each of these tensors will be twice the length of w1_indices.
     input:
       w1_indices, w2_indices: lists of indices (ints)
       seqlen = the length of the sentence as subtokens (with padding, special tokens)
@@ -184,8 +183,9 @@ class XLNet(LanguageModel):
     perm_mask = torch.zeros((batch_dim, seqlen, seqlen), dtype=torch.float)
     target_mapping = torch.zeros((batch_dim, 1, seqlen), dtype=torch.float)
     for i, index in enumerate(w1_indices):
+      # the 1st and the len1+1th are the same, just for the numerator and denominator resp. 
       perm_mask[(i, len1+i), :, index:w1_indices[-1]+1] = 1.0 # mask the other w1 tokens to the right
-      perm_mask[len1+i, :, w2_indices] = 1.0
+      perm_mask[len1+i, :, w2_indices] = 1.0 # mask w2's indices for the denominator
       target_mapping[(i, len1+i), :, index] = 1.0 # predict just subtoken i of w1
     return perm_mask, target_mapping
 
