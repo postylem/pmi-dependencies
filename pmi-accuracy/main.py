@@ -82,19 +82,16 @@ def score_observation(observation, device, paddings=([], []), verbose=False):
   prepad_tokenlist = [i for x in [obs.sentence for obs in paddings[0]] for i in x]
   postpad_tokenlist = [i for x in [obs.sentence for obs in paddings[1]] for i in x]
   pmi_matrix = XLNETMODEL.ptb_tokenlist_to_pmi_matrix(
-  	observation.sentence, device=device, 
-  	paddings=(prepad_tokenlist,postpad_tokenlist), verbose=verbose)
+  	observation.sentence, device=device, paddings=(prepad_tokenlist, postpad_tokenlist), verbose=verbose)
 
   # Instantiate a DepParse object, with the parsetype 'mst'
   mstparser = parser.DepParse('mst', pmi_matrix, observation.sentence)
-  # Get gold edges distance tensor from conllx file
+  # Get gold edges distances tensor from conllx file
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
-  print(gold_dist_matrix)
   gold_edges = parser.DepParse('mst', gold_dist_matrix, observation.sentence).tree(symmetrize_method='none',
                                                                                    prims_maximum_spanning_tree=False)
-  # Make linear-order baseline distance tensor
+  # Make linear-order baseline distances tensor
   linear_dist_matrix = task.LinearBaselineTask.labels(observation)
-  print(linear_dist_matrix)
   linear_edges = parser.DepParse('mst', linear_dist_matrix, observation.sentence).tree(symmetrize_method='none',
                                                                                    prims_maximum_spanning_tree=False)
 
@@ -197,9 +194,9 @@ def get_padding(i, observations):
       total_len += len(observations[k][0])
     else: raise ValueError(f'Not enough context to pad up to size {LONG_ENOUGH}!')
   if pad_index_set != set():
-    print(f'Using sentence(s) {pad_index_set} as padding for sentence {i}.')
-  prepadding_observations = [observations[x] for x in pad_index_set if x < i]
-  postpadding_observations = [observations[x] for x in pad_index_set if x > i]
+    print(f'Using sentence(s) {sorted(pad_index_set)} as padding for sentence {i}.')
+  prepadding_observations = [observations[x] for x in sorted(pad_index_set) if x < i]
+  postpadding_observations = [observations[x] for x in sorted(pad_index_set) if x > i]
   return prepadding_observations, postpadding_observations
 
 def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, verbose=False):
@@ -212,6 +209,7 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
   '''
   scores_filepath = os.path.join(results_dir, 'scores.csv')
   all_scores = []
+  all_scores_proj= []
   all_linear_baseline_scores = []
 
   if save:
@@ -264,6 +262,7 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
 
       # Just for means
       all_scores.append(scores)
+      all_scores_proj.append(scores_proj)
       all_linear_baseline_scores.append(linear_baseline_score)
 
   shutil.make_archive(os.path.join(results_dir, 'tikz'), 'zip', os.path.join(results_dir, 'tikz'))
@@ -274,10 +273,15 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
     tex_file.write("\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}\n\\pgfkeys{%\n/depgraph/reserved/edge style/.style = {%\n-, % arrow properties\nsemithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round\n},%\n}\n\\begin{document}\n% % Put dependency plots here, like\n\\input{tikz/0.tikz}\n\\end{document}")
 
   mean_scores = np.nanmean(np.array(all_scores), axis=0).tolist()
+  mean_scores_proj = np.nanmean(np.array(all_scores_proj), axis=0).tolist()
   if verbose:
     print('\n---\nmean_scores:')
+    print('nonproj')
     for mzip in zip(['sum', 'triu', 'tril', 'none'], mean_scores):
-      print(f'\t{mzip[0]} = {mzip[1]}')
+      print(f'\t{mzip[0]} = {mzip[1]:.3f}')
+    print('proj')
+    for mzip in zip(['sum_p', 'triu_p', 'tril_p', 'none_p'], mean_scores_proj):
+      print(f'\t{mzip[0]} = {mzip[1]:.3f}')
     print(f'\tlinear_baseline = {np.nanmean(all_linear_baseline_scores)}')
 
   if save:
