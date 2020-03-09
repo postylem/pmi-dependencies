@@ -71,7 +71,6 @@ class XLNet(LanguageModel):
     if not target_mapping.size(0) == perm_mask.size(0) == 2*len(indices)*(len([i for x in indices for i in x])):
       raise ValueError("Uh oh! Check batch dimension on perm mask and target mapping tensors.")
 
-    print(f"perm_mask first lines:\n{perm_mask[:,]}")
     # start and finish indices of batchsized chunks (0,batchsize),(batchsize+1,2*batchsize), ... 
     index_tuples = self.make_chunks(perm_mask.size(0), self.batchsize)
 
