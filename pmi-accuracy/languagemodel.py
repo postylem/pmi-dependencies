@@ -44,7 +44,7 @@ class XLNet(LanguageModel):
       print(f"flattened list of resulting subtokens:\n{flattened_sentence}")
       print(f"correspondence indices:\n{indices}")
 
-    # Now add padding after (and/or before, if sentence is near end of corpus)
+    # Now add padding before and/or after
     prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
     postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
 
@@ -78,13 +78,14 @@ class XLNet(LanguageModel):
     list_of_output_tensors = []
     for index_tuple in tqdm(index_tuples, 
                             desc=f'{perm_mask.size(0)} in batches of {self.batchsize}', leave=False):
+      # input_ids is just the padded sentence as ids repeated as many times as needed for the batch
       input_ids = torch.tensor(padded_sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
       with torch.no_grad():
         logits_outputs = self.model(
           input_ids.to(device),
           perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(device),
           target_mapping=target_mapping[index_tuple[0]:index_tuple[1]].to(device))
-        # note, logits_output is a tuple: ([self.batchsize, 1, self.tokenizer.vocabsize()],)
+        # note, logits_output is a degenerate tuple: ([self.batchsize, 1, self.tokenizer.vocabsize()],)
         # log softmax across the vocabulary (dimension 2 of the logits tensor)
         outputs = F.log_softmax(logits_outputs[0], 2)
         list_of_output_tensors.append(outputs)
