@@ -22,13 +22,19 @@ class LanguageModel:
 
 class XLNet(LanguageModel):
   """Class for using XLNet as estimator"""
-  def __init__(self, model, tokenizer, batchsize):
-    self.model = model
-    self.tokenizer = tokenizer
+  def __init__(self, device, xlnet_spec, batchsize, offline=False):
+    if offline:
+      # import pytorch transformers instead of transformers, for use on Compute Canada
+      from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
+    else:
+      from transformers import XLNetLMHeadModel, XLNetTokenizer
+    self.device = device
+    self.model = XLNetLMHeadModel.from_pretrained(xlnet_spec).to(device)
+    self.tokenizer = XLNetTokenizer.from_pretrained(xlnet_spec)
     self.batchsize = batchsize
     print(f"XLNet(batchsize={batchsize}) initialized.")
 
-  def ptb_tokenlist_to_pmi_matrix(self, ptb_tokenlist, device, paddings=([], []), verbose=False):
+  def ptb_tokenlist_to_pmi_matrix(self, ptb_tokenlist, paddings=([], []), verbose=False):
     '''
     input: ptb_tokenlist: PTB-tokenized sentence as list
       paddings: tuple (prepad_tokenlist,postpad_tokenlist) each a list of PTB-tokens
@@ -78,40 +84,48 @@ class XLNet(LanguageModel):
     list_of_output_tensors = []
     for index_tuple in tqdm(index_tuples, 
                             desc=f'{perm_mask.size(0)} in batches of {self.batchsize}', leave=False):
-      # input_ids is just the padded sentence as ids repeated as many times as needed for the batch
-      input_ids = torch.tensor(padded_sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
+      # input_id_batch is just padded_sentence_as_ids repeated as many times as needed for the batch
+      input_id_batch = torch.tensor(padded_sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
       with torch.no_grad():
         logits_outputs = self.model(
-          input_ids.to(device),
-          perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(device),
-          target_mapping=target_mapping[index_tuple[0]:index_tuple[1]].to(device))
+          input_id_batch.to(self.device),
+          perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(self.device),
+          target_mapping=target_mapping[index_tuple[0]:index_tuple[1]].to(self.device))
         # note, logits_output is a degenerate tuple: ([self.batchsize, 1, self.tokenizer.vocabsize()],)
         # log softmax across the vocabulary (dimension 2 of the logits tensor)
         outputs = F.log_softmax(logits_outputs[0], 2)
         list_of_output_tensors.append(outputs)
 
-    outputs_all_batches = torch.cat(list_of_output_tensors).cpu().numpy()
+    outputs_all_batches = torch.cat(list_of_output_tensors).cpu().numpy() 
+    # outputs_all_batches is of shape (2 * numwords * numsubwords, 1 , vocabsize)
     pmis = self.get_pmi_matrix_from_outputs(outputs_all_batches, indices, padded_sentence_as_ids)
     return torch.tensor(pmis)
 
   def get_pmi_matrix_from_outputs(self, outputs, indices, sentence_as_ids):
     '''
     Gets pmi matrix from the outputs of xlnet
+    Input: 
+      outputs, tensor shape (2 * numwords * numsubwords, 1, vocabsize), 
+        (for each PTB word, first the tensor for each subword numerator, 
+        then for each subword denominator)
+      indices, list of lists of subwords corresponding to each word
+      sentence_as_ids, list of subword token ids in flattened sentence
     '''
-    # pad[i] the number of items in the batch before the ith word's predictions
+    # this is a bit complicated looking but I'm just getting it so that
+    # pad[i] = the number of items in the batch before the ith word's predictions
     lengths = [len(l) for l in indices]
     cumsum = np.empty(len(lengths)+1, dtype=int)
     np.cumsum(lengths, out=cumsum[1:])
     cumsum[:1] = 0
-    pad = list(len(indices)*2*(cumsum))
+    pad = list(len(indices)*2*(cumsum))[:-1]
 
     pmis = np.ndarray(shape=(len(indices), len(indices)))
-    for i, _ in enumerate(indices):
+    for i, indices_i in enumerate(indices):
       for j, _ in enumerate(indices):
-        start = pad[i]+j*2*len(indices[i])
-        end = start+2*len(indices[i])
-        span = outputs[start:end]
-        pmis[i][j] = self.get_pmi_from_outputs(span, indices[i], sentence_as_ids)
+        start = pad[i] + j*2*len(indices_i)
+        end = start + 2*len(indices_i)
+        output_span = outputs[start:end]
+        pmis[i][j] = self.get_pmi_from_outputs(output_span, indices_i, sentence_as_ids)
     return pmis
 
   @staticmethod

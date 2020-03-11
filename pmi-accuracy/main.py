@@ -64,13 +64,12 @@ def load_conll_dataset(filepath, observation_class):
   return observations
 
 # Running and reporting
-def score_observation(observation, device, paddings=([], []), verbose=False):
+def score_observation(observation, paddings=([], []), verbose=False):
   '''
   gets the unlabeled undirected attachment score for a given sentence (observation),
   by reading off the minimum spanning tree from a matrix of PTB dependency distances
   and comparing that to the maximum spanning tree from a matrix of PMIs
   padding may be added, as tuple of lists of observations for pre- and post-padding resp.
-  specify 'cuda' or 'cpu' as device
   returns: list_of_scores (list of floats)
   '''
   if verbose:
@@ -82,7 +81,7 @@ def score_observation(observation, device, paddings=([], []), verbose=False):
   prepad_tokenlist = [i for x in [obs.sentence for obs in paddings[0]] for i in x]
   postpad_tokenlist = [i for x in [obs.sentence for obs in paddings[1]] for i in x]
   pmi_matrix = XLNETMODEL.ptb_tokenlist_to_pmi_matrix(
-  	observation.sentence, device=device, paddings=(prepad_tokenlist, postpad_tokenlist), verbose=verbose)
+  	observation.sentence, paddings=(prepad_tokenlist, postpad_tokenlist), verbose=verbose)
 
   # Get gold edges distances tensor from conllx file (note 'mst' will always give projective gold edges)
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
@@ -232,8 +231,7 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
 
       paddings = get_padding(i, observations)
 
-      score_returns = score_observation(observation,
-                                        device=device, paddings=paddings, verbose=verbose)
+      score_returns = score_observation(observation, paddings=paddings, verbose=verbose)
       pmi_matrix, scores, scores_proj, gold_edges, pmi_edges, pmi_edges_proj, linear_baseline_score = score_returns
       scores_writer.writerow([i, len(observation.sentence),
                               scores[0], scores[1], scores[2], scores[3],
@@ -311,10 +309,8 @@ if __name__ == '__main__':
 
   if CLI_ARGS.offline_mode:
     # import pytorch transformers instead of transformers, for use on Compute Canada
-    from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
     SPEC_STRING = 'offline'
   else:
-    from transformers import XLNetLMHeadModel, XLNetTokenizer
     SPEC_STRING = str(CLI_ARGS.xlnet_spec)
 
   N_OBS = CLI_ARGS.n_observations
@@ -343,13 +339,9 @@ if __name__ == '__main__':
     print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
     print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
 
-
   # Instantiate the language model to use for getting estimates
-  XLNETMODEL = languagemodel.XLNet(
-    XLNetLMHeadModel.from_pretrained(CLI_ARGS.xlnet_spec).to(DEVICE),
-    XLNetTokenizer.from_pretrained(CLI_ARGS.xlnet_spec),
-    CLI_ARGS.batch_size)
-
+  XLNETMODEL = languagemodel.XLNet(DEVICE, CLI_ARGS.xlnet_spec, CLI_ARGS.batch_size,
+                                   offline=CLI_ARGS.offline_mode)
 
   # Columns of CONLL file
   FIELDNAMES = ['index',
