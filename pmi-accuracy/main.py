@@ -137,9 +137,19 @@ def score_observation(observation, paddings=([], []), verbose=False):
 
   return pmi_matrix, scores, scores_proj, gold_edges, pmi_edges, pmi_edges_proj, linear_baseline_score
 
-def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', label2=''):
+def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
+  words = observation.sentence
   gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
+
+  gold_edge_label = {key : None for key in gold_edges_set}
+  for i,_ in enumerate(observation.index):
+    d,h = int(observation.index[i]), int(observation.head_indices[i])
+    if (d-1,h-1) in gold_edges_set:
+      gold_edge_label[(d-1,h-1)] = observation.governance_relations[i]
+    elif (h-1,d-1) in gold_edges_set:
+      gold_edge_label[(h-1,d-1)] = observation.governance_relations[i]
+
   predicted_edges_set = {tuple(sorted(x)) for x in predicted_edges}
   correct_edges = list(gold_edges_set.intersection(predicted_edges_set))
   incorrect_edges = list(predicted_edges_set.difference(gold_edges_set))
@@ -147,13 +157,13 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, words, label1='', lab
   num_total = len(gold_edges)
   uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
   # replace non-TeXsafe characters... add as needed
-  tex_replace = { '$':'\$', '&':'\&', '%':'\%', '~':'\textasciitilde', '#':'\#'}
+  tex_replace = { '$':'\$', '&':'+', '%':'\%', '~':'\textasciitilde', '#':'\#'}
   with open(tikz_filepath, 'a') as fout:
-    string = "\\begin{dependency}[hide label, edge unit distance=.5ex]\n\\begin{deptext}[column sep=0.0cm]\n"
+    string = "\\begin{dependency}[hide label, edge unit distance=.75ex]\n\\begin{deptext}[column sep=0.0cm]\n"
     string += "\\& ".join([tex_replace[x] if x in tex_replace else x for x in words]) + " \\\\" + '\n'
     string += "\\end{deptext}" + '\n'
-    for i_index, j_index in gold_edges:
-      string += f'\\depedge{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
+    for i_index, j_index in gold_edge_label:
+      string += f'\\depedge[show label]{{{i_index+1}}}{{{j_index+1}}}{{{gold_edge_label[(i_index, j_index)]}}}\n'
     for i_index, j_index in correct_edges:
       string += f'\\depedge[edge style={{blue, opacity=0.5}}, edge below]{{{i_index+1}}}{{{j_index+1}}}{{{"."}}}\n'
     for i_index, j_index in incorrect_edges:
@@ -247,7 +257,7 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
         '''prints tikz comparing predicted with gold
         for each of the four symmetrize methods in a single file'''
         print_tikz(tikz_filepath, pmi_edges[symmetrize_method],
-                   gold_edges, observation.sentence,
+                   gold_edges, observation,
                    label1=symmetrize_method, label2=i)
 
       tikz_filepath = os.path.join(results_dir, 'tikz', f'{i}proj.tikz')
@@ -255,7 +265,7 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
         '''prints tikz comparing predicted with gold
         for each of the four symmetrize methods in a single file'''
         print_tikz(tikz_filepath, pmi_edges_proj[symmetrize_method],
-                   gold_edges, observation.sentence,
+                   gold_edges, observation,
                    label1="proj "+symmetrize_method, label2=i)
 
       # Just for means
@@ -268,7 +278,8 @@ def report_uuas_n(observations, results_dir, device, n_obs='all', save=False, ve
 
   tex_filepath = os.path.join(results_dir, 'dependencies.tex')
   with open(tex_filepath, mode='w') as tex_file:
-    tex_file.write("\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}\n\\pgfkeys{%\n/depgraph/reserved/edge style/.style = {%\n-, % arrow properties\nsemithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round\n},%\n}\n\\begin{document}\n% % Put dependency plots here, like\n\\input{tikz/0.tikz}\n\\end{document}")
+    tex_file.write("\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}\n\\pgfkeys{%\n/depgraph/reserved/edge style/.style = {\n-, % arrow properties\nsemithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round\n},%\n/depgraph/reserved/label style/.style = {%\nanchor = mid,\ndraw, solid,\nblack,\nscale = .5,\ntext height = 1.5ex, text depth = 0.25ex, % needed to center text vertically\ninner sep=.5ex, \nouter sep = 0pt,\nrounded corners = 2pt, \nrotate = 0,\ntext = black, \nfill = white},%\n}\n\\begin{document}\n% % Put dependency plots here, like\n\\input{tikz/0.tikz}\n\\end{document}")
+
 
   mean_scores = np.nanmean(np.array(all_scores), axis=0).tolist()
   mean_scores_proj = np.nanmean(np.array(all_scores_proj), axis=0).tolist()
