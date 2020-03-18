@@ -1,7 +1,5 @@
 """
-Methods to get a tree structure from a distance matrix (numpy array).
--
-March 2020
+Methods to get a tree structure from a distance matrix (torch tensor).
 """
 
 import torch
@@ -59,9 +57,9 @@ class DepParse:
     if symmetrize_method == 'sum':
       sym_matrix = sym_matrix + np.transpose(sym_matrix)
     elif symmetrize_method == 'triu':
-      sym_matrix = np.triu(sym_matrix) + np.transpose(np.triu(sym_matrix))
+      sym_matrix = torch.tensor(np.triu(sym_matrix) + np.transpose(np.triu(sym_matrix)))
     elif symmetrize_method == 'tril':
-      sym_matrix = np.tril(sym_matrix) + np.transpose(np.tril(sym_matrix))
+      sym_matrix = torch.tensor(np.tril(sym_matrix) + np.transpose(np.tril(sym_matrix)))
     elif symmetrize_method != 'none':
       raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
 
@@ -69,7 +67,7 @@ class DepParse:
       edges = self.prims(sym_matrix, self.words, maximum_spanning_tree=maximum_spanning_tree)
     elif self.parsetype == "projective":
       edges = self.eisners(sym_matrix, self.words)
-    else:
+    else: 
       raise ValueError("Unknown parsetype.  Choose 'mst' or 'projective'")
     if self.parsetype == "projective" and not maximum_spanning_tree:
       raise ValueError("Please only use Eisner's algorithm for maximum_spanning_tree.")
@@ -133,10 +131,16 @@ class DepParse:
     # in the algorithm, values in the first column and the main diagonal will be ignored
     # (nothing points to the root and nothing points to itself)
     # I'll fill the first row with a large negative value, to prevent more than one arc from root
-    col_zeros = np.zeros((matrix.shape[0], 1))
-    matrix_paddedcol = np.concatenate((col_zeros, matrix), 1)
-    row_zeros = np.zeros((1, matrix_paddedcol.shape[1])).reshape(1, -1) - 50
-    scores = np.concatenate([row_zeros, matrix_paddedcol], 0)
+    matrix = matrix.float()
+    col_zeros = torch.zeros(matrix.shape[0]).reshape(-1, 1)
+    matrix_paddedcol = torch.cat([col_zeros, matrix], dim=1)
+    row_zeros = torch.zeros(matrix_paddedcol.shape[1]).reshape(1, -1)
+    row_zeros = row_zeros.fill_(-50)
+    matrix_padded = torch.cat([row_zeros, matrix_paddedcol], dim=0)
+
+    scores = matrix_padded.numpy()
+    # with np.printoptions(precision=2, suppress=True):
+    #   print(f"input 'scores' for eisners\n{scores}")
 
     # ---- begin algorithm ------
 
@@ -184,6 +188,11 @@ class DepParse:
     self.eisners_backtrack(incomplete_backtrack, complete_backtrack, 0, N, 1, 1, heads)
 
     # ---- end algorithm -----------
+
+    # value_proj = 0.0
+    # for m in range(1, N+1):
+    #   h = heads[m]
+    #   value_proj += scores[h, m]
 
     edgelist = list(enumerate(heads))
     # Eisner edges, sorted, removing the root node (taking indices [2:] and shifting all values -1)

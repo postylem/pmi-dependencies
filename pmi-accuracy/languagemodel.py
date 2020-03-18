@@ -1,209 +1,215 @@
 """
 Methods for getting probability estimates from a language model
 Classes should exist for XLNet, BERT, ...ELMo, baselines...
-
 -
-Jacob Louis Hoover
-February 2020
+March 2020
 """
-
-from tqdm import tqdm
+import itertools
 import numpy as np
 import torch
 import torch.nn.functional as F
+from tqdm import tqdm
+
 
 class LanguageModel:
-  """Abstract class for getting probability estimates.  (Do I need abstract classes?)"""
-
-  @staticmethod
-  def ptb_tokenlist_to_pmi_matrix(ptb_tokenlist):
-    """Maps tokenlist to PMI matrix. To be overriden in implementing classes."""
+  """
+  Base class for getting probability estimates from a pretrained contextual embedding model.
+  Contains methods to be used by XLNet or BERT
+  """
+  def ptb_tokenlist_to_pmi_matrix(
+    self, ptb_tokenlist, add_special_tokens=True,
+    pad_left=None, pad_right=None, verbose=True):
+    """Maps tokenlist to PMI matrix (override in implementing class)."""
     raise NotImplementedError
+
+class XLNetSentenceDataset(torch.utils.data.Dataset):
+  """Dataset class for XLNet"""
+  def __init__(self, input_ids, ptbtok_to_span, span_to_ptbtok,
+               mask_id=6, n_pad_left=0, n_pad_right=0):
+    self.input_ids = input_ids
+    self.n_pad_left = n_pad_left
+    self.n_pad_right = n_pad_right
+    self.mask_id = mask_id
+    self.ptbtok_to_span = ptbtok_to_span
+    self.span_to_ptbtok = span_to_ptbtok
+    self._make_tasks()
+  @staticmethod
+  def collate_fn(batch):
+    """concatenate and prepare batch"""
+    tbatch = {}
+    tbatch["input_ids"] = torch.LongTensor([b['input_ids'] for b in batch])
+    tbatch["perm_mask"] = torch.FloatTensor([b['perm_mask'] for b in batch])
+    tbatch["target_mask"] = torch.FloatTensor([b['target_mask'] for b in batch])
+    tbatch["target_id"] = [b['target_id'] for b in batch]
+    tbatch["source_span"] = [b['source_span'] for b in batch]
+    tbatch["target_span"] = [b['target_span'] for b in batch]
+    return tbatch
+
+  def _make_tasks(self):
+    tasks = []
+    len_s = len(self.input_ids) # length in subword tokens
+    len_t = len(self.ptbtok_to_span) # length in ptb tokens
+    for source_span in self.ptbtok_to_span:
+      for target_span in self.ptbtok_to_span:
+        for idx_target, target_pos in enumerate(target_span):
+          # these are the positions of the source span
+          abs_source = [self.n_pad_left + s for s in source_span]
+          # this is the token we want to predict in the target span
+          abs_target_curr = self.n_pad_left + target_pos
+          # these are all the tokens we need to mask in the target span
+          abs_target_next = [self.n_pad_left + t
+                             for t in target_span[idx_target:]]
+          # we replace all hidden target tokens with <mask>
+          input_ids = np.array(self.input_ids)
+          input_ids[abs_target_next] = self.mask_id
+          # create permutation mask
+          perm_mask = np.zeros((len_s, len_s))
+          perm_mask[:, abs_target_next] = 1.
+          # if the source span is different from target span,
+          # then we need to mask all of its tokens
+          if source_span != target_span:
+            input_ids[abs_source] = self.mask_id
+            perm_mask[:, abs_source] = 1.
+          # build prediction mask
+          target_mask = np.zeros((1, len_s))
+          target_mask[0, abs_target_curr] = 1.
+          # build all
+          task_dict = {}
+          task_dict["input_ids"] = input_ids
+          task_dict["source_span"] = source_span
+          task_dict["target_span"] = target_span
+          task_dict["target_mask"] = target_mask
+          task_dict["perm_mask"] = perm_mask
+          task_dict["target_id"] = self.input_ids[abs_target_curr]
+          tasks.append(task_dict)
+    self._tasks = tasks
+
+  def __len__(self):
+    return len(self._tasks)
+
+  def __getitem__(self, idx):
+    return self._tasks[idx]
 
 class XLNet(LanguageModel):
   """Class for using XLNet as estimator"""
-  def __init__(self, device, xlnet_spec, batchsize, offline=False):
-    if offline:
-      # import pytorch transformers instead of transformers, for use on Compute Canada
-      from pytorch_transformers import XLNetLMHeadModel, XLNetTokenizer
-    else:
-      from transformers import XLNetLMHeadModel, XLNetTokenizer
+  def __init__(self, device, model_spec, batchsize):
+    from transformers import XLNetLMHeadModel, XLNetTokenizer
     self.device = device
-    self.model = XLNetLMHeadModel.from_pretrained(xlnet_spec).to(device)
-    self.tokenizer = XLNetTokenizer.from_pretrained(xlnet_spec)
+    self.model = XLNetLMHeadModel.from_pretrained(model_spec).to(device)
+    self.tokenizer = XLNetTokenizer.from_pretrained(model_spec)
     self.batchsize = batchsize
     print(f"XLNet(batchsize={batchsize}) initialized.")
 
-  def ptb_tokenlist_to_pmi_matrix(self, ptb_tokenlist, paddings=([], []), verbose=False):
-    '''
-    input: ptb_tokenlist: PTB-tokenized sentence as list
-      paddings: tuple (prepad_tokenlist,postpad_tokenlist) each a list of PTB-tokens
-    return: pmi matrix
-    '''
-    subwords_nested = self.make_subword_lists(ptb_tokenlist, add_special_tokens=False)
-    # indices[i] = list of subtoken indices in subtoken list corresponding to word i in ptb_tokenlist
-    indices = [self.word_index_to_subword_indices(i, subwords_nested) for i, _ in enumerate(subwords_nested)]
+  def _create_pmi_dataset(self, ptb_tokenlist, 
+    pad_left=None, pad_right=None,
+    add_special_tokens=True, verbose=True):
 
-    flattened_sentence = [tok for sublist in subwords_nested for tok in sublist]
+    # map each ptb token to a list of spans
+    # [0, 1, 2] -> [(0,), (1, 2,), (3,)]
+    tokens, ptbtok_to_span = self.make_subword_lists(
+      ptb_tokenlist, add_special_tokens=False)
+
+    # map each span to the ptb token position
+    # {(0,): 0, (1, 2,): 1, (3,): 2}
+    span_to_ptbtok = {}
+    for i, span in enumerate(ptbtok_to_span):
+      assert span not in span_to_ptbtok
+      span_to_ptbtok[span] = i
+
+    # just convert here, tokenization is taken care of by make_subword_lists
+    ids = self.tokenizer.convert_tokens_to_ids(tokens)
+
+    # add special characters add optional padding
+    if pad_left:
+      pad_left_tokens, _ = self.make_subword_lists(pad_left)
+      pad_left = self.tokenizer.convert_tokens_to_ids(pad_left_tokens)
+      if add_special_tokens:
+        pad_left += [self.tokenizer.sep_token_id]
+    else:
+      pad_left = []
+    if pad_right:
+      pad_right_tokens, _ = self.make_subword_lists(pad_right)
+      pad_right = self.tokenizer.convert_tokens_to_ids(pad_right_tokens)
+    else:
+      pad_right = []
+    if add_special_tokens:
+      pad_right += [self.tokenizer.sep_token_id, self.tokenizer.cls_token_id]
+    ids = pad_left + ids + pad_right
+    n_pad_left = len(pad_left)
+    n_pad_right = len(pad_right)
+
     if verbose:
-      print(f"PTB tokenlist, on which tokenizer will be run:\n{ptb_tokenlist}")
-      print(f"flattened list of resulting subtokens:\n{flattened_sentence}")
-      print(f"correspondence indices:\n{indices}")
+      print(f"PTB token list:\n{ptb_tokenlist}")
+      print(f"resulting subword tokens:\n{tokens}")
+      print(f"ptbtok->pos:\n{ptbtok_to_span}")
+      print(f"pos->ptbtok:\n{span_to_ptbtok}")
+      print(f'padleft:{pad_left}\npadright:{pad_right}')
+      print(f'input_ids:{ids}')
 
-    # Now add padding before and/or after
-    prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
-    postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
+    # setup data loader
+    dataset = XLNetSentenceDataset(
+      ids, ptbtok_to_span, span_to_ptbtok,
+      mask_id=self.tokenizer.mask_token_id,
+      n_pad_left=n_pad_left, n_pad_right=n_pad_right)
+    loader = torch.utils.data.DataLoader(
+      dataset, shuffle=False, batch_size=self.batchsize,
+      collate_fn=XLNetSentenceDataset.collate_fn)
+    return dataset, loader
 
-    # # To use static prepadding text, and no postpadding, which is what Michaela used,
-    # # uncomment this (but, it doesn't seem to change anything drastically):
-    # padtextlist = """In 1991 , the remains of Russian Tsar Nicholas II and his family
-    #             (except for Alexei and Maria) are discovered .
-    #             The voice of Nicholas 's young son , Tsarevich Alexei Nikolaevich, narrates the
-    #             remainder of the story . 1883 Western Siberia ,
-    #             a young Grigori Rasputin is asked by his father and a group of men to perform magic .
-    #             Rasputin has a vision and denounces one of the men as a horse thief . Although his
-    #             father initially slaps him for making such an accusation , Rasputin watches as the
-    #             man is chased outside and beaten . Twenty years later , Rasputin sees a vision of
-    #             the Virgin Mary , prompting him to become a priest . Rasputin quickly becomes famous,
-    #              with people , even a bishop , begging for his blessing . <eod>""".split()
-    # paddings = (padtextlist, [])
-    # prepadding = [i for x in self.make_subword_lists(paddings[0], add_special_tokens=False) for i in x]
-    # postpadding = [i for x in self.make_subword_lists(paddings[1], add_special_tokens=True) for i in x]
+  def ptb_tokenlist_to_pmi_matrix(
+    self, ptb_tokenlist, add_special_tokens=True,
+    pad_left=None, pad_right=None, verbose=True):
 
-    print(f"\n/¯¯¯¯¯¯ WHAT's GOING ON WITH THE PADDING? :\nprepadding\t{prepadding}\npostpadding\t{postpadding}\n")
-    padded_input = [*prepadding, *flattened_sentence, *postpadding]
-    print(f"padded_input:\n{padded_input}")
-    perm_mask, target_mapping = self.make_mask_and_mapping(indices, padlens=(len(prepadding), len(postpadding)))
-    if not target_mapping.size(0) == perm_mask.size(0) == 2*len(indices)*(len([i for x in indices for i in x])):
-      raise ValueError("Uh oh! Check batch dimension on perm mask and target mapping tensors.")
+    # create dataset for observed ptb sentence
+    dataset, loader = self._create_pmi_dataset(
+      ptb_tokenlist, verbose=verbose,
+      pad_left=pad_left, pad_right=pad_right,
+      add_special_tokens=add_special_tokens)
 
-    # start and finish indices of batchsized chunks (0,batchsize),(batchsize+1,2*batchsize), ... 
-    index_tuples = self.make_chunks(perm_mask.size(0), self.batchsize)
+    # use model to compute PMIs
+    results = []
+    for batch in tqdm(loader, leave=False):
+      outputs = self.model(
+        batch['input_ids'].to(self.device),
+        perm_mask=batch['perm_mask'].to(self.device),
+        target_mapping=batch['target_mask'].to(self.device))
+      outputs = F.log_softmax(outputs[0], 2)
+      for i, output in enumerate(outputs):
+        # the token id we need to predict, this belongs to target span
+        target_id = batch['target_id'][i]
+        assert output.size(0) == 1
+        log_target = output[0, target_id].item()
+        result_dict = {}
+        result_dict['source_span'] = batch['source_span'][i]
+        result_dict['target_span'] = batch['target_span'][i]
+        result_dict['log_target'] = log_target
+        result_dict['target_id'] = target_id
+        results.append(result_dict)
 
-    padded_sentence_as_ids = self.tokenizer.convert_tokens_to_ids(padded_input)
-    list_of_output_tensors = []
-    for index_tuple in tqdm(index_tuples, 
-                            desc=f'{perm_mask.size(0)} in batches of {self.batchsize}', leave=False):
-      # input_id_batch is just padded_sentence_as_ids repeated as many times as needed for the batch
-      input_id_batch = torch.tensor(padded_sentence_as_ids).repeat((index_tuple[1]-index_tuple[0]), 1)
-      with torch.no_grad():
-        logits_outputs = self.model(
-          input_id_batch.to(self.device),
-          perm_mask=perm_mask[index_tuple[0]:index_tuple[1]].to(self.device),
-          target_mapping=target_mapping[index_tuple[0]:index_tuple[1]].to(self.device))
-        # note, logits_output is a degenerate tuple: ([self.batchsize, 1, self.tokenizer.vocabsize()],)
-        # log softmax across the vocabulary (dimension 2 of the logits tensor)
-        outputs = F.log_softmax(logits_outputs[0], 2)
-        list_of_output_tensors.append(outputs)
+    num_ptbtokens = len(ptb_tokenlist)
+    log_p = np.zeros((num_ptbtokens, num_ptbtokens))
+    num = np.zeros((num_ptbtokens, num_ptbtokens))
+    for result in results:
+      log_target = result['log_target']
+      source_span = result['source_span']
+      target_span = result['target_span']
+      ptbtok_source = dataset.span_to_ptbtok[source_span]
+      ptbtok_target = dataset.span_to_ptbtok[target_span]
+      if len(target_span) == 1:
+        # sanity check: if target_span is 1 token, then we don't need
+        # to accumulate subwords probabilities
+        assert log_p[ptbtok_target, ptbtok_source] == 0.
+      # we accumulate all log probs for subwords in a given span
+      log_p[ptbtok_target, ptbtok_source] += log_target
+      num[ptbtok_target, ptbtok_source] += 1
 
-    outputs_all_batches = torch.cat(list_of_output_tensors).cpu().numpy() 
-    # outputs_all_batches is of shape (2 * numwords * numsubwords, 1 , vocabsize)
-    pmis = self.get_pmi_matrix_from_outputs(outputs_all_batches, indices, padded_sentence_as_ids)
-    return torch.tensor(pmis)
+    # PMI(w_i, w_j | c ) = log p(w_i | c) - log p(w_i | c \ w_j)
+    # log_p[i, i] is log p(w_i | c)
+    # log_p[i, j] is log p(w_i | c \ w_j)
+    log_p_wi_I_c = np.diag(log_p)
+    pmi_matrix = log_p_wi_I_c[:, None] - log_p
+    return pmi_matrix
 
-  def get_pmi_matrix_from_outputs(self, outputs, indices, sentence_as_ids):
-    '''
-    Gets pmi matrix from the outputs of xlnet
-    Input: 
-      outputs, tensor shape (2 * numwords * numsubwords, 1, vocabsize), 
-        (for each PTB word, first the tensor for each subword numerator, 
-        then for each subword denominator)
-      indices, list of lists of subwords corresponding to each word
-      sentence_as_ids, list of subword token ids in flattened sentence
-    '''
-    # this is a bit complicated looking but I'm just getting it so that
-    # pad[i] = the number of items in the batch before the ith word's predictions
-    lengths = [len(l) for l in indices]
-    cumsum = np.empty(len(lengths)+1, dtype=int)
-    np.cumsum(lengths, out=cumsum[1:])
-    cumsum[:1] = 0
-    pad = list(len(indices)*2*(cumsum))[:-1]
-
-    pmis = np.ndarray(shape=(len(indices), len(indices)))
-    for i, indices_i in enumerate(indices):
-      for j, _ in enumerate(indices):
-        start = pad[i] + j*2*len(indices_i)
-        end = start + 2*len(indices_i)
-        output_span = outputs[start:end]
-        pmis[i][j] = self.get_pmi_from_outputs(output_span, indices_i, sentence_as_ids)
-    return pmis
-
-  @staticmethod
-  def get_pmi_from_outputs(outputs, w1_indices, sentence_as_ids):
-    '''
-    Gets estimated PMI(w1;w2) from XLNet output by collecting and summing over the
-    subword predictions, and subtracting the prediction without w2 from the prediction with w2
-    '''
-    len1 = len(w1_indices)
-    outputs = outputs.reshape(2, len1, -1) # reshape to be tensor.Size[2,len1,vocabsize]
-    log_numerator = sum(outputs[0][i][sentence_as_ids[w1_index]] for i, w1_index in enumerate(w1_indices))
-    log_denominator = sum(outputs[1][i][sentence_as_ids[w1_index]] for i, w1_index in enumerate(w1_indices))
-    pmi = (log_numerator - log_denominator)
-    return pmi
-
-  def make_mask_and_mapping(self, indices, padlens=(0, 2)):
-    '''
-    input:
-      indices (list): a list with len(ptb_tokenlist) elements, each element being a list of subword indices. 
-        (e.g. [[0, 1], [2], [3, 4]])
-        so, the nth item is a list of indices in flattened subtoken list that correspond to nth ptb word
-        ( e.g. the example above is for the ptb tokenlist ('Odds', 'and', 'Ends') 
-          with corresponding subtokenlist ['▁Odd', 's', '▁and', '▁End', 's'] )
-      padlens: tuple of ints, length of padding before, and after, resp.
-        by default, no prepadding and postpadding only 2 special characters.
-    output: perm_mask, target_mapping
-      specification tensors for the whole sentence, for XLNet input;
-        - predict each position in each ptb-word once per ptb-word in the sentence
-          (except the special characters, need not be predicted)
-        - to do this twice (once for numerator once for denominator)
-      thus, batchsize of perm_mask and target_mapping will each be
-        2 * len(indices) * len(flattened(indices))
-    '''
-    perm_masks = []
-    target_mappings = []
-    prepadlen, postpadlen = padlens
-    # seqlen = number of items in indices flattened, plus padding lengths
-    seqlen = prepadlen + len([i for x in indices for i in x]) + postpadlen
-    # increment each index in nested list by prepadding amount prepad
-    print(f'subword indices raw:\n{indices}')
-    indices_incremented = [[i+prepadlen for i in l] for l in indices]
-    print(f'incremented by prepadlen={prepadlen}:\n{indices_incremented}\n\\______\n')
-    for word_i in indices_incremented:
-      for word_j in indices_incremented:
-        pm_ij, tm_ij = self.make_mask_and_mapping_single_pair(word_i, word_j, seqlen)
-        perm_masks.append(pm_ij)
-        target_mappings.append(tm_ij)
-    perm_mask = torch.cat(perm_masks, 0)
-    target_mapping = torch.cat(target_mappings, 0)
-
-    return perm_mask, target_mapping
-
-  @staticmethod
-  def make_mask_and_mapping_single_pair(w1_indices, w2_indices, seqlen):
-    '''
-    Takes two lists of integers (representing the indices of the subtokens of two PTB tokens, resp.)
-    and returns a permutation mask tensor and an target mapping tensor for use in XLNet.
-    The first dimension (batch_dim) of each of these tensors will be twice the length of w1_indices.
-    input:
-      w1_indices, w2_indices: lists of indices (ints)
-      seqlen = the length of the sentence as subtokens (with padding, special tokens)
-    returns:
-      perm_mask: a tensor of shape (2*len1, seqlen, seqlen)
-      target_mapping: a tensor of shape (2*len1, 1, seqlen)
-    '''
-    len1 = len(w1_indices)
-    batch_dim = len1*2 #  times 2 for numerator and denominator
-
-    perm_mask = torch.zeros((batch_dim, seqlen, seqlen), dtype=torch.float)
-    target_mapping = torch.zeros((batch_dim, 1, seqlen), dtype=torch.float)
-    for i, index in enumerate(w1_indices):
-      # the 1st and the len1+1th are the same, just for the numerator and denominator resp. 
-      perm_mask[(i, len1+i), :, index:w1_indices[-1]+1] = 1.0 # mask the other w1 tokens to the right
-      perm_mask[len1+i, :, w2_indices] = 1.0 # mask w2's indices for the denominator
-      target_mapping[(i, len1+i), :, index] = 1.0 # predict just subtoken i of w1
-    return perm_mask, target_mapping
-
-  # Tokenization
   def make_subword_lists(self, ptb_tokenlist, add_special_tokens=False):
     '''
     Takes list of items from Penn Treebank tokenized text,
@@ -212,7 +218,10 @@ class XLNet(LanguageModel):
     Implements some simple custom adjustments to make the results more like what might be expected.
     [TODO: this could be improved, if it is important.
     For instance, currently it puts an extra space before opening quotes]
-    Returns: a list with a sublist for each Treebank item
+    Returns:
+      tokens: a flat list of subword tokens
+      ptbtok_to_span: a list of tuples, of length = len(ptb_tokenlist <+ special tokens>)
+        where the nth tuple is token indices for the nth ptb word.
     '''
     subword_lists = []
     for word in ptb_tokenlist:
@@ -232,7 +241,8 @@ class XLNet(LanguageModel):
       if subword_list_i[0][0] == '▁' and subword_lists[i-1][-1] in ('(','[','{'):
         # print(f'{i}: removing extra space after character. {subword_list_i[0]} => {subword_list_i[0][1:]}')
         subword_list_i[0] = subword_list_i[0][1:]
-        if subword_list_i[0] == '': subword_list_i.pop(0)
+        if subword_list_i[0] == '':
+          subword_list_i.pop(0)
       if subword_list_i[0] == '▁' and subword_list_i[1] in (')',']','}',',','.','"',"'","!","?") and i != 0:
         # print(f'{i}: removing extra space before character. {subword_list_i} => {subword_list_i[1:]}')
         subword_list_i.pop(0)
@@ -240,42 +250,35 @@ class XLNet(LanguageModel):
         # print(f"{i}: fixing X▁n't => Xn 't ")
         del subword_list_i[0]
         del subword_list_i[0]
-        subword_lists[i-1][-1]+='n'
-    return subword_lists
+        subword_lists[i-1][-1] += 'n'
 
-  @staticmethod
-  def word_index_to_subword_indices(word_index, nested_list):
-    '''
-    Convert from word index (for nested list of subword tokens),
-    to list of subword token indices at that word index
-    ( e.g. for inputs word_index = 2, nested_list=[['▁Odd', 's'], ['▁and'], ['▁End', 's']]
-      the output is [3, 4])
-    '''
-    if word_index > len(nested_list):
-      raise ValueError('word_index exceeds length of nested_list')
-    count = 0
-    for subword_list in nested_list[:word_index]:
-      count += len(subword_list)
-    # maybe can do this with functools.reduce
-    # count = reduce(lambda x, y: len(x) + len(y),nested_list[:word_index])
-    return list(range(count, count+len(nested_list[word_index])))
+    tokens = list(itertools.chain(*subword_lists))
+    ptbtok_to_span = []
+    pos = 0
+    for token in subword_lists:
+      ptbtok_to_span.append(())
+      for _ in token:
+        ptbtok_to_span[-1] = ptbtok_to_span[-1] + (pos,)
+        pos += 1
+    return tokens, ptbtok_to_span
 
-  @staticmethod
-  def make_chunks(m, n):
+
+class BERT(LanguageModel):
+  """Class for using BERT as estimator"""
+  def __init__(self, device, model_spec, batchsize):
+    print("initializing...")
+    from transformers import BertForMaskedLM, BertTokenizer
+    self.device = device
+    self.model = BertForMaskedLM.from_pretrained(model_spec).to(device)
+    self.tokenizer = BertTokenizer.from_pretrained(model_spec)
+    self.batchsize = batchsize
+    print(f"BERT model initialized (batchsize={batchsize}).")
+
+  def ptb_tokenlist_to_pmi_matrix(
+    self, ptb_tokenlist, add_special_tokens=True,
+    pad_left=None, pad_right=None, verbose=True):
     '''
-    makes (start,finish) tuples of indices 
-    for use in indexing into a list of length m in chunks of size n
-    
-    input:
-      m = number of items
-      n = size of chunks
-    returns: list of tuples of indices of form (start,finish)
+    input: ptb_tokenlist: PTB-tokenized sentence as list
+    return: pmi matrix
     '''
-    r = m%n
-    d = m//n
-    chunked = []
-    for i in range(d):
-      chunked.append((n*i, n*(i+1)))
-    if r != 0:
-      chunked.append((d*n, d*n+r))
-    return chunked
+    raise NotImplementedError

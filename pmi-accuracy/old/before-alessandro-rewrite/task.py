@@ -42,25 +42,6 @@ class LinearBaselineTask(Task):
         distances[j][i] = i_j_distance
     return distances
 
-class RandomBaselineTask(Task):
-  """
-  Ignores everything, creates random matrix as baseline
-  """
-
-  @staticmethod
-  def labels(observation):
-    """Maps observation to a torch random tensor of distance labels.
-
-    Args:
-      observation: a single Observation class for a sentence:
-    Returns:
-      A torch tensor of shape (sentence_length, sentence_length) of distances
-      in the parse tree which simply increase with position in the string.
-    """
-    sentence_length = len(observation[0]) #All observation fields must be of same length
-    distances = torch.rand((sentence_length, sentence_length))
-    return distances
-
 class ParseDistanceTask(Task):
   """Maps observations to dependency parse distances between words."""
 
