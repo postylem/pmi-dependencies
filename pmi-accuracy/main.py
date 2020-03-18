@@ -323,7 +323,11 @@ if __name__ == '__main__':
   ObservationClass = namedtuple("Observation", FIELDNAMES)
   OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
-  get_scores(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS, verbose=True)
+  SCORES = get_scores(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS, verbose=True)
+  df = pd.io.json.json_normalize(SCORES, sep='>')
+
+  df.to_csv(RESULTS_DIR+'scores.csv') 
+
   # N_SENTS, MEANS = report_accuracy(MODEL_TYPE, OBSERVATIONS, RESULTS_DIR,
   #                                  DEVICE, n_obs=N_OBS, 
   #                                  save=CLI_ARGS.save_matrices, verbose=True)
