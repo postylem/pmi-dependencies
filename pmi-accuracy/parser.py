@@ -32,6 +32,25 @@ class UnionFind:
         break
     return i_parent
 
+class Accuracy:
+  '''
+  Gets accuracy score for list of edges wrt gold list of edges.
+  '''
+  def __init__(self, gold_edges):
+    self.gold_edges = gold_edges
+    self.gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
+    self.n_gold = len(gold_edges)
+
+  def uuas(self, prediction_edges):
+    '''
+    gets uuas accuracy scores (num common/num gold)
+    input
+    '''
+    prediction_edges_set = {tuple(sorted(x)) for x in prediction_edges}
+    common = self.gold_edges_set.intersection(prediction_edges_set)
+    uuas = len(common)/float(self.n_gold) if self.n_gold != 0 else np.NaN
+    return uuas
+
 class DepParse:
   """Gets tree as MST from matrix of distances"""
 

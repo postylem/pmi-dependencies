@@ -69,7 +69,7 @@ def score_observation(observation, pmi_matrix, verbose=False):
   if verbose:
     obs_df = pd.DataFrame(observation).T
     obs_df.columns = FIELDNAMES
-    print("\nObservation from conllx\n", obs_df.loc[:, ['index', 'sentence', 'head_indices']], sep='')
+    print("\nObservation from conllx\n", obs_df.loc[:, ['index', 'sentence', 'head_indices','governance_relations']], sep='')
 
   # Get gold edges distances tensor from conllx file (note 'mst' will always give projective gold edges)
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
@@ -80,21 +80,24 @@ def score_observation(observation, pmi_matrix, verbose=False):
 
   # Make linear-order baseline distances tensor
   linear_dist_matrix = task.LinearBaselineTask.labels(observation)
-  linear_edges = parser.DepParse(
+  baseline_linear_edges = parser.DepParse(
       'mst', linear_dist_matrix, observation.sentence).tree(
           symmetrize_method='none',
           maximum_spanning_tree=False)
   
   # Make random baseline distances tensor
   random_dist_matrix = task.RandomBaselineTask.labels(observation)
-  random_edges = parser.DepParse(
+  baseline_random_nonproj_edges = parser.DepParse(
       'mst', random_dist_matrix, observation.sentence).tree(
-          symmetrize_method='sum',
+          symmetrize_method='none',
           maximum_spanning_tree=False)
+  baseline_random_proj_edges = parser.DepParse(
+      'projective', random_dist_matrix, observation.sentence).tree(
+          symmetrize_method='none',
+          maximum_spanning_tree=True)
 
   # Instantiate a parser.DepParse object, with the parsetype 'mst', to get pmi mst parse
   mstparser = parser.DepParse('mst', pmi_matrix, observation.sentence)
-
   pmi_edges = {}
   symmetrize_methods = ['sum', 'triu', 'tril', 'none']
   for symmetrize_method in symmetrize_methods:
@@ -107,21 +110,13 @@ def score_observation(observation, pmi_matrix, verbose=False):
     # note, with Eisner's, symmetrize_method='none' basically gets a directed parse
     pmi_edges_proj[symmetrize_method] = projparser.tree(symmetrize_method=symmetrize_method)
 
-  num_gold = len(gold_edges)
-  gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
-
-  linear_edges_set = {tuple(sorted(x)) for x in linear_edges}
-  linear_common = gold_edges_set.intersection(linear_edges_set)
-  linear_baseline_score = len(linear_common)/float(num_gold) if num_gold != 0 else np.NaN
-
-  random_edges_set = {tuple(sorted(x)) for x in random_edges}
-  random_common = gold_edges_set.intersection(random_edges_set)
-  random_baseline_score = len(random_common)/float(num_gold) if num_gold != 0 else np.NaN
+  scorer = parser.Accuracy(gold_edges)
 
   scores = {}
   scores['gold_edges'] = gold_edges
-  scores['baseline_linear'] = linear_baseline_score
-  scores['baseline_random'] = random_baseline_score
+  scores['baseline_linear'] = scorer.uuas(baseline_linear_edges)
+  scores['baseline_random_nonproj'] = scorer.uuas(baseline_random_nonproj_edges)
+  scores['baseline_random_proj'] = scorer.uuas(baseline_random_proj_edges)
   scores['projective'] = {}
   scores['non-projective'] = {}
   scores['projective']['edges'] = pmi_edges_proj
@@ -130,17 +125,10 @@ def score_observation(observation, pmi_matrix, verbose=False):
   scores['non-projective']['uuas'] = {}
 
   for symmetrize_method in symmetrize_methods:
-    pmi_edges_set = {tuple(sorted(x)) for x in pmi_edges[symmetrize_method]}
-    pmi_edges_proj_set = {tuple(sorted(x)) for x in pmi_edges_proj[symmetrize_method]}
-    correct = gold_edges_set.intersection(pmi_edges_set)
-    correct_proj = gold_edges_set.intersection(pmi_edges_proj_set)
-    num_correct = len(correct)
-    num_correct_proj = len(correct_proj)
-    uuas = num_correct/float(num_gold) if num_gold != 0 else np.NaN
-    uuas_proj = num_correct_proj/float(num_gold) if num_gold != 0 else np.NaN
-    scores['non-projective']['uuas'][symmetrize_method] = uuas
-    scores['projective']['uuas'][symmetrize_method] = uuas_proj
+    scores['non-projective']['uuas'][symmetrize_method] = scorer.uuas(pmi_edges[symmetrize_method])
+    scores['projective']['uuas'][symmetrize_method] = scorer.uuas(pmi_edges_proj[symmetrize_method])
   return scores
+
 
 def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
@@ -223,26 +211,27 @@ def get_scores(
   if n_obs == 'all':
     n_obs = len(observations)
   for i, obs in enumerate(tqdm(observations[:n_obs])):
-    print(f'Observation {i} / {n_obs}')
+    print(f'--\n--> Observation {i} / {n_obs}')
     prepadding, postpadding = get_padding(i, observations, padlen)
     # get a pmi matrix
     pmi_matrix = MODEL.ptb_tokenlist_to_pmi_matrix(
-        obs.sentence, add_special_tokens=True, verbose=verbose,
+        obs.sentence, add_special_tokens=True, verbose=False,
         pad_left=prepadding, pad_right=postpadding)
     # calculate score
     scores = score_observation(obs, pmi_matrix, verbose=verbose)
     all_scores.append(scores)
-    print(f"baseline {scores['baseline_linear']}")
-    print(f"baseline {scores['baseline_random']}")
+    print(f"linear   {scores['baseline_linear']}")
+    print(f"random   \n\tnon-proj   {scores['baseline_random_nonproj']}\n\tprojective {scores['baseline_random_proj']}")
     print(f"nonproj  {scores['non-projective']['uuas']}")
     print(f"proj     {scores['projective']['uuas']}\n")
   mean_linear = np.nanmean([scores['baseline_linear'] for scores in all_scores])
-  mean_random = np.nanmean([scores['baseline_random'] for scores in all_scores])
+  mean_random_nonproj = np.nanmean([scores['baseline_random_nonproj'] for scores in all_scores])
+  mean_random_proj = np.nanmean([scores['baseline_random_proj'] for scores in all_scores])
   mean_nonproj = {symmethod:np.nanmean([scores['non-projective']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
   mean_proj = {symmethod:np.nanmean([scores['projective']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
-  print("means uuas values")
+  print("=========\nmean uuas values\n")
   print(f'linear : {mean_linear}')
-  print(f'random : {mean_random}')
+  print(f'random :\n\tnon-proj   {mean_random_nonproj}\n\tprojective {mean_random_proj}')
   print(f'nonproj: {mean_nonproj}')
   print(f'proj   : {mean_proj}')
   return all_scores
@@ -276,7 +265,8 @@ if __name__ == '__main__':
   NOW = datetime.now()
   DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
   SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.n_observations) if CLI_ARGS.n_observations != 'all' else SPEC_STRING
-  RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SPEC_SUFFIX + '_' + DATE_SUFFIX + '/')
+  SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX 
+  RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
   os.makedirs(RESULTS_DIR, exist_ok=True)
   print(f'RESULTS_DIR: {RESULTS_DIR}\n')
 
@@ -324,11 +314,5 @@ if __name__ == '__main__':
   OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
   SCORES = get_scores(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS, verbose=True)
-  df = pd.io.json.json_normalize(SCORES, sep='>')
-
-  df.to_csv(RESULTS_DIR+'scores.csv') 
-
-  # N_SENTS, MEANS = report_accuracy(MODEL_TYPE, OBSERVATIONS, RESULTS_DIR,
-  #                                  DEVICE, n_obs=N_OBS, 
-  #                                  save=CLI_ARGS.save_matrices, verbose=True)
-
+  DF = pd.io.json.json_normalize(SCORES, sep='>')
+  DF.to_csv(RESULTS_DIR + 'scores_' + SUFFIX + '.csv')
