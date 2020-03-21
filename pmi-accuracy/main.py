@@ -129,7 +129,6 @@ def score_observation(observation, pmi_matrix, verbose=False):
     scores['projective']['uuas'][symmetrize_method] = scorer.uuas(pmi_edges_proj[symmetrize_method])
   return scores
 
-
 def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
   words = observation.sentence
@@ -171,8 +170,10 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='
 
 def get_padding(i, observations, threshold):
   '''
+  to avoid short sentences on which XLNet performs badly as LM
   gets adjacent observations from PTB to add as padding,
   so total length is at least threshold ptb_tokens long
+  (will truncate excessively long padding sentences)
   input: index and observations
   returns:
     prepadding: list of ptb tokens for before
@@ -182,7 +183,6 @@ def get_padding(i, observations, threshold):
   k = i
   pad_index_set = set()
   total_len = len(observations[i][0])
-  # to avoid short sentences on which XLNet performs badly at prediction
   while total_len < threshold:
     if j - 1 >= 0 and j - 1 not in pad_index_set:
       j -= 1
@@ -195,12 +195,24 @@ def get_padding(i, observations, threshold):
       pad_index_set.add(k)
       total_len += len(observations[k][0])
     else: raise ValueError(f'Not enough context to pad up to size {threshold}!')
+  prepad_index_set = [x for x in sorted(pad_index_set) if x < i]
+  postpad_index_set = [x for x in sorted(pad_index_set) if x > i]
+  excessive = threshold # padding sentences longer than this will be truncated
+  prepadding_observations = [observations[x] for x in prepad_index_set]
+  prepadding = [i for x in [obs.sentence[:excessive] for obs in prepadding_observations] for i in x]
+  postpadding_observations = [observations[x] for x in postpad_index_set]
+  postpadding = [i for x in [obs.sentence[:excessive] for obs in postpadding_observations] for i in x]
+  # print some explanation
   if pad_index_set != set():
     print(f'Using sentence(s) {sorted(pad_index_set)} as padding for sentence {i}.')
-  prepadding_observations = [observations[x] for x in sorted(pad_index_set) if x < i]
-  prepadding = [i for x in [obs.sentence for obs in prepadding_observations] for i in x]
-  postpadding_observations = [observations[x] for x in sorted(pad_index_set) if x > i]
-  postpadding = [i for x in [obs.sentence for obs in postpadding_observations] for i in x]
+    print(f'|\tprepadding sentence lengths  : {[len(obs.sentence) for obs in prepadding_observations]}')
+    for index, obs in zip(prepad_index_set, prepadding_observations):
+      if len(obs.sentence) > excessive:
+        print(f"|\t\t{index}: truncating at length {excessive}")
+    print(f'|\tpostpadding sentence lengths : {[len(obs.sentence) for obs in postpadding_observations]}')
+    for index, obs in zip(postpad_index_set, postpadding_observations):
+      if len(obs.sentence) > excessive:
+        print(f"|\t\ttruncating sentence {index} at length {excessive}")
   return prepadding, postpadding
 
 def get_scores(
