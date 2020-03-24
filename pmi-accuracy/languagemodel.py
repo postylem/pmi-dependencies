@@ -16,6 +16,13 @@ class LanguageModel:
   Base class for getting probability estimates from a pretrained contextual embedding model.
   Contains methods to be used by XLNet or BERT
   """
+  def __init__(self, device, model_spec, batchsize):
+    from transformers import XLNetLMHeadModel, XLNetTokenizer
+    self.device = device
+    self.model = None
+    self.tokenizer = None
+    self.batchsize = batchsize
+
   def ptb_tokenlist_to_pmi_matrix(
     self, ptb_tokenlist, add_special_tokens=True,
     pad_left=None, pad_right=None, verbose=True):
@@ -24,8 +31,9 @@ class LanguageModel:
 
 class XLNetSentenceDataset(torch.utils.data.Dataset):
   """Dataset class for XLNet"""
-  def __init__(self, input_ids, ptbtok_to_span, span_to_ptbtok,
-               mask_id=6, n_pad_left=0, n_pad_right=0):
+  def __init__(
+    self, input_ids, ptbtok_to_span, span_to_ptbtok,
+    mask_id=6, n_pad_left=0, n_pad_right=0):
     self.input_ids = input_ids
     self.n_pad_left = n_pad_left
     self.n_pad_right = n_pad_right
@@ -33,6 +41,7 @@ class XLNetSentenceDataset(torch.utils.data.Dataset):
     self.ptbtok_to_span = ptbtok_to_span
     self.span_to_ptbtok = span_to_ptbtok
     self._make_tasks()
+
   @staticmethod
   def collate_fn(batch):
     """concatenate and prepare batch"""
@@ -98,7 +107,7 @@ class XLNet(LanguageModel):
     self.model = XLNetLMHeadModel.from_pretrained(model_spec).to(device)
     self.tokenizer = XLNetTokenizer.from_pretrained(model_spec)
     self.batchsize = batchsize
-    print(f"XLNet(batchsize={batchsize}) initialized.")
+    print(f"XLNet model '{model_spec}' initialized (batchsize={batchsize}) on {device}.")
 
   def _create_pmi_dataset(self, ptb_tokenlist, 
     pad_left=None, pad_right=None,
@@ -123,8 +132,8 @@ class XLNet(LanguageModel):
     if pad_left:
       pad_left_tokens, _ = self.make_subword_lists(pad_left)
       pad_left = self.tokenizer.convert_tokens_to_ids(pad_left_tokens)
-      if add_special_tokens:
-        pad_left += [self.tokenizer.sep_token_id]
+      # if add_special_tokens:
+      #   pad_left += [self.tokenizer.sep_token_id]
     else:
       pad_left = []
     if pad_right:
@@ -252,7 +261,7 @@ class XLNet(LanguageModel):
         del subword_list_i[0]
         subword_lists[i-1][-1] += 'n'
 
-    tokens = list(itertools.chain(*subword_lists))
+    tokens = list(itertools.chain(*subword_lists)) # flattened list
     ptbtok_to_span = []
     pos = 0
     for token in subword_lists:
@@ -261,24 +270,3 @@ class XLNet(LanguageModel):
         ptbtok_to_span[-1] = ptbtok_to_span[-1] + (pos,)
         pos += 1
     return tokens, ptbtok_to_span
-
-
-class BERT(LanguageModel):
-  """Class for using BERT as estimator"""
-  def __init__(self, device, model_spec, batchsize):
-    print("initializing...")
-    from transformers import BertForMaskedLM, BertTokenizer
-    self.device = device
-    self.model = BertForMaskedLM.from_pretrained(model_spec).to(device)
-    self.tokenizer = BertTokenizer.from_pretrained(model_spec)
-    self.batchsize = batchsize
-    print(f"BERT model initialized (batchsize={batchsize}).")
-
-  def ptb_tokenlist_to_pmi_matrix(
-    self, ptb_tokenlist, add_special_tokens=True,
-    pad_left=None, pad_right=None, verbose=True):
-    '''
-    input: ptb_tokenlist: PTB-tokenized sentence as list
-    return: pmi matrix
-    '''
-    raise NotImplementedError
