@@ -227,7 +227,7 @@ def get_scores(
     prepadding, postpadding = get_padding(i, observations, padlen)
     # get a pmi matrix
     pmi_matrix = MODEL.ptb_tokenlist_to_pmi_matrix(
-        obs.sentence, add_special_tokens=True, verbose=False,
+        obs.sentence, add_special_tokens=True, verbose=verbose, # might want to toggle this verbosity during testing
         pad_left=prepadding, pad_right=postpadding)
     # calculate score
     scores = score_observation(obs, pmi_matrix, verbose=verbose)
@@ -277,7 +277,7 @@ if __name__ == '__main__':
   NOW = datetime.now()
   DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
   SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.n_observations) if CLI_ARGS.n_observations != 'all' else SPEC_STRING
-  SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX 
+  SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX
   RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
   os.makedirs(RESULTS_DIR, exist_ok=True)
   print(f'RESULTS_DIR: {RESULTS_DIR}\n')
@@ -301,10 +301,10 @@ if __name__ == '__main__':
   if CLI_ARGS.pmi_from_disk:
     MODEL_TYPE = 'load_from_disk'
   else:
-    if CLI_ARGS.model_spec in ['xlnet-base-cased','xlnet-large-cased']:
+    if CLI_ARGS.model_spec.startswith('xlnet'):
       MODEL_TYPE = 'xlnet'
       MODEL = languagemodel.XLNet(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif CLI_ARGS.model_spec in ['bert-base-cased','bert-large-cased']:
+    elif CLI_ARGS.model_spec.startswith('bert'):
       MODEL_TYPE = 'bert'
       MODEL = languagemodel.BERT(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
     else:
