@@ -21,10 +21,11 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
 
 ### Baselines
 
-- `LinearBaselineTask`, defined in [task.py](pmi-accuracy/task.py), will make a matrix whose entries are simply word-to-word distance in the string.  Recovering an min spanning tree from this matrix will give a relatively strong baseline.
+Baseline classes defined in [task.py](pmi-accuracy/task.py).
 
-TODO:
-- randomized baseline?  Perhaps not very high priority.
+- `LinearBaselineTask`: makes a matrix whose entries are simply word-to-word distance in the string.  Recovering an min spanning tree from this matrix will give a relatively strong baseline.
+
+- `RandomBaselineTask`: just makes a random matrix for the observation.
 
 ## Running
 
@@ -35,6 +36,7 @@ conda activate pmienv
 conda install numpy pandas tqdm transformers
 conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 pip install transformers
+pip install sentencepiece # install sentencepiece tokenizer for xlnet
 ```
 
 With `pmienv` active, to run: 
@@ -58,7 +60,7 @@ CLI options:
 - `--results_dir`: the root folder for results to be generated. A run of the script will generate a timestamped subfolder with results within this directory (default=`results/`)
 - `--save_matrices`: option to save PMI matrices (as numpy arrays) to the results directory.
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
-- `--long_enough`: (int) default=30. Since XLNet does badly on short sentences, sentences in the PTB which are less than long_enough words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running XLNet on longer inputs does slow the testing down somewhat.  **Set to 1 to just not do padding at all.**
+- `--long_enough`: (int) default=30. Since XLNet does badly on short sentences, sentences in the PTB which are less than long_enough words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running XLNet on longer inputs does slow the testing down somewhat.  **Set to 1 or 0 to just not do padding at all.**
 
 ## Notes
 

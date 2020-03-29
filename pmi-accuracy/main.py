@@ -65,12 +65,7 @@ def load_conll_dataset(filepath, observation_class):
   return observations
 
 # Running and reporting
-def score_observation(observation, pmi_matrix, verbose=False):
-  if verbose:
-    obs_df = pd.DataFrame(observation).T
-    obs_df.columns = CONLL_COLS
-    print("\nObservation from conllx\n", obs_df.loc[:, ['index', 'sentence', 'head_indices','governance_relations']], sep='')
-
+def score_observation(observation, pmi_matrix):
   # Get gold edges distances tensor from conllx file (note 'mst' will always give projective gold edges)
   gold_dist_matrix = task.ParseDistanceTask.labels(observation)
   gold_edges = parser.DepParse(
@@ -223,14 +218,20 @@ def get_scores(
   if n_obs == 'all':
     n_obs = len(observations)
   for i, obs in enumerate(tqdm(observations[:n_obs])):
-    print(f'--\n--> Observation {i} / {n_obs}')
+    print(f'_______________\n--> Observation {i} of {n_obs}\n')
+    if verbose:
+      obs_df = pd.DataFrame(obs).T
+      obs_df.columns = CONLL_COLS
+      print(obs_df.loc[:, ['index', 'sentence', 'head_indices', 'governance_relations']],
+            "\n", sep='')
+
     prepadding, postpadding = get_padding(i, observations, padlen)
     # get a pmi matrix
     pmi_matrix = MODEL.ptb_tokenlist_to_pmi_matrix(
         obs.sentence, add_special_tokens=True, verbose=verbose, # might want to toggle this verbosity during testing
         pad_left=prepadding, pad_right=postpadding)
     # calculate score
-    scores = score_observation(obs, pmi_matrix, verbose=verbose)
+    scores = score_observation(obs, pmi_matrix)
     all_scores.append(scores)
     print(f"linear   {scores['baseline_linear']}")
     print(f"random   \n\tnon-proj   {scores['baseline_random_nonproj']}\n\tprojective {scores['baseline_random_proj']}")
@@ -242,10 +243,10 @@ def get_scores(
   mean_nonproj = {symmethod:np.nanmean([scores['non-projective']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
   mean_proj = {symmethod:np.nanmean([scores['projective']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
   print("=========\nmean uuas values\n")
-  print(f'linear : {mean_linear}')
-  print(f'random :\n\tnon-proj   {mean_random_nonproj}\n\tprojective {mean_random_proj}')
-  print(f'nonproj: {mean_nonproj}')
-  print(f'proj   : {mean_proj}')
+  print(f'linear : {mean_linear:.3}')
+  print(f'random :\n\tnon-proj   {mean_random_nonproj:.3}\n\tprojective {mean_random_proj:.3}')
+  print(f'nonproj: {{k:round(v,2) for k, v in mean_nonproj.items()}}')
+  print(f'proj   : {{k:round(v,2) for k, v in mean_proj.items()}}')
   return all_scores
 
 if __name__ == '__main__':
@@ -276,7 +277,7 @@ if __name__ == '__main__':
 
   NOW = datetime.now()
   DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
-  SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.n_observations) if CLI_ARGS.n_observations != 'all' else SPEC_STRING
+  SPEC_SUFFIX = SPEC_STRING+'('+str(CLI_ARGS.n_observations)+')' if CLI_ARGS.n_observations != 'all' else SPEC_STRING
   SPEC_SUFFIX += '_pad'+str(CLI_ARGS.pad)
   SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX
   RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
@@ -308,9 +309,9 @@ if __name__ == '__main__':
     elif CLI_ARGS.model_spec.startswith('bert'):
       MODEL_TYPE = 'bert'
       MODEL = languagemodel.BERT(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    # elif CLI_ARGS.model_spec.startswith('xlm'):
-    #   MODEL_TYPE = 'xlm'
-    #   MODEL = languagemodel.XLM(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+    elif CLI_ARGS.model_spec.startswith('xlm'):
+      MODEL_TYPE = 'xlm'
+      MODEL = languagemodel.XLM(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
     else:
       raise ValueError(f'Model spec string {CLI_ARGS.model_spec} not recognized.')
 
