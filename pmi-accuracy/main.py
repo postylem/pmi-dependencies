@@ -245,8 +245,8 @@ def get_scores(
   print("=========\nmean uuas values\n")
   print(f'linear : {mean_linear:.3}')
   print(f'random :\n\tnon-proj   {mean_random_nonproj:.3}\n\tprojective {mean_random_proj:.3}')
-  print(f'nonproj: {{k:round(v,2) for k, v in mean_nonproj.items()}}')
-  print(f'proj   : {{k:round(v,2) for k, v in mean_proj.items()}}')
+  print(f'nonproj: { {k:round(v,2) for k, v in mean_nonproj.items()}}')
+  print(f'proj   : { {k:round(v,2) for k, v in mean_proj.items()}}')
   return all_scores
 
 if __name__ == '__main__':
