@@ -68,7 +68,7 @@ def load_conll_dataset(filepath, observation_class):
 def score_observation(observation, pmi_matrix, verbose=False):
   if verbose:
     obs_df = pd.DataFrame(observation).T
-    obs_df.columns = FIELDNAMES
+    obs_df.columns = CONLL_COLS
     print("\nObservation from conllx\n", obs_df.loc[:, ['index', 'sentence', 'head_indices','governance_relations']], sep='')
 
   # Get gold edges distances tensor from conllx file (note 'mst' will always give projective gold edges)
@@ -255,8 +255,8 @@ if __name__ == '__main__':
   ARGP.add_argument('--pmi_from_disk', nargs='?', const='pmi_matrices.npz',
                     help='to use saved matrices from disk (specify path/to/pmi_matrices.npz)') # TODO
   ARGP.add_argument('--model_spec', default='xlnet-base-cased',
-                    help='''specify model, either XLNet ("xlnet-base-cased" or "xlnet-large-cased") 
-                            or BERT ("bert-base-cased" or "bert-large-cased"), or path for offline''')
+                    help='''specify model (e.g. "xlnet-base-cased", "bert-large-cased"),
+                    or path for offline''')
   ARGP.add_argument('--conllx_file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
                     help='path/to/treebank.conllx: dependency file, in conllx format')
   ARGP.add_argument('--results_dir', default='results/',
@@ -277,6 +277,7 @@ if __name__ == '__main__':
   NOW = datetime.now()
   DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
   SPEC_SUFFIX = SPEC_STRING+str(CLI_ARGS.n_observations) if CLI_ARGS.n_observations != 'all' else SPEC_STRING
+  SPEC_SUFFIX += '_pad'+str(CLI_ARGS.pad)
   SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX
   RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
   os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -307,11 +308,14 @@ if __name__ == '__main__':
     elif CLI_ARGS.model_spec.startswith('bert'):
       MODEL_TYPE = 'bert'
       MODEL = languagemodel.BERT(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+    # elif CLI_ARGS.model_spec.startswith('xlm'):
+    #   MODEL_TYPE = 'xlm'
+    #   MODEL = languagemodel.XLM(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
     else:
       raise ValueError(f'Model spec string {CLI_ARGS.model_spec} not recognized.')
 
   # Columns of CONLL file
-  FIELDNAMES = ['index',
+  CONLL_COLS = ['index',
                 'sentence',
                 'lemma_sentence',
                 'upos_sentence',
@@ -322,9 +326,9 @@ if __name__ == '__main__':
                 'secondary_relations',
                 'extra_info']
 
-  ObservationClass = namedtuple("Observation", FIELDNAMES)
+  ObservationClass = namedtuple("Observation", CONLL_COLS)
   OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
   SCORES = get_scores(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS, verbose=True)
-  DF = pd.io.json.json_normalize(SCORES, sep='>')
+  DF = pd.json_normalize(SCORES, sep='>')
   DF.to_csv(RESULTS_DIR + 'scores_' + SUFFIX + '.csv')
