@@ -228,12 +228,13 @@ def get_scores(
             "\n", sep='')
 
     prepadding, postpadding = get_padding(i, observations, padlen)
-    # get a pmi matrix
-    pmi_matrix = MODEL.ptb_tokenlist_to_pmi_matrix(
+    # get a pmi matrix and a pseudo-logprob for the sentence
+    pmi_matrix, loglikelihood = MODEL.ptb_tokenlist_to_pmi_matrix(
         obs.sentence, add_special_tokens=True, verbose=verbose, # might want to toggle this verbosity during testing
         pad_left=prepadding, pad_right=postpadding)
     # calculate score
     scores = score_observation(obs, pmi_matrix)
+    scores['loglikelihood'] = loglikelihood
     all_scores.append(scores)
     print(f"linear   {scores['baseline_linear']}")
     print(f"random   \n\tnon-proj   {scores['baseline_random_nonproj']}\n\tprojective {scores['baseline_random_proj']}")
