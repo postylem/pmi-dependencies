@@ -108,14 +108,16 @@ def score_observation(observation, pmi_matrix):
   scorer = parser.Accuracy(gold_edges)
 
   scores = {}
+  scores['sentence_length'] = len(observation.sentence)
+  scores['number_edges'] = len(gold_edges)
   scores['gold_edges'] = gold_edges
   scores['baseline_linear'] = scorer.uuas(baseline_linear_edges)
   scores['baseline_random_nonproj'] = scorer.uuas(baseline_random_nonproj_edges)
   scores['baseline_random_proj'] = scorer.uuas(baseline_random_proj_edges)
   scores['projective'] = {}
-  scores['non-projective'] = {}
   scores['projective']['edges'] = pmi_edges_proj
   scores['projective']['uuas'] = {}
+  scores['non-projective'] = {}
   scores['non-projective']['edges'] = pmi_edges
   scores['non-projective']['uuas'] = {}
 
@@ -130,11 +132,11 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='
   gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
 
   gold_edge_label = {key : None for key in gold_edges_set}
-  for i,_ in enumerate(observation.index):
-    d,h = int(observation.index[i]), int(observation.head_indices[i])
-    if (d-1,h-1) in gold_edges_set:
+  for i, _ in enumerate(observation.index):
+    d, h = int(observation.index[i]), int(observation.head_indices[i])
+    if (d-1, h-1) in gold_edges_set:
       gold_edge_label[(d-1,h-1)] = observation.governance_relations[i]
-    elif (h-1,d-1) in gold_edges_set:
+    elif (h-1, d-1) in gold_edges_set:
       gold_edge_label[(h-1,d-1)] = observation.governance_relations[i]
 
   predicted_edges_set = {tuple(sorted(x)) for x in predicted_edges}
