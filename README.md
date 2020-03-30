@@ -1,6 +1,6 @@
-# PMI dependencies from XLNet
+# PMI dependencies from contextual embeddings
 
-## Accuracy of XLNet PMI dependencies
+## Accuracy of PMI dependencies
 
 ```
 pmi-accuracy/
@@ -10,13 +10,29 @@ pmi-accuracy/
 | languagemodel.py
 ```
 
-running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentences in PTB, using a language model (currently just [XLNetLMHeadModel](https://huggingface.co/transformers/model_doc/xlnet.html#xlnetlmheadmodel)) to get PMI estimates, extracts a tree, calculates undirected attachment score, reports the results, writes the matrices, etc.  
+running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentences in PTB, using a language model to get PMI estimates, extracts a tree, calculates undirected attachment score, reports the results, writes the matrices, etc.  
+
+
 
 [langaugemodel.py](pmi-accuracy/langaugemodel.py) has a class for XLNet (todo, add one for BERT), with method to get a PMI matrix from a sentence (that is, from a list of Penn Treebank tokens).
 
 [parser.py](pmi-accuracy/parser.py) has the methods to get either a simple MST (Prim's algorithm) or a projective MST (Eisner's algorithm) from the PMI matrices.
 
 [task.py](pmi-accuracy/task.py) has stuff for dealing with the raw PTB and getting a distance matrix (.conllx file -> torch tensor), to extract parse distance matrix, or linear string-distance matrix.
+
+### The models we're testing
+
+- XLNet
+  - [xlnet-base-cased](https://huggingface.co/xlnet-base-cased)
+  - [xlnet-large-cased](https://huggingface.co/xlnet-large-cased)
+- BERT
+  - [bert-base-cased](https://huggingface.co/bert-base-cased)
+  - [bert-base-uncased](https://huggingface.co/bert-base-uncased)
+  - [bert-large-cased](https://huggingface.co/bert-large-cased)
+  - [bert-large-uncased](https://huggingface.co/bert-large-uncased)
+- XLM
+  - [xlm-mlm-en-2048](https://huggingface.co/xlm-mlm-en-2048)
+
 
 
 ### Baselines
@@ -116,6 +132,84 @@ a minimal example notebook from a few iterations ago [here](https://colab.resear
 
 Some prose is there about the dealing with the fact that these estimates of PMI are non-symmetric, subword tokenization, etc.
 
+--------------------------------------------------
+
+# Some results
+
+### baselines
+linear : 0.50
+random :
+        non-proj   0.13
+        projective 0.27
+
+### xlnet-base
+pad 0
+nonproj: {'sum': 0.43, 'triu': 0.41, 'tril': 0.38, 'none': 0.43}
+proj   : {'sum': 0.46, 'triu': 0.44, 'tril': 0.41, 'none': 0.43}
+
+pad 30
+nonproj: {'sum': 0.44, 'triu': 0.42, 'tril': 0.39, 'none': 0.44}
+proj   : {'sum': 0.47, 'triu': 0.45, 'tril': 0.43, 'none': 0.44}
+
+(and without sep character)
+nonproj: {'sum': 0.44, 'triu': 0.42, 'tril': 0.39, 'none': 0.44}
+proj   : {'sum': 0.47, 'triu': 0.45, 'tril': 0.43, 'none': 0.44}
+
+pad 60
+nonproj: {'sum': 0.42, 'triu': 0.40, 'tril': 0.39, 'none': 0.43}
+proj   : {'sum': 0.46, 'triu': 0.44, 'tril': 0.44, 'none': 0.44}
+
+(and without sep character)
+nonproj: {'sum': 0.42, 'triu': 0.40, 'tril': 0.40, 'none': 0.43}
+proj   : {'sum': 0.45, 'triu': 0.44, 'tril': 0.44, 'none': 0.44}
+### xlnet-large
+pad 0
+nonproj: {'sum': 0.38, 'triu': 0.35, 'tril': 0.33, 'none': 0.37}
+proj   : {'sum': 0.42, 'triu': 0.40, 'tril': 0.38, 'none': 0.39}
+
+pad 30
+nonproj: {'sum': 0.39, 'triu': 0.36, 'tril': 0.36, 'none': 0.39}
+proj   : {'sum': 0.43, 'triu': 0.41, 'tril': 0.40, 'none': 0.41}
+
+pad 60
+nonproj: {'sum': 0.38, 'triu': 0.36, 'tril': 0.37, 'none': 0.39}
+proj   : {'sum': 0.43, 'triu': 0.41, 'tril': 0.41, 'none': 0.41}
+
+### bert-base-uncased
+pad 0
+nonproj: {'sum': 0.44, 'triu': 0.43, 'tril': 0.42, 'none': 0.45}
+proj   : {'sum': 0.46, 'triu': 0.45, 'tril': 0.44, 'none': 0.44}
+
+pad 30
+nonproj: {'sum': 0.45, 'triu': 0.44, 'tril': 0.42, 'none': 0.46}
+proj   : {'sum': 0.46, 'triu': 0.46, 'tril': 0.44, 'none': 0.44}
+
+### bert-base-cased
+pad 0
+nonproj: {'sum': 0.45, 'triu': 0.44, 'tril': 0.43, 'none': 0.46}
+proj   : {'sum': 0.47, 'triu': 0.46, 'tril': 0.45, 'none': 0.45}
+
+pad 30
+nonproj: {'sum': 0.46, 'triu': 0.44, 'tril': 0.44, 'none': 0.47}
+proj   : {'sum': 0.47, 'triu': 0.46, 'tril': 0.45, 'none': 0.46}
+
+### bert-large-uncased
+pad 0
+nonproj: {'sum': 0.43, 'triu': 0.41, 'tril': 0.40, 'none': 0.44}
+proj   : {'sum': 0.45, 'triu': 0.44, 'tril': 0.43, 'none': 0.43}
+
+pad 30
+nonproj: {'sum': 0.44, 'triu': 0.43, 'tril': 0.42, 'none': 0.45}
+proj   : {'sum': 0.46, 'triu': 0.45, 'tril': 0.44, 'none': 0.44}
+
+### bert-large-cased
+pad 0
+nonproj: {'sum': 0.45, 'triu': 0.45, 'tril': 0.42, 'none': 0.46}
+proj   : {'sum': 0.46, 'triu': 0.46, 'tril': 0.44, 'none': 0.45}
+
+pad 30
+nonproj: {'sum': 0.47, 'triu': 0.47, 'tril': 0.43, 'none': 0.48}
+proj   : {'sum': 0.48, 'triu': 0.48, 'tril': 0.45, 'none': 0.45}
 
 --------------------------------------------------
 
