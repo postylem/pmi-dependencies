@@ -142,72 +142,72 @@ random :
         non-proj   0.13
         projective 0.27
 ### xlnet-base
-|_pad 0 _| sum  | triu | tril | none |
+|*pad 0* | sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.43 | 0.41 | 0.38 | 0.43 |
 | proj   | 0.46 | 0.44 | 0.41 | 0.43 |
 
-|_pad 30_| sum  | triu | tril | none |
+|*pad 30*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.44 | 0.42 | 0.39 | 0.44 |
 | proj   | 0.47 | 0.45 | 0.43 | 0.44 |
 
-|_pad 60_| sum  | triu | tril | none |
+|*pad 60*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.42 | 0.40 | 0.39 | 0.43 |
 | proj   | 0.46 | 0.44 | 0.44 | 0.44 |
 ### xlnet-large
-|_pad 0 _| sum  | triu | tril | none |
+|*pad 0* | sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.38 | 0.35 | 0.33 | 0.37 |
 | proj   | 0.42 | 0.40 | 0.38 | 0.39 |
 
-|_pad 30_| sum  | triu | tril | none |
+|*pad 30*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.39 | 0.36 | 0.36 | 0.39 |
 | proj   | 0.43 | 0.41 | 0.40 | 0.41 |
 
-|_pad 60_| sum  | triu | tril | none |
+|*pad 60*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.38 | 0.36 | 0.37 | 0.39 |
 | proj   | 0.43 | 0.41 | 0.41 | 0.41 |
 ### bert-base-uncased
-|_pad 0 _| sum  | triu | tril | none |
+|*pad 0* | sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.44 | 0.43 | 0.42 | 0.45 |
 | proj   | 0.46 | 0.45 | 0.44 | 0.44 |
 
-|_pad 30_| sum  | triu | tril | none |
+|*pad 30*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.45 | 0.44 | 0.42 | 0.46 |
 | proj   | 0.46 | 0.46 | 0.44 | 0.44 |
 ### bert-base-cased
-|_pad 0 _| sum  | triu | tril | none |
+|*pad 0* | sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.45 | 0.44 | 0.43 | 0.46 |
 | proj   | 0.47 | 0.46 | 0.45 | 0.45 |
 
-|_pad 30_| sum  | triu | tril | none |
+|*pad 30*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.46 | 0.44 | 0.44 | 0.47 |
 | proj   | 0.47 | 0.46 | 0.45 | 0.46 |
 ### bert-large-uncased
-|_pad 0 _| sum  | triu | tril | none |
+|*pad 0* | sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.43 | 0.41 | 0.40 | 0.44 |
 | proj   | 0.45 | 0.44 | 0.43 | 0.43 |
 
-|_pad 30_| sum  | triu | tril | none |
+|*pad 30*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.44 | 0.43 | 0.42 | 0.45 |
 | proj   | 0.46 | 0.45 | 0.44 | 0.44 |
 ### bert-large-cased
-|_pad 0 _| sum  | triu | tril | none |
+|*pad 0* | sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.45 | 0.45 | 0.42 | 0.46 |
 | proj   | 0.46 | 0.46 | 0.44 | 0.45 |
 
-|_pad 30_| sum  | triu | tril | none |
+|*pad 30*| sum  | triu | tril | none |
 | ------ | ---- | ---- | ---- | ---- |
 | nonproj| 0.47 | 0.47 | 0.43 | 0.48 |
 | proj   | 0.48 | 0.48 | 0.45 | 0.45 |
