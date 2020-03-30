@@ -1,0 +1,176 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Anybody\& can\& vote\& as\& they\& want\& ,\& ''\& said\& Rep.\& William\& Lehman\& -LRB-\& D.\& ,\& Fla.\& -RRB-\& ,\& head\& of\& the\& House\& conferees\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{20}{.}
+\depedge{15}{17}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}890\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.31\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Anybody\& can\& vote\& as\& they\& want\& ,\& ''\& said\& Rep.\& William\& Lehman\& -LRB-\& D.\& ,\& Fla.\& -RRB-\& ,\& head\& of\& the\& House\& conferees\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{20}{.}
+\depedge{15}{17}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}890\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Anybody\& can\& vote\& as\& they\& want\& ,\& ''\& said\& Rep.\& William\& Lehman\& -LRB-\& D.\& ,\& Fla.\& -RRB-\& ,\& head\& of\& the\& House\& conferees\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{20}{.}
+\depedge{15}{17}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}890\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Anybody\& can\& vote\& as\& they\& want\& ,\& ''\& said\& Rep.\& William\& Lehman\& -LRB-\& D.\& ,\& Fla.\& -RRB-\& ,\& head\& of\& the\& House\& conferees\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{20}{.}
+\depedge{15}{17}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}890\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.31\end{footnotesize}};
+\end{dependency}
+

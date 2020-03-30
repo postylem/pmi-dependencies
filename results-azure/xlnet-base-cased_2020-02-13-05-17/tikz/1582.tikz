@@ -1,0 +1,272 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NP\& Acquisition\& Co.\& ,\& a\& National\& Pizza\& unit\& ,\& plans\& to\& begin\& a\& tender\& offer\& for\& Skipper\& 's\& on\& Friday\& ,\& conditioned\& on\& at\& least\& two-thirds\& of\& Skipper\& 's\& shares\& being\& tendered\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{8}{.}
+\depedge{3}{10}{.}
+\depedge{5}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{19}{.}
+\depedge{12}{22}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{22}{23}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1582\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NP\& Acquisition\& Co.\& ,\& a\& National\& Pizza\& unit\& ,\& plans\& to\& begin\& a\& tender\& offer\& for\& Skipper\& 's\& on\& Friday\& ,\& conditioned\& on\& at\& least\& two-thirds\& of\& Skipper\& 's\& shares\& being\& tendered\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{8}{.}
+\depedge{3}{10}{.}
+\depedge{5}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{19}{.}
+\depedge{12}{22}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{22}{23}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1582\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.18\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NP\& Acquisition\& Co.\& ,\& a\& National\& Pizza\& unit\& ,\& plans\& to\& begin\& a\& tender\& offer\& for\& Skipper\& 's\& on\& Friday\& ,\& conditioned\& on\& at\& least\& two-thirds\& of\& Skipper\& 's\& shares\& being\& tendered\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{8}{.}
+\depedge{3}{10}{.}
+\depedge{5}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{19}{.}
+\depedge{12}{22}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{22}{23}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1582\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.21\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NP\& Acquisition\& Co.\& ,\& a\& National\& Pizza\& unit\& ,\& plans\& to\& begin\& a\& tender\& offer\& for\& Skipper\& 's\& on\& Friday\& ,\& conditioned\& on\& at\& least\& two-thirds\& of\& Skipper\& 's\& shares\& being\& tendered\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{8}{.}
+\depedge{3}{10}{.}
+\depedge{5}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{19}{.}
+\depedge{12}{22}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{22}{23}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1582\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.21\end{footnotesize}};
+\end{dependency}
+

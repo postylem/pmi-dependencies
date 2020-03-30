@@ -1,0 +1,272 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NCNB\& Texas\& National\& ,\& formed\& from\& the\& remnants\& of\& of\& the\& failed\& First\& RepublicBank\& Corp.\& of\& Dallas\& ,\& contributed\& \$\& 76.9\& million\& to\& NCNB\& 's\& bottom\& line\& in\& the\& third\& quarter\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{19}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{10}{15}{.}
+\depedge{11}{15}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{28}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{25}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}330\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.46\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NCNB\& Texas\& National\& ,\& formed\& from\& the\& remnants\& of\& of\& the\& failed\& First\& RepublicBank\& Corp.\& of\& Dallas\& ,\& contributed\& \$\& 76.9\& million\& to\& NCNB\& 's\& bottom\& line\& in\& the\& third\& quarter\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{19}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{10}{15}{.}
+\depedge{11}{15}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{28}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{25}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}330\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.43\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NCNB\& Texas\& National\& ,\& formed\& from\& the\& remnants\& of\& of\& the\& failed\& First\& RepublicBank\& Corp.\& of\& Dallas\& ,\& contributed\& \$\& 76.9\& million\& to\& NCNB\& 's\& bottom\& line\& in\& the\& third\& quarter\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{19}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{10}{15}{.}
+\depedge{11}{15}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{28}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{25}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}330\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+NCNB\& Texas\& National\& ,\& formed\& from\& the\& remnants\& of\& of\& the\& failed\& First\& RepublicBank\& Corp.\& of\& Dallas\& ,\& contributed\& \$\& 76.9\& million\& to\& NCNB\& 's\& bottom\& line\& in\& the\& third\& quarter\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{19}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{10}{15}{.}
+\depedge{11}{15}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{28}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{25}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}330\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.43\end{footnotesize}};
+\end{dependency}
+

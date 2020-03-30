@@ -1,0 +1,344 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& stark\& lesson\& in\& the\& power\& of\& the\& appropriations\& committees\& ,\& the\& House\& deliberately\& killed\& a\& handful\& of\& projects\& backed\& by\& lawmakers\& in\& Florida\& ,\& Illinois\& and\& Pennsylvania\& who\& had\& voted\& against\& the\& panel\& leadership\& on\& the\& House\& floor\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{16}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{32}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{28}{.}
+\depedge{25}{29}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{37}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{40}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{39}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}889\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& stark\& lesson\& in\& the\& power\& of\& the\& appropriations\& committees\& ,\& the\& House\& deliberately\& killed\& a\& handful\& of\& projects\& backed\& by\& lawmakers\& in\& Florida\& ,\& Illinois\& and\& Pennsylvania\& who\& had\& voted\& against\& the\& panel\& leadership\& on\& the\& House\& floor\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{16}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{32}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{28}{.}
+\depedge{25}{29}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{37}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{40}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}889\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.51\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& stark\& lesson\& in\& the\& power\& of\& the\& appropriations\& committees\& ,\& the\& House\& deliberately\& killed\& a\& handful\& of\& projects\& backed\& by\& lawmakers\& in\& Florida\& ,\& Illinois\& and\& Pennsylvania\& who\& had\& voted\& against\& the\& panel\& leadership\& on\& the\& House\& floor\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{16}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{32}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{28}{.}
+\depedge{25}{29}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{37}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{40}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}889\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& stark\& lesson\& in\& the\& power\& of\& the\& appropriations\& committees\& ,\& the\& House\& deliberately\& killed\& a\& handful\& of\& projects\& backed\& by\& lawmakers\& in\& Florida\& ,\& Illinois\& and\& Pennsylvania\& who\& had\& voted\& against\& the\& panel\& leadership\& on\& the\& House\& floor\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{16}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{32}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{28}{.}
+\depedge{25}{29}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{37}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{40}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}889\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.43\end{footnotesize}};
+\end{dependency}
+

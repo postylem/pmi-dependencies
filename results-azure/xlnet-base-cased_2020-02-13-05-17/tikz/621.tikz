@@ -1,0 +1,240 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& only\& strong\& opposition\& to\& changing\& the\& EC\& treaty\& comes\& from\& British\& Prime\& Minister\& Margaret\& Thatcher\& ,\& who\& is\& opposed\& to\& creating\& a\& single\& EC\& currency\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{10}{.}
+\depedge{5}{6}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{11}{.}
+\depedge{11}{16}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}621\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.29\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& only\& strong\& opposition\& to\& changing\& the\& EC\& treaty\& comes\& from\& British\& Prime\& Minister\& Margaret\& Thatcher\& ,\& who\& is\& opposed\& to\& creating\& a\& single\& EC\& currency\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{10}{.}
+\depedge{5}{6}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{11}{.}
+\depedge{11}{16}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}621\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& only\& strong\& opposition\& to\& changing\& the\& EC\& treaty\& comes\& from\& British\& Prime\& Minister\& Margaret\& Thatcher\& ,\& who\& is\& opposed\& to\& creating\& a\& single\& EC\& currency\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{10}{.}
+\depedge{5}{6}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{11}{.}
+\depedge{11}{16}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}621\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.21\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& only\& strong\& opposition\& to\& changing\& the\& EC\& treaty\& comes\& from\& British\& Prime\& Minister\& Margaret\& Thatcher\& ,\& who\& is\& opposed\& to\& creating\& a\& single\& EC\& currency\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{10}{.}
+\depedge{5}{6}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{11}{.}
+\depedge{11}{16}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}621\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+

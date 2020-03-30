@@ -1,0 +1,376 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Herbert\& M.\& Sandler\& ,\& chairman\& and\& chief\& executive\& officer\& of\& the\& Oakland\& ,\& Calif.\& ,\& savings-and-loan\& holding\& company\& ,\& credited\& the\& high\& number\& of\& loans\& added\& to\& the\& company\& 's\& portfolio\& over\& the\& last\& 12\& months\& for\& broadening\& its\& earning\& asset\& base\& and\& improving\& profit\& performance\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{20}{.}
+\depedge{5}{6}{.}
+\depedge{5}{9}{.}
+\depedge{5}{10}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{18}{.}
+\depedge{11}{18}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{23}{.}
+\depedge{20}{37}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{26}{32}{.}
+\depedge{27}{31}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{32}{36}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{42}{.}
+\depedge{38}{43}{.}
+\depedge{38}{44}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1427\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Herbert\& M.\& Sandler\& ,\& chairman\& and\& chief\& executive\& officer\& of\& the\& Oakland\& ,\& Calif.\& ,\& savings-and-loan\& holding\& company\& ,\& credited\& the\& high\& number\& of\& loans\& added\& to\& the\& company\& 's\& portfolio\& over\& the\& last\& 12\& months\& for\& broadening\& its\& earning\& asset\& base\& and\& improving\& profit\& performance\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{20}{.}
+\depedge{5}{6}{.}
+\depedge{5}{9}{.}
+\depedge{5}{10}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{18}{.}
+\depedge{11}{18}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{23}{.}
+\depedge{20}{37}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{26}{32}{.}
+\depedge{27}{31}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{32}{36}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{42}{.}
+\depedge{38}{43}{.}
+\depedge{38}{44}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{16}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1427\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Herbert\& M.\& Sandler\& ,\& chairman\& and\& chief\& executive\& officer\& of\& the\& Oakland\& ,\& Calif.\& ,\& savings-and-loan\& holding\& company\& ,\& credited\& the\& high\& number\& of\& loans\& added\& to\& the\& company\& 's\& portfolio\& over\& the\& last\& 12\& months\& for\& broadening\& its\& earning\& asset\& base\& and\& improving\& profit\& performance\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{20}{.}
+\depedge{5}{6}{.}
+\depedge{5}{9}{.}
+\depedge{5}{10}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{18}{.}
+\depedge{11}{18}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{23}{.}
+\depedge{20}{37}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{26}{32}{.}
+\depedge{27}{31}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{32}{36}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{42}{.}
+\depedge{38}{43}{.}
+\depedge{38}{44}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1427\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.32\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Herbert\& M.\& Sandler\& ,\& chairman\& and\& chief\& executive\& officer\& of\& the\& Oakland\& ,\& Calif.\& ,\& savings-and-loan\& holding\& company\& ,\& credited\& the\& high\& number\& of\& loans\& added\& to\& the\& company\& 's\& portfolio\& over\& the\& last\& 12\& months\& for\& broadening\& its\& earning\& asset\& base\& and\& improving\& profit\& performance\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{20}{.}
+\depedge{5}{6}{.}
+\depedge{5}{9}{.}
+\depedge{5}{10}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{10}{18}{.}
+\depedge{11}{18}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{23}{.}
+\depedge{20}{37}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{26}{32}{.}
+\depedge{27}{31}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{32}{36}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{42}{.}
+\depedge{38}{43}{.}
+\depedge{38}{44}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1427\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+

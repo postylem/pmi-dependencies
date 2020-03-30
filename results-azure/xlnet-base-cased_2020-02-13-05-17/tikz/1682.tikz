@@ -1,0 +1,224 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& stock\& has\& since\& softened\& ,\& trading\& around\& \$\& 25\& a\& share\& last\& week\& and\& closing\& yesterday\& at\& \$\& 23.00\& in\& national\& over-the-counter\& trading\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{7}{9}{.}
+\depedge{7}{14}{.}
+\depedge{7}{15}{.}
+\depedge{7}{16}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{20}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1682\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& stock\& has\& since\& softened\& ,\& trading\& around\& \$\& 25\& a\& share\& last\& week\& and\& closing\& yesterday\& at\& \$\& 23.00\& in\& national\& over-the-counter\& trading\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{7}{9}{.}
+\depedge{7}{14}{.}
+\depedge{7}{15}{.}
+\depedge{7}{16}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1682\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& stock\& has\& since\& softened\& ,\& trading\& around\& \$\& 25\& a\& share\& last\& week\& and\& closing\& yesterday\& at\& \$\& 23.00\& in\& national\& over-the-counter\& trading\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{7}{9}{.}
+\depedge{7}{14}{.}
+\depedge{7}{15}{.}
+\depedge{7}{16}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1682\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.36\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& stock\& has\& since\& softened\& ,\& trading\& around\& \$\& 25\& a\& share\& last\& week\& and\& closing\& yesterday\& at\& \$\& 23.00\& in\& national\& over-the-counter\& trading\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{7}{9}{.}
+\depedge{7}{14}{.}
+\depedge{7}{15}{.}
+\depedge{7}{16}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{20}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1682\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+

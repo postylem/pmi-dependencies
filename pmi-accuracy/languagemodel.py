@@ -735,7 +735,7 @@ class XLM(LanguageModel):
       if subword_list_i == ['n</w>', "'t</w>"] and i != 0:
         # print(f"{i}: fixing X n 't => Xn 't ")
         del subword_list_i[0]
-        subword_lists[i-1][-1][:-4] += 'n</w>'
+        subword_lists[i-1][-1] = subword_lists[i-1][-1][:-4] + 'n</w>'
 
     tokens = list(itertools.chain(*subword_lists)) # flattened list
     ptbtok_to_span = []

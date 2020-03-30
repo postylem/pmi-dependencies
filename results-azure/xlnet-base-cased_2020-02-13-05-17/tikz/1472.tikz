@@ -1,0 +1,144 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& addition\& to\& making\& electro-optical\& systems\& ,\& the\& unit\& also\& makes\& laser\& warning\& receivers\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{11}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{12}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1472\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& addition\& to\& making\& electro-optical\& systems\& ,\& the\& unit\& also\& makes\& laser\& warning\& receivers\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{11}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{12}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1472\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.58\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& addition\& to\& making\& electro-optical\& systems\& ,\& the\& unit\& also\& makes\& laser\& warning\& receivers\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{11}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1472\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.58\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& addition\& to\& making\& electro-optical\& systems\& ,\& the\& unit\& also\& makes\& laser\& warning\& receivers\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{11}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{12}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1472\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.58\end{footnotesize}};
+\end{dependency}
+

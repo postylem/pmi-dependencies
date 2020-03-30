@@ -1,0 +1,256 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& the\& far\& stronger\& showing\& of\& the\& Columbia\& index\& ``\& makes\& a\& recession\& any\& time\& soon\& highly\& unlikely\& ,\& ''\& says\& Geoffrey\& H.\& Moore\& ,\& the\& director\& of\& the\& Columbia\& facility\& . \\
+\end{deptext}
+\depedge{1}{11}{.}
+\depedge{2}{5}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{11}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{18}{.}
+\depedge{11}{21}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1170\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& the\& far\& stronger\& showing\& of\& the\& Columbia\& index\& ``\& makes\& a\& recession\& any\& time\& soon\& highly\& unlikely\& ,\& ''\& says\& Geoffrey\& H.\& Moore\& ,\& the\& director\& of\& the\& Columbia\& facility\& . \\
+\end{deptext}
+\depedge{1}{11}{.}
+\depedge{2}{5}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{11}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{18}{.}
+\depedge{11}{21}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1170\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& the\& far\& stronger\& showing\& of\& the\& Columbia\& index\& ``\& makes\& a\& recession\& any\& time\& soon\& highly\& unlikely\& ,\& ''\& says\& Geoffrey\& H.\& Moore\& ,\& the\& director\& of\& the\& Columbia\& facility\& . \\
+\end{deptext}
+\depedge{1}{11}{.}
+\depedge{2}{5}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{11}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{18}{.}
+\depedge{11}{21}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1170\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& the\& far\& stronger\& showing\& of\& the\& Columbia\& index\& ``\& makes\& a\& recession\& any\& time\& soon\& highly\& unlikely\& ,\& ''\& says\& Geoffrey\& H.\& Moore\& ,\& the\& director\& of\& the\& Columbia\& facility\& . \\
+\end{deptext}
+\depedge{1}{11}{.}
+\depedge{2}{5}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{11}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{18}{.}
+\depedge{11}{21}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1170\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.46\end{footnotesize}};
+\end{dependency}
+

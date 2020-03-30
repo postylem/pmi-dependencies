@@ -1,0 +1,456 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& team\& that\& dumped\& runs\& by\& the\& bushel\& on\& the\& Chicago\& Cubs\& in\& the\& National\& League\& playoffs\& was\& held\& to\& just\& one\& in\& two\& games\& by\& the\& home-team\& Oakland\& A\& 's\& ,\& the\& gang\& that\& had\& been\& done\& unto\& similarly\& by\& the\& Los\& Angeles\& Dodgers\& and\& Orel\& Hershiser\& in\& last\& year\& 's\& tournament\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{2}{19}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{6}{.}
+\depedge{4}{9}{.}
+\depedge{4}{13}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{26}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{31}{.}
+\depedge{27}{31}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{38}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{40}{.}
+\depedge{38}{41}{.}
+\depedge{38}{49}{.}
+\depedge{41}{45}{.}
+\depedge{42}{45}{.}
+\depedge{43}{45}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{53}{.}
+\depedge{50}{51}{.}
+\depedge{51}{52}{.}
+\depedge{51}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{49}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{53}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}81\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.29\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& team\& that\& dumped\& runs\& by\& the\& bushel\& on\& the\& Chicago\& Cubs\& in\& the\& National\& League\& playoffs\& was\& held\& to\& just\& one\& in\& two\& games\& by\& the\& home-team\& Oakland\& A\& 's\& ,\& the\& gang\& that\& had\& been\& done\& unto\& similarly\& by\& the\& Los\& Angeles\& Dodgers\& and\& Orel\& Hershiser\& in\& last\& year\& 's\& tournament\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{2}{19}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{6}{.}
+\depedge{4}{9}{.}
+\depedge{4}{13}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{26}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{31}{.}
+\depedge{27}{31}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{38}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{40}{.}
+\depedge{38}{41}{.}
+\depedge{38}{49}{.}
+\depedge{41}{45}{.}
+\depedge{42}{45}{.}
+\depedge{43}{45}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{53}{.}
+\depedge{50}{51}{.}
+\depedge{51}{52}{.}
+\depedge{51}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{42}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{48}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{53}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}81\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.29\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& team\& that\& dumped\& runs\& by\& the\& bushel\& on\& the\& Chicago\& Cubs\& in\& the\& National\& League\& playoffs\& was\& held\& to\& just\& one\& in\& two\& games\& by\& the\& home-team\& Oakland\& A\& 's\& ,\& the\& gang\& that\& had\& been\& done\& unto\& similarly\& by\& the\& Los\& Angeles\& Dodgers\& and\& Orel\& Hershiser\& in\& last\& year\& 's\& tournament\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{2}{19}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{6}{.}
+\depedge{4}{9}{.}
+\depedge{4}{13}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{26}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{31}{.}
+\depedge{27}{31}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{38}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{40}{.}
+\depedge{38}{41}{.}
+\depedge{38}{49}{.}
+\depedge{41}{45}{.}
+\depedge{42}{45}{.}
+\depedge{43}{45}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{53}{.}
+\depedge{50}{51}{.}
+\depedge{51}{52}{.}
+\depedge{51}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{49}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}81\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& team\& that\& dumped\& runs\& by\& the\& bushel\& on\& the\& Chicago\& Cubs\& in\& the\& National\& League\& playoffs\& was\& held\& to\& just\& one\& in\& two\& games\& by\& the\& home-team\& Oakland\& A\& 's\& ,\& the\& gang\& that\& had\& been\& done\& unto\& similarly\& by\& the\& Los\& Angeles\& Dodgers\& and\& Orel\& Hershiser\& in\& last\& year\& 's\& tournament\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{2}{19}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{6}{.}
+\depedge{4}{9}{.}
+\depedge{4}{13}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{19}{23}{.}
+\depedge{19}{26}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{31}{.}
+\depedge{27}{31}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{38}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{40}{.}
+\depedge{38}{41}{.}
+\depedge{38}{49}{.}
+\depedge{41}{45}{.}
+\depedge{42}{45}{.}
+\depedge{43}{45}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{53}{.}
+\depedge{50}{51}{.}
+\depedge{51}{52}{.}
+\depedge{51}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{49}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{53}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}81\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.31\end{footnotesize}};
+\end{dependency}
+

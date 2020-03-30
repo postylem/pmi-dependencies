@@ -1,0 +1,344 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+At\& Kodak\& ,\& which\& largely\& ignored\& the\& market\& for\& years\& ,\& black-and-white\& film\& sales\& now\& account\& for\& nearly\& 15\& %\& of\& the\& company\& 's\& \$\& 3\& billion\& in\& film\& and\& paper\& sales\& annually\& ,\& up\& from\& 10\& %\& three\& years\& ago\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{16}{.}
+\depedge{2}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{35}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{25}{.}
+\depedge{23}{28}{.}
+\depedge{23}{33}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{32}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{29}{32}{.}
+\depedge{35}{36}{.}
+\depedge{36}{38}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1101\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.32\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+At\& Kodak\& ,\& which\& largely\& ignored\& the\& market\& for\& years\& ,\& black-and-white\& film\& sales\& now\& account\& for\& nearly\& 15\& %\& of\& the\& company\& 's\& \$\& 3\& billion\& in\& film\& and\& paper\& sales\& annually\& ,\& up\& from\& 10\& %\& three\& years\& ago\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{16}{.}
+\depedge{2}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{35}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{25}{.}
+\depedge{23}{28}{.}
+\depedge{23}{33}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{32}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{29}{32}{.}
+\depedge{35}{36}{.}
+\depedge{36}{38}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1101\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.32\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+At\& Kodak\& ,\& which\& largely\& ignored\& the\& market\& for\& years\& ,\& black-and-white\& film\& sales\& now\& account\& for\& nearly\& 15\& %\& of\& the\& company\& 's\& \$\& 3\& billion\& in\& film\& and\& paper\& sales\& annually\& ,\& up\& from\& 10\& %\& three\& years\& ago\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{16}{.}
+\depedge{2}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{35}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{25}{.}
+\depedge{23}{28}{.}
+\depedge{23}{33}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{32}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{29}{32}{.}
+\depedge{35}{36}{.}
+\depedge{36}{38}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1101\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.32\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+At\& Kodak\& ,\& which\& largely\& ignored\& the\& market\& for\& years\& ,\& black-and-white\& film\& sales\& now\& account\& for\& nearly\& 15\& %\& of\& the\& company\& 's\& \$\& 3\& billion\& in\& film\& and\& paper\& sales\& annually\& ,\& up\& from\& 10\& %\& three\& years\& ago\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{16}{.}
+\depedge{2}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{35}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{23}{25}{.}
+\depedge{23}{28}{.}
+\depedge{23}{33}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{32}{.}
+\depedge{29}{30}{.}
+\depedge{29}{31}{.}
+\depedge{29}{32}{.}
+\depedge{35}{36}{.}
+\depedge{36}{38}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1101\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+

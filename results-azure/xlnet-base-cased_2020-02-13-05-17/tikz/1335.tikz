@@ -1,0 +1,320 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+State\& and\& the\& human-rights\& community\& should\& insist\& that\& Mr.\& Stanley\& and\& his\& fellow\& defendants\& be\& released\& and\& that\& the\& United\& Nation\& 's\& monitors\& make\& certain\& that\& Mr.\& O'Linn's\& commission\& investigates\& election\& complaints\& from\& all\& sides\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{7}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{6}{7}{.}
+\depedge{7}{16}{.}
+\depedge{8}{16}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{10}{16}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{18}{24}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{30}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{27}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1335\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+State\& and\& the\& human-rights\& community\& should\& insist\& that\& Mr.\& Stanley\& and\& his\& fellow\& defendants\& be\& released\& and\& that\& the\& United\& Nation\& 's\& monitors\& make\& certain\& that\& Mr.\& O'Linn's\& commission\& investigates\& election\& complaints\& from\& all\& sides\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{7}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{6}{7}{.}
+\depedge{7}{16}{.}
+\depedge{8}{16}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{10}{16}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{18}{24}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{30}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1335\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+State\& and\& the\& human-rights\& community\& should\& insist\& that\& Mr.\& Stanley\& and\& his\& fellow\& defendants\& be\& released\& and\& that\& the\& United\& Nation\& 's\& monitors\& make\& certain\& that\& Mr.\& O'Linn's\& commission\& investigates\& election\& complaints\& from\& all\& sides\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{7}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{6}{7}{.}
+\depedge{7}{16}{.}
+\depedge{8}{16}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{10}{16}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{18}{24}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{30}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{28}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1335\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+State\& and\& the\& human-rights\& community\& should\& insist\& that\& Mr.\& Stanley\& and\& his\& fellow\& defendants\& be\& released\& and\& that\& the\& United\& Nation\& 's\& monitors\& make\& certain\& that\& Mr.\& O'Linn's\& commission\& investigates\& election\& complaints\& from\& all\& sides\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{7}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{6}{7}{.}
+\depedge{7}{16}{.}
+\depedge{8}{16}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{10}{16}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{18}{24}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{30}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{27}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1335\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+

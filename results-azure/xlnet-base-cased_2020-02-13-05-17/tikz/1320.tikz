@@ -1,0 +1,392 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Stanley\& is\& on\& trial\& over\& charges\& that\& he\& violated\& a\& proclamation\& ,\& issued\& by\& the\& South\& African\& administrator\& general\& earlier\& this\& year\& ,\& which\& made\& it\& a\& crime\& punishable\& by\& two\& years\& in\& prison\& for\& any\& person\& to\& ``\& insult\& ,\& disparate\& or\& belittle\& ''\& the\& election\& commission\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{26}{.}
+\depedge{14}{15}{.}
+\depedge{14}{23}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{41}{.}
+\depedge{27}{41}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{41}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{41}{43}{.}
+\depedge{41}{44}{.}
+\depedge{41}{45}{.}
+\depedge{41}{49}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1320\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Stanley\& is\& on\& trial\& over\& charges\& that\& he\& violated\& a\& proclamation\& ,\& issued\& by\& the\& South\& African\& administrator\& general\& earlier\& this\& year\& ,\& which\& made\& it\& a\& crime\& punishable\& by\& two\& years\& in\& prison\& for\& any\& person\& to\& ``\& insult\& ,\& disparate\& or\& belittle\& ''\& the\& election\& commission\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{26}{.}
+\depedge{14}{15}{.}
+\depedge{14}{23}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{41}{.}
+\depedge{27}{41}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{41}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{41}{43}{.}
+\depedge{41}{44}{.}
+\depedge{41}{45}{.}
+\depedge{41}{49}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{39}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1320\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.47\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Stanley\& is\& on\& trial\& over\& charges\& that\& he\& violated\& a\& proclamation\& ,\& issued\& by\& the\& South\& African\& administrator\& general\& earlier\& this\& year\& ,\& which\& made\& it\& a\& crime\& punishable\& by\& two\& years\& in\& prison\& for\& any\& person\& to\& ``\& insult\& ,\& disparate\& or\& belittle\& ''\& the\& election\& commission\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{26}{.}
+\depedge{14}{15}{.}
+\depedge{14}{23}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{41}{.}
+\depedge{27}{41}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{41}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{41}{43}{.}
+\depedge{41}{44}{.}
+\depedge{41}{45}{.}
+\depedge{41}{49}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1320\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Stanley\& is\& on\& trial\& over\& charges\& that\& he\& violated\& a\& proclamation\& ,\& issued\& by\& the\& South\& African\& administrator\& general\& earlier\& this\& year\& ,\& which\& made\& it\& a\& crime\& punishable\& by\& two\& years\& in\& prison\& for\& any\& person\& to\& ``\& insult\& ,\& disparate\& or\& belittle\& ''\& the\& election\& commission\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{26}{.}
+\depedge{14}{15}{.}
+\depedge{14}{23}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{41}{.}
+\depedge{27}{41}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{41}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{36}{41}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{41}{43}{.}
+\depedge{41}{44}{.}
+\depedge{41}{45}{.}
+\depedge{41}{49}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1320\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.47\end{footnotesize}};
+\end{dependency}
+

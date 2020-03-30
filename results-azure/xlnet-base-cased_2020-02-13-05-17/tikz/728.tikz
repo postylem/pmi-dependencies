@@ -1,0 +1,240 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+London\& 's\& Financial\& Times-Stock\& Exchange\& 100-share\& index\& ,\& the\& most\& closely\& watched\& market\& barometer\& ,\& ended\& at\& its\& intraday\& high\& of\& 2163.4\& ,\& down\& 70.5\& ,\& or\& 3.2\& %\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{7}{.}
+\depedge{3}{7}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{14}{.}
+\depedge{7}{16}{.}
+\depedge{9}{14}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}728\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.29\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+London\& 's\& Financial\& Times-Stock\& Exchange\& 100-share\& index\& ,\& the\& most\& closely\& watched\& market\& barometer\& ,\& ended\& at\& its\& intraday\& high\& of\& 2163.4\& ,\& down\& 70.5\& ,\& or\& 3.2\& %\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{7}{.}
+\depedge{3}{7}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{14}{.}
+\depedge{7}{16}{.}
+\depedge{9}{14}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}728\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+London\& 's\& Financial\& Times-Stock\& Exchange\& 100-share\& index\& ,\& the\& most\& closely\& watched\& market\& barometer\& ,\& ended\& at\& its\& intraday\& high\& of\& 2163.4\& ,\& down\& 70.5\& ,\& or\& 3.2\& %\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{7}{.}
+\depedge{3}{7}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{14}{.}
+\depedge{7}{16}{.}
+\depedge{9}{14}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{25}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}728\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.21\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+London\& 's\& Financial\& Times-Stock\& Exchange\& 100-share\& index\& ,\& the\& most\& closely\& watched\& market\& barometer\& ,\& ended\& at\& its\& intraday\& high\& of\& 2163.4\& ,\& down\& 70.5\& ,\& or\& 3.2\& %\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{7}{.}
+\depedge{3}{7}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{14}{.}
+\depedge{7}{16}{.}
+\depedge{9}{14}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{16}{17}{.}
+\depedge{16}{24}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}728\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+

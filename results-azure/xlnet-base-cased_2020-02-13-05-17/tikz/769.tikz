@@ -1,0 +1,368 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Van\& de\& Kamp\& and\& his\& allies\& may\& be\& hoping\& that\& the\& environment\& is\& such\& a\& mom\& and\& apple-pie\& issue\& among\& certain\& segments\& of\& California\& 's\& population\& now\& that\& almost\& any\& collection\& of\& anti-scientific\& ,\& anti-pocketbook\& nonsense\& can\& pass\& under\& its\& rubric\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{17}{.}
+\depedge{11}{17}{.}
+\depedge{12}{13}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{17}{20}{.}
+\depedge{17}{21}{.}
+\depedge{17}{28}{.}
+\depedge{17}{39}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{29}{39}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{39}{.}
+\depedge{33}{37}{.}
+\depedge{34}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{39}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}769\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.28\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Van\& de\& Kamp\& and\& his\& allies\& may\& be\& hoping\& that\& the\& environment\& is\& such\& a\& mom\& and\& apple-pie\& issue\& among\& certain\& segments\& of\& California\& 's\& population\& now\& that\& almost\& any\& collection\& of\& anti-scientific\& ,\& anti-pocketbook\& nonsense\& can\& pass\& under\& its\& rubric\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{17}{.}
+\depedge{11}{17}{.}
+\depedge{12}{13}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{17}{20}{.}
+\depedge{17}{21}{.}
+\depedge{17}{28}{.}
+\depedge{17}{39}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{29}{39}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{39}{.}
+\depedge{33}{37}{.}
+\depedge{34}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{39}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}769\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Van\& de\& Kamp\& and\& his\& allies\& may\& be\& hoping\& that\& the\& environment\& is\& such\& a\& mom\& and\& apple-pie\& issue\& among\& certain\& segments\& of\& California\& 's\& population\& now\& that\& almost\& any\& collection\& of\& anti-scientific\& ,\& anti-pocketbook\& nonsense\& can\& pass\& under\& its\& rubric\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{17}{.}
+\depedge{11}{17}{.}
+\depedge{12}{13}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{17}{20}{.}
+\depedge{17}{21}{.}
+\depedge{17}{28}{.}
+\depedge{17}{39}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{29}{39}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{39}{.}
+\depedge{33}{37}{.}
+\depedge{34}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{39}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}769\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.17\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& Van\& de\& Kamp\& and\& his\& allies\& may\& be\& hoping\& that\& the\& environment\& is\& such\& a\& mom\& and\& apple-pie\& issue\& among\& certain\& segments\& of\& California\& 's\& population\& now\& that\& almost\& any\& collection\& of\& anti-scientific\& ,\& anti-pocketbook\& nonsense\& can\& pass\& under\& its\& rubric\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{7}{.}
+\depedge{4}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{17}{.}
+\depedge{11}{17}{.}
+\depedge{12}{13}{.}
+\depedge{13}{17}{.}
+\depedge{14}{17}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{17}{20}{.}
+\depedge{17}{21}{.}
+\depedge{17}{28}{.}
+\depedge{17}{39}{.}
+\depedge{19}{20}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{24}{.}
+\depedge{24}{27}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{29}{39}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{39}{.}
+\depedge{33}{37}{.}
+\depedge{34}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{39}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}769\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.28\end{footnotesize}};
+\end{dependency}
+

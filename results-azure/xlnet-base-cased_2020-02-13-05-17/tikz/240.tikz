@@ -1,0 +1,184 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+After\& the\& third\& week\& on\& strike\& ,\& union\& members\& will\& begin\& receiving\& \$\& 100\& a\& week\& from\& the\& fund\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{11}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{17}{.}
+\depedge{13}{14}{.}
+\depedge{13}{16}{.}
+\depedge{15}{16}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}240\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+After\& the\& third\& week\& on\& strike\& ,\& union\& members\& will\& begin\& receiving\& \$\& 100\& a\& week\& from\& the\& fund\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{11}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{17}{.}
+\depedge{13}{14}{.}
+\depedge{13}{16}{.}
+\depedge{15}{16}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}240\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.29\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+After\& the\& third\& week\& on\& strike\& ,\& union\& members\& will\& begin\& receiving\& \$\& 100\& a\& week\& from\& the\& fund\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{11}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{17}{.}
+\depedge{13}{14}{.}
+\depedge{13}{16}{.}
+\depedge{15}{16}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{19}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}240\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+After\& the\& third\& week\& on\& strike\& ,\& union\& members\& will\& begin\& receiving\& \$\& 100\& a\& week\& from\& the\& fund\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{11}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{17}{.}
+\depedge{13}{14}{.}
+\depedge{13}{16}{.}
+\depedge{15}{16}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}240\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+

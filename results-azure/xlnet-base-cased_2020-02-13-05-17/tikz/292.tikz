@@ -1,0 +1,184 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Attracted\& by\& low\& prices\& and\& encouraged\& by\& New\& York\& 's\& performance\& ,\& they\& scooped\& up\& equities\& across\& the\& board\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{6}{.}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{16}{.}
+\depedge{14}{17}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}292\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Attracted\& by\& low\& prices\& and\& encouraged\& by\& New\& York\& 's\& performance\& ,\& they\& scooped\& up\& equities\& across\& the\& board\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{6}{.}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{16}{.}
+\depedge{14}{17}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}292\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Attracted\& by\& low\& prices\& and\& encouraged\& by\& New\& York\& 's\& performance\& ,\& they\& scooped\& up\& equities\& across\& the\& board\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{6}{.}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{16}{.}
+\depedge{14}{17}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}292\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Attracted\& by\& low\& prices\& and\& encouraged\& by\& New\& York\& 's\& performance\& ,\& they\& scooped\& up\& equities\& across\& the\& board\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{1}{6}{.}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{9}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{16}{.}
+\depedge{14}{17}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}292\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+

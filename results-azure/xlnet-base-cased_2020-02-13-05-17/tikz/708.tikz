@@ -1,0 +1,248 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+He\& said\& Friday\& 's\& Wall\& Street\& decline\& was\& ``\& well\& within\& the\& range\& of\& volatility\& ''\& that\& Yasuda\& Trust\& plans\& for\& when\& it\& charts\& its\& overseas\& investment\& strategy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{8}{.}
+\depedge{3}{4}{.}
+\depedge{3}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{13}{20}{.}
+\depedge{14}{15}{.}
+\depedge{17}{21}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}708\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.52\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+He\& said\& Friday\& 's\& Wall\& Street\& decline\& was\& ``\& well\& within\& the\& range\& of\& volatility\& ''\& that\& Yasuda\& Trust\& plans\& for\& when\& it\& charts\& its\& overseas\& investment\& strategy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{8}{.}
+\depedge{3}{4}{.}
+\depedge{3}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{13}{20}{.}
+\depedge{14}{15}{.}
+\depedge{17}{21}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}708\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.40\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+He\& said\& Friday\& 's\& Wall\& Street\& decline\& was\& ``\& well\& within\& the\& range\& of\& volatility\& ''\& that\& Yasuda\& Trust\& plans\& for\& when\& it\& charts\& its\& overseas\& investment\& strategy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{8}{.}
+\depedge{3}{4}{.}
+\depedge{3}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{13}{20}{.}
+\depedge{14}{15}{.}
+\depedge{17}{21}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}708\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.40\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+He\& said\& Friday\& 's\& Wall\& Street\& decline\& was\& ``\& well\& within\& the\& range\& of\& volatility\& ''\& that\& Yasuda\& Trust\& plans\& for\& when\& it\& charts\& its\& overseas\& investment\& strategy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{8}{.}
+\depedge{3}{4}{.}
+\depedge{3}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{13}{20}{.}
+\depedge{14}{15}{.}
+\depedge{17}{21}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}708\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.48\end{footnotesize}};
+\end{dependency}
+

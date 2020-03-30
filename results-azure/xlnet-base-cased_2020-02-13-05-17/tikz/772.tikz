@@ -1,0 +1,368 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+And\& some\& other\& segments\& of\& California\& 's\& political\& and\& media\& culture\& may\& yet\& start\& to\& point\& out\& that\& the\& initiative\& would\& impose\& significant\& costs\& on\& the\& state\& 's\& less\& affluent\& citizens\& in\& the\& form\& of\& higher\& food\& prices\& and\& lost\& jobs\& . \\
+\end{deptext}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{6}{11}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{22}{.}
+\depedge{18}{22}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{22}{32}{.}
+\depedge{23}{24}{.}
+\depedge{25}{31}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{27}{31}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}772\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.55\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+And\& some\& other\& segments\& of\& California\& 's\& political\& and\& media\& culture\& may\& yet\& start\& to\& point\& out\& that\& the\& initiative\& would\& impose\& significant\& costs\& on\& the\& state\& 's\& less\& affluent\& citizens\& in\& the\& form\& of\& higher\& food\& prices\& and\& lost\& jobs\& . \\
+\end{deptext}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{6}{11}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{22}{.}
+\depedge{18}{22}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{22}{32}{.}
+\depedge{23}{24}{.}
+\depedge{25}{31}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{27}{31}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{41}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}772\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.47\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+And\& some\& other\& segments\& of\& California\& 's\& political\& and\& media\& culture\& may\& yet\& start\& to\& point\& out\& that\& the\& initiative\& would\& impose\& significant\& costs\& on\& the\& state\& 's\& less\& affluent\& citizens\& in\& the\& form\& of\& higher\& food\& prices\& and\& lost\& jobs\& . \\
+\end{deptext}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{6}{11}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{22}{.}
+\depedge{18}{22}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{22}{32}{.}
+\depedge{23}{24}{.}
+\depedge{25}{31}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{27}{31}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}772\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.40\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+And\& some\& other\& segments\& of\& California\& 's\& political\& and\& media\& culture\& may\& yet\& start\& to\& point\& out\& that\& the\& initiative\& would\& impose\& significant\& costs\& on\& the\& state\& 's\& less\& affluent\& citizens\& in\& the\& form\& of\& higher\& food\& prices\& and\& lost\& jobs\& . \\
+\end{deptext}
+\depedge{1}{14}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{6}{11}{.}
+\depedge{8}{9}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{22}{.}
+\depedge{18}{22}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{22}{32}{.}
+\depedge{23}{24}{.}
+\depedge{25}{31}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{27}{31}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{41}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}772\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.45\end{footnotesize}};
+\end{dependency}
+

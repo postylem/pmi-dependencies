@@ -1,0 +1,288 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+BMA\& Corp.\& ,\& Kansas\& City\& ,\& Mo.\& ,\& said\& it\& 's\& weighing\& ``\& strategic\& alternatives\& ,\& ''\& for\& its\& Business\& Men\& 's\& Assurance\& Co.\& unit\& ,\& and\& is\& contacting\& possible\& buyers\& of\& the\& life\& and\& health\& insurance\& operation\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{9}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{27}{.}
+\depedge{12}{29}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{18}{25}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1020\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.47\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+BMA\& Corp.\& ,\& Kansas\& City\& ,\& Mo.\& ,\& said\& it\& 's\& weighing\& ``\& strategic\& alternatives\& ,\& ''\& for\& its\& Business\& Men\& 's\& Assurance\& Co.\& unit\& ,\& and\& is\& contacting\& possible\& buyers\& of\& the\& life\& and\& health\& insurance\& operation\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{9}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{27}{.}
+\depedge{12}{29}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{18}{25}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1020\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.40\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+BMA\& Corp.\& ,\& Kansas\& City\& ,\& Mo.\& ,\& said\& it\& 's\& weighing\& ``\& strategic\& alternatives\& ,\& ''\& for\& its\& Business\& Men\& 's\& Assurance\& Co.\& unit\& ,\& and\& is\& contacting\& possible\& buyers\& of\& the\& life\& and\& health\& insurance\& operation\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{9}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{27}{.}
+\depedge{12}{29}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{18}{25}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{7}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1020\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.30\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+BMA\& Corp.\& ,\& Kansas\& City\& ,\& Mo.\& ,\& said\& it\& 's\& weighing\& ``\& strategic\& alternatives\& ,\& ''\& for\& its\& Business\& Men\& 's\& Assurance\& Co.\& unit\& ,\& and\& is\& contacting\& possible\& buyers\& of\& the\& life\& and\& health\& insurance\& operation\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{9}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{9}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{12}{27}{.}
+\depedge{12}{29}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{18}{25}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1020\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+

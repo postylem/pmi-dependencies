@@ -1,0 +1,256 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+New\& Jersey\& Turnpike\& Authority\& 's\& 7.20\& %\& issue\& of\& 2018\& was\& off\& 3/4\& at\& 98\& 1/2\& bid\& ,\& yielding\& 7.32\& %\& ,\& up\& 0.07\& percentage\& point\& from\& late\& Friday\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{11}{12}{.}
+\depedge{11}{14}{.}
+\depedge{11}{19}{.}
+\depedge{12}{13}{.}
+\depedge{14}{17}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{21}{.}
+\depedge{19}{23}{.}
+\depedge{20}{21}{.}
+\depedge{23}{26}{.}
+\depedge{23}{27}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1015\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.46\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+New\& Jersey\& Turnpike\& Authority\& 's\& 7.20\& %\& issue\& of\& 2018\& was\& off\& 3/4\& at\& 98\& 1/2\& bid\& ,\& yielding\& 7.32\& %\& ,\& up\& 0.07\& percentage\& point\& from\& late\& Friday\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{11}{12}{.}
+\depedge{11}{14}{.}
+\depedge{11}{19}{.}
+\depedge{12}{13}{.}
+\depedge{14}{17}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{21}{.}
+\depedge{19}{23}{.}
+\depedge{20}{21}{.}
+\depedge{23}{26}{.}
+\depedge{23}{27}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1015\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+New\& Jersey\& Turnpike\& Authority\& 's\& 7.20\& %\& issue\& of\& 2018\& was\& off\& 3/4\& at\& 98\& 1/2\& bid\& ,\& yielding\& 7.32\& %\& ,\& up\& 0.07\& percentage\& point\& from\& late\& Friday\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{11}{12}{.}
+\depedge{11}{14}{.}
+\depedge{11}{19}{.}
+\depedge{12}{13}{.}
+\depedge{14}{17}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{21}{.}
+\depedge{19}{23}{.}
+\depedge{20}{21}{.}
+\depedge{23}{26}{.}
+\depedge{23}{27}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1015\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+New\& Jersey\& Turnpike\& Authority\& 's\& 7.20\& %\& issue\& of\& 2018\& was\& off\& 3/4\& at\& 98\& 1/2\& bid\& ,\& yielding\& 7.32\& %\& ,\& up\& 0.07\& percentage\& point\& from\& late\& Friday\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{11}{12}{.}
+\depedge{11}{14}{.}
+\depedge{11}{19}{.}
+\depedge{12}{13}{.}
+\depedge{14}{17}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{19}{21}{.}
+\depedge{19}{23}{.}
+\depedge{20}{21}{.}
+\depedge{23}{26}{.}
+\depedge{23}{27}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1015\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+

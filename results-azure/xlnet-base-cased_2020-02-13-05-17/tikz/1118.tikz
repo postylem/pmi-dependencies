@@ -1,0 +1,224 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& We\& wanted\& to\& highlight\& the\& individual\& ,\& not\& the\& environment\& ,\& ''\& he\& says\& ,\& ``\& and\& black\& and\& white\& allows\& you\& to\& do\& that\& better\& than\& color\& .\& '' \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{15}{.}
+\depedge{3}{18}{.}
+\depedge{3}{22}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{14}{15}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{19}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1118\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.59\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& We\& wanted\& to\& highlight\& the\& individual\& ,\& not\& the\& environment\& ,\& ''\& he\& says\& ,\& ``\& and\& black\& and\& white\& allows\& you\& to\& do\& that\& better\& than\& color\& .\& '' \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{15}{.}
+\depedge{3}{18}{.}
+\depedge{3}{22}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{14}{15}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{19}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1118\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.45\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& We\& wanted\& to\& highlight\& the\& individual\& ,\& not\& the\& environment\& ,\& ''\& he\& says\& ,\& ``\& and\& black\& and\& white\& allows\& you\& to\& do\& that\& better\& than\& color\& .\& '' \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{15}{.}
+\depedge{3}{18}{.}
+\depedge{3}{22}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{14}{15}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{19}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1118\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& We\& wanted\& to\& highlight\& the\& individual\& ,\& not\& the\& environment\& ,\& ''\& he\& says\& ,\& ``\& and\& black\& and\& white\& allows\& you\& to\& do\& that\& better\& than\& color\& .\& '' \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{15}{.}
+\depedge{3}{18}{.}
+\depedge{3}{22}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{14}{15}{.}
+\depedge{19}{20}{.}
+\depedge{19}{21}{.}
+\depedge{19}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1118\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.59\end{footnotesize}};
+\end{dependency}
+

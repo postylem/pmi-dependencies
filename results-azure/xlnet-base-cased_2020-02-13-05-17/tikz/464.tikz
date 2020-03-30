@@ -1,0 +1,256 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& rules\& should\& be\& established\& by\& agreement\& of\& the\& officials\& of\& all\& affected\& exchanges\& acting\& under\& the\& oversight\& and\& with\& the\& approval\& of\& the\& government\& regulatory\& agencies\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{15}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{16}{19}{.}
+\depedge{16}{20}{.}
+\depedge{16}{23}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{27}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}464\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& rules\& should\& be\& established\& by\& agreement\& of\& the\& officials\& of\& all\& affected\& exchanges\& acting\& under\& the\& oversight\& and\& with\& the\& approval\& of\& the\& government\& regulatory\& agencies\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{15}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{16}{19}{.}
+\depedge{16}{20}{.}
+\depedge{16}{23}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{27}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{27}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}464\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& rules\& should\& be\& established\& by\& agreement\& of\& the\& officials\& of\& all\& affected\& exchanges\& acting\& under\& the\& oversight\& and\& with\& the\& approval\& of\& the\& government\& regulatory\& agencies\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{15}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{16}{19}{.}
+\depedge{16}{20}{.}
+\depedge{16}{23}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{27}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{25}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}464\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& rules\& should\& be\& established\& by\& agreement\& of\& the\& officials\& of\& all\& affected\& exchanges\& acting\& under\& the\& oversight\& and\& with\& the\& approval\& of\& the\& government\& regulatory\& agencies\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{15}{.}
+\depedge{11}{14}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{16}{19}{.}
+\depedge{16}{20}{.}
+\depedge{16}{23}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{23}{27}{.}
+\depedge{24}{27}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{25}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}464\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+

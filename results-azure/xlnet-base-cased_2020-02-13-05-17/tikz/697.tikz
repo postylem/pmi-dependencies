@@ -1,0 +1,144 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Thus\& ,\& market\& participants\& yesterday\& were\& looking\& ahead\& nervously\& to\& Wall\& Street\& 's\& opening\& . \\
+\end{deptext}
+\depedge{1}{7}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{10}{14}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}697\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Thus\& ,\& market\& participants\& yesterday\& were\& looking\& ahead\& nervously\& to\& Wall\& Street\& 's\& opening\& . \\
+\end{deptext}
+\depedge{1}{7}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{10}{14}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}697\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Thus\& ,\& market\& participants\& yesterday\& were\& looking\& ahead\& nervously\& to\& Wall\& Street\& 's\& opening\& . \\
+\end{deptext}
+\depedge{1}{7}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{10}{14}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}697\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Thus\& ,\& market\& participants\& yesterday\& were\& looking\& ahead\& nervously\& to\& Wall\& Street\& 's\& opening\& . \\
+\end{deptext}
+\depedge{1}{7}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{10}{14}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}697\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+
