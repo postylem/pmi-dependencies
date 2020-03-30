@@ -6,7 +6,7 @@
 *.sublime-workspace
 *.pylintrc
 to-ignore/
-results/
+/results/
 
 # repos
 hewitt-repo/
