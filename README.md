@@ -141,80 +141,68 @@ linear : 0.50
 random :
         non-proj   0.13
         projective 0.27
-
 ### xlnet-base
-pad 0
-nonproj: {'sum': 0.43, 'triu': 0.41, 'tril': 0.38, 'none': 0.43}
-proj   : {'sum': 0.46, 'triu': 0.44, 'tril': 0.41, 'none': 0.43}
+| -------| ----------- | ------------ | -----------  | ------------ |
+| pad 0
+| nonproj| 'sum': 0.43 | 'triu': 0.41 | 'tril': 0.38 | 'none': 0.43 |
+| proj   | 'sum': 0.46 | 'triu': 0.44 | 'tril': 0.41 | 'none': 0.43 |
 
-pad 30
-nonproj: {'sum': 0.44, 'triu': 0.42, 'tril': 0.39, 'none': 0.44}
-proj   : {'sum': 0.47, 'triu': 0.45, 'tril': 0.43, 'none': 0.44}
+| pad 30
+| nonproj| 'sum': 0.44 | 'triu': 0.42 | 'tril': 0.39 | 'none': 0.44 |
+| proj   | 'sum': 0.47 | 'triu': 0.45 | 'tril': 0.43 | 'none': 0.44 |
 
-(and without sep character)
-nonproj: {'sum': 0.44, 'triu': 0.42, 'tril': 0.39, 'none': 0.44}
-proj   : {'sum': 0.47, 'triu': 0.45, 'tril': 0.43, 'none': 0.44}
-
-pad 60
-nonproj: {'sum': 0.42, 'triu': 0.40, 'tril': 0.39, 'none': 0.43}
-proj   : {'sum': 0.46, 'triu': 0.44, 'tril': 0.44, 'none': 0.44}
-
-(and without sep character)
-nonproj: {'sum': 0.42, 'triu': 0.40, 'tril': 0.40, 'none': 0.43}
-proj   : {'sum': 0.45, 'triu': 0.44, 'tril': 0.44, 'none': 0.44}
+| pad 60
+| nonproj| 'sum': 0.42 | 'triu': 0.40 | 'tril': 0.39 | 'none': 0.43 |
+| proj   | 'sum': 0.46 | 'triu': 0.44 | 'tril': 0.44 | 'none': 0.44 |
 ### xlnet-large
-pad 0
-nonproj: {'sum': 0.38, 'triu': 0.35, 'tril': 0.33, 'none': 0.37}
-proj   : {'sum': 0.42, 'triu': 0.40, 'tril': 0.38, 'none': 0.39}
+| pad 0
+| nonproj| 'sum': 0.38 | 'triu': 0.35 | 'tril': 0.33 | 'none': 0.37 |
+| proj   | 'sum': 0.42 | 'triu': 0.40 | 'tril': 0.38 | 'none': 0.39 |
 
-pad 30
-nonproj: {'sum': 0.39, 'triu': 0.36, 'tril': 0.36, 'none': 0.39}
-proj   : {'sum': 0.43, 'triu': 0.41, 'tril': 0.40, 'none': 0.41}
+| pad 30
+| nonproj| 'sum': 0.39 | 'triu': 0.36 | 'tril': 0.36 | 'none': 0.39 |
+| proj   | 'sum': 0.43 | 'triu': 0.41 | 'tril': 0.40 | 'none': 0.41 |
 
-pad 60
-nonproj: {'sum': 0.38, 'triu': 0.36, 'tril': 0.37, 'none': 0.39}
-proj   : {'sum': 0.43, 'triu': 0.41, 'tril': 0.41, 'none': 0.41}
-
+| pad 60
+| nonproj| 'sum': 0.38 | 'triu': 0.36 | 'tril': 0.37 | 'none': 0.39 |
+| proj   | 'sum': 0.43 | 'triu': 0.41 | 'tril': 0.41 | 'none': 0.41 |
 ### bert-base-uncased
-pad 0
-nonproj: {'sum': 0.44, 'triu': 0.43, 'tril': 0.42, 'none': 0.45}
-proj   : {'sum': 0.46, 'triu': 0.45, 'tril': 0.44, 'none': 0.44}
+| pad 0
+| nonproj| 'sum': 0.44 | 'triu': 0.43 | 'tril': 0.42 | 'none': 0.45 |
+| proj   | 'sum': 0.46 | 'triu': 0.45 | 'tril': 0.44 | 'none': 0.44 |
 
-pad 30
-nonproj: {'sum': 0.45, 'triu': 0.44, 'tril': 0.42, 'none': 0.46}
-proj   : {'sum': 0.46, 'triu': 0.46, 'tril': 0.44, 'none': 0.44}
-
+| pad 30
+| nonproj| 'sum': 0.45 | 'triu': 0.44 | 'tril': 0.42 | 'none': 0.46 |
+| proj   | 'sum': 0.46 | 'triu': 0.46 | 'tril': 0.44 | 'none': 0.44 |
 ### bert-base-cased
-pad 0
-nonproj: {'sum': 0.45, 'triu': 0.44, 'tril': 0.43, 'none': 0.46}
-proj   : {'sum': 0.47, 'triu': 0.46, 'tril': 0.45, 'none': 0.45}
+| pad 0
+| nonproj| 'sum': 0.45 | 'triu': 0.44 | 'tril': 0.43 | 'none': 0.46 |
+| proj   | 'sum': 0.47 | 'triu': 0.46 | 'tril': 0.45 | 'none': 0.45 |
 
-pad 30
-nonproj: {'sum': 0.46, 'triu': 0.44, 'tril': 0.44, 'none': 0.47}
-proj   : {'sum': 0.47, 'triu': 0.46, 'tril': 0.45, 'none': 0.46}
-
+| pad 30
+| nonproj| 'sum': 0.46 | 'triu': 0.44 | 'tril': 0.44 | 'none': 0.47 |
+| proj   | 'sum': 0.47 | 'triu': 0.46 | 'tril': 0.45 | 'none': 0.46 |
 ### bert-large-uncased
-pad 0
-nonproj: {'sum': 0.43, 'triu': 0.41, 'tril': 0.40, 'none': 0.44}
-proj   : {'sum': 0.45, 'triu': 0.44, 'tril': 0.43, 'none': 0.43}
+| pad 0
+| nonproj| 'sum': 0.43 | 'triu': 0.41 | 'tril': 0.40 | 'none': 0.44 |
+| proj   | 'sum': 0.45 | 'triu': 0.44 | 'tril': 0.43 | 'none': 0.43 |
 
-pad 30
-nonproj: {'sum': 0.44, 'triu': 0.43, 'tril': 0.42, 'none': 0.45}
-proj   : {'sum': 0.46, 'triu': 0.45, 'tril': 0.44, 'none': 0.44}
-
+| pad 30
+| nonproj| 'sum': 0.44 | 'triu': 0.43 | 'tril': 0.42 | 'none': 0.45 |
+| proj   | 'sum': 0.46 | 'triu': 0.45 | 'tril': 0.44 | 'none': 0.44 |
 ### bert-large-cased
-pad 0
-nonproj: {'sum': 0.45, 'triu': 0.45, 'tril': 0.42, 'none': 0.46}
-proj   : {'sum': 0.46, 'triu': 0.46, 'tril': 0.44, 'none': 0.45}
+| pad 0
+| nonproj| 'sum': 0.45 | 'triu': 0.45 | 'tril': 0.42 | 'none': 0.46 |
+| proj   | 'sum': 0.46 | 'triu': 0.46 | 'tril': 0.44 | 'none': 0.45 |
 
-pad 30
-nonproj: {'sum': 0.47, 'triu': 0.47, 'tril': 0.43, 'none': 0.48}
-proj   : {'sum': 0.48, 'triu': 0.48, 'tril': 0.45, 'none': 0.45}
+| pad 30
+| nonproj| 'sum': 0.47 | 'triu': 0.47 | 'tril': 0.43 | 'none': 0.48 |
+| proj   | 'sum': 0.48 | 'triu': 0.48 | 'tril': 0.45 | 'none': 0.45 |
 
 --------------------------------------------------
 
 ### CACHED Dec 2019 version: no batches 
-File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py), gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
+File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py) gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
 ```bash
 python pmi-accuracy/old.pmi-accuracy_nobatch.py > out.txt
 ```
