@@ -224,17 +224,17 @@ def get_scores(
     if verbose:
       obs_df = pd.DataFrame(obs).T
       obs_df.columns = CONLL_COLS
-      print(obs_df.loc[:, ['index', 'sentence', 'head_indices', 'governance_relations']],
+      print(obs_df.loc[:, ['index', 'sentence', 'xpos_sentence', 'head_indices', 'governance_relations']],
             "\n", sep='')
 
     prepadding, postpadding = get_padding(i, observations, padlen)
     # get a pmi matrix and a pseudo-logprob for the sentence
-    pmi_matrix, loglikelihood = MODEL.ptb_tokenlist_to_pmi_matrix(
+    pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
         obs.sentence, add_special_tokens=True, verbose=verbose, # might want to toggle this verbosity during testing
         pad_left=prepadding, pad_right=postpadding)
     # calculate score
     scores = score_observation(obs, pmi_matrix)
-    scores['loglikelihood'] = loglikelihood
+    scores['pseudo_loglik'] = pseudo_loglik
     all_scores.append(scores)
     print(f"linear   {scores['baseline_linear']}")
     print(f"random   \n\tnon-proj   {scores['baseline_random_nonproj']}\n\tprojective {scores['baseline_random_proj']}")
@@ -334,5 +334,5 @@ if __name__ == '__main__':
   OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
   SCORES = get_scores(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS, verbose=True)
-  DF = pd.json_normalize(SCORES, sep='>')
-  DF.to_csv(RESULTS_DIR + 'scores_' + SUFFIX + '.csv')
+  DF = pd.json_normalize(SCORES, sep='.')
+  DF.to_csv(path_or_buf=RESULTS_DIR + 'scores_' + SUFFIX + '.csv',index_label='sentence_index')

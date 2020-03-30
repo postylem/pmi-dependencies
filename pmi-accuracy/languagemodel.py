@@ -31,14 +31,12 @@ class LanguageModel:
   def ptb_tokenlist_to_pmi_matrix(
     self, ptb_tokenlist, add_special_tokens=True,
     pad_left=None, pad_right=None, verbose=True):
-    """Maps tokenlist to PMI matrix, and also returns pseudo-loglikelihood
+    """Maps tokenlist to PMI matrix, and also returns pseudo log likelihood
     (override in implementing class)."""
     raise NotImplementedError
 
   def make_subword_lists(self, ptb_tokenlist, add_special_tokens=False):
     raise NotImplementedError
-
-# IMPLEMENTATIONS
 
 class XLNetSentenceDataset(torch.utils.data.Dataset):
   """Dataset class for XLNet"""
@@ -228,9 +226,9 @@ class XLNet(LanguageModel):
     # log_p[i, i] is log p(w_i | c)
     # log_p[i, j] is log p(w_i | c \ w_j)
     log_p_wi_I_c = np.diag(log_p)
-    loglikelihood = np.trace(log_p) 
+    pseudo_loglik = np.trace(log_p) 
     pmi_matrix = log_p_wi_I_c[:, None] - log_p
-    return pmi_matrix, loglikelihood
+    return pmi_matrix, pseudo_loglik
 
   def make_subword_lists(self, ptb_tokenlist, add_special_tokens=False):
     '''
@@ -470,9 +468,9 @@ class BERT(LanguageModel):
     # log_p[i, i] is log p(w_i | c)
     # log_p[i, j] is log p(w_i | c \ w_j)
     log_p_wi_I_c = np.diag(log_p)
-    loglikelihood = np.trace(log_p) 
+    pseudo_loglik = np.trace(log_p) 
     pmi_matrix = log_p_wi_I_c[:, None] - log_p
-    return pmi_matrix, loglikelihood
+    return pmi_matrix, pseudo_loglik
 
   def make_subword_lists(self, ptb_tokenlist, add_special_tokens=False):
     '''
@@ -704,9 +702,9 @@ class XLM(LanguageModel):
     # log_p[i, i] is log p(w_i | c)
     # log_p[i, j] is log p(w_i | c \ w_j)
     log_p_wi_I_c = np.diag(log_p)
-    loglikelihood = np.trace(log_p) 
+    pseudo_loglik = np.trace(log_p) 
     pmi_matrix = log_p_wi_I_c[:, None] - log_p
-    return pmi_matrix, loglikelihood
+    return pmi_matrix, pseudo_loglik
 
   def make_subword_lists(self, ptb_tokenlist, add_special_tokens=False):
     '''
