@@ -138,9 +138,12 @@ Some prose is there about the dealing with the fact that these estimates of PMI 
 
 ### baselines
 linear : **0.50**
-random :
-        non-proj   0.13
-        projective 0.27
+
+random : 
+
+non-proj:   0.13
+
+projective: 0.27
 
 ### xlnet-base
 | *pad 0*  |  sum   |  triu  |  tril  |  none  |
@@ -214,7 +217,7 @@ random :
 |  proj    |**0.48**|**0.48**|  0.45  |  0.45  |
 
 --------------------------------------------------
-
+<!-- 
 ### CACHED Dec 2019 version: no batches 
 File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py) gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
 ```bash
@@ -268,4 +271,4 @@ The results will be reported in a timestamped folder such as:
 | cli-args.txt
 | scores.csv
 | mean_scores.csv
-```
+``` -->
