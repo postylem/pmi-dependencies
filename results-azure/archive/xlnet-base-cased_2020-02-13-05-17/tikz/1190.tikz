@@ -1,0 +1,320 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Stocks\& have\& become\& more\& sensitive\& to\& factors\& not\& directly\& tied\& to\& the\& domestic\& economy\& ,\& ''\& Mr.\& Moore\& says\& ,\& citing\& the\& exchange\& rate\& for\& the\& dollar\& on\& currency\& markets\& ,\& the\& foreign-trade\& balance\& and\& inflows\& of\& foreign\& capital\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{4}{20}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{29}{.}
+\depedge{25}{35}{.}
+\depedge{25}{36}{.}
+\depedge{25}{37}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1190\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Stocks\& have\& become\& more\& sensitive\& to\& factors\& not\& directly\& tied\& to\& the\& domestic\& economy\& ,\& ''\& Mr.\& Moore\& says\& ,\& citing\& the\& exchange\& rate\& for\& the\& dollar\& on\& currency\& markets\& ,\& the\& foreign-trade\& balance\& and\& inflows\& of\& foreign\& capital\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{4}{20}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{29}{.}
+\depedge{25}{35}{.}
+\depedge{25}{36}{.}
+\depedge{25}{37}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1190\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Stocks\& have\& become\& more\& sensitive\& to\& factors\& not\& directly\& tied\& to\& the\& domestic\& economy\& ,\& ''\& Mr.\& Moore\& says\& ,\& citing\& the\& exchange\& rate\& for\& the\& dollar\& on\& currency\& markets\& ,\& the\& foreign-trade\& balance\& and\& inflows\& of\& foreign\& capital\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{4}{20}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{29}{.}
+\depedge{25}{35}{.}
+\depedge{25}{36}{.}
+\depedge{25}{37}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1190\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.47\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Stocks\& have\& become\& more\& sensitive\& to\& factors\& not\& directly\& tied\& to\& the\& domestic\& economy\& ,\& ''\& Mr.\& Moore\& says\& ,\& citing\& the\& exchange\& rate\& for\& the\& dollar\& on\& currency\& markets\& ,\& the\& foreign-trade\& balance\& and\& inflows\& of\& foreign\& capital\& . \\
+\end{deptext}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{6}{.}
+\depedge{4}{20}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{25}{29}{.}
+\depedge{25}{35}{.}
+\depedge{25}{36}{.}
+\depedge{25}{37}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1190\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+

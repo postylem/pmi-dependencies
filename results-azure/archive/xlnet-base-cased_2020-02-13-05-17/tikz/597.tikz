@@ -1,0 +1,848 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& would\& like\& to\& peg\& the\& ceiling\& on\& Federal\& Housing\& Administration\& mortgage\& guarantees\& to\& 95\& %\& of\& the\& median\& price\& in\& a\& particular\& market\& ,\& instead\& of\& limiting\& it\& to\& \$\& 101,250\& ;\& reduce\& -LRB-\& or\& even\& eliminate\& -RRB-\& FHA\& down-payment\& requirements\& and\& increase\& the\& availability\& of\& variable-rate\& mortgages\& ;\& expand\& the\& Veterans\& Affairs\& Department\& loan\& guarantee\& program\& ;\& provide\& ``\& adequate\& ''\& funding\& for\& the\& Farmers\& Home\& Administration\& -LRB-\& FmHA\& -RRB-\& ;\& increase\& federal\& funding\& and\& tax\& incentives\& for\& the\& construction\& of\& low-income\& and\& rental\& housing\& ,\& including\& \$\& 4\& billion\& in\& block\& grants\& to\& states\& and\& localities\& ;\& and\& ``\& fully\& fund\& ''\& the\& McKinney\& Act\& ,\& a\& \$\& 656\& million\& potpourri\& for\& the\& homeless\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{14}{.}
+\depedge{5}{27}{.}
+\depedge{5}{34}{.}
+\depedge{5}{51}{.}
+\depedge{5}{60}{.}
+\depedge{5}{74}{.}
+\depedge{5}{101}{.}
+\depedge{5}{104}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{13}{.}
+\depedge{9}{13}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{34}{38}{.}
+\depedge{34}{42}{.}
+\depedge{34}{43}{.}
+\depedge{34}{44}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge{51}{58}{.}
+\depedge{52}{58}{.}
+\depedge{53}{58}{.}
+\depedge{54}{58}{.}
+\depedge{55}{58}{.}
+\depedge{56}{58}{.}
+\depedge{57}{58}{.}
+\depedge{60}{64}{.}
+\depedge{62}{64}{.}
+\depedge{64}{65}{.}
+\depedge{65}{69}{.}
+\depedge{66}{69}{.}
+\depedge{67}{69}{.}
+\depedge{68}{69}{.}
+\depedge{69}{71}{.}
+\depedge{74}{76}{.}
+\depedge{75}{76}{.}
+\depedge{76}{77}{.}
+\depedge{76}{79}{.}
+\depedge{76}{80}{.}
+\depedge{76}{89}{.}
+\depedge{78}{79}{.}
+\depedge{80}{82}{.}
+\depedge{81}{82}{.}
+\depedge{82}{83}{.}
+\depedge{83}{87}{.}
+\depedge{84}{85}{.}
+\depedge{84}{86}{.}
+\depedge{84}{87}{.}
+\depedge{89}{90}{.}
+\depedge{90}{92}{.}
+\depedge{90}{93}{.}
+\depedge{91}{92}{.}
+\depedge{93}{95}{.}
+\depedge{94}{95}{.}
+\depedge{95}{96}{.}
+\depedge{96}{97}{.}
+\depedge{97}{98}{.}
+\depedge{97}{99}{.}
+\depedge{103}{104}{.}
+\depedge{104}{108}{.}
+\depedge{106}{108}{.}
+\depedge{107}{108}{.}
+\depedge{108}{114}{.}
+\depedge{110}{114}{.}
+\depedge{111}{113}{.}
+\depedge{111}{114}{.}
+\depedge{112}{113}{.}
+\depedge{114}{115}{.}
+\depedge{115}{117}{.}
+\depedge{116}{117}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{75}{76}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{110}{114}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{95}{96}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{84}{87}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{64}{65}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{114}{115}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{51}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{112}{113}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{97}{99}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{56}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{94}{95}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{66}{69}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{76}{77}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{91}{92}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{69}{71}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{103}{104}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{78}{79}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{62}{64}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{60}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{115}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{89}{95}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{103}{108}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{111}{112}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{83}{84}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{99}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{77}{98}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{101}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{74}{80}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{85}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{104}{110}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{78}{81}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{90}{91}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{93}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{76}{78}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{71}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{85}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{55}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{94}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{107}{110}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{106}{107}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{74}{75}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{71}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{75}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{115}{116}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{82}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{68}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{60}{62}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{62}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{45}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{110}{111}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{86}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{112}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{37}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}597\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& would\& like\& to\& peg\& the\& ceiling\& on\& Federal\& Housing\& Administration\& mortgage\& guarantees\& to\& 95\& %\& of\& the\& median\& price\& in\& a\& particular\& market\& ,\& instead\& of\& limiting\& it\& to\& \$\& 101,250\& ;\& reduce\& -LRB-\& or\& even\& eliminate\& -RRB-\& FHA\& down-payment\& requirements\& and\& increase\& the\& availability\& of\& variable-rate\& mortgages\& ;\& expand\& the\& Veterans\& Affairs\& Department\& loan\& guarantee\& program\& ;\& provide\& ``\& adequate\& ''\& funding\& for\& the\& Farmers\& Home\& Administration\& -LRB-\& FmHA\& -RRB-\& ;\& increase\& federal\& funding\& and\& tax\& incentives\& for\& the\& construction\& of\& low-income\& and\& rental\& housing\& ,\& including\& \$\& 4\& billion\& in\& block\& grants\& to\& states\& and\& localities\& ;\& and\& ``\& fully\& fund\& ''\& the\& McKinney\& Act\& ,\& a\& \$\& 656\& million\& potpourri\& for\& the\& homeless\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{14}{.}
+\depedge{5}{27}{.}
+\depedge{5}{34}{.}
+\depedge{5}{51}{.}
+\depedge{5}{60}{.}
+\depedge{5}{74}{.}
+\depedge{5}{101}{.}
+\depedge{5}{104}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{13}{.}
+\depedge{9}{13}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{34}{38}{.}
+\depedge{34}{42}{.}
+\depedge{34}{43}{.}
+\depedge{34}{44}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge{51}{58}{.}
+\depedge{52}{58}{.}
+\depedge{53}{58}{.}
+\depedge{54}{58}{.}
+\depedge{55}{58}{.}
+\depedge{56}{58}{.}
+\depedge{57}{58}{.}
+\depedge{60}{64}{.}
+\depedge{62}{64}{.}
+\depedge{64}{65}{.}
+\depedge{65}{69}{.}
+\depedge{66}{69}{.}
+\depedge{67}{69}{.}
+\depedge{68}{69}{.}
+\depedge{69}{71}{.}
+\depedge{74}{76}{.}
+\depedge{75}{76}{.}
+\depedge{76}{77}{.}
+\depedge{76}{79}{.}
+\depedge{76}{80}{.}
+\depedge{76}{89}{.}
+\depedge{78}{79}{.}
+\depedge{80}{82}{.}
+\depedge{81}{82}{.}
+\depedge{82}{83}{.}
+\depedge{83}{87}{.}
+\depedge{84}{85}{.}
+\depedge{84}{86}{.}
+\depedge{84}{87}{.}
+\depedge{89}{90}{.}
+\depedge{90}{92}{.}
+\depedge{90}{93}{.}
+\depedge{91}{92}{.}
+\depedge{93}{95}{.}
+\depedge{94}{95}{.}
+\depedge{95}{96}{.}
+\depedge{96}{97}{.}
+\depedge{97}{98}{.}
+\depedge{97}{99}{.}
+\depedge{103}{104}{.}
+\depedge{104}{108}{.}
+\depedge{106}{108}{.}
+\depedge{107}{108}{.}
+\depedge{108}{114}{.}
+\depedge{110}{114}{.}
+\depedge{111}{113}{.}
+\depedge{111}{114}{.}
+\depedge{112}{113}{.}
+\depedge{114}{115}{.}
+\depedge{115}{117}{.}
+\depedge{116}{117}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{107}{108}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{110}{114}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{90}{92}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{84}{87}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{114}{115}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{51}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{112}{113}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{97}{99}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{56}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{94}{95}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{66}{69}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{76}{77}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{116}{117}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{103}{104}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{69}{71}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{78}{79}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{60}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{115}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{89}{95}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{111}{112}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{83}{84}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{99}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{65}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{101}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{77}{98}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{74}{80}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{77}{78}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{85}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{78}{81}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{90}{91}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{90}{111}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{93}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{71}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{106}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{85}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{55}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{94}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{74}{75}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{71}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{75}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{82}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{68}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{96}{99}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{78}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{60}{62}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{104}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{64}{71}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{86}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{103}{107}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{117}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}597\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.34\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& would\& like\& to\& peg\& the\& ceiling\& on\& Federal\& Housing\& Administration\& mortgage\& guarantees\& to\& 95\& %\& of\& the\& median\& price\& in\& a\& particular\& market\& ,\& instead\& of\& limiting\& it\& to\& \$\& 101,250\& ;\& reduce\& -LRB-\& or\& even\& eliminate\& -RRB-\& FHA\& down-payment\& requirements\& and\& increase\& the\& availability\& of\& variable-rate\& mortgages\& ;\& expand\& the\& Veterans\& Affairs\& Department\& loan\& guarantee\& program\& ;\& provide\& ``\& adequate\& ''\& funding\& for\& the\& Farmers\& Home\& Administration\& -LRB-\& FmHA\& -RRB-\& ;\& increase\& federal\& funding\& and\& tax\& incentives\& for\& the\& construction\& of\& low-income\& and\& rental\& housing\& ,\& including\& \$\& 4\& billion\& in\& block\& grants\& to\& states\& and\& localities\& ;\& and\& ``\& fully\& fund\& ''\& the\& McKinney\& Act\& ,\& a\& \$\& 656\& million\& potpourri\& for\& the\& homeless\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{14}{.}
+\depedge{5}{27}{.}
+\depedge{5}{34}{.}
+\depedge{5}{51}{.}
+\depedge{5}{60}{.}
+\depedge{5}{74}{.}
+\depedge{5}{101}{.}
+\depedge{5}{104}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{13}{.}
+\depedge{9}{13}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{34}{38}{.}
+\depedge{34}{42}{.}
+\depedge{34}{43}{.}
+\depedge{34}{44}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge{51}{58}{.}
+\depedge{52}{58}{.}
+\depedge{53}{58}{.}
+\depedge{54}{58}{.}
+\depedge{55}{58}{.}
+\depedge{56}{58}{.}
+\depedge{57}{58}{.}
+\depedge{60}{64}{.}
+\depedge{62}{64}{.}
+\depedge{64}{65}{.}
+\depedge{65}{69}{.}
+\depedge{66}{69}{.}
+\depedge{67}{69}{.}
+\depedge{68}{69}{.}
+\depedge{69}{71}{.}
+\depedge{74}{76}{.}
+\depedge{75}{76}{.}
+\depedge{76}{77}{.}
+\depedge{76}{79}{.}
+\depedge{76}{80}{.}
+\depedge{76}{89}{.}
+\depedge{78}{79}{.}
+\depedge{80}{82}{.}
+\depedge{81}{82}{.}
+\depedge{82}{83}{.}
+\depedge{83}{87}{.}
+\depedge{84}{85}{.}
+\depedge{84}{86}{.}
+\depedge{84}{87}{.}
+\depedge{89}{90}{.}
+\depedge{90}{92}{.}
+\depedge{90}{93}{.}
+\depedge{91}{92}{.}
+\depedge{93}{95}{.}
+\depedge{94}{95}{.}
+\depedge{95}{96}{.}
+\depedge{96}{97}{.}
+\depedge{97}{98}{.}
+\depedge{97}{99}{.}
+\depedge{103}{104}{.}
+\depedge{104}{108}{.}
+\depedge{106}{108}{.}
+\depedge{107}{108}{.}
+\depedge{108}{114}{.}
+\depedge{110}{114}{.}
+\depedge{111}{113}{.}
+\depedge{111}{114}{.}
+\depedge{112}{113}{.}
+\depedge{114}{115}{.}
+\depedge{115}{117}{.}
+\depedge{116}{117}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{110}{114}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{95}{96}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{84}{87}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{64}{65}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{111}{113}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{97}{99}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{56}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{94}{95}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{66}{69}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{68}{69}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{91}{92}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{103}{104}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{78}{79}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{62}{64}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{115}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{71}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{113}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{80}{108}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{111}{112}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{83}{84}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{99}{114}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{101}{108}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{94}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{101}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{90}{91}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{86}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{93}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{76}{78}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{67}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{71}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{77}{79}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{85}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{107}{110}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{67}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{75}{78}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{106}{107}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{74}{75}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{114}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{115}{116}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{68}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{64}{67}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{81}{84}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{82}{114}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{79}{94}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{60}{62}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{98}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{62}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{45}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{89}{94}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{110}{111}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{112}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{84}{114}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{49}{86}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{86}{108}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{55}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}597\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.32\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& would\& like\& to\& peg\& the\& ceiling\& on\& Federal\& Housing\& Administration\& mortgage\& guarantees\& to\& 95\& %\& of\& the\& median\& price\& in\& a\& particular\& market\& ,\& instead\& of\& limiting\& it\& to\& \$\& 101,250\& ;\& reduce\& -LRB-\& or\& even\& eliminate\& -RRB-\& FHA\& down-payment\& requirements\& and\& increase\& the\& availability\& of\& variable-rate\& mortgages\& ;\& expand\& the\& Veterans\& Affairs\& Department\& loan\& guarantee\& program\& ;\& provide\& ``\& adequate\& ''\& funding\& for\& the\& Farmers\& Home\& Administration\& -LRB-\& FmHA\& -RRB-\& ;\& increase\& federal\& funding\& and\& tax\& incentives\& for\& the\& construction\& of\& low-income\& and\& rental\& housing\& ,\& including\& \$\& 4\& billion\& in\& block\& grants\& to\& states\& and\& localities\& ;\& and\& ``\& fully\& fund\& ''\& the\& McKinney\& Act\& ,\& a\& \$\& 656\& million\& potpourri\& for\& the\& homeless\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{14}{.}
+\depedge{5}{27}{.}
+\depedge{5}{34}{.}
+\depedge{5}{51}{.}
+\depedge{5}{60}{.}
+\depedge{5}{74}{.}
+\depedge{5}{101}{.}
+\depedge{5}{104}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{13}{.}
+\depedge{9}{13}{.}
+\depedge{10}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{28}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{34}{38}{.}
+\depedge{34}{42}{.}
+\depedge{34}{43}{.}
+\depedge{34}{44}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{48}{49}{.}
+\depedge{51}{58}{.}
+\depedge{52}{58}{.}
+\depedge{53}{58}{.}
+\depedge{54}{58}{.}
+\depedge{55}{58}{.}
+\depedge{56}{58}{.}
+\depedge{57}{58}{.}
+\depedge{60}{64}{.}
+\depedge{62}{64}{.}
+\depedge{64}{65}{.}
+\depedge{65}{69}{.}
+\depedge{66}{69}{.}
+\depedge{67}{69}{.}
+\depedge{68}{69}{.}
+\depedge{69}{71}{.}
+\depedge{74}{76}{.}
+\depedge{75}{76}{.}
+\depedge{76}{77}{.}
+\depedge{76}{79}{.}
+\depedge{76}{80}{.}
+\depedge{76}{89}{.}
+\depedge{78}{79}{.}
+\depedge{80}{82}{.}
+\depedge{81}{82}{.}
+\depedge{82}{83}{.}
+\depedge{83}{87}{.}
+\depedge{84}{85}{.}
+\depedge{84}{86}{.}
+\depedge{84}{87}{.}
+\depedge{89}{90}{.}
+\depedge{90}{92}{.}
+\depedge{90}{93}{.}
+\depedge{91}{92}{.}
+\depedge{93}{95}{.}
+\depedge{94}{95}{.}
+\depedge{95}{96}{.}
+\depedge{96}{97}{.}
+\depedge{97}{98}{.}
+\depedge{97}{99}{.}
+\depedge{103}{104}{.}
+\depedge{104}{108}{.}
+\depedge{106}{108}{.}
+\depedge{107}{108}{.}
+\depedge{108}{114}{.}
+\depedge{110}{114}{.}
+\depedge{111}{113}{.}
+\depedge{111}{114}{.}
+\depedge{112}{113}{.}
+\depedge{114}{115}{.}
+\depedge{115}{117}{.}
+\depedge{116}{117}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{107}{108}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{110}{114}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{95}{96}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{84}{87}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{114}{115}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{51}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{112}{113}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{97}{99}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{56}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{94}{95}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{66}{69}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{76}{77}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{103}{104}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{69}{71}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{78}{79}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{62}{64}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{60}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{115}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{89}{95}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{111}{112}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{83}{84}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{99}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{65}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{77}{98}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{101}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{74}{80}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{85}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{78}{81}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{90}{91}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{90}{111}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{93}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{76}{78}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{71}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{85}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{55}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{94}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{107}{110}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{75}{78}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{106}{107}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{74}{75}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{71}{117}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{75}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{115}{116}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{82}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{67}{68}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{64}{67}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{60}{62}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{62}{103}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{45}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{110}{111}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{86}{87}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{92}{112}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{37}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}597\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+

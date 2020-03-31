@@ -1,0 +1,376 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Sony\& Corp.\& ,\& which\& has\& offered\& to\& acquire\& the\& movie-production\& company\& ,\& is\& seeking\& to\& free\& its\& top\& executives\& ,\& Peter\& Guber\& and\& Jon\& Peters\& ,\& from\& an\& exclusive\& agreement\& with\& Time\& Warner\& Inc.\& 's\& Warner\& Communications\& Inc.\& so\& they\& can\& run\& Columbia\& Pictures\& Entertainment\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{14}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{14}{42}{.}
+\depedge{15}{16}{.}
+\depedge{16}{19}{.}
+\depedge{16}{27}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{38}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{46}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}905\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Sony\& Corp.\& ,\& which\& has\& offered\& to\& acquire\& the\& movie-production\& company\& ,\& is\& seeking\& to\& free\& its\& top\& executives\& ,\& Peter\& Guber\& and\& Jon\& Peters\& ,\& from\& an\& exclusive\& agreement\& with\& Time\& Warner\& Inc.\& 's\& Warner\& Communications\& Inc.\& so\& they\& can\& run\& Columbia\& Pictures\& Entertainment\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{14}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{14}{42}{.}
+\depedge{15}{16}{.}
+\depedge{16}{19}{.}
+\depedge{16}{27}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{38}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{46}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{39}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}905\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Sony\& Corp.\& ,\& which\& has\& offered\& to\& acquire\& the\& movie-production\& company\& ,\& is\& seeking\& to\& free\& its\& top\& executives\& ,\& Peter\& Guber\& and\& Jon\& Peters\& ,\& from\& an\& exclusive\& agreement\& with\& Time\& Warner\& Inc.\& 's\& Warner\& Communications\& Inc.\& so\& they\& can\& run\& Columbia\& Pictures\& Entertainment\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{14}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{14}{42}{.}
+\depedge{15}{16}{.}
+\depedge{16}{19}{.}
+\depedge{16}{27}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{38}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{46}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{43}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}905\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Sony\& Corp.\& ,\& which\& has\& offered\& to\& acquire\& the\& movie-production\& company\& ,\& is\& seeking\& to\& free\& its\& top\& executives\& ,\& Peter\& Guber\& and\& Jon\& Peters\& ,\& from\& an\& exclusive\& agreement\& with\& Time\& Warner\& Inc.\& 's\& Warner\& Communications\& Inc.\& so\& they\& can\& run\& Columbia\& Pictures\& Entertainment\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{14}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{14}{42}{.}
+\depedge{15}{16}{.}
+\depedge{16}{19}{.}
+\depedge{16}{27}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{38}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{46}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{39}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}905\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.37\end{footnotesize}};
+\end{dependency}
+

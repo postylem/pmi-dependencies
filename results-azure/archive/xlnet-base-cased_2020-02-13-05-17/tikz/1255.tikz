@@ -1,0 +1,80 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Source\& :\& Fulton\& Prebon\& -LRB-\& U.S.A\& .\& -RRB-\& Inc\& . \\
+\end{deptext}
+\depedge{1}{9}{.}
+\depedge{3}{9}{.}
+\depedge{4}{9}{.}
+\depedge{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1255\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Source\& :\& Fulton\& Prebon\& -LRB-\& U.S.A\& .\& -RRB-\& Inc\& . \\
+\end{deptext}
+\depedge{1}{9}{.}
+\depedge{3}{9}{.}
+\depedge{4}{9}{.}
+\depedge{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1255\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Source\& :\& Fulton\& Prebon\& -LRB-\& U.S.A\& .\& -RRB-\& Inc\& . \\
+\end{deptext}
+\depedge{1}{9}{.}
+\depedge{3}{9}{.}
+\depedge{4}{9}{.}
+\depedge{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1255\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Source\& :\& Fulton\& Prebon\& -LRB-\& U.S.A\& .\& -RRB-\& Inc\& . \\
+\end{deptext}
+\depedge{1}{9}{.}
+\depedge{3}{9}{.}
+\depedge{4}{9}{.}
+\depedge{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1255\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+

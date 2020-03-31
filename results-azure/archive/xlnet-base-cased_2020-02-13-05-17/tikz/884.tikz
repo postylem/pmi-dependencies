@@ -1,0 +1,424 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& measure\& is\& attached\& to\& the\& more\& than\& \$\& 26\& billion\& fiscal\& 1990\& transportation\& bill\& within\& Mr.\& Lautenberg\& 's\& jurisdiction\& ,\& and\& the\& final\& compromise\& is\& laced\& with\& more\& than\& \$\& 205\& million\& in\& road\& projects\& earmarked\& by\& members\& as\& well\& as\& funds\& sought\& by\& major\& airports\& ,\& including\& Denver\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{22}{.}
+\depedge{4}{27}{.}
+\depedge{5}{15}{.}
+\depedge{6}{15}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{9}{15}{.}
+\depedge{10}{11}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{31}{34}{.}
+\depedge{31}{37}{.}
+\depedge{31}{41}{.}
+\depedge{31}{43}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{47}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{26}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}884\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.43\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& measure\& is\& attached\& to\& the\& more\& than\& \$\& 26\& billion\& fiscal\& 1990\& transportation\& bill\& within\& Mr.\& Lautenberg\& 's\& jurisdiction\& ,\& and\& the\& final\& compromise\& is\& laced\& with\& more\& than\& \$\& 205\& million\& in\& road\& projects\& earmarked\& by\& members\& as\& well\& as\& funds\& sought\& by\& major\& airports\& ,\& including\& Denver\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{22}{.}
+\depedge{4}{27}{.}
+\depedge{5}{15}{.}
+\depedge{6}{15}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{9}{15}{.}
+\depedge{10}{11}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{31}{34}{.}
+\depedge{31}{37}{.}
+\depedge{31}{41}{.}
+\depedge{31}{43}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{47}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{42}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}884\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.36\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& measure\& is\& attached\& to\& the\& more\& than\& \$\& 26\& billion\& fiscal\& 1990\& transportation\& bill\& within\& Mr.\& Lautenberg\& 's\& jurisdiction\& ,\& and\& the\& final\& compromise\& is\& laced\& with\& more\& than\& \$\& 205\& million\& in\& road\& projects\& earmarked\& by\& members\& as\& well\& as\& funds\& sought\& by\& major\& airports\& ,\& including\& Denver\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{22}{.}
+\depedge{4}{27}{.}
+\depedge{5}{15}{.}
+\depedge{6}{15}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{9}{15}{.}
+\depedge{10}{11}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{31}{34}{.}
+\depedge{31}{37}{.}
+\depedge{31}{41}{.}
+\depedge{31}{43}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{47}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{26}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}884\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.34\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& measure\& is\& attached\& to\& the\& more\& than\& \$\& 26\& billion\& fiscal\& 1990\& transportation\& bill\& within\& Mr.\& Lautenberg\& 's\& jurisdiction\& ,\& and\& the\& final\& compromise\& is\& laced\& with\& more\& than\& \$\& 205\& million\& in\& road\& projects\& earmarked\& by\& members\& as\& well\& as\& funds\& sought\& by\& major\& airports\& ,\& including\& Denver\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{22}{.}
+\depedge{4}{27}{.}
+\depedge{5}{15}{.}
+\depedge{6}{15}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{9}{15}{.}
+\depedge{10}{11}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{20}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{31}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{31}{34}{.}
+\depedge{31}{37}{.}
+\depedge{31}{41}{.}
+\depedge{31}{43}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{47}{.}
+\depedge{46}{47}{.}
+\depedge{47}{49}{.}
+\depedge{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{39}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}884\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+

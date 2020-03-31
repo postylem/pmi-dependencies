@@ -1,0 +1,368 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Meanwhile\& ,\& in\& a\& divergence\& in\& two\& of\& the\& market\& 's\& most\& important\& indicators\& ,\& the\& Dow\& industrials\& '\& sister\& average\& ,\& the\& 20-stock\& Dow\& Jones\& Transportation\& Average\& ,\& tumbled\& 102.06\& to\& 1304.23\& --\& its\& second-worst\& decline\& next\& to\& the\& 164.78-point\& fall\& during\& the\& 1987\& crash\& . \\
+\end{deptext}
+\depedge{1}{30}{.}
+\depedge{3}{5}{.}
+\depedge{3}{30}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{14}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{28}{.}
+\depedge{21}{30}{.}
+\depedge{23}{28}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{30}{31}{.}
+\depedge{30}{32}{.}
+\depedge{30}{34}{.}
+\depedge{30}{37}{.}
+\depedge{32}{33}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}781\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Meanwhile\& ,\& in\& a\& divergence\& in\& two\& of\& the\& market\& 's\& most\& important\& indicators\& ,\& the\& Dow\& industrials\& '\& sister\& average\& ,\& the\& 20-stock\& Dow\& Jones\& Transportation\& Average\& ,\& tumbled\& 102.06\& to\& 1304.23\& --\& its\& second-worst\& decline\& next\& to\& the\& 164.78-point\& fall\& during\& the\& 1987\& crash\& . \\
+\end{deptext}
+\depedge{1}{30}{.}
+\depedge{3}{5}{.}
+\depedge{3}{30}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{14}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{28}{.}
+\depedge{21}{30}{.}
+\depedge{23}{28}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{30}{31}{.}
+\depedge{30}{32}{.}
+\depedge{30}{34}{.}
+\depedge{30}{37}{.}
+\depedge{32}{33}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}781\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Meanwhile\& ,\& in\& a\& divergence\& in\& two\& of\& the\& market\& 's\& most\& important\& indicators\& ,\& the\& Dow\& industrials\& '\& sister\& average\& ,\& the\& 20-stock\& Dow\& Jones\& Transportation\& Average\& ,\& tumbled\& 102.06\& to\& 1304.23\& --\& its\& second-worst\& decline\& next\& to\& the\& 164.78-point\& fall\& during\& the\& 1987\& crash\& . \\
+\end{deptext}
+\depedge{1}{30}{.}
+\depedge{3}{5}{.}
+\depedge{3}{30}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{14}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{28}{.}
+\depedge{21}{30}{.}
+\depedge{23}{28}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{30}{31}{.}
+\depedge{30}{32}{.}
+\depedge{30}{34}{.}
+\depedge{30}{37}{.}
+\depedge{32}{33}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}781\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Meanwhile\& ,\& in\& a\& divergence\& in\& two\& of\& the\& market\& 's\& most\& important\& indicators\& ,\& the\& Dow\& industrials\& '\& sister\& average\& ,\& the\& 20-stock\& Dow\& Jones\& Transportation\& Average\& ,\& tumbled\& 102.06\& to\& 1304.23\& --\& its\& second-worst\& decline\& next\& to\& the\& 164.78-point\& fall\& during\& the\& 1987\& crash\& . \\
+\end{deptext}
+\depedge{1}{30}{.}
+\depedge{3}{5}{.}
+\depedge{3}{30}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{14}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{14}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{28}{.}
+\depedge{21}{30}{.}
+\depedge{23}{28}{.}
+\depedge{24}{28}{.}
+\depedge{25}{28}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{30}{31}{.}
+\depedge{30}{32}{.}
+\depedge{30}{34}{.}
+\depedge{30}{37}{.}
+\depedge{32}{33}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{40}{42}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}781\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+

@@ -1,0 +1,448 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+COMMERCIAL\& PAPER\& placed\& directly\& by\& General\& Motors\& Acceptance\& Corp.\& :\& 8.30\& %\& 5\& to\& 44\& days\& ;\& 8.20\& %\& 45\& to\& 59\& days\& ;\& 8\& %\& 60\& to\& 89\& days\& ;\& 7.875\& %\& 90\& to\& 119\& days\& ;\& 7.75\& %\& 120\& to\& 149\& days\& ;\& 7.625\& %\& 150\& to\& 179\& days\& ;\& 7.375\& %\& 180\& to\& 270\& days\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{4}{.}
+\depedge{3}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{12}{.}
+\depedge{12}{16}{.}
+\depedge{12}{19}{.}
+\depedge{12}{26}{.}
+\depedge{12}{33}{.}
+\depedge{12}{40}{.}
+\depedge{12}{47}{.}
+\depedge{12}{54}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{23}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{37}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{39}{40}{.}
+\depedge{40}{44}{.}
+\depedge{41}{43}{.}
+\depedge{42}{43}{.}
+\depedge{43}{44}{.}
+\depedge{46}{47}{.}
+\depedge{47}{51}{.}
+\depedge{48}{50}{.}
+\depedge{49}{50}{.}
+\depedge{50}{51}{.}
+\depedge{53}{54}{.}
+\depedge{54}{58}{.}
+\depedge{55}{57}{.}
+\depedge{56}{57}{.}
+\depedge{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1260\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.24\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+COMMERCIAL\& PAPER\& placed\& directly\& by\& General\& Motors\& Acceptance\& Corp.\& :\& 8.30\& %\& 5\& to\& 44\& days\& ;\& 8.20\& %\& 45\& to\& 59\& days\& ;\& 8\& %\& 60\& to\& 89\& days\& ;\& 7.875\& %\& 90\& to\& 119\& days\& ;\& 7.75\& %\& 120\& to\& 149\& days\& ;\& 7.625\& %\& 150\& to\& 179\& days\& ;\& 7.375\& %\& 180\& to\& 270\& days\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{4}{.}
+\depedge{3}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{12}{.}
+\depedge{12}{16}{.}
+\depedge{12}{19}{.}
+\depedge{12}{26}{.}
+\depedge{12}{33}{.}
+\depedge{12}{40}{.}
+\depedge{12}{47}{.}
+\depedge{12}{54}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{23}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{37}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{39}{40}{.}
+\depedge{40}{44}{.}
+\depedge{41}{43}{.}
+\depedge{42}{43}{.}
+\depedge{43}{44}{.}
+\depedge{46}{47}{.}
+\depedge{47}{51}{.}
+\depedge{48}{50}{.}
+\depedge{49}{50}{.}
+\depedge{50}{51}{.}
+\depedge{53}{54}{.}
+\depedge{54}{58}{.}
+\depedge{55}{57}{.}
+\depedge{56}{57}{.}
+\depedge{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{48}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{55}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1260\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.18\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+COMMERCIAL\& PAPER\& placed\& directly\& by\& General\& Motors\& Acceptance\& Corp.\& :\& 8.30\& %\& 5\& to\& 44\& days\& ;\& 8.20\& %\& 45\& to\& 59\& days\& ;\& 8\& %\& 60\& to\& 89\& days\& ;\& 7.875\& %\& 90\& to\& 119\& days\& ;\& 7.75\& %\& 120\& to\& 149\& days\& ;\& 7.625\& %\& 150\& to\& 179\& days\& ;\& 7.375\& %\& 180\& to\& 270\& days\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{4}{.}
+\depedge{3}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{12}{.}
+\depedge{12}{16}{.}
+\depedge{12}{19}{.}
+\depedge{12}{26}{.}
+\depedge{12}{33}{.}
+\depedge{12}{40}{.}
+\depedge{12}{47}{.}
+\depedge{12}{54}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{23}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{37}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{39}{40}{.}
+\depedge{40}{44}{.}
+\depedge{41}{43}{.}
+\depedge{42}{43}{.}
+\depedge{43}{44}{.}
+\depedge{46}{47}{.}
+\depedge{47}{51}{.}
+\depedge{48}{50}{.}
+\depedge{49}{50}{.}
+\depedge{50}{51}{.}
+\depedge{53}{54}{.}
+\depedge{54}{58}{.}
+\depedge{55}{57}{.}
+\depedge{56}{57}{.}
+\depedge{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{49}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1260\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.22\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+COMMERCIAL\& PAPER\& placed\& directly\& by\& General\& Motors\& Acceptance\& Corp.\& :\& 8.30\& %\& 5\& to\& 44\& days\& ;\& 8.20\& %\& 45\& to\& 59\& days\& ;\& 8\& %\& 60\& to\& 89\& days\& ;\& 7.875\& %\& 90\& to\& 119\& days\& ;\& 7.75\& %\& 120\& to\& 149\& days\& ;\& 7.625\& %\& 150\& to\& 179\& days\& ;\& 7.375\& %\& 180\& to\& 270\& days\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{4}{.}
+\depedge{3}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{11}{12}{.}
+\depedge{12}{16}{.}
+\depedge{12}{19}{.}
+\depedge{12}{26}{.}
+\depedge{12}{33}{.}
+\depedge{12}{40}{.}
+\depedge{12}{47}{.}
+\depedge{12}{54}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{23}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{25}{26}{.}
+\depedge{26}{30}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{37}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{39}{40}{.}
+\depedge{40}{44}{.}
+\depedge{41}{43}{.}
+\depedge{42}{43}{.}
+\depedge{43}{44}{.}
+\depedge{46}{47}{.}
+\depedge{47}{51}{.}
+\depedge{48}{50}{.}
+\depedge{49}{50}{.}
+\depedge{50}{51}{.}
+\depedge{53}{54}{.}
+\depedge{54}{58}{.}
+\depedge{55}{57}{.}
+\depedge{56}{57}{.}
+\depedge{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{49}{50}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1260\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.28\end{footnotesize}};
+\end{dependency}
+

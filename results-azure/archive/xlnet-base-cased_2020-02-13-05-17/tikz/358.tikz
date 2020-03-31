@@ -1,0 +1,136 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& national\& over-the-counter\& trading\& ,\& LIN\& closed\& at\& \$\& 104.75\& ,\& down\& \$\& 2.75\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{7}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{12}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}358\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.55\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& national\& over-the-counter\& trading\& ,\& LIN\& closed\& at\& \$\& 104.75\& ,\& down\& \$\& 2.75\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{7}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{12}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{13}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}358\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& national\& over-the-counter\& trading\& ,\& LIN\& closed\& at\& \$\& 104.75\& ,\& down\& \$\& 2.75\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{7}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{12}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{10}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}358\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.55\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& national\& over-the-counter\& trading\& ,\& LIN\& closed\& at\& \$\& 104.75\& ,\& down\& \$\& 2.75\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{7}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{12}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{13}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}358\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.36\end{footnotesize}};
+\end{dependency}
+

@@ -1,0 +1,248 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+According\& to\& a\& Big\& Board\& official\& ,\& while\& many\& stocks\& opened\& late\& ,\& there\& were\& subsequent\& trading\& halts\& in\& only\& three\& issues\& --\& AMR\& ,\& Merck\& and\& Valero\& Energy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{11}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{24}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}841\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.60\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+According\& to\& a\& Big\& Board\& official\& ,\& while\& many\& stocks\& opened\& late\& ,\& there\& were\& subsequent\& trading\& halts\& in\& only\& three\& issues\& --\& AMR\& ,\& Merck\& and\& Valero\& Energy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{11}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{24}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{15}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}841\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.56\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+According\& to\& a\& Big\& Board\& official\& ,\& while\& many\& stocks\& opened\& late\& ,\& there\& were\& subsequent\& trading\& halts\& in\& only\& three\& issues\& --\& AMR\& ,\& Merck\& and\& Valero\& Energy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{11}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{24}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}841\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.32\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+According\& to\& a\& Big\& Board\& official\& ,\& while\& many\& stocks\& opened\& late\& ,\& there\& were\& subsequent\& trading\& halts\& in\& only\& three\& issues\& --\& AMR\& ,\& Merck\& and\& Valero\& Energy\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{8}{11}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{11}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{22}{24}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}841\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.52\end{footnotesize}};
+\end{dependency}
+

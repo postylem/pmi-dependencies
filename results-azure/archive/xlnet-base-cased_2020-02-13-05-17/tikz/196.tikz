@@ -1,0 +1,232 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+As\& Wall\& Street\& traders\& dumped\& American\& Depositary\& Receipts\& in\& Jaguar\& PLC\& ,\& Mr.\& Streeter\& and\& trader\& Sam\& Ruiz\& bought\& them\& to\& resell\& in\& the\& U.K\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{5}{19}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{14}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}196\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.30\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+As\& Wall\& Street\& traders\& dumped\& American\& Depositary\& Receipts\& in\& Jaguar\& PLC\& ,\& Mr.\& Streeter\& and\& trader\& Sam\& Ruiz\& bought\& them\& to\& resell\& in\& the\& U.K\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{5}{19}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{14}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{24}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}196\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.26\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+As\& Wall\& Street\& traders\& dumped\& American\& Depositary\& Receipts\& in\& Jaguar\& PLC\& ,\& Mr.\& Streeter\& and\& trader\& Sam\& Ruiz\& bought\& them\& to\& resell\& in\& the\& U.K\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{5}{19}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{14}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}196\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.22\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+As\& Wall\& Street\& traders\& dumped\& American\& Depositary\& Receipts\& in\& Jaguar\& PLC\& ,\& Mr.\& Streeter\& and\& trader\& Sam\& Ruiz\& bought\& them\& to\& resell\& in\& the\& U.K\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{5}{19}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{14}{19}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{19}{20}{.}
+\depedge{19}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}196\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.22\end{footnotesize}};
+\end{dependency}
+

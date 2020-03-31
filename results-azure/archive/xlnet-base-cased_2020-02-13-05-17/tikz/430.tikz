@@ -1,0 +1,360 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Individual\& investors\& ,\& investment\& firms\& and\& arbitragers\& who\& speculate\& in\& the\& stocks\& of\& takeover\& candidates\& can\& suffer\& liquidity\& and\& payment\& problems\& when\& stocks\& dive\& ;\& those\& investors\& often\& borrow\& heavily\& to\& buy\& their\& holdings\& and\& use\& the\& stocks\& as\& collateral\& for\& loans\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{6}{.}
+\depedge{2}{7}{.}
+\depedge{2}{9}{.}
+\depedge{2}{17}{.}
+\depedge{4}{5}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{17}{21}{.}
+\depedge{17}{24}{.}
+\depedge{17}{29}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{18}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{32}{.}
+\depedge{29}{35}{.}
+\depedge{29}{36}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{36}{38}{.}
+\depedge{36}{39}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{35}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}430\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.46\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Individual\& investors\& ,\& investment\& firms\& and\& arbitragers\& who\& speculate\& in\& the\& stocks\& of\& takeover\& candidates\& can\& suffer\& liquidity\& and\& payment\& problems\& when\& stocks\& dive\& ;\& those\& investors\& often\& borrow\& heavily\& to\& buy\& their\& holdings\& and\& use\& the\& stocks\& as\& collateral\& for\& loans\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{6}{.}
+\depedge{2}{7}{.}
+\depedge{2}{9}{.}
+\depedge{2}{17}{.}
+\depedge{4}{5}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{17}{21}{.}
+\depedge{17}{24}{.}
+\depedge{17}{29}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{18}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{32}{.}
+\depedge{29}{35}{.}
+\depedge{29}{36}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{36}{38}{.}
+\depedge{36}{39}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{28}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}430\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Individual\& investors\& ,\& investment\& firms\& and\& arbitragers\& who\& speculate\& in\& the\& stocks\& of\& takeover\& candidates\& can\& suffer\& liquidity\& and\& payment\& problems\& when\& stocks\& dive\& ;\& those\& investors\& often\& borrow\& heavily\& to\& buy\& their\& holdings\& and\& use\& the\& stocks\& as\& collateral\& for\& loans\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{6}{.}
+\depedge{2}{7}{.}
+\depedge{2}{9}{.}
+\depedge{2}{17}{.}
+\depedge{4}{5}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{17}{21}{.}
+\depedge{17}{24}{.}
+\depedge{17}{29}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{18}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{32}{.}
+\depedge{29}{35}{.}
+\depedge{29}{36}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{36}{38}{.}
+\depedge{36}{39}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}430\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Individual\& investors\& ,\& investment\& firms\& and\& arbitragers\& who\& speculate\& in\& the\& stocks\& of\& takeover\& candidates\& can\& suffer\& liquidity\& and\& payment\& problems\& when\& stocks\& dive\& ;\& those\& investors\& often\& borrow\& heavily\& to\& buy\& their\& holdings\& and\& use\& the\& stocks\& as\& collateral\& for\& loans\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{6}{.}
+\depedge{2}{7}{.}
+\depedge{2}{9}{.}
+\depedge{2}{17}{.}
+\depedge{4}{5}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{17}{21}{.}
+\depedge{17}{24}{.}
+\depedge{17}{29}{.}
+\depedge{18}{19}{.}
+\depedge{18}{20}{.}
+\depedge{18}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{32}{.}
+\depedge{29}{35}{.}
+\depedge{29}{36}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{36}{38}{.}
+\depedge{36}{39}{.}
+\depedge{37}{38}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{28}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}430\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.51\end{footnotesize}};
+\end{dependency}
+

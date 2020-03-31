@@ -1,8 +1,0 @@
-	batch_size:	32
-	conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
-	long_enough:	30
-	n_observations:	100
-	offline_mode:	False
-	results_dir:	results/
-	save_matrices:	False
-	xlnet_spec:	xlnet-base-cased

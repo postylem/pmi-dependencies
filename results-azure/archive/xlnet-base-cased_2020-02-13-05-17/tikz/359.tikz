@@ -1,0 +1,264 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+A\& group\& of\& institutional\& investors\& in\& Telerate\& Inc.\& said\& that\& Dow\& Jones\& +\& Co.\& 's\& \$\& 18-a-share\& offer\& for\& the\& electronic\& financial\& information\& services\& company\& is\& ``\& grossly\& inadequate\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{29}{.}
+\depedge{10}{29}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{29}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{16}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}359\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+A\& group\& of\& institutional\& investors\& in\& Telerate\& Inc.\& said\& that\& Dow\& Jones\& +\& Co.\& 's\& \$\& 18-a-share\& offer\& for\& the\& electronic\& financial\& information\& services\& company\& is\& ``\& grossly\& inadequate\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{29}{.}
+\depedge{10}{29}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{29}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}359\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+A\& group\& of\& institutional\& investors\& in\& Telerate\& Inc.\& said\& that\& Dow\& Jones\& +\& Co.\& 's\& \$\& 18-a-share\& offer\& for\& the\& electronic\& financial\& information\& services\& company\& is\& ``\& grossly\& inadequate\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{29}{.}
+\depedge{10}{29}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{29}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}359\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+A\& group\& of\& institutional\& investors\& in\& Telerate\& Inc.\& said\& that\& Dow\& Jones\& +\& Co.\& 's\& \$\& 18-a-share\& offer\& for\& the\& electronic\& financial\& information\& services\& company\& is\& ``\& grossly\& inadequate\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{29}{.}
+\depedge{10}{29}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{12}{14}{.}
+\depedge{12}{18}{.}
+\depedge{14}{15}{.}
+\depedge{16}{17}{.}
+\depedge{16}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{29}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{26}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}359\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+

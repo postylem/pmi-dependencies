@@ -1,0 +1,192 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Every\& guy\& they\& put\& out\& there\& had\& a\& better\& split-finger\& than\& the\& guy\& before\& ,\& ''\& marveled\& Giant\& manager\& Roger\& Craig\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{8}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{8}{11}{.}
+\depedge{8}{18}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{18}{22}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}93\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.28\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Every\& guy\& they\& put\& out\& there\& had\& a\& better\& split-finger\& than\& the\& guy\& before\& ,\& ''\& marveled\& Giant\& manager\& Roger\& Craig\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{8}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{8}{11}{.}
+\depedge{8}{18}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{18}{22}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{18}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}93\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Every\& guy\& they\& put\& out\& there\& had\& a\& better\& split-finger\& than\& the\& guy\& before\& ,\& ''\& marveled\& Giant\& manager\& Roger\& Craig\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{8}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{8}{11}{.}
+\depedge{8}{18}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{18}{22}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}93\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& Every\& guy\& they\& put\& out\& there\& had\& a\& better\& split-finger\& than\& the\& guy\& before\& ,\& ''\& marveled\& Giant\& manager\& Roger\& Craig\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{3}{8}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{8}{11}{.}
+\depedge{8}{18}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{18}{22}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}93\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+

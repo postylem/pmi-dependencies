@@ -1,0 +1,432 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& 's\& what\& 1\& -RRB-\& explains\& why\& we\& are\& like\& ,\& well\& ,\& ourselves\& rather\& than\& Bo\& Jackson\& ;\& 2\& -RRB-\& cautions\& that\& it\& 's\& possible\& to\& drown\& in\& a\& lake\& that\& averages\& two\& feet\& deep\& ;\& and\& 3\& -RRB-\& predicts\& that\& 10,000\& monkeys\& placed\& before\& 10,000\& pianos\& would\& produce\& 1,118\& publishable\& rock\& 'n'\& roll\& tunes\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{6}{9}{.}
+\depedge{6}{22}{.}
+\depedge{6}{38}{.}
+\depedge{6}{41}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{10}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{35}{36}{.}
+\depedge{39}{41}{.}
+\depedge{41}{50}{.}
+\depedge{42}{50}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{44}{50}{.}
+\depedge{45}{46}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{50}{.}
+\depedge{50}{53}{.}
+\depedge{51}{53}{.}
+\depedge{52}{53}{.}
+\depedge{53}{54}{.}
+\depedge{53}{56}{.}
+\depedge{55}{56}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{52}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}79\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& 's\& what\& 1\& -RRB-\& explains\& why\& we\& are\& like\& ,\& well\& ,\& ourselves\& rather\& than\& Bo\& Jackson\& ;\& 2\& -RRB-\& cautions\& that\& it\& 's\& possible\& to\& drown\& in\& a\& lake\& that\& averages\& two\& feet\& deep\& ;\& and\& 3\& -RRB-\& predicts\& that\& 10,000\& monkeys\& placed\& before\& 10,000\& pianos\& would\& produce\& 1,118\& publishable\& rock\& 'n'\& roll\& tunes\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{6}{9}{.}
+\depedge{6}{22}{.}
+\depedge{6}{38}{.}
+\depedge{6}{41}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{10}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{35}{36}{.}
+\depedge{39}{41}{.}
+\depedge{41}{50}{.}
+\depedge{42}{50}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{44}{50}{.}
+\depedge{45}{46}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{50}{.}
+\depedge{50}{53}{.}
+\depedge{51}{53}{.}
+\depedge{52}{53}{.}
+\depedge{53}{54}{.}
+\depedge{53}{56}{.}
+\depedge{55}{56}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{53}{56}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{51}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}79\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.31\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& 's\& what\& 1\& -RRB-\& explains\& why\& we\& are\& like\& ,\& well\& ,\& ourselves\& rather\& than\& Bo\& Jackson\& ;\& 2\& -RRB-\& cautions\& that\& it\& 's\& possible\& to\& drown\& in\& a\& lake\& that\& averages\& two\& feet\& deep\& ;\& and\& 3\& -RRB-\& predicts\& that\& 10,000\& monkeys\& placed\& before\& 10,000\& pianos\& would\& produce\& 1,118\& publishable\& rock\& 'n'\& roll\& tunes\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{6}{9}{.}
+\depedge{6}{22}{.}
+\depedge{6}{38}{.}
+\depedge{6}{41}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{10}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{35}{36}{.}
+\depedge{39}{41}{.}
+\depedge{41}{50}{.}
+\depedge{42}{50}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{44}{50}{.}
+\depedge{45}{46}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{50}{.}
+\depedge{50}{53}{.}
+\depedge{51}{53}{.}
+\depedge{52}{53}{.}
+\depedge{53}{54}{.}
+\depedge{53}{56}{.}
+\depedge{55}{56}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}79\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.25\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+It\& 's\& what\& 1\& -RRB-\& explains\& why\& we\& are\& like\& ,\& well\& ,\& ourselves\& rather\& than\& Bo\& Jackson\& ;\& 2\& -RRB-\& cautions\& that\& it\& 's\& possible\& to\& drown\& in\& a\& lake\& that\& averages\& two\& feet\& deep\& ;\& and\& 3\& -RRB-\& predicts\& that\& 10,000\& monkeys\& placed\& before\& 10,000\& pianos\& would\& produce\& 1,118\& publishable\& rock\& 'n'\& roll\& tunes\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{3}{6}{.}
+\depedge{4}{6}{.}
+\depedge{6}{9}{.}
+\depedge{6}{22}{.}
+\depedge{6}{38}{.}
+\depedge{6}{41}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{10}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{16}{.}
+\depedge{17}{18}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge{35}{36}{.}
+\depedge{39}{41}{.}
+\depedge{41}{50}{.}
+\depedge{42}{50}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{44}{50}{.}
+\depedge{45}{46}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{49}{50}{.}
+\depedge{50}{53}{.}
+\depedge{51}{53}{.}
+\depedge{52}{53}{.}
+\depedge{53}{54}{.}
+\depedge{53}{56}{.}
+\depedge{55}{56}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{52}{53}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}79\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.31\end{footnotesize}};
+\end{dependency}
+

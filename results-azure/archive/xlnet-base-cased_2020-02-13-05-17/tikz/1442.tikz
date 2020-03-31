@@ -1,0 +1,392 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Other\& interests\& are\& owned\& by\& BP\& Petroleum\& Development\& -LRB-\& SES\& -RRB-\& Ltd.\& ,\& C.\& Itoh\& Energy\& Co.\& Ltd.\& ,\& Deminex\& Sumatra\& OEL\& G.m.b\& .\& H.\& ,\& Hispanoil\& -LRB-\& Sumatra\& -RRB-\& Production\& Ltd.\& ,\& Hudbay\& Oil\& -LRB-\& Indonesia\& -RRB-\& Ltd.\& ,\& Inpex\& Sumatra\& Co.\& Ltd.\& ,\& Lasmo\& Sumatra\& Ltd.\& ,\& Sunda\& Shell\& ,\& TCR\& Sumat\& A.G.\& and\& Warrior\& Oil\& Co\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{12}{.}
+\depedge{6}{12}{.}
+\depedge{7}{12}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{12}{25}{.}
+\depedge{12}{32}{.}
+\depedge{12}{39}{.}
+\depedge{12}{44}{.}
+\depedge{12}{48}{.}
+\depedge{12}{51}{.}
+\depedge{12}{55}{.}
+\depedge{12}{56}{.}
+\depedge{12}{59}{.}
+\depedge{14}{18}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{27}{32}{.}
+\depedge{29}{32}{.}
+\depedge{31}{32}{.}
+\depedge{34}{39}{.}
+\depedge{35}{39}{.}
+\depedge{37}{39}{.}
+\depedge{41}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{50}{51}{.}
+\depedge{53}{55}{.}
+\depedge{54}{55}{.}
+\depedge{57}{59}{.}
+\depedge{58}{59}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{59}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1442\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.14\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Other\& interests\& are\& owned\& by\& BP\& Petroleum\& Development\& -LRB-\& SES\& -RRB-\& Ltd.\& ,\& C.\& Itoh\& Energy\& Co.\& Ltd.\& ,\& Deminex\& Sumatra\& OEL\& G.m.b\& .\& H.\& ,\& Hispanoil\& -LRB-\& Sumatra\& -RRB-\& Production\& Ltd.\& ,\& Hudbay\& Oil\& -LRB-\& Indonesia\& -RRB-\& Ltd.\& ,\& Inpex\& Sumatra\& Co.\& Ltd.\& ,\& Lasmo\& Sumatra\& Ltd.\& ,\& Sunda\& Shell\& ,\& TCR\& Sumat\& A.G.\& and\& Warrior\& Oil\& Co\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{12}{.}
+\depedge{6}{12}{.}
+\depedge{7}{12}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{12}{25}{.}
+\depedge{12}{32}{.}
+\depedge{12}{39}{.}
+\depedge{12}{44}{.}
+\depedge{12}{48}{.}
+\depedge{12}{51}{.}
+\depedge{12}{55}{.}
+\depedge{12}{56}{.}
+\depedge{12}{59}{.}
+\depedge{14}{18}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{27}{32}{.}
+\depedge{29}{32}{.}
+\depedge{31}{32}{.}
+\depedge{34}{39}{.}
+\depedge{35}{39}{.}
+\depedge{37}{39}{.}
+\depedge{41}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{50}{51}{.}
+\depedge{53}{55}{.}
+\depedge{54}{55}{.}
+\depedge{57}{59}{.}
+\depedge{58}{59}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{59}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{59}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1442\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.16\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Other\& interests\& are\& owned\& by\& BP\& Petroleum\& Development\& -LRB-\& SES\& -RRB-\& Ltd.\& ,\& C.\& Itoh\& Energy\& Co.\& Ltd.\& ,\& Deminex\& Sumatra\& OEL\& G.m.b\& .\& H.\& ,\& Hispanoil\& -LRB-\& Sumatra\& -RRB-\& Production\& Ltd.\& ,\& Hudbay\& Oil\& -LRB-\& Indonesia\& -RRB-\& Ltd.\& ,\& Inpex\& Sumatra\& Co.\& Ltd.\& ,\& Lasmo\& Sumatra\& Ltd.\& ,\& Sunda\& Shell\& ,\& TCR\& Sumat\& A.G.\& and\& Warrior\& Oil\& Co\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{12}{.}
+\depedge{6}{12}{.}
+\depedge{7}{12}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{12}{25}{.}
+\depedge{12}{32}{.}
+\depedge{12}{39}{.}
+\depedge{12}{44}{.}
+\depedge{12}{48}{.}
+\depedge{12}{51}{.}
+\depedge{12}{55}{.}
+\depedge{12}{56}{.}
+\depedge{12}{59}{.}
+\depedge{14}{18}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{27}{32}{.}
+\depedge{29}{32}{.}
+\depedge{31}{32}{.}
+\depedge{34}{39}{.}
+\depedge{35}{39}{.}
+\depedge{37}{39}{.}
+\depedge{41}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{50}{51}{.}
+\depedge{53}{55}{.}
+\depedge{54}{55}{.}
+\depedge{57}{59}{.}
+\depedge{58}{59}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{53}{55}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{55}{59}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{48}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{59}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1442\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.12\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Other\& interests\& are\& owned\& by\& BP\& Petroleum\& Development\& -LRB-\& SES\& -RRB-\& Ltd.\& ,\& C.\& Itoh\& Energy\& Co.\& Ltd.\& ,\& Deminex\& Sumatra\& OEL\& G.m.b\& .\& H.\& ,\& Hispanoil\& -LRB-\& Sumatra\& -RRB-\& Production\& Ltd.\& ,\& Hudbay\& Oil\& -LRB-\& Indonesia\& -RRB-\& Ltd.\& ,\& Inpex\& Sumatra\& Co.\& Ltd.\& ,\& Lasmo\& Sumatra\& Ltd.\& ,\& Sunda\& Shell\& ,\& TCR\& Sumat\& A.G.\& and\& Warrior\& Oil\& Co\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{12}{.}
+\depedge{6}{12}{.}
+\depedge{7}{12}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{12}{25}{.}
+\depedge{12}{32}{.}
+\depedge{12}{39}{.}
+\depedge{12}{44}{.}
+\depedge{12}{48}{.}
+\depedge{12}{51}{.}
+\depedge{12}{55}{.}
+\depedge{12}{56}{.}
+\depedge{12}{59}{.}
+\depedge{14}{18}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{25}{.}
+\depedge{21}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{27}{32}{.}
+\depedge{29}{32}{.}
+\depedge{31}{32}{.}
+\depedge{34}{39}{.}
+\depedge{35}{39}{.}
+\depedge{37}{39}{.}
+\depedge{41}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{46}{48}{.}
+\depedge{47}{48}{.}
+\depedge{50}{51}{.}
+\depedge{53}{55}{.}
+\depedge{54}{55}{.}
+\depedge{57}{59}{.}
+\depedge{58}{59}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{59}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1442\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.16\end{footnotesize}};
+\end{dependency}
+

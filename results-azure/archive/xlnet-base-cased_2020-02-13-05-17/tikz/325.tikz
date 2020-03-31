@@ -1,0 +1,296 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Included\& in\& the\& increase\& in\& the\& most\& recent\& quarter\& is\& a\& \$\& 33\& million\& loan\& ,\& which\& NCNB\& said\& it\& ``\& expects\& to\& be\& fully\& repaid\& ,\& with\& no\& loss\& ,\& early\& in\& the\& fourth\& quarter\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{10}{.}
+\depedge{1}{15}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{11}{15}{.}
+\depedge{12}{14}{.}
+\depedge{12}{15}{.}
+\depedge{13}{14}{.}
+\depedge{15}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}325\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.65\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Included\& in\& the\& increase\& in\& the\& most\& recent\& quarter\& is\& a\& \$\& 33\& million\& loan\& ,\& which\& NCNB\& said\& it\& ``\& expects\& to\& be\& fully\& repaid\& ,\& with\& no\& loss\& ,\& early\& in\& the\& fourth\& quarter\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{10}{.}
+\depedge{1}{15}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{11}{15}{.}
+\depedge{12}{14}{.}
+\depedge{12}{15}{.}
+\depedge{13}{14}{.}
+\depedge{15}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}325\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.55\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Included\& in\& the\& increase\& in\& the\& most\& recent\& quarter\& is\& a\& \$\& 33\& million\& loan\& ,\& which\& NCNB\& said\& it\& ``\& expects\& to\& be\& fully\& repaid\& ,\& with\& no\& loss\& ,\& early\& in\& the\& fourth\& quarter\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{10}{.}
+\depedge{1}{15}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{11}{15}{.}
+\depedge{12}{14}{.}
+\depedge{12}{15}{.}
+\depedge{13}{14}{.}
+\depedge{15}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}325\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Included\& in\& the\& increase\& in\& the\& most\& recent\& quarter\& is\& a\& \$\& 33\& million\& loan\& ,\& which\& NCNB\& said\& it\& ``\& expects\& to\& be\& fully\& repaid\& ,\& with\& no\& loss\& ,\& early\& in\& the\& fourth\& quarter\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{10}{.}
+\depedge{1}{15}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{9}{.}
+\depedge{6}{9}{.}
+\depedge{7}{8}{.}
+\depedge{8}{9}{.}
+\depedge{11}{15}{.}
+\depedge{12}{14}{.}
+\depedge{12}{15}{.}
+\depedge{13}{14}{.}
+\depedge{15}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{26}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge{32}{33}{.}
+\depedge{33}{36}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}325\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.58\end{footnotesize}};
+\end{dependency}
+

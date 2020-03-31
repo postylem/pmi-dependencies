@@ -1,0 +1,488 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& letter\& filed\& with\& the\& Securities\& and\& Exchange\& Commission\& ,\& the\& group\& ,\& which\& holds\& about\& 4.5\& million\& Telerate\& shares\& ,\& or\& about\& 4.7\& %\& of\& the\& shares\& outstanding\& ,\& said\& ``\& ...\& at\& present\& none\& of\& us\& believes\& an\& offer\& for\& less\& than\& \$\& 25\& per\& share\& would\& be\& fair\& and\& some\& believe\& that\& \$\& 25\& is\& too\& low\& .\& '' \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{1}{32}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{10}{.}
+\depedge{6}{10}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{13}{32}{.}
+\depedge{15}{16}{.}
+\depedge{16}{21}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{21}{26}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{34}{.}
+\depedge{32}{40}{.}
+\depedge{35}{36}{.}
+\depedge{35}{40}{.}
+\depedge{37}{38}{.}
+\depedge{37}{40}{.}
+\depedge{38}{39}{.}
+\depedge{40}{52}{.}
+\depedge{40}{53}{.}
+\depedge{40}{55}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{42}{52}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{46}{48}{.}
+\depedge{48}{49}{.}
+\depedge{50}{52}{.}
+\depedge{51}{52}{.}
+\depedge{54}{55}{.}
+\depedge{55}{61}{.}
+\depedge{56}{61}{.}
+\depedge{57}{58}{.}
+\depedge{57}{61}{.}
+\depedge{59}{61}{.}
+\depedge{60}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{60}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{55}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{59}{60}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{60}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}360\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.29\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& letter\& filed\& with\& the\& Securities\& and\& Exchange\& Commission\& ,\& the\& group\& ,\& which\& holds\& about\& 4.5\& million\& Telerate\& shares\& ,\& or\& about\& 4.7\& %\& of\& the\& shares\& outstanding\& ,\& said\& ``\& ...\& at\& present\& none\& of\& us\& believes\& an\& offer\& for\& less\& than\& \$\& 25\& per\& share\& would\& be\& fair\& and\& some\& believe\& that\& \$\& 25\& is\& too\& low\& .\& '' \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{1}{32}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{10}{.}
+\depedge{6}{10}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{13}{32}{.}
+\depedge{15}{16}{.}
+\depedge{16}{21}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{21}{26}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{34}{.}
+\depedge{32}{40}{.}
+\depedge{35}{36}{.}
+\depedge{35}{40}{.}
+\depedge{37}{38}{.}
+\depedge{37}{40}{.}
+\depedge{38}{39}{.}
+\depedge{40}{52}{.}
+\depedge{40}{53}{.}
+\depedge{40}{55}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{42}{52}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{46}{48}{.}
+\depedge{48}{49}{.}
+\depedge{50}{52}{.}
+\depedge{51}{52}{.}
+\depedge{54}{55}{.}
+\depedge{55}{61}{.}
+\depedge{56}{61}{.}
+\depedge{57}{58}{.}
+\depedge{57}{61}{.}
+\depedge{59}{61}{.}
+\depedge{60}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{60}{61}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{56}{59}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{59}{60}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{60}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{55}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{56}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}360\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& letter\& filed\& with\& the\& Securities\& and\& Exchange\& Commission\& ,\& the\& group\& ,\& which\& holds\& about\& 4.5\& million\& Telerate\& shares\& ,\& or\& about\& 4.7\& %\& of\& the\& shares\& outstanding\& ,\& said\& ``\& ...\& at\& present\& none\& of\& us\& believes\& an\& offer\& for\& less\& than\& \$\& 25\& per\& share\& would\& be\& fair\& and\& some\& believe\& that\& \$\& 25\& is\& too\& low\& .\& '' \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{1}{32}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{10}{.}
+\depedge{6}{10}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{13}{32}{.}
+\depedge{15}{16}{.}
+\depedge{16}{21}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{21}{26}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{34}{.}
+\depedge{32}{40}{.}
+\depedge{35}{36}{.}
+\depedge{35}{40}{.}
+\depedge{37}{38}{.}
+\depedge{37}{40}{.}
+\depedge{38}{39}{.}
+\depedge{40}{52}{.}
+\depedge{40}{53}{.}
+\depedge{40}{55}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{42}{52}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{46}{48}{.}
+\depedge{48}{49}{.}
+\depedge{50}{52}{.}
+\depedge{51}{52}{.}
+\depedge{54}{55}{.}
+\depedge{55}{61}{.}
+\depedge{56}{61}{.}
+\depedge{57}{58}{.}
+\depedge{57}{61}{.}
+\depedge{59}{61}{.}
+\depedge{60}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{46}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{59}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{55}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{60}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{55}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{51}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{53}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{61}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{45}{61}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{61}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{26}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}360\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& a\& letter\& filed\& with\& the\& Securities\& and\& Exchange\& Commission\& ,\& the\& group\& ,\& which\& holds\& about\& 4.5\& million\& Telerate\& shares\& ,\& or\& about\& 4.7\& %\& of\& the\& shares\& outstanding\& ,\& said\& ``\& ...\& at\& present\& none\& of\& us\& believes\& an\& offer\& for\& less\& than\& \$\& 25\& per\& share\& would\& be\& fair\& and\& some\& believe\& that\& \$\& 25\& is\& too\& low\& .\& '' \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{1}{32}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{10}{.}
+\depedge{6}{10}{.}
+\depedge{7}{8}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{13}{32}{.}
+\depedge{15}{16}{.}
+\depedge{16}{21}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{21}{26}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{32}{34}{.}
+\depedge{32}{40}{.}
+\depedge{35}{36}{.}
+\depedge{35}{40}{.}
+\depedge{37}{38}{.}
+\depedge{37}{40}{.}
+\depedge{38}{39}{.}
+\depedge{40}{52}{.}
+\depedge{40}{53}{.}
+\depedge{40}{55}{.}
+\depedge{41}{42}{.}
+\depedge{42}{43}{.}
+\depedge{42}{52}{.}
+\depedge{43}{46}{.}
+\depedge{44}{46}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{46}{48}{.}
+\depedge{48}{49}{.}
+\depedge{50}{52}{.}
+\depedge{51}{52}{.}
+\depedge{54}{55}{.}
+\depedge{55}{61}{.}
+\depedge{56}{61}{.}
+\depedge{57}{58}{.}
+\depedge{57}{61}{.}
+\depedge{59}{61}{.}
+\depedge{60}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{54}{55}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{57}{58}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{60}{61}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{55}{56}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{53}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{50}{51}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{59}{60}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{54}{60}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{47}{58}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{54}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{46}{57}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{52}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{50}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{34}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}360\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.29\end{footnotesize}};
+\end{dependency}
+

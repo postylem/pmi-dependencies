@@ -1,0 +1,424 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& prices\& of\& cattle\& and\& hog\& futures\& contracts\& dropped\& sharply\& because\& traders\& speculated\& that\& the\& stock\& market\& plunge\& Friday\& will\& linger\& in\& the\& minds\& of\& U.S.\& consumers\& long\& enough\& to\& prompt\& them\& to\& rein\& in\& their\& spending\& at\& the\& supermarket\& ,\& which\& would\& hurt\& demand\& for\& beef\& and\& pork\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{9}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{21}{.}
+\depedge{14}{21}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{29}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{37}{.}
+\depedge{34}{44}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{48}{.}
+\depedge{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1407\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.40\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& prices\& of\& cattle\& and\& hog\& futures\& contracts\& dropped\& sharply\& because\& traders\& speculated\& that\& the\& stock\& market\& plunge\& Friday\& will\& linger\& in\& the\& minds\& of\& U.S.\& consumers\& long\& enough\& to\& prompt\& them\& to\& rein\& in\& their\& spending\& at\& the\& supermarket\& ,\& which\& would\& hurt\& demand\& for\& beef\& and\& pork\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{9}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{21}{.}
+\depedge{14}{21}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{29}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{37}{.}
+\depedge{34}{44}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{48}{.}
+\depedge{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{45}{46}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{42}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1407\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.43\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& prices\& of\& cattle\& and\& hog\& futures\& contracts\& dropped\& sharply\& because\& traders\& speculated\& that\& the\& stock\& market\& plunge\& Friday\& will\& linger\& in\& the\& minds\& of\& U.S.\& consumers\& long\& enough\& to\& prompt\& them\& to\& rein\& in\& their\& spending\& at\& the\& supermarket\& ,\& which\& would\& hurt\& demand\& for\& beef\& and\& pork\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{9}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{21}{.}
+\depedge{14}{21}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{29}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{37}{.}
+\depedge{34}{44}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{48}{.}
+\depedge{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{45}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1407\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& prices\& of\& cattle\& and\& hog\& futures\& contracts\& dropped\& sharply\& because\& traders\& speculated\& that\& the\& stock\& market\& plunge\& Friday\& will\& linger\& in\& the\& minds\& of\& U.S.\& consumers\& long\& enough\& to\& prompt\& them\& to\& rein\& in\& their\& spending\& at\& the\& supermarket\& ,\& which\& would\& hurt\& demand\& for\& beef\& and\& pork\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{2}{9}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{8}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{9}{10}{.}
+\depedge{9}{13}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{13}{21}{.}
+\depedge{14}{21}{.}
+\depedge{15}{18}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{21}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{29}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{31}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{35}{.}
+\depedge{34}{37}{.}
+\depedge{34}{44}{.}
+\depedge{36}{37}{.}
+\depedge{37}{38}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge{44}{45}{.}
+\depedge{45}{46}{.}
+\depedge{46}{47}{.}
+\depedge{47}{48}{.}
+\depedge{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{49}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{43}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{48}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{46}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{49}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1407\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.40\end{footnotesize}};
+\end{dependency}
+

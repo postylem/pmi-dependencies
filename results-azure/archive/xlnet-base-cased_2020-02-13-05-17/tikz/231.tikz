@@ -1,0 +1,256 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& several\& committee\& members\& disapproved\& ,\& some\& backing\& Mr.\& Trump\& 's\& claim\& that\& the\& threat\& of\& regulation\& caused\& the\& failure\& of\& the\& UAL\& deal\& and\& the\& stock-market\& plunge\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{16}{17}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{25}{.}
+\depedge{20}{28}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}231\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& several\& committee\& members\& disapproved\& ,\& some\& backing\& Mr.\& Trump\& 's\& claim\& that\& the\& threat\& of\& regulation\& caused\& the\& failure\& of\& the\& UAL\& deal\& and\& the\& stock-market\& plunge\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{16}{17}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{25}{.}
+\depedge{20}{28}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}231\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& several\& committee\& members\& disapproved\& ,\& some\& backing\& Mr.\& Trump\& 's\& claim\& that\& the\& threat\& of\& regulation\& caused\& the\& failure\& of\& the\& UAL\& deal\& and\& the\& stock-market\& plunge\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{16}{17}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{25}{.}
+\depedge{20}{28}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}231\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.23\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& several\& committee\& members\& disapproved\& ,\& some\& backing\& Mr.\& Trump\& 's\& claim\& that\& the\& threat\& of\& regulation\& caused\& the\& failure\& of\& the\& UAL\& deal\& and\& the\& stock-market\& plunge\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{5}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{9}{10}{.}
+\depedge{10}{11}{.}
+\depedge{10}{12}{.}
+\depedge{12}{18}{.}
+\depedge{13}{18}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{16}{17}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{20}{25}{.}
+\depedge{20}{28}{.}
+\depedge{21}{24}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}231\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+

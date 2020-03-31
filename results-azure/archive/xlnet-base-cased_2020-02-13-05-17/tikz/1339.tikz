@@ -1,0 +1,336 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Gold\& ,\& the\& traditional\& haven\& in\& times\& of\& financial\& crisis\& ,\& continued\& its\& inverse\& lockstep\& with\& the\& dollar\& ,\& rising\& early\& in\& the\& day\& as\& the\& currency\& fell\& ,\& and\& then\& giving\& up\& some\& of\& its\& gains\& as\& the\& dollar\& recovered\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{1}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{15}{.}
+\depedge{12}{20}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{21}{.}
+\depedge{20}{28}{.}
+\depedge{20}{30}{.}
+\depedge{20}{32}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{25}{28}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{34}{.}
+\depedge{32}{41}{.}
+\depedge{34}{35}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{41}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1339\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Gold\& ,\& the\& traditional\& haven\& in\& times\& of\& financial\& crisis\& ,\& continued\& its\& inverse\& lockstep\& with\& the\& dollar\& ,\& rising\& early\& in\& the\& day\& as\& the\& currency\& fell\& ,\& and\& then\& giving\& up\& some\& of\& its\& gains\& as\& the\& dollar\& recovered\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{1}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{15}{.}
+\depedge{12}{20}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{21}{.}
+\depedge{20}{28}{.}
+\depedge{20}{30}{.}
+\depedge{20}{32}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{25}{28}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{34}{.}
+\depedge{32}{41}{.}
+\depedge{34}{35}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{41}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{26}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1339\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.31\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Gold\& ,\& the\& traditional\& haven\& in\& times\& of\& financial\& crisis\& ,\& continued\& its\& inverse\& lockstep\& with\& the\& dollar\& ,\& rising\& early\& in\& the\& day\& as\& the\& currency\& fell\& ,\& and\& then\& giving\& up\& some\& of\& its\& gains\& as\& the\& dollar\& recovered\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{1}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{15}{.}
+\depedge{12}{20}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{21}{.}
+\depedge{20}{28}{.}
+\depedge{20}{30}{.}
+\depedge{20}{32}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{25}{28}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{34}{.}
+\depedge{32}{41}{.}
+\depedge{34}{35}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{41}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1339\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Gold\& ,\& the\& traditional\& haven\& in\& times\& of\& financial\& crisis\& ,\& continued\& its\& inverse\& lockstep\& with\& the\& dollar\& ,\& rising\& early\& in\& the\& day\& as\& the\& currency\& fell\& ,\& and\& then\& giving\& up\& some\& of\& its\& gains\& as\& the\& dollar\& recovered\& . \\
+\end{deptext}
+\depedge{1}{5}{.}
+\depedge{1}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{15}{.}
+\depedge{12}{20}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{18}{.}
+\depedge{17}{18}{.}
+\depedge{20}{21}{.}
+\depedge{20}{28}{.}
+\depedge{20}{30}{.}
+\depedge{20}{32}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{25}{28}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{31}{32}{.}
+\depedge{32}{33}{.}
+\depedge{32}{34}{.}
+\depedge{32}{41}{.}
+\depedge{34}{35}{.}
+\depedge{35}{37}{.}
+\depedge{36}{37}{.}
+\depedge{38}{41}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1339\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+

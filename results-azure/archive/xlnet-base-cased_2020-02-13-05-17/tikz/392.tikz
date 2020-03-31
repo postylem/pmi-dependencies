@@ -1,0 +1,360 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& exchange\& for\& the\& \$\& 76\& million\& they\& are\& owed\& ,\& creditor\& banks\& will\& receive\& 3.9\& million\& shares\& of\& BancOklahoma\& common\& stock\& and\& the\& proceeds\& from\& the\& future\& sales\& of\& four\& subsidiary\& banks\& to\& private\& buyers\& ,\& the\& bank\& holding\& company\& said\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{42}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{23}{.}
+\depedge{18}{25}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{29}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{34}{.}
+\depedge{30}{33}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}392\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& exchange\& for\& the\& \$\& 76\& million\& they\& are\& owed\& ,\& creditor\& banks\& will\& receive\& 3.9\& million\& shares\& of\& BancOklahoma\& common\& stock\& and\& the\& proceeds\& from\& the\& future\& sales\& of\& four\& subsidiary\& banks\& to\& private\& buyers\& ,\& the\& bank\& holding\& company\& said\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{42}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{23}{.}
+\depedge{18}{25}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{29}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{34}{.}
+\depedge{30}{33}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}392\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& exchange\& for\& the\& \$\& 76\& million\& they\& are\& owed\& ,\& creditor\& banks\& will\& receive\& 3.9\& million\& shares\& of\& BancOklahoma\& common\& stock\& and\& the\& proceeds\& from\& the\& future\& sales\& of\& four\& subsidiary\& banks\& to\& private\& buyers\& ,\& the\& bank\& holding\& company\& said\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{42}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{23}{.}
+\depedge{18}{25}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{29}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{34}{.}
+\depedge{30}{33}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}392\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+In\& exchange\& for\& the\& \$\& 76\& million\& they\& are\& owed\& ,\& creditor\& banks\& will\& receive\& 3.9\& million\& shares\& of\& BancOklahoma\& common\& stock\& and\& the\& proceeds\& from\& the\& future\& sales\& of\& four\& subsidiary\& banks\& to\& private\& buyers\& ,\& the\& bank\& holding\& company\& said\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{15}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{10}{.}
+\depedge{6}{7}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{13}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{18}{.}
+\depedge{15}{42}{.}
+\depedge{16}{17}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{18}{23}{.}
+\depedge{18}{25}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{29}{.}
+\depedge{27}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{29}{34}{.}
+\depedge{30}{33}{.}
+\depedge{31}{33}{.}
+\depedge{32}{33}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{41}{.}
+\depedge{39}{41}{.}
+\depedge{40}{41}{.}
+\depedge{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{41}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}392\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.46\end{footnotesize}};
+\end{dependency}
+

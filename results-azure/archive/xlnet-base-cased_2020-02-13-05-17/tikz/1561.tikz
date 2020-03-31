@@ -1,0 +1,224 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& LeBaron\& ,\& who\& manages\& \$\& 10\& billion\& ,\& says\& ,\& ``\& We\& turned\& the\& trading\& system\& on\& ,\& and\& it\& did\& whatever\& it\& was\& programmed\& to\& do\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{10}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{17}{.}
+\depedge{14}{18}{.}
+\depedge{14}{20}{.}
+\depedge{14}{22}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{28}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1561\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.45\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& LeBaron\& ,\& who\& manages\& \$\& 10\& billion\& ,\& says\& ,\& ``\& We\& turned\& the\& trading\& system\& on\& ,\& and\& it\& did\& whatever\& it\& was\& programmed\& to\& do\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{10}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{17}{.}
+\depedge{14}{18}{.}
+\depedge{14}{20}{.}
+\depedge{14}{22}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{28}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1561\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& LeBaron\& ,\& who\& manages\& \$\& 10\& billion\& ,\& says\& ,\& ``\& We\& turned\& the\& trading\& system\& on\& ,\& and\& it\& did\& whatever\& it\& was\& programmed\& to\& do\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{10}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{17}{.}
+\depedge{14}{18}{.}
+\depedge{14}{20}{.}
+\depedge{14}{22}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{28}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{13}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1561\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Mr.\& LeBaron\& ,\& who\& manages\& \$\& 10\& billion\& ,\& says\& ,\& ``\& We\& turned\& the\& trading\& system\& on\& ,\& and\& it\& did\& whatever\& it\& was\& programmed\& to\& do\& .\& '' \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{2}{10}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{10}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{17}{.}
+\depedge{14}{18}{.}
+\depedge{14}{20}{.}
+\depedge{14}{22}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{21}{22}{.}
+\depedge{22}{26}{.}
+\depedge{23}{28}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1561\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.45\end{footnotesize}};
+\end{dependency}
+

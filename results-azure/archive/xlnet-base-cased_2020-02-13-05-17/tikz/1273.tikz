@@ -1,0 +1,352 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+TREASURY\& BILLS\& :\& Results\& of\& the\& Monday\& ,\& October\& 16\& ,\& 1989\& ,\& auction\& of\& short-term\& U.S.\& government\& bills\& ,\& sold\& at\& a\& discount\& from\& face\& value\& in\& units\& of\& \$\& 10,000\& to\& \$\& 1\& million\& :\& 7.37\& %\& ,\& 13\& weeks\& ;\& 7.42\& %\& ,\& 26\& weeks\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{39}{.}
+\depedge{5}{14}{.}
+\depedge{6}{14}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{7}{12}{.}
+\depedge{7}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{19}{.}
+\depedge{16}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{28}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{34}{.}
+\depedge{31}{34}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{39}{45}{.}
+\depedge{41}{42}{.}
+\depedge{44}{45}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{48}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1273\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+TREASURY\& BILLS\& :\& Results\& of\& the\& Monday\& ,\& October\& 16\& ,\& 1989\& ,\& auction\& of\& short-term\& U.S.\& government\& bills\& ,\& sold\& at\& a\& discount\& from\& face\& value\& in\& units\& of\& \$\& 10,000\& to\& \$\& 1\& million\& :\& 7.37\& %\& ,\& 13\& weeks\& ;\& 7.42\& %\& ,\& 26\& weeks\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{39}{.}
+\depedge{5}{14}{.}
+\depedge{6}{14}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{7}{12}{.}
+\depedge{7}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{19}{.}
+\depedge{16}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{28}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{34}{.}
+\depedge{31}{34}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{39}{45}{.}
+\depedge{41}{42}{.}
+\depedge{44}{45}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{48}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1273\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.37\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+TREASURY\& BILLS\& :\& Results\& of\& the\& Monday\& ,\& October\& 16\& ,\& 1989\& ,\& auction\& of\& short-term\& U.S.\& government\& bills\& ,\& sold\& at\& a\& discount\& from\& face\& value\& in\& units\& of\& \$\& 10,000\& to\& \$\& 1\& million\& :\& 7.37\& %\& ,\& 13\& weeks\& ;\& 7.42\& %\& ,\& 26\& weeks\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{39}{.}
+\depedge{5}{14}{.}
+\depedge{6}{14}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{7}{12}{.}
+\depedge{7}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{19}{.}
+\depedge{16}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{28}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{34}{.}
+\depedge{31}{34}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{39}{45}{.}
+\depedge{41}{42}{.}
+\depedge{44}{45}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{39}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1273\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.37\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+TREASURY\& BILLS\& :\& Results\& of\& the\& Monday\& ,\& October\& 16\& ,\& 1989\& ,\& auction\& of\& short-term\& U.S.\& government\& bills\& ,\& sold\& at\& a\& discount\& from\& face\& value\& in\& units\& of\& \$\& 10,000\& to\& \$\& 1\& million\& :\& 7.37\& %\& ,\& 13\& weeks\& ;\& 7.42\& %\& ,\& 26\& weeks\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{39}{.}
+\depedge{5}{14}{.}
+\depedge{6}{14}{.}
+\depedge{7}{9}{.}
+\depedge{7}{10}{.}
+\depedge{7}{12}{.}
+\depedge{7}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{19}{.}
+\depedge{16}{19}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{21}{22}{.}
+\depedge{21}{28}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{34}{.}
+\depedge{31}{34}{.}
+\depedge{32}{34}{.}
+\depedge{33}{34}{.}
+\depedge{34}{36}{.}
+\depedge{35}{36}{.}
+\depedge{38}{39}{.}
+\depedge{39}{42}{.}
+\depedge{39}{45}{.}
+\depedge{41}{42}{.}
+\depedge{44}{45}{.}
+\depedge{45}{48}{.}
+\depedge{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{47}{48}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{45}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{47}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{45}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{48}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{44}{48}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1273\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.42\end{footnotesize}};
+\end{dependency}
+

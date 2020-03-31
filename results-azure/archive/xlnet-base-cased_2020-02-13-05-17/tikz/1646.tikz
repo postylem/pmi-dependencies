@@ -1,0 +1,320 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Britain\& 's\& Blue\& Arrow\& PLC\& intends\& to\& change\& its\& name\& to\& Manpower\& PLC\& and\& write\& off\& a\& chunk\& of\& the\& nearly\& \$\& 1.2\& billion\& in\& good\& will\& realized\& in\& the\& takeover\& of\& U.S.-based\& Manpower\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{8}{14}{.}
+\depedge{8}{15}{.}
+\depedge{9}{10}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{23}{24}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{35}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1646\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Britain\& 's\& Blue\& Arrow\& PLC\& intends\& to\& change\& its\& name\& to\& Manpower\& PLC\& and\& write\& off\& a\& chunk\& of\& the\& nearly\& \$\& 1.2\& billion\& in\& good\& will\& realized\& in\& the\& takeover\& of\& U.S.-based\& Manpower\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{8}{14}{.}
+\depedge{8}{15}{.}
+\depedge{9}{10}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{23}{24}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{35}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{33}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1646\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Britain\& 's\& Blue\& Arrow\& PLC\& intends\& to\& change\& its\& name\& to\& Manpower\& PLC\& and\& write\& off\& a\& chunk\& of\& the\& nearly\& \$\& 1.2\& billion\& in\& good\& will\& realized\& in\& the\& takeover\& of\& U.S.-based\& Manpower\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{8}{14}{.}
+\depedge{8}{15}{.}
+\depedge{9}{10}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{23}{24}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{35}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1646\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.24\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Britain\& 's\& Blue\& Arrow\& PLC\& intends\& to\& change\& its\& name\& to\& Manpower\& PLC\& and\& write\& off\& a\& chunk\& of\& the\& nearly\& \$\& 1.2\& billion\& in\& good\& will\& realized\& in\& the\& takeover\& of\& U.S.-based\& Manpower\& Inc\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{1}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{6}{8}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{8}{11}{.}
+\depedge{8}{14}{.}
+\depedge{8}{15}{.}
+\depedge{9}{10}{.}
+\depedge{11}{13}{.}
+\depedge{12}{13}{.}
+\depedge{15}{16}{.}
+\depedge{15}{18}{.}
+\depedge{17}{18}{.}
+\depedge{18}{19}{.}
+\depedge{19}{22}{.}
+\depedge{20}{22}{.}
+\depedge{21}{22}{.}
+\depedge{22}{24}{.}
+\depedge{22}{25}{.}
+\depedge{23}{24}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{31}{32}{.}
+\depedge{32}{35}{.}
+\depedge{33}{35}{.}
+\depedge{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1646\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+

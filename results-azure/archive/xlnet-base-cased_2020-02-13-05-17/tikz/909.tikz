@@ -1,0 +1,312 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& company\& said\& revenue\& rose\& 138\& %\& ,\& to\& \$\& 10.9\& million\& from\& \$\& 4.6\& million\& ,\& reflecting\& the\& success\& of\& its\& movies\& ``\& Gorillas\& in\& the\& Mist\& ''\& and\& ``\& Rainman\& ,\& ''\& as\& well\& as\& the\& box-office\& smash\& ``\& Batman\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{9}{.}
+\depedge{5}{13}{.}
+\depedge{5}{18}{.}
+\depedge{6}{7}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{23}{36}{.}
+\depedge{23}{40}{.}
+\depedge{25}{26}{.}
+\depedge{25}{30}{.}
+\depedge{25}{32}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}909\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.36\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& company\& said\& revenue\& rose\& 138\& %\& ,\& to\& \$\& 10.9\& million\& from\& \$\& 4.6\& million\& ,\& reflecting\& the\& success\& of\& its\& movies\& ``\& Gorillas\& in\& the\& Mist\& ''\& and\& ``\& Rainman\& ,\& ''\& as\& well\& as\& the\& box-office\& smash\& ``\& Batman\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{9}{.}
+\depedge{5}{13}{.}
+\depedge{5}{18}{.}
+\depedge{6}{7}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{23}{36}{.}
+\depedge{23}{40}{.}
+\depedge{25}{26}{.}
+\depedge{25}{30}{.}
+\depedge{25}{32}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{42}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}909\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.30\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& company\& said\& revenue\& rose\& 138\& %\& ,\& to\& \$\& 10.9\& million\& from\& \$\& 4.6\& million\& ,\& reflecting\& the\& success\& of\& its\& movies\& ``\& Gorillas\& in\& the\& Mist\& ''\& and\& ``\& Rainman\& ,\& ''\& as\& well\& as\& the\& box-office\& smash\& ``\& Batman\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{9}{.}
+\depedge{5}{13}{.}
+\depedge{5}{18}{.}
+\depedge{6}{7}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{23}{36}{.}
+\depedge{23}{40}{.}
+\depedge{25}{26}{.}
+\depedge{25}{30}{.}
+\depedge{25}{32}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{35}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}909\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.27\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+The\& company\& said\& revenue\& rose\& 138\& %\& ,\& to\& \$\& 10.9\& million\& from\& \$\& 4.6\& million\& ,\& reflecting\& the\& success\& of\& its\& movies\& ``\& Gorillas\& in\& the\& Mist\& ''\& and\& ``\& Rainman\& ,\& ''\& as\& well\& as\& the\& box-office\& smash\& ``\& Batman\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{3}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{7}{.}
+\depedge{5}{9}{.}
+\depedge{5}{13}{.}
+\depedge{5}{18}{.}
+\depedge{6}{7}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{23}{36}{.}
+\depedge{23}{40}{.}
+\depedge{25}{26}{.}
+\depedge{25}{30}{.}
+\depedge{25}{32}{.}
+\depedge{26}{28}{.}
+\depedge{27}{28}{.}
+\depedge{35}{36}{.}
+\depedge{36}{37}{.}
+\depedge{38}{40}{.}
+\depedge{39}{40}{.}
+\depedge{40}{42}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{39}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{38}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{40}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{37}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{40}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{42}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}909\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.39\end{footnotesize}};
+\end{dependency}
+

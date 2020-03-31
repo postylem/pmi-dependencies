@@ -1,0 +1,264 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Burmah\& ,\& which\& owns\& the\& Castrol\& brand\& of\& lubricant\& oils\& ,\& reported\& a\& 17\& %\& rise\& in\& net\& income\& to\& #\& 43.5\& million\& -LRB-\& \$\& 68.3\& million\& -RRB-\& in\& the\& first\& half\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{12}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{16}{29}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1298\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Burmah\& ,\& which\& owns\& the\& Castrol\& brand\& of\& lubricant\& oils\& ,\& reported\& a\& 17\& %\& rise\& in\& net\& income\& to\& #\& 43.5\& million\& -LRB-\& \$\& 68.3\& million\& -RRB-\& in\& the\& first\& half\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{12}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{16}{29}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1298\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Burmah\& ,\& which\& owns\& the\& Castrol\& brand\& of\& lubricant\& oils\& ,\& reported\& a\& 17\& %\& rise\& in\& net\& income\& to\& #\& 43.5\& million\& -LRB-\& \$\& 68.3\& million\& -RRB-\& in\& the\& first\& half\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{12}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{16}{29}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1298\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.37\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Burmah\& ,\& which\& owns\& the\& Castrol\& brand\& of\& lubricant\& oils\& ,\& reported\& a\& 17\& %\& rise\& in\& net\& income\& to\& #\& 43.5\& million\& -LRB-\& \$\& 68.3\& million\& -RRB-\& in\& the\& first\& half\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{1}{12}{.}
+\depedge{3}{4}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{12}{16}{.}
+\depedge{13}{16}{.}
+\depedge{14}{15}{.}
+\depedge{15}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{16}{29}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{23}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1298\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+

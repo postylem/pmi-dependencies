@@ -1,0 +1,288 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& according\& to\& one\& trader\& ,\& the\& programmers\& ``\& did\& n't\& look\& as\& dominant\& on\& the\& upside\& as\& on\& the\& downside\& because\& there\& was\& -LCB-\& also\& -RCB-\& a\& lot\& of\& bargain-hunting\& ''\& by\& institutions\& . \\
+\end{deptext}
+\depedge{1}{12}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{24}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{16}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}806\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.37\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& according\& to\& one\& trader\& ,\& the\& programmers\& ``\& did\& n't\& look\& as\& dominant\& on\& the\& upside\& as\& on\& the\& downside\& because\& there\& was\& -LCB-\& also\& -RCB-\& a\& lot\& of\& bargain-hunting\& ''\& by\& institutions\& . \\
+\end{deptext}
+\depedge{1}{12}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{24}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{12}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{16}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}806\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.30\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& according\& to\& one\& trader\& ,\& the\& programmers\& ``\& did\& n't\& look\& as\& dominant\& on\& the\& upside\& as\& on\& the\& downside\& because\& there\& was\& -LCB-\& also\& -RCB-\& a\& lot\& of\& bargain-hunting\& ''\& by\& institutions\& . \\
+\end{deptext}
+\depedge{1}{12}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{24}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}806\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.37\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& according\& to\& one\& trader\& ,\& the\& programmers\& ``\& did\& n't\& look\& as\& dominant\& on\& the\& upside\& as\& on\& the\& downside\& because\& there\& was\& -LCB-\& also\& -RCB-\& a\& lot\& of\& bargain-hunting\& ''\& by\& institutions\& . \\
+\end{deptext}
+\depedge{1}{12}{.}
+\depedge{2}{3}{.}
+\depedge{2}{12}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{7}{8}{.}
+\depedge{8}{12}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{14}{.}
+\depedge{12}{24}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{14}{18}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{18}{19}{.}
+\depedge{19}{21}{.}
+\depedge{20}{21}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{24}{26}{.}
+\depedge{24}{27}{.}
+\depedge{24}{29}{.}
+\depedge{28}{29}{.}
+\depedge{29}{30}{.}
+\depedge{30}{31}{.}
+\depedge{31}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{16}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}806\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+

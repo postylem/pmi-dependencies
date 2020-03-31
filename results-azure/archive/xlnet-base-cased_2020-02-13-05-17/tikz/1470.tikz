@@ -1,0 +1,368 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& for\& the\& fiscal\& year\& ended\& July\& 31\& ,\& 1988\& ,\& the\& most\& recent\& period\& for\& which\& results\& were\& broken\& out\& ,\& the\& Perkin-Elmer\& unit\& accounted\& for\& more\& than\& half\& the\& \$\& 145\& million\& in\& sales\& recorded\& by\& the\& company\& 's\& government\& systems\& sector\& . \\
+\end{deptext}
+\depedge{1}{26}{.}
+\depedge{2}{5}{.}
+\depedge{2}{26}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{15}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{10}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{32}{.}
+\depedge{28}{32}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{32}{35}{.}
+\depedge{32}{37}{.}
+\depedge{33}{34}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{44}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{40}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{40}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1470\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& for\& the\& fiscal\& year\& ended\& July\& 31\& ,\& 1988\& ,\& the\& most\& recent\& period\& for\& which\& results\& were\& broken\& out\& ,\& the\& Perkin-Elmer\& unit\& accounted\& for\& more\& than\& half\& the\& \$\& 145\& million\& in\& sales\& recorded\& by\& the\& company\& 's\& government\& systems\& sector\& . \\
+\end{deptext}
+\depedge{1}{26}{.}
+\depedge{2}{5}{.}
+\depedge{2}{26}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{15}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{10}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{32}{.}
+\depedge{28}{32}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{32}{35}{.}
+\depedge{32}{37}{.}
+\depedge{33}{34}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{44}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{40}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{38}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{41}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{33}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{44}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1470\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.35\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& for\& the\& fiscal\& year\& ended\& July\& 31\& ,\& 1988\& ,\& the\& most\& recent\& period\& for\& which\& results\& were\& broken\& out\& ,\& the\& Perkin-Elmer\& unit\& accounted\& for\& more\& than\& half\& the\& \$\& 145\& million\& in\& sales\& recorded\& by\& the\& company\& 's\& government\& systems\& sector\& . \\
+\end{deptext}
+\depedge{1}{26}{.}
+\depedge{2}{5}{.}
+\depedge{2}{26}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{15}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{10}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{32}{.}
+\depedge{28}{32}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{32}{35}{.}
+\depedge{32}{37}{.}
+\depedge{33}{34}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{44}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{40}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{26}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{40}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{40}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1470\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.33\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+But\& for\& the\& fiscal\& year\& ended\& July\& 31\& ,\& 1988\& ,\& the\& most\& recent\& period\& for\& which\& results\& were\& broken\& out\& ,\& the\& Perkin-Elmer\& unit\& accounted\& for\& more\& than\& half\& the\& \$\& 145\& million\& in\& sales\& recorded\& by\& the\& company\& 's\& government\& systems\& sector\& . \\
+\end{deptext}
+\depedge{1}{26}{.}
+\depedge{2}{5}{.}
+\depedge{2}{26}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{6}{.}
+\depedge{5}{15}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{10}{.}
+\depedge{12}{15}{.}
+\depedge{13}{15}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{17}{.}
+\depedge{16}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{21}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{26}{.}
+\depedge{26}{27}{.}
+\depedge{27}{32}{.}
+\depedge{28}{32}{.}
+\depedge{29}{32}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{32}{35}{.}
+\depedge{32}{37}{.}
+\depedge{33}{34}{.}
+\depedge{35}{36}{.}
+\depedge{37}{38}{.}
+\depedge{38}{44}{.}
+\depedge{39}{40}{.}
+\depedge{40}{41}{.}
+\depedge{40}{44}{.}
+\depedge{42}{44}{.}
+\depedge{43}{44}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{35}{36}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{42}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{36}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{44}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{42}{43}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{39}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{40}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1470\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+

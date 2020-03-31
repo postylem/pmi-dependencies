@@ -1,0 +1,320 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& India\& may\& have\& felt\& that\& if\& there\& was\& a\& severe\& drop\& in\& the\& stock\& market\& and\& it\& affected\& sugar\& ,\& it\& could\& buy\& at\& lower\& prices\& ,\& ''\& said\& Judith\& Ganes\& ,\& analyst\& for\& Shearson\& Lehman\& Hutton\& ,\& New\& York\& . \\
+\end{deptext}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{24}{.}
+\depedge{5}{30}{.}
+\depedge{6}{24}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{12}{.}
+\depedge{9}{17}{.}
+\depedge{9}{19}{.}
+\depedge{9}{24}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1404\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& India\& may\& have\& felt\& that\& if\& there\& was\& a\& severe\& drop\& in\& the\& stock\& market\& and\& it\& affected\& sugar\& ,\& it\& could\& buy\& at\& lower\& prices\& ,\& ''\& said\& Judith\& Ganes\& ,\& analyst\& for\& Shearson\& Lehman\& Hutton\& ,\& New\& York\& . \\
+\end{deptext}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{24}{.}
+\depedge{5}{30}{.}
+\depedge{6}{24}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{12}{.}
+\depedge{9}{17}{.}
+\depedge{9}{19}{.}
+\depedge{9}{24}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1404\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.41\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& India\& may\& have\& felt\& that\& if\& there\& was\& a\& severe\& drop\& in\& the\& stock\& market\& and\& it\& affected\& sugar\& ,\& it\& could\& buy\& at\& lower\& prices\& ,\& ''\& said\& Judith\& Ganes\& ,\& analyst\& for\& Shearson\& Lehman\& Hutton\& ,\& New\& York\& . \\
+\end{deptext}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{24}{.}
+\depedge{5}{30}{.}
+\depedge{6}{24}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{12}{.}
+\depedge{9}{17}{.}
+\depedge{9}{19}{.}
+\depedge{9}{24}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{34}{37}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1404\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& India\& may\& have\& felt\& that\& if\& there\& was\& a\& severe\& drop\& in\& the\& stock\& market\& and\& it\& affected\& sugar\& ,\& it\& could\& buy\& at\& lower\& prices\& ,\& ''\& said\& Judith\& Ganes\& ,\& analyst\& for\& Shearson\& Lehman\& Hutton\& ,\& New\& York\& . \\
+\end{deptext}
+\depedge{2}{5}{.}
+\depedge{3}{5}{.}
+\depedge{4}{5}{.}
+\depedge{5}{24}{.}
+\depedge{5}{30}{.}
+\depedge{6}{24}{.}
+\depedge{7}{9}{.}
+\depedge{8}{9}{.}
+\depedge{9}{12}{.}
+\depedge{9}{17}{.}
+\depedge{9}{19}{.}
+\depedge{9}{24}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{12}{13}{.}
+\depedge{13}{16}{.}
+\depedge{14}{16}{.}
+\depedge{15}{16}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{22}{24}{.}
+\depedge{23}{24}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{30}{32}{.}
+\depedge{31}{32}{.}
+\depedge{32}{34}{.}
+\depedge{34}{35}{.}
+\depedge{35}{38}{.}
+\depedge{36}{38}{.}
+\depedge{37}{38}{.}
+\depedge{38}{41}{.}
+\depedge{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{34}{35}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{40}{41}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{37}{38}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{36}{38}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{32}{41}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{36}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{32}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}1404\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.53\end{footnotesize}};
+\end{dependency}
+

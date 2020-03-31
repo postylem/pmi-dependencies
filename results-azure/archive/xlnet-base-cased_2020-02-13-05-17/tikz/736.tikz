@@ -1,0 +1,200 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Here\& are\& price\& trends\& on\& the\& world\& 's\& major\& stock\& markets\& ,\& as\& calculated\& by\& Morgan\& Stanley\& Capital\& International\& Perspective\& ,\& Geneva\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}736\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.32\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Here\& are\& price\& trends\& on\& the\& world\& 's\& major\& stock\& markets\& ,\& as\& calculated\& by\& Morgan\& Stanley\& Capital\& International\& Perspective\& ,\& Geneva\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}736\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.47\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Here\& are\& price\& trends\& on\& the\& world\& 's\& major\& stock\& markets\& ,\& as\& calculated\& by\& Morgan\& Stanley\& Capital\& International\& Perspective\& ,\& Geneva\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{15}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}736\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.16\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Here\& are\& price\& trends\& on\& the\& world\& 's\& major\& stock\& markets\& ,\& as\& calculated\& by\& Morgan\& Stanley\& Capital\& International\& Perspective\& ,\& Geneva\& . \\
+\end{deptext}
+\depedge{1}{4}{.}
+\depedge{2}{4}{.}
+\depedge{3}{4}{.}
+\depedge{4}{5}{.}
+\depedge{4}{14}{.}
+\depedge{5}{11}{.}
+\depedge{6}{7}{.}
+\depedge{7}{8}{.}
+\depedge{7}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{13}{14}{.}
+\depedge{14}{15}{.}
+\depedge{15}{20}{.}
+\depedge{16}{20}{.}
+\depedge{17}{20}{.}
+\depedge{18}{20}{.}
+\depedge{19}{20}{.}
+\depedge{20}{22}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{7}{8}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}736\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.47\end{footnotesize}};
+\end{dependency}
+

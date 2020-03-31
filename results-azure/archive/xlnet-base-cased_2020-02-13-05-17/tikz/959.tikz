@@ -1,0 +1,224 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Jay\& Goldinger\& ,\& who\& often\& trades\& overnight\& for\& Capital\& Insight\& Inc.\& ,\& Beverly\& Hills\& ,\& Calif.\& ,\& said\& trading\& in\& Tokyo\& was\& ``\& very\& active\& ''\& but\& highly\& volatile\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{18}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{6}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{18}{25}{.}
+\depedge{19}{20}{.}
+\depedge{19}{25}{.}
+\depedge{20}{21}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{18}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}959\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.45\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Jay\& Goldinger\& ,\& who\& often\& trades\& overnight\& for\& Capital\& Insight\& Inc.\& ,\& Beverly\& Hills\& ,\& Calif.\& ,\& said\& trading\& in\& Tokyo\& was\& ``\& very\& active\& ''\& but\& highly\& volatile\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{18}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{6}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{18}{25}{.}
+\depedge{19}{20}{.}
+\depedge{19}{25}{.}
+\depedge{20}{21}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{9}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{5}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{14}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}959\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.45\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Jay\& Goldinger\& ,\& who\& often\& trades\& overnight\& for\& Capital\& Insight\& Inc.\& ,\& Beverly\& Hills\& ,\& Calif.\& ,\& said\& trading\& in\& Tokyo\& was\& ``\& very\& active\& ''\& but\& highly\& volatile\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{18}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{6}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{18}{25}{.}
+\depedge{19}{20}{.}
+\depedge{19}{25}{.}
+\depedge{20}{21}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{29}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}959\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.50\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+Jay\& Goldinger\& ,\& who\& often\& trades\& overnight\& for\& Capital\& Insight\& Inc.\& ,\& Beverly\& Hills\& ,\& Calif.\& ,\& said\& trading\& in\& Tokyo\& was\& ``\& very\& active\& ''\& but\& highly\& volatile\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{6}{.}
+\depedge{2}{18}{.}
+\depedge{4}{6}{.}
+\depedge{5}{6}{.}
+\depedge{6}{7}{.}
+\depedge{6}{8}{.}
+\depedge{8}{11}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{14}{.}
+\depedge{13}{14}{.}
+\depedge{14}{16}{.}
+\depedge{18}{25}{.}
+\depedge{19}{20}{.}
+\depedge{19}{25}{.}
+\depedge{20}{21}{.}
+\depedge{22}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{25}{29}{.}
+\depedge{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{25}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{21}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{21}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}959\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.55\end{footnotesize}};
+\end{dependency}
+

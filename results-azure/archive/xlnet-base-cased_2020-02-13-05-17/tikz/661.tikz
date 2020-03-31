@@ -1,0 +1,304 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+If\& you\& identify\& with\& the\& besieged\& managers\& ,\& you\& must\& concede\& that\& speedy\& and\& effective\& relief\& from\& the\& excesses\& of\& the\& takeover\& market\& is\& more\& likely\& to\& come\& from\& the\& marketplace\& than\& from\& Washington\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{11}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{26}{.}
+\depedge{12}{26}{.}
+\depedge{13}{14}{.}
+\depedge{13}{15}{.}
+\depedge{13}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{26}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{13}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}661\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+If\& you\& identify\& with\& the\& besieged\& managers\& ,\& you\& must\& concede\& that\& speedy\& and\& effective\& relief\& from\& the\& excesses\& of\& the\& takeover\& market\& is\& more\& likely\& to\& come\& from\& the\& marketplace\& than\& from\& Washington\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{11}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{26}{.}
+\depedge{12}{26}{.}
+\depedge{13}{14}{.}
+\depedge{13}{15}{.}
+\depedge{13}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{26}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{18}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}661\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.38\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+If\& you\& identify\& with\& the\& besieged\& managers\& ,\& you\& must\& concede\& that\& speedy\& and\& effective\& relief\& from\& the\& excesses\& of\& the\& takeover\& market\& is\& more\& likely\& to\& come\& from\& the\& marketplace\& than\& from\& Washington\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{11}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{26}{.}
+\depedge{12}{26}{.}
+\depedge{13}{14}{.}
+\depedge{13}{15}{.}
+\depedge{13}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{26}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{21}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{14}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{30}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{5}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}661\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.31\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+If\& you\& identify\& with\& the\& besieged\& managers\& ,\& you\& must\& concede\& that\& speedy\& and\& effective\& relief\& from\& the\& excesses\& of\& the\& takeover\& market\& is\& more\& likely\& to\& come\& from\& the\& marketplace\& than\& from\& Washington\& . \\
+\end{deptext}
+\depedge{1}{3}{.}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{11}{.}
+\depedge{4}{7}{.}
+\depedge{5}{7}{.}
+\depedge{6}{7}{.}
+\depedge{9}{11}{.}
+\depedge{10}{11}{.}
+\depedge{11}{26}{.}
+\depedge{12}{26}{.}
+\depedge{13}{14}{.}
+\depedge{13}{15}{.}
+\depedge{13}{16}{.}
+\depedge{16}{17}{.}
+\depedge{16}{26}{.}
+\depedge{17}{19}{.}
+\depedge{18}{19}{.}
+\depedge{19}{20}{.}
+\depedge{20}{23}{.}
+\depedge{21}{23}{.}
+\depedge{22}{23}{.}
+\depedge{24}{26}{.}
+\depedge{25}{26}{.}
+\depedge{26}{28}{.}
+\depedge{26}{32}{.}
+\depedge{27}{28}{.}
+\depedge{28}{29}{.}
+\depedge{29}{31}{.}
+\depedge{30}{31}{.}
+\depedge{32}{33}{.}
+\depedge{33}{34}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{16}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{15}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{21}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{13}{14}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{30}{31}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{26}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{16}{17}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{28}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{4}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{20}{23}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{32}{33}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{24}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{29}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{23}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{18}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{13}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{31}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{31}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{24}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{11}{34}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{3}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{25}{32}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{31}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}661\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.44\end{footnotesize}};
+\end{dependency}
+

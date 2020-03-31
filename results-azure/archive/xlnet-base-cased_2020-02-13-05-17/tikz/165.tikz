@@ -1,0 +1,232 @@
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& I\& see\& concern\& ,\& but\& I\& do\& n't\& see\& any\& panic\& ,\& ''\& said\& Mr.\& Palamara\& ,\& a\& big\& ,\& good-humored\& New\& York\& native\& who\& runs\& the\& 15-trader\& office\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{6}{.}
+\depedge{3}{10}{.}
+\depedge{3}{15}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{25}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}sum\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}165\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.22\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& I\& see\& concern\& ,\& but\& I\& do\& n't\& see\& any\& panic\& ,\& ''\& said\& Mr.\& Palamara\& ,\& a\& big\& ,\& good-humored\& New\& York\& native\& who\& runs\& the\& 15-trader\& office\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{6}{.}
+\depedge{3}{10}{.}
+\depedge{3}{15}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{25}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{25}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{16}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{27}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{19}{20}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{8}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{28}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{15}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}triu\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}165\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.22\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& I\& see\& concern\& ,\& but\& I\& do\& n't\& see\& any\& panic\& ,\& ''\& said\& Mr.\& Palamara\& ,\& a\& big\& ,\& good-humored\& New\& York\& native\& who\& runs\& the\& 15-trader\& office\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{6}{.}
+\depedge{3}{10}{.}
+\depedge{3}{15}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{25}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{23}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{3}{10}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{27}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{17}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{26}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{7}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{10}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}tril\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}165\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.22\end{footnotesize}};
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+\begin{deptext}[column sep=0.0cm]
+``\& I\& see\& concern\& ,\& but\& I\& do\& n't\& see\& any\& panic\& ,\& ''\& said\& Mr.\& Palamara\& ,\& a\& big\& ,\& good-humored\& New\& York\& native\& who\& runs\& the\& 15-trader\& office\& . \\
+\end{deptext}
+\depedge{2}{3}{.}
+\depedge{3}{4}{.}
+\depedge{3}{6}{.}
+\depedge{3}{10}{.}
+\depedge{3}{15}{.}
+\depedge{7}{10}{.}
+\depedge{8}{10}{.}
+\depedge{9}{10}{.}
+\depedge{10}{12}{.}
+\depedge{11}{12}{.}
+\depedge{15}{17}{.}
+\depedge{16}{17}{.}
+\depedge{17}{25}{.}
+\depedge{19}{25}{.}
+\depedge{20}{25}{.}
+\depedge{22}{25}{.}
+\depedge{23}{25}{.}
+\depedge{24}{25}{.}
+\depedge{25}{27}{.}
+\depedge{26}{27}{.}
+\depedge{27}{30}{.}
+\depedge{28}{30}{.}
+\depedge{29}{30}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{2}{3}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{11}{12}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{26}{27}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{22}{25}{.}
+\depedge[edge style={blue, opacity=0.5}, edge below]{28}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{8}{9}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{2}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{6}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{23}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{27}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{6}{7}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{19}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{17}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{4}{12}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{24}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{9}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{10}{11}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{22}{30}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{16}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{15}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{12}{22}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{28}{29}{.}
+\depedge[edge style={red, opacity=0.5}, edge below]{20}{22}{.}
+\node (R) at (\matrixref.east) {};
+\node (R1) [right of = R] {\begin{footnotesize}none\end{footnotesize}};
+\node (R2) at (R1.north) {\begin{footnotesize}165\end{footnotesize}};
+\node (R3) at (R1.south) {\begin{footnotesize}0.22\end{footnotesize}};
+\end{dependency}
+

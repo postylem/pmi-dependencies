@@ -1,0 +1,13 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz,tikz-dependency}
+\pgfkeys{%
+/depgraph/reserved/edge style/.style = {%
+-, % arrow properties
+semithick, solid, line cap=round, % line properties
+rounded corners=2, % make corners round
+},%
+}
+\begin{document}
+% % Put dependency plots here, like
+\input{tikz/0.tikz}
+\end{document}
