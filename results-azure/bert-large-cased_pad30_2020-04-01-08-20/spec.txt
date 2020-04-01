@@ -1,0 +1,7 @@
+	batch_size:	10
+	conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+	model_spec:	bert-large-cased
+	n_observations:	all
+	pad:	30
+	pmi_from_disk:	None
+	results_dir:	results/
