@@ -1,7 +1,0 @@
-	batch_size:	10
-	conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
-	model_spec:	xlnet-base-cased
-	n_observations:	all
-	pad:	60
-	pmi_from_disk:	None
-	results_dir:	results/

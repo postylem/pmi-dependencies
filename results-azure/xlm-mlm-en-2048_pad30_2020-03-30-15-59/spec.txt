@@ -1,7 +1,0 @@
-	batch_size:	8
-	conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
-	model_spec:	xlm-mlm-en-2048
-	n_observations:	all
-	pad:	30
-	pmi_from_disk:	None
-	results_dir:	results/
