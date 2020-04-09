@@ -323,24 +323,29 @@ def score(
     print(f"random   \n\tnonproj   {scores['baseline_random_nonproj']}\n\tprojective {scores['baseline_random_proj']}")
     print(f"nonproj  {scores['nonproj']['uuas']}")
     print(f"proj     {scores['projective']['uuas']}\n")
+  print("all scores computed.")
+  return all_scores
+
+def print_means_to_file(all_scores, file):
   mean_linear = np.nanmean([scores['baseline_linear'] for scores in all_scores])
   mean_random_nonproj = np.nanmean([scores['baseline_random_nonproj'] for scores in all_scores])
   mean_random_proj = np.nanmean([scores['baseline_random_proj'] for scores in all_scores])
   mean_nonproj = {symmethod:np.nanmean([scores['nonproj']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
   mean_proj = {symmethod:np.nanmean([scores['projective']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
-  print("=========\nmean uuas values\n")
-  print(f'linear : {mean_linear:.3}')
-  print(f'random :\n\tnonproj   {mean_random_nonproj:.3}\n\tprojective {mean_random_proj:.3}')
-  print(f'nonproj: { {k:round(v,2) for k, v in mean_nonproj.items()}}')
-  print(f'proj   : { {k:round(v,2) for k, v in mean_proj.items()}}')
-  return all_scores
+  
+  with open(file, mode='a') as infofile:
+    infofile.write("=========\nmean uuas values\n")
+    infofile.write(f'linear : {mean_linear:.3}\n')
+    infofile.write(f'random :\n\t\tnonproj   {mean_random_nonproj:.3}\n\tprojective {mean_random_proj:.3}\n')
+    infofile.write(f'nonproj: { {k:round(v,3) for k, v in mean_nonproj.items()}}\n')
+    infofile.write(f'proj   : { {k:round(v,3) for k, v in mean_proj.items()}}\n')
 
 if __name__ == '__main__':
   ARGP = ArgumentParser()
   ARGP.add_argument('--n_observations', default='all',
                     help='number of sentences to look at')
-  ARGP.add_argument('--pmi_from_disk', nargs='?', const='pmi_matrices.npz',
-                    help='to use saved matrices from disk (specify path/to/pmi_matrices.npz)') # TODO
+  # ARGP.add_argument('--pmi_from_disk', nargs='?', const='pmi_matrices.npz',
+  #                   help='to use saved matrices from disk (specify path/to/pmi_matrices.npz)') # TODO
   ARGP.add_argument('--model_spec', default='xlnet-base-cased',
                     help='''specify model (e.g. "xlnet-base-cased", "bert-large-cased"),
                     or path for offline''')
@@ -371,12 +376,11 @@ if __name__ == '__main__':
   print(f'RESULTS_DIR: {RESULTS_DIR}\n')
 
   print('Running with CLI_ARGS:')
-  with open(RESULTS_DIR+'spec.txt', mode='w') as specfile:
+  with open(RESULTS_DIR+'info.txt', mode='w') as infofile:
     for arg, value in sorted(vars(CLI_ARGS).items()):
       argvalue = f"{arg}:\t{value}"
-      specfile.write(argvalue+'\n')
+      infofile.write(argvalue+'\n')
       print(argvalue)
-    specfile.close()
 
   DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   print('Using device:', DEVICE)
@@ -387,20 +391,18 @@ if __name__ == '__main__':
     print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
 
   # Instantiate the language model to use for getting estimates
-  if CLI_ARGS.pmi_from_disk:
-    MODEL_TYPE = 'load_from_disk'
+
+  if CLI_ARGS.model_spec.startswith('xlnet'):
+    MODEL_TYPE = 'xlnet'
+    MODEL = languagemodel.XLNet(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+  elif CLI_ARGS.model_spec.startswith('bert'):
+    MODEL_TYPE = 'bert'
+    MODEL = languagemodel.BERT(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+  elif CLI_ARGS.model_spec.startswith('xlm'):
+    MODEL_TYPE = 'xlm'
+    MODEL = languagemodel.XLM(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
   else:
-    if CLI_ARGS.model_spec.startswith('xlnet'):
-      MODEL_TYPE = 'xlnet'
-      MODEL = languagemodel.XLNet(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif CLI_ARGS.model_spec.startswith('bert'):
-      MODEL_TYPE = 'bert'
-      MODEL = languagemodel.BERT(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif CLI_ARGS.model_spec.startswith('xlm'):
-      MODEL_TYPE = 'xlm'
-      MODEL = languagemodel.XLM(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    else:
-      raise ValueError(f'Model spec string {CLI_ARGS.model_spec} not recognized.')
+    raise ValueError(f'Model spec string {CLI_ARGS.model_spec} not recognized.')
 
   # Columns of CONLL file
   CONLL_COLS = ['index',
@@ -417,8 +419,9 @@ if __name__ == '__main__':
   ObservationClass = namedtuple("Observation", CONLL_COLS)
   OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
-  SCORES = score(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS, 
-                      write_wordpair_data=True, verbose=True)
+  SCORES = score(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS,
+                 write_wordpair_data=True, verbose=True)
+  print_means_to_file(SCORES, RESULTS_DIR+'info.txt')
   DF = pd.json_normalize(SCORES, sep='.')
   DF.to_csv(path_or_buf=RESULTS_DIR + 'scores_' + SUFFIX + '.csv',
             index_label='sentence_index')
