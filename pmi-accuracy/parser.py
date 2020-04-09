@@ -7,6 +7,10 @@ March 2020
 import torch
 import numpy as np
 
+# PTB 'words' that are punctuation marks will be consistently excluded from dependency trees
+# This corresponds to the symbols which are UPOS tagged as PUNCT
+EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".", ";", "!", "?", ":", "``", "-LRB-", "-RRB-"]
+
 class UnionFind:
   '''
   Naive UnionFind (for computing MST with Prim's algorithm).
@@ -105,7 +109,7 @@ class DepParse:
     Based on code by John Hewitt.
     '''
     pairs_to_weights = {}
-    excluded = ["", "'", "''", ",", ".", ";", "!", "?", ":", "``", "-LRB-", "-RRB-"]
+    excluded = EXCLUDED_PUNCTUATION
     union_find = UnionFind(len(matrix))
     for i_index, line in enumerate(matrix):
       for j_index, dist in enumerate(line):
@@ -132,18 +136,18 @@ class DepParse:
     # with np.printoptions(precision=2, suppress=True):
     #   print(f"raw input matrix for eisners\n{matrix.numpy()}")
 
-    excluded = ["", "'", "''", ",", ".", ";", "!", "?", ":", "``", "-LRB-", "-RRB-"]
-    ignore_cond = [word not in excluded for word in words]
+    excluded = EXCLUDED_PUNCTUATION
+    is_word_included = [word not in excluded for word in words]
     wordnum_to_index = {}
     counter = 0
-    for index, boolean in enumerate(ignore_cond):
+    for index, boolean in enumerate(is_word_included):
       if boolean:
         wordnum_to_index[counter] = index
         counter += 1
     # print(f"wordnum_to_index: {wordnum_to_index}")
 
-    # print(f"ignore_cond: {ignore_cond}")
-    matrix = matrix[ignore_cond, :][:, ignore_cond]
+    # print(f"is_word_included: {is_word_included}")
+    matrix = matrix[is_word_included, :][:, is_word_included]
     # with np.printoptions(precision=2, suppress=True):
     #   print(f"input just words matrix for eisners\n{np.array(matrix.numpy())}")
 

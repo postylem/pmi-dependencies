@@ -1,5 +1,5 @@
 """
-Gets dependency distance from CONLL file
+Gets dependency information from CONLL data
 ParseDistanceTask closely based on structural-probes/task.py by John Hewitt
 """
 
