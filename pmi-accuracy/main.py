@@ -147,6 +147,12 @@ class PredictorClass:
       obs_df = obs_df[~obs_df.sentence.isin(EXCLUDED_PUNCTUATION)]
     self.df = pd.DataFrame(combinations(obs_df.index, 2),
                            columns=['i1', 'i2'])
+    if len(self.df) < 2:
+      print("Sentence too short. Skipping.")
+      self.includesentence = False
+      return
+    else:
+      self.includesentence = True
     # make some new columns:
     self.df['lin_dist'] = self.df.apply(lambda row: row.i2 - row.i1, axis=1)
     self.df['w1'] = self.df.apply(lambda row: obs_df.sentence[row.i1], axis=1)
@@ -178,8 +184,10 @@ class PredictorClass:
       self.df[f'pmi_{sym}'] = self.df.apply(lambda row: sym_matrix[row.i1][row.i2], axis=1)
       
   def add_pmi_edges(self, colname, edges):
-    self.df[colname] = self.df.apply(
-      lambda row: (row.i1, row.i2) in edges, axis=1)
+    if len(self.df) < 2:
+      print(f"Sentence too short. {colname} column not added.")
+      return
+    self.df[colname] = self.df.apply(lambda row: (row.i1, row.i2) in edges, axis=1)
 
 def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
@@ -296,13 +304,14 @@ def score(
 
     if write_wordpair_data:
       predictors = PredictorClass(obs, pmi_matrix)
-      symmetrize_methods = ['sum', 'triu', 'tril', 'none']
-      for symmetrize_method in symmetrize_methods:
-        predictors.add_pmi_edges(f'pmi_edge_{symmetrize_method}',
-                                 scores['projective']['edges'][symmetrize_method])
-      with open(wordpair_csv, 'a') as f:
-        predictors.df.insert(0, 'sentence_index', i)
-        predictors.df.to_csv(f, mode='a', header=header, index=False)
+      if predictors.includesentence:
+        symmetrize_methods = ['sum', 'triu', 'tril', 'none']
+        for symmetrize_method in symmetrize_methods:
+          predictors.add_pmi_edges(f'pmi_edge_{symmetrize_method}',
+                                   scores['projective']['edges'][symmetrize_method])
+        with open(wordpair_csv, 'a') as f:
+          predictors.df.insert(0, 'sentence_index', i)
+          predictors.df.to_csv(f, mode='a', header=header, index=False, float_format='%.7f')
       header=False
     
     # with pd.option_context('display.max_rows', None, 'display.max_columns', None):

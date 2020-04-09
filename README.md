@@ -1,5 +1,6 @@
 # PMI dependencies from contextual embeddings
 
+
 ## Accuracy of PMI dependencies
 
 ```
@@ -34,7 +35,6 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
   - [xlm-mlm-en-2048](https://huggingface.co/xlm-mlm-en-2048)
 
 
-
 ### Baselines
 
 Baseline classes defined in [task.py](pmi-accuracy/task.py).
@@ -66,7 +66,6 @@ or something more specific like:
 nohup python pmi-accuracy/main.py --long_enough 30 --batch_size 32 --n_observations 100 > out 2> err &
 ```
 
-
 CLI options:
 
 - `--n_observations`: (int, or string `all`). Set to calcuate UUAS for only the first _n_ sentences (default=`all` will do all sentences in the file specified at `conllx_file`).
@@ -78,7 +77,13 @@ CLI options:
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--long_enough`: (int) default=30. Since XLNet does badly on short sentences, sentences in the PTB which are less than long_enough words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running XLNet on longer inputs does slow the testing down somewhat.  **Set to 1 or 0 to just not do padding at all.**
 
+### Output
+
+Two datasets as output: `scores` (sentence level data), `wordpairs` (word-pair level data within sentences). In each of these, the column `sentence_index` refers to the sentence in the input dataset, and should aligned for merging. 
+
 ## Notes
+
+When writing `wordpairs.csv`, sentences with only one word (excluding ignored punctuation) are not reported.  When reporting `scores.csv` these sentences will have NaN values.  Hopefully this shouldn't cause problems.
 
 ### Tokenization
 Tokenization is a little bit of an issue, since XLNet is trained on text which is tokenized on the subword level (by Google's [sentencepiece](https://github.com/google/sentencepiece)).  The PTB is tokenized already (_not_ at the subword level), and in order to use the gold parses from the PTB, subword tokenization must be ignored (we're not going to get an accuracy score for dependencies at the level of morphology).
@@ -99,13 +104,15 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 ```
 {results_dir}/xlnet-base-cased_{n_observations}_{date}/
 | spec.txt
-| scores.csv
-| pmi_matrices.npz
-| dependencies.tex
-| tikz.zip
+| scores{*}.csv
+| wordpairs{*}.csv
+| (pmi_matrices.npz) [not implemented]
+| (dependencies.tex)
+| (tikz.zip)
 ```
 - `spec.txt` - echo of CLI arguments, for reference.
 - `scores.csv` - one row per sentence, reporting the sentence length, uuas with the four different ways of symmetrizing, and baseline uuas.
+- `wordpairs.csv` - one row per pair of words in sentence (unordered), with various possible predictors including PMI scores.
 - `pmi_matrices.npz` - an .npz archive of numpy arrays, with the key 'sentence_`i`' for sentence observation number `i`.
 - `dependencies.tex` - a template to run to quickly visualize the predictions (which are in the tikz folder) 
 - `tikz.zip` - a zipped directory of all the tikz dependencies for visualizing.
