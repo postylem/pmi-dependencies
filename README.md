@@ -1,5 +1,7 @@
 # PMI dependencies from contextual embeddings
 
+Data from PTB as [Stanford dependencies](https://nlp.stanford.edu/software/dependencies_manual.pdf).
+
 
 ## Accuracy of PMI dependencies
 
