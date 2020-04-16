@@ -1,5 +1,5 @@
 library(tidyverse)
-setwd("/Users/j/McGill/PhD-miasma/pmi-dependencies/to-ignore/R")
+# setwd("/Users/j/McGill/PhD-miasma/pmi-dependencies/wordpair-exploratory/")
 
 ## Exploratory Plotting ####
 
@@ -36,10 +36,19 @@ three.relation <-
             by=c("relation","n","medlen","meanlen")) %>% 
   select(c(relation, n, medlen, meanlen, pct_acc.BERT, pct_acc.XLNet, pct_acc.XLM))
 
+# All three models in one df
+three.relationx <- 
+  full_join(bert.relation,xlnet.relation,
+            by=c("n","relation","medlen","meanlen"),
+            suffix=c(".BERT",".XLNet")) %>% 
+  full_join(rename_at(xlm.relation, vars(-c(n,relation,medlen,meanlen)), function(x){paste0(x,".XLM")}),
+            by=c("relation","n","medlen","meanlen")) %>%  
+  pivot_longer(cols = -c(n,relation,medlen,meanlen), 
+               names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)")
+
+
 # A plot exploring accuracy by relation with respect to linear distance, model, and n
-three.relation %>%  filter(n>50) %>% 
-  pivot_longer(cols = c(pct_acc.BERT, pct_acc.XLNet, pct_acc.XLM), 
-               values_to = "pct_acc", names_to = "model", names_prefix = "pct_acc.") %>% 
+three.relationx %>%  filter(n>50) %>% 
   ggplot(aes(y=pct_acc, x=reorder(relation, desc(pct_acc)))) + 
   annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0,colour="blue") +
   geom_text(aes(label=paste("",n,sep=""),y=Inf), hjust=0, size=3, colour="blue") +  # to print n
@@ -94,7 +103,7 @@ three.relation.gt1 %>%  filter(n>49) %>%
         axis.ticks = element_blank()) +
   ylab("percent PMI arc = gold arc") + 
   xlab("gold dependency label (ordered by mean accuracy)") + 
-  ggtitle("Comparing % acc of XLNet base, BERT large, and XLM, by gold label (n≥50, len>1)") 
+  ggtitle("Comparing % acc of XLNet base, BERT large, and XLM, by gold label (n≥50, arclen>1)") 
 
 
 
@@ -117,8 +126,6 @@ prepare_by_len <- function(dataframe){
 xlnet.len <- prepare_by_len(read_csv("wordpair_xlnet-base-cased_pad30_2020-04-09-19-11.csv"))
 bert.len <- prepare_by_len(read_csv("wordpair_bert-large-cased_pad60_2020-04-09-13-57.csv"))
 xlm.len <- prepare_by_len(read_csv("wordpair_xlm-mlm-en-2048_pad60_2020-04-09-20-43.csv"))
-
-
 
 # By-model basic plots
 bert.len %>% ggplot(aes(x=meanpmi, y=pct_acc)) + scale_x_log10() +
