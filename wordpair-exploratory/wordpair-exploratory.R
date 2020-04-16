@@ -82,7 +82,7 @@ three.relation.gt1 <-
 three.relation.gt1 %>%  filter(n>49) %>% 
   pivot_longer(cols = c(pct_acc.BERT, pct_acc.XLNet, pct_acc.XLM), 
                values_to = "pct_acc", names_to = "model", names_prefix = "pct_acc.") %>% 
-  ggplot(aes(y=pct_acc, x=reorder(relation, desc(pct_acc)))) + 
+  ggplot(aes(y=pct_acc, x=reorder(relation, meanlen))) + 
   annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0,colour="blue") +
   geom_text(aes(label=paste("",n,sep=""),y=Inf), hjust=0, size=3, colour="blue") +  # to print n
   annotate("text",x=Inf,y=-Inf, label="mean\narclength", size=3, hjust=0.5, vjust=0) +
@@ -181,6 +181,13 @@ bert.raw$XPOS2 <- factor(bert.raw$XPOS2)
 bert.raw$relation[is.na(bert.raw$relation)]<-"NONE"
 bert.raw$relation <- factor(bert.raw$relation)
 bert.raw$acc <- factor(bert.raw$acc)
+bert.raw$UPOS12 <- factor(paste(bert.raw$UPOS1,bert.raw$UPOS2,sep = '-'))
+
+bert.raw %>% group_by(UPOS12) %>% summarise(n=n()) %>% filter(n>2000) %>% 
+ggplot(aes(x=reorder(UPOS12,n),y=n)) + geom_bar(stat="identity") + coord_flip() +
+  ggtitle("Most common UPOS pairs in PTB")
+
+bert.raw %>% group_by(UPOS12) %>% summarise(n=n()) %>% filter(n>7000) 
 
 bert.rf.all <- ranger(
   acc ~ .,
