@@ -3,11 +3,11 @@ library(tidyverse)
 
 ## Exploratory Plotting ####
 
-prepare_by_relation <- function(dataframe){
+prepare_by_relation <- function(dataframe,length_greater_than=0){
   #' Prepare csv as df data grouped by 'relation'
-  relation_len = dataframe %>% filter(!is.na(relation)) %>% 
+  relation_len = dataframe %>% filter(!is.na(relation), lin_dist>length_greater_than) %>% 
     group_by(relation) %>% summarise(medlen=median(lin_dist), meanlen=mean(lin_dist), n=n())
-  dataframe = dataframe %>% filter(!is.na(relation)) %>% 
+  dataframe = dataframe %>% filter(!is.na(relation), lin_dist>length_greater_than) %>% 
     mutate(acc=gold_edge==pmi_edge_sum) %>% 
     group_by(relation,acc) %>% summarise(n=n(), medlen=median(lin_dist), meanlen=mean(lin_dist)) %>% 
     pivot_wider(names_from = acc, names_prefix = "pmi", values_from = c(n,medlen,meanlen), values_fill = list(n = 0)) %>% 
@@ -20,35 +20,38 @@ bert.relation <- prepare_by_relation(read_csv("wordpair_bert-large-cased_pad60_2
 xlm.relation <- prepare_by_relation(read_csv("wordpair_xlm-mlm-en-2048_pad60_2020-04-09-20-43.csv"))
 
 # By-model basic plots
-bert.relation %>% ggplot(aes(x=reorder(relation,pct_acc), y=pct_acc)) + coord_flip() +
-  geom_point(aes(size=n)) + ylab("percent PMI arc = gold arc") + ggtitle("BERT large")
-xlnet.relation %>%  ggplot(aes(x=reorder(relation,pct_acc), y=pct_acc)) + coord_flip() +
-  geom_point(aes(size=n)) + ylab("percent PMI arc = gold arc") + ggtitle("XLNet base")
-xlm.relation %>%  ggplot(aes(x=reorder(relation,pct_acc), y=pct_acc)) + coord_flip() +
-  geom_point(aes(size=n)) + ylab("percent PMI arc = gold arc") + ggtitle("XLM MLM EN 2048")
+# bert.relation %>% ggplot(aes(x=reorder(relation,pct_acc), y=pct_acc)) + coord_flip() +
+#   geom_point(aes(size=n)) + ylab("percent PMI arc = gold arc") + ggtitle("BERT large")
+# xlnet.relation %>%  ggplot(aes(x=reorder(relation,pct_acc), y=pct_acc)) + coord_flip() +
+#   geom_point(aes(size=n)) + ylab("percent PMI arc = gold arc") + ggtitle("XLNet base")
+# xlm.relation %>%  ggplot(aes(x=reorder(relation,pct_acc), y=pct_acc)) + coord_flip() +
+#   geom_point(aes(size=n)) + ylab("percent PMI arc = gold arc") + ggtitle("XLM MLM EN 2048")
+
 
 # All three models in one df
-three.relation <- 
-  full_join(bert.relation,xlnet.relation,
-            by=c("n","relation","medlen","meanlen"),
-            suffix=c(".BERT",".XLNet")) %>% 
-  full_join(rename_at(xlm.relation, vars(-c(n,relation,medlen,meanlen)), function(x){paste0(x,".XLM")}),
-            by=c("relation","n","medlen","meanlen")) %>% 
-  select(c(relation, n, medlen, meanlen, pct_acc.BERT, pct_acc.XLNet, pct_acc.XLM))
+join_three <- function(df1, df2, df3, 
+                       by=c("n","relation","medlen","meanlen"), 
+                       suffixes=c(".BERT",".XLNet",".XLM")){
+  return( 
+    full_join(df1,df2,by=by,suffix=c(".BERT",".XLNet")) %>% 
+    full_join(rename_at(df3, vars(-by), function(x){paste0(x,suffixes[3])}), by=by) %>%  
+    pivot_longer(cols = -by, names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)"))
+}
 
-# All three models in one df
-three.relationx <- 
-  full_join(bert.relation,xlnet.relation,
-            by=c("n","relation","medlen","meanlen"),
-            suffix=c(".BERT",".XLNet")) %>% 
-  full_join(rename_at(xlm.relation, vars(-c(n,relation,medlen,meanlen)), function(x){paste0(x,".XLM")}),
-            by=c("relation","n","medlen","meanlen")) %>%  
-  pivot_longer(cols = -c(n,relation,medlen,meanlen), 
-               names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)")
+three.relation <- join_three(bert.relation,xlnet.relation,xlm.relation)
+
+# three.relation <- 
+#   full_join(bert.relation,xlnet.relation,
+#             by=c("n","relation","medlen","meanlen"),
+#             suffix=c(".BERT",".XLNet")) %>% 
+#   full_join(rename_at(xlm.relation, vars(-c(n,relation,medlen,meanlen)), function(x){paste0(x,".XLM")}),
+#             by=c("relation","n","medlen","meanlen")) %>%  
+#   pivot_longer(cols = -c(n,relation,medlen,meanlen), 
+#                names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)")
 
 
 # A plot exploring accuracy by relation with respect to linear distance, model, and n
-three.relationx %>%  filter(n>50) %>% 
+three.relation %>%  filter(n>50) %>% 
   ggplot(aes(y=pct_acc, x=reorder(relation, desc(pct_acc)))) + 
   annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0,colour="blue") +
   geom_text(aes(label=paste("",n,sep=""),y=Inf), hjust=0, size=3, colour="blue") +  # to print n
@@ -64,33 +67,17 @@ three.relationx %>%  filter(n>50) %>%
   ggtitle("Comparing % acc of XLNet base, BERT large, and XLM, by gold label (n>50)") 
 
 
-## gt1 ####
+## same, only for arc-length ≥ 1 ####
 
-prepare_by_relation_gt1 <- function(dataframe){
-  #' Prepare csv as df data grouped by 'relation'
-  relation_len = dataframe %>% filter(!is.na(relation), lin_dist>1) %>% 
-    group_by(relation) %>% summarise(medlen=median(lin_dist), meanlen=mean(lin_dist), n=n())
-  dataframe = dataframe %>% filter(!is.na(relation), lin_dist>1) %>% 
-    mutate(acc=gold_edge==pmi_edge_sum) %>% 
-    group_by(relation,acc) %>% summarise(n=n(), medlen=median(lin_dist), meanlen=mean(lin_dist)) %>% 
-    pivot_wider(names_from = acc, names_prefix = "pmi", values_from = c(n,medlen,meanlen), values_fill = list(n = 0)) %>% 
-    left_join(relation_len, by="relation") %>% mutate(pct_acc = n_pmiTRUE/n) 
-  return(dataframe)
-}
-xlnet.relation.gt1 <- prepare_by_relation_gt1(read_csv("wordpair_xlnet-base-cased_pad30_2020-04-09-19-11.csv"))
-bert.relation.gt1 <- prepare_by_relation_gt1(read_csv("wordpair_bert-large-cased_pad60_2020-04-09-13-57.csv"))
-xlm.relation.gt1 <- prepare_by_relation_gt1(read_csv("wordpair_xlm-mlm-en-2048_pad60_2020-04-09-20-43.csv"))
-three.relation.gt1 <- 
-  full_join(bert.relation.gt1,xlnet.relation.gt1,
-            by=c("n","relation","medlen","meanlen"),
-            suffix=c(".BERT",".XLNet")) %>% 
-  full_join(rename_at(xlm.relation.gt1, vars(-c(n,relation,medlen,meanlen)), function(x){paste0(x,".XLM")}),
-            by=c("relation","n","medlen","meanlen")) %>% 
-  select(c(relation, n, medlen, meanlen, pct_acc.BERT, pct_acc.XLNet, pct_acc.XLM))
+xlnet.relation.gt1 <- prepare_by_relation(read_csv("wordpair_xlnet-base-cased_pad30_2020-04-09-19-11.csv"),
+                                          length_greater_than = 1)
+bert.relation.gt1 <- prepare_by_relation(read_csv("wordpair_bert-large-cased_pad60_2020-04-09-13-57.csv"),
+                                         length_greater_than = 1)
+xlm.relation.gt1 <- prepare_by_relation(read_csv("wordpair_xlm-mlm-en-2048_pad60_2020-04-09-20-43.csv"),
+                                        length_greater_than = 1)
+three.relation.gt1 <- join_three(bert.relation.gt1,xlnet.relation.gt1,xlm.relation.gt1)
 
 three.relation.gt1 %>%  filter(n>49) %>% 
-  pivot_longer(cols = c(pct_acc.BERT, pct_acc.XLNet, pct_acc.XLM), 
-               values_to = "pct_acc", names_to = "model", names_prefix = "pct_acc.") %>% 
   ggplot(aes(y=pct_acc, x=reorder(relation, meanlen))) + 
   annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0,colour="blue") +
   geom_text(aes(label=paste("",n,sep=""),y=Inf), hjust=0, size=3, colour="blue") +  # to print n
@@ -104,8 +91,6 @@ three.relation.gt1 %>%  filter(n>49) %>%
   ylab("percent PMI arc = gold arc") + 
   xlab("gold dependency label (ordered by mean accuracy)") + 
   ggtitle("Comparing % acc of XLNet base, BERT large, and XLM, by gold label (n≥50, arclen>1)") 
-
-
 
 
 ## len ####
@@ -136,18 +121,10 @@ xlm.len %>% ggplot(aes(x=meanpmi, y=pct_acc)) + scale_x_log10() +
   geom_point(aes(size=n)) + ylab("percent PMI arc = gold arc") + ggtitle("XLM MLM EN 2048")
 
 # All three models in one df
-three.len <- 
-  full_join(bert.len,xlnet.len,
-            by=c("n","lin_dist"),
-            suffix=c(".BERT",".XLNet")) %>% 
-  full_join(rename_at(xlm.len, vars(-c(n,lin_dist)), function(x){paste0(x,".XLM")}),
-            by=c("n","lin_dist"))  %>%  
-  filter(n>25) %>% 
-  pivot_longer(cols = -c(n,lin_dist), 
-               names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)")
+three.len <- join_three(bert.len,xlnet.len,xlm.len, by = c("n","lin_dist"))
 
 # A plot exploring accuracy by lin_dist
-three.len %>%  
+three.len %>%  filter(n>25) %>% 
   ggplot(aes(y=pct_acc, x=lin_dist)) + 
   geom_text(aes(label=n, y=Inf), hjust=0, size=3, colour="blue") +
   annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0, colour="blue") +
