@@ -138,7 +138,11 @@ three.len %>%  filter(n>25) %>%
   ggtitle("Comparing pct acc of XLNet base, BERT large, and XLM, by arc length (n>25)") 
 
 
+
+#########################################
+#########################################
 # Running a random forest classifier ####
+#########################################
 library(ranger)
 
 gg_varimp <- function(ranger) {
@@ -158,37 +162,75 @@ gg_varimp <- function(ranger) {
 
 bert.raw <- read_csv("wordpair_bert-large-cased_pad60_2020-04-09-13-57.csv") %>%
   mutate(acc=gold_edge==pmi_edge_sum) %>% select(-c(gold_edge))
-bert.raw$UPOS1 <- factor(bert.raw$UPOS1)
-bert.raw$UPOS2 <- factor(bert.raw$UPOS2)
-bert.raw$XPOS1 <- factor(bert.raw$XPOS1)
-bert.raw$XPOS2 <- factor(bert.raw$XPOS2)
 bert.raw$relation[is.na(bert.raw$relation)]<-"NONE"
-bert.raw$relation <- factor(bert.raw$relation)
-bert.raw$acc <- factor(bert.raw$acc)
 bert.raw$UPOS12 <- factor(paste(bert.raw$UPOS1,bert.raw$UPOS2,sep = '-'))
+bert.raw$XPOS12 <- factor(paste(bert.raw$XPOS1,bert.raw$XPOS2,sep = '-'))
+
+## Making open/closed category feature #
+open_xpos <- 
+  c("JJ", "JJR", "JJS", "RB", "RBR", "RBS", "NN", "NNS", "NNPS", "NNP", "VBN", "VB", "VBZ", "VBG", "VBD", "VBP", "FW")
+
+closed_xpos <- 
+  c("DT", "CD", "CC", "IN", "PRP", "POS", "PRP$", "WP$", "PDT", "WDT", "WP")
+
+bert.raw <- bert.raw %>% 
+  mutate(cat1=if_else(XPOS1 %in% open_xpos,if_else(relation=="neg","CLOSED","OPEN"),
+                      if_else(XPOS1 %in% closed_xpos,"CLOSED","?"))) %>% 
+  mutate(cat2=if_else(XPOS2 %in% open_xpos,"OPEN",
+                      if_else(XPOS2 %in% closed_xpos,"CLOSED","?")))
+bert.raw$cat12 <- factor(paste(bert.raw$cat1,bert.raw$cat2,sep = '-'))
+# Note, almost all occurences of neg have the first word as the negation (closed cat) word. 
+bert.raw %>% filter(relation=="neg") %>% group_by(w1) %>% count
+# We could refine this if we needed to, but it should be a good approximation...
+
+##
+
+bert.raw %>% ggplot(aes(x=cat12)) + geom_bar() + coord_flip()
+XPOS_common_pairs = (bert.raw %>% group_by(XPOS12) %>% summarise(n=n()) %>% filter(n>2000))[[1]]
+bert.raw %>% filter(XPOS12 %in% XPOS_common_pairs) %>%  ggplot(aes(x=reorder(XPOS12,cat12), fill=cat12)) + geom_bar() + coord_flip()
+
 
 bert.raw %>% group_by(UPOS12) %>% summarise(n=n()) %>% filter(n>2000) %>% 
 ggplot(aes(x=reorder(UPOS12,n),y=n)) + geom_bar(stat="identity") + coord_flip() +
-  ggtitle("Most common UPOS pairs in PTB")
+  ggtitle("Most common (n>2000) UPOS pairs")
+bert.raw %>% group_by(XPOS12) %>% summarise(n=n()) %>% filter(n>2000) %>% 
+  ggplot(aes(x=reorder(XPOS12,n),y=n)) + geom_bar(stat="identity") + coord_flip() + 
+  ggtitle("Most common (n>2000) XPOS pairs")
+
 
 bert.raw %>% group_by(UPOS12) %>% summarise(n=n()) %>% filter(n>7000) 
 
-bert.rf.all <- ranger(
+bert.rf.no_pmiedge <- ranger(
   acc ~ .,
   importance = "permutation", save.memory = TRUE,
   data = bert.raw %>% select(-c(sentence_index,
-                                pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
+                                pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu,
+                                UPOS12,XPOS12
                                 )))
+sort(bert.rf.no_pmiedge$variable.importance, decreasing = T)
+# relation     pmi_sum      pmi_tril     pmi_triu     lin_dist     i2 
+# 0.1129536633 0.0677521808 0.0247886574 0.0227068496 0.0191836310 0.0040428731 
+# UPOS2           i1        XPOS2        XPOS1        UPOS1 
+# 0.0033115500 0.0027982239 0.0025109101 0.0020280266 0.0020246610
+# cat2        cat12           w2           w1         cat1 
+# 0.0018665519 0.0015147889 0.0012748560 0.0009567042 0.0008086439
+gg_varimp(bert.rf.no_pmiedge)
+#fourfoldplot(bert.rf.no_pmiedge$confusion.matrix,conf.level = 0)
+#bert.rf.no_pmiedge$confusion.matrix
 
-gg_varimp(bert.rf.all)
-fourfoldplot(bert.rf.all$confusion.matrix,conf.level = 0)
-bert.rf.all$confusion.matrix
-
-bert.rf.all2 <- ranger(
+bert.rf.no_relation <- ranger(
   acc ~ .,
   importance = "permutation", save.memory = TRUE,
   data = bert.raw %>% select(-c(sentence_index,relation)))
-gg_varimp(bert.rf.all2)
+
+bert.rf.no_relation2 <- ranger(
+  acc ~ .,
+  importance = "permutation", save.memory = TRUE,
+  data = bert.raw %>% select(-c(sentence_index,relation,
+                                pmi_edge_none,pmi_edge_tril,pmi_edge_triu,
+                                pmi_tril,pmi_triu)))
+sort(bert.rf.no_pmiedge$variable.importance, decreasing = T)
+gg_varimp(bert.rf.no_relation2)
 
 bert.rf.just_relation <- ranger(
   acc ~ relation,
