@@ -297,7 +297,7 @@ def score(
     prepadding, postpadding = get_padding(i, observations, padlen)
     # get a pmi matrix and a pseudo-logprob for the sentence
     pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
-      obs.sentence, add_special_tokens=True, verbose=False, # might want to toggle verbosity
+      obs.sentence, add_special_tokens=True, verbose=True, # might want to toggle verbosity
       pad_left=prepadding, pad_right=postpadding)
     # calculate score
     scores = score_observation(obs, pmi_matrix)
@@ -401,6 +401,9 @@ if __name__ == '__main__':
   elif CLI_ARGS.model_spec.startswith('xlm'):
     MODEL_TYPE = 'xlm'
     MODEL = languagemodel.XLM(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+  elif CLI_ARGS.model_spec.startswith('gpt2'):
+    MODEL_TYPE = 'gpt2'
+    MODEL = languagemodel.GPT2(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
   else:
     raise ValueError(f'Model spec string {CLI_ARGS.model_spec} not recognized.')
 

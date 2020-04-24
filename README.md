@@ -7,10 +7,8 @@ Data from PTB as [Stanford dependencies](https://nlp.stanford.edu/software/depen
 
 running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentences in PTB, using a language model to get PMI estimates, extracts a tree, calculates undirected attachment score, reports the results.
 
-- [langaugemodel.py](pmi-accuracy/langaugemodel.py) has a class for XLNet (todo, add one for BERT), with method to get a PMI matrix from a sentence (that is, from a list of Penn Treebank tokens).
-
+- [langaugemodel.py](pmi-accuracy/langaugemodel.py) has a class for each of the language models we're using, with method to get a PMI matrix from a sentence (that is, from a list of Penn Treebank tokens).
 - [parser.py](pmi-accuracy/parser.py) has the methods to get either a simple MST (Prim's algorithm) or a projective MST (Eisner's algorithm) from the PMI matrices.
-
 - [task.py](pmi-accuracy/task.py) has stuff for dealing with the raw PTB and getting a distance matrix (.conllx file -> torch tensor), to extract parse distance matrix, or linear string-distance matrix.
 
 ### The models we're testing
@@ -26,6 +24,24 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
 - XLM
   - [xlm-mlm-en-2048](https://huggingface.co/xlm-mlm-en-2048)
 
+
+TODO:
+- BART
+  - [bart-large-cnn](https://huggingface.co/bart-large-cnn)
+- GPT2 (small)
+  - [gpt2](https://huggingface.co/gpt2)
+
+
+Penn Treebank data:
+
+The Penn Treebank WSJ corpus is split into 24 sets. 
+The standard partitioning is:
+- 02-21 for train (39832 sentences)
+- {01,22,24} for dev (1700 sentences)
+- 23 for test (2416)
+- 00 is discarded
+
+*Data used here is the 1700 sentences of the standard dev split (in CONLL format, 40117 word-level tokens).*
 
 ### Baselines
 

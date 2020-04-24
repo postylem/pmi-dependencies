@@ -602,13 +602,13 @@ library(ranger)
 
 maketraindf_gold <- function(df){
   df %>% filter(gold_edge==T) %>%
-    mutate(acc=as.factor(acc),
+    mutate(y = as.factor(acc),
            class_pair=class12,
            simple_POS_pair=simple_POS_12,
            POS1 = XPOS1,
            POS2 = XPOS2,
            POS_pair = XPOS12) %>%
-    select(c(acc #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
+    select(c(y #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
               ,lin_dist,simple_POS_1,simple_POS_2,i1,i2,w1,w2
               ,class1,class2
               ,relation
@@ -620,13 +620,13 @@ maketraindf_gold <- function(df){
 }
 maketraindf_pmi <- function(df){
   df %>% filter(pmi_edge_sum==T) %>%
-    mutate(acc=as.factor(acc),
+    mutate(y = as.factor(acc),
            class_pair=class12,
            simple_POS_pair=simple_POS_12,
            POS1 = XPOS1,
            POS2 = XPOS2,
            POS_pair = XPOS12) %>%
-    select(c(acc #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
+    select(c(y #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
       ,lin_dist,simple_POS_1,simple_POS_2,i1,i2,w1,w2
       ,class1,class2
       #,relation
@@ -638,13 +638,13 @@ maketraindf_pmi <- function(df){
 }
 maketraindf_all <- function(df){
   df %>%
-    mutate(acc=as.factor(acc),
+    mutate(y = as.factor(acc),
            class_pair=class12,
            simple_POS_pair=simple_POS_12,
            POS1 = XPOS1,
            POS2 = XPOS2,
            POS_pair = XPOS12) %>%
-    select(c(acc #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
+    select(c(y #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
              ,lin_dist,simple_POS_1,simple_POS_2,i1,i2,w1,w2
              ,class1,class2
              ,relation
@@ -656,13 +656,13 @@ maketraindf_all <- function(df){
 }
 maketraindf_norelation <- function(df){
   df %>%
-    mutate(acc=as.factor(acc),
+    mutate(y = as.factor(acc),
            class_pair=class12,
            simple_POS_pair=simple_POS_12,
            POS1 = XPOS1,
            POS2 = XPOS2,
            POS_pair = XPOS12) %>%
-    select(c(acc #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
+    select(c(y #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
              ,lin_dist,simple_POS_1,simple_POS_2,i1,i2,w1,w2
              ,class1,class2
              #,relation
@@ -692,7 +692,7 @@ runrf <- function(df,name,mtry=3,min.node.size=1){
   # print(ranger.fit$bestTune)
   # Run best fit model
   rf <- ranger(
-    acc ~ ., local.importance = FALSE,
+    y ~ ., local.importance = FALSE,
     mtry = mtry, num.trees = 2000, min.node.size = min.node.size, splitrule = "gini",
     importance = "impurity_corrected", save.memory = TRUE,
     data = training.df,
@@ -708,28 +708,73 @@ runrf <- function(df,name,mtry=3,min.node.size=1){
 p.bert.gold <- runrf(maketraindf_gold(bert), "gold subset, BERT\n" ,mtry=3,min.node.size=1)
 p.xlnet.gold <- runrf(maketraindf_gold(xlnet),"gold subset, XLNet\n",mtry=3,min.node.size=1)
 p.xlm.gold <- runrf(maketraindf_gold(xlm),  "gold, XLM\n"         ,mtry=3,min.node.size=1)
-
 grid.arrange(p.bert.gold,p.xlnet.gold,p.xlm.gold,nrow=1)
 
 p.bert.pmi <- runrf(maketraindf_pmi(bert), "PMI subset, BERT\n"  ,mtry=3,min.node.size=1)
 p.xlnet.pmi <- runrf(maketraindf_pmi(xlnet),"PMI subset, XLNet\n" ,mtry=3,min.node.size=1)
 p.xlm.pmi <- runrf(maketraindf_pmi(xlm),  "PMI subset, XLM\n"   ,mtry=3,min.node.size=1)
-
 grid.arrange(p.bert.pmi,p.xlnet.pmi,p.xlm.pmi,nrow=1)
 
 p.bert.all <- runrf(maketraindf_all(bert),  "all data, BERT\n"  ,mtry=3,min.node.size=1)
 p.xlnet.all <- runrf(maketraindf_all(xlnet), "all data, XLNet\n",mtry=3,min.node.size=1)
 p.xlm.all <- runrf(maketraindf_all(xlm),   "all data, XLM\n"    ,mtry=3,min.node.size=1)
-
 grid.arrange(p.bert.all,p.xlnet.all,p.xlm.all,nrow=1)
 
 p.bert.norelation  <- runrf(maketraindf_norelation(bert),  "all data, BERT\n"   ,mtry=3,min.node.size=1)
 p.xlnet.norelation <- runrf(maketraindf_norelation(xlnet), "all data, XLNet\n"  ,mtry=3,min.node.size=1)
 p.xlm.norelation   <- runrf(maketraindf_norelation(xlm),   "all data, XLM\n"    ,mtry=3,min.node.size=1)
-
 grid.arrange(p.bert.norelation, p.xlnet.norelation, p.xlm.norelation,nrow=1)
 
-rf$variable.importance
+## Experimenting with the symmetric difference, subsetting the data only for pairs where acc=FALSE,
+## predicting which model
+
+symdif <- function(df){
+  df <- df %>% mutate(acc=gold_edge==pmi_edge_sum)
+  df.gold <- df %>% filter(gold_edge==T)
+  df.pmi <- df %>% filter(pmi_edge_sum==T)
+  df.union <- rbind(df.gold, df.pmi)
+  df.symdif <- df.union %>% filter(!(gold_edge==T & pmi_edge_sum==T)) %>%
+    mutate(which = factor(
+      case_when(gold_edge == T    ~ "gold",
+                pmi_edge_sum == T ~ "pmi",
+                TRUE ~ "error!")))
+  return(df.symdif)
+}
+xlnet.symdif <- symdif(xlnet)
+bert.symdif <- symdif(bert)
+xlm.symdif <- symdif(xlm)
+maketraindf_norelation_nopmi <- function(df){
+  df %>%
+    mutate(y = as.factor(which),
+           class_pair=class12,
+           simple_POS_pair=simple_POS_12,
+           POS1 = XPOS1,
+           POS2 = XPOS2,
+           POS_pair = XPOS12) %>%
+    select(c(y #,gold_edge,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
+             ,sentence_index
+             ,lin_dist,simple_POS_1,simple_POS_2,i1,i2,w1,w2
+             ,class1,class2
+             #,relation
+             #,pmi_tril,pmi_triu,pmi_sum
+             #,UPOS12,UPOS1,UPOS2
+             #,class12,simple_POS_12,XPOS1,XPOS2,XPOS12 # these ones are just renamed
+             ,class_pair,simple_POS_pair#,POS1,POS2,POS_pair # as these
+    ))
+}
+
+p.bert.symdif <- runrf(maketraindf_norelation_nopmi(bert.symdif),"Sym diff, BERT\n"  ,mtry=3,min.node.size=1)
+p.xlnet.symdif <- runrf(maketraindf_norelation_nopmi(xlnet.symdif),"Sym diff, XLNet\n"  ,mtry=3,min.node.size=1)
+p.xlm.symdif <- runrf(maketraindf_norelation_nopmi(xlm.symdif),"Sym diff, XLM\n"  ,mtry=3,min.node.size=1)
+grid.arrange(p.bert.symdif, p.xlnet.symdif, p.xlm.symdif,nrow=1)
+
+
+symdif.df <- bind_rows(bert.symdif %>% mutate(model="BERT"),xlnet.symdif %>% mutate(model="XLNet"),xlm.symdif %>% mutate(model="XLM"))
+symdif.df %>% # sanity check: pmi is a good predictor of pmi-dependencyhood, as expected
+  ggplot(aes(x=factor(which),y=pmi_sum,colour=model)) + geom_boxplot()
+
+
+## Validation of RF ####
 
 importance_pvalues(rf, formula = acc ~ ., method = "altmann",
                    num.permutations = 50, # should be 50-100 for reliable results
