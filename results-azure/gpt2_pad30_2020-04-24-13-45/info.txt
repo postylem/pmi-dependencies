@@ -1,0 +1,14 @@
+batch_size:	10
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_spec:	gpt2
+n_observations:	all
+pad:	30
+results_dir:	results/
+=========
+mean uuas values
+linear : 0.504
+random :
+		nonproj   0.135
+	projective 0.264
+nonproj: {'sum': 0.43, 'triu': 0.091, 'tril': 0.43, 'none': 0.386}
+proj   : {'sum': 0.434, 'triu': 0.505, 'tril': 0.434, 'none': 0.443}
