@@ -836,16 +836,17 @@ class GPT2(LanguageModel):
     # add special characters add optional padding
     if pad_left:
       pad_left_tokens, _ = self.make_subword_lists(pad_left)           # no cls token
-      pad_left = self.tokenizer.convert_tokens_to_ids(pad_left_tokens) # no sep token
+      pad_left = [self.tokenizer.bos_token_id]
+      pad_left += self.tokenizer.convert_tokens_to_ids(pad_left_tokens) # no sep token
     else:
-      pad_left = [] # we could add self.tokenizer.bos_token_id
+      pad_left = [self.tokenizer.bos_token_id] # same as self.tokenizer.eos_token_id
     if pad_right:
       pad_right_tokens, _ = self.make_subword_lists(pad_right)
       pad_right = self.tokenizer.convert_tokens_to_ids(pad_right_tokens)
     else:
       pad_right = []
     if add_special_tokens:
-      pad_right += [] # we could add self.tokenizer.eos_token_id
+      pad_right += [self.tokenizer.eos_token_id] 
     ids = pad_left + ids + pad_right
     n_pad_left = len(pad_left)
     n_pad_right = len(pad_right)
