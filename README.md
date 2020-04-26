@@ -23,12 +23,13 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
   - [bert-large-uncased](https://huggingface.co/bert-large-uncased)
 - XLM
   - [xlm-mlm-en-2048](https://huggingface.co/xlm-mlm-en-2048)
-- GPT2 (small)
+- BART
+  - [bart-large](https://huggingface.co/facebook/bart-large)
+- GPT2 (small) (not bidirectional...)
   - [gpt2](https://huggingface.co/gpt2)
 
 TODO:
-- BART
-  - [bart-large-cnn](https://huggingface.co/bart-large-cnn)
+
 - ELMO
 
 
