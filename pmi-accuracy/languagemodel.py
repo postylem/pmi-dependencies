@@ -516,7 +516,6 @@ class BERT(LanguageModel):
         pos += 1
     return tokens, ptbtok_to_span
 
-
 class BartSentenceDataset(torch.utils.data.Dataset):
   """Dataset class for Bart"""
 
@@ -612,19 +611,19 @@ class Bart(LanguageModel):
     if pad_left:
       pad_left_tokens, _ = self.make_subword_lists(pad_left)
       if add_special_tokens:
-        pad_left = [self.tokenizer.cls_token_id]
+        pad_left = [self.tokenizer.bos_token_id]
       pad_left += self.tokenizer.convert_tokens_to_ids(pad_left_tokens)
-      if add_special_tokens:
-        pad_left += [self.tokenizer.sep_token_id]
+      # if add_special_tokens:
+      #   pad_left += [self.tokenizer.sep_token_id]
     else:
-      pad_left = [self.tokenizer.cls_token_id]
+      pad_left = [self.tokenizer.bos_token_id]
     if pad_right:
       pad_right_tokens, _ = self.make_subword_lists(pad_right)
       pad_right = self.tokenizer.convert_tokens_to_ids(pad_right_tokens)
     else:
       pad_right = []
     if add_special_tokens:
-      pad_right += [self.tokenizer.sep_token_id]
+      pad_right += [self.tokenizer.eos_token_id]
     ids = pad_left + ids + pad_right
     n_pad_left = len(pad_left)
     n_pad_right = len(pad_right)
@@ -722,17 +721,16 @@ class Bart(LanguageModel):
     if add_special_tokens:
       subword_lists.append(['<s>'])
     for word in ptb_tokenlist:
-      whitespace = ''
+      add_prefix_space = False
       if word[0] not in [',','.',':',';','!',"'",]:
-        whitespace = "Ġ"
+        add_prefix_space = True
       if word == '-LCB-': word = '{'
       elif word == '-RCB-': word = '}'
       elif word == '-LSB-': word = '['
       elif word == '-RSB-': word = ']'
       elif word == '-LRB-': word = '('
       elif word == '-RRB-': word = ')'
-      word_tokens = self.tokenizer.tokenize(word)
-      word_tokens[0] = whitespace + word_tokens[0] # adding in "Ġ" for whitespace
+      word_tokens = self.tokenizer.tokenize(word, add_prefix_space=add_prefix_space)
       subword_lists.append(word_tokens)
     if add_special_tokens:
       subword_lists.append(['</s>'])
@@ -752,7 +750,6 @@ class Bart(LanguageModel):
         ptbtok_to_span[-1] = ptbtok_to_span[-1] + (pos,)
         pos += 1
     return tokens, ptbtok_to_span
-
 
 class XLMSentenceDataset(torch.utils.data.Dataset):
   """Dataset class for XLM"""
@@ -1181,17 +1178,16 @@ class GPT2(LanguageModel):
     '''
     subword_lists = []
     for word in ptb_tokenlist:
-      whitespace = ''
+      add_prefix_space = False
       if word[0] not in [',','.',':',';','!',"'",]:
-        whitespace = "Ġ"
+        add_prefix_space = True
       if word == '-LCB-': word = '{'
       elif word == '-RCB-': word = '}'
       elif word == '-LSB-': word = '['
       elif word == '-RSB-': word = ']'
       elif word == '-LRB-': word = '('
       elif word == '-RRB-': word = ')'
-      word_tokens = self.tokenizer.tokenize(word)
-      word_tokens[0] = whitespace + word_tokens[0] # adding in "Ġ" for whitespace
+      word_tokens = self.tokenizer.tokenize(word, add_prefix_space=add_prefix_space)
       subword_lists.append(word_tokens)
     # Custom adjustments below
     for i, subword_list_i in enumerate(subword_lists):

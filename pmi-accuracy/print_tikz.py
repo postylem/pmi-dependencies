@@ -1,3 +1,7 @@
+from argparse import ArgumentParser
+from collections import namedtuple
+
+import main # to use functions accessing data
 
 def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
@@ -37,3 +41,39 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='
     string += f"\\end{{dependency}}\n"
     fout.write('\n\n')
     fout.write(string)
+
+
+if __name__ == '__main__':
+  ARGP = ArgumentParser()
+  ARGP.add_argument('--sentence_index', default=0, type=int,
+                    help='(int) sentence index')
+  ARGP.add_argument('--conllx_file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
+                    help='path/to/treebank.conllx: dependency file, in conllx format')
+  ARGP.add_argument('--input_file', default='scores.csv',
+                    help='specify path/to/scores.csv')
+  ARGP.add_argument('--output_file', default='out.tikz',
+                    help='specify path/to/out.tikz')
+  CLI_ARGS = ARGP.parse_args()
+
+  # Columns of CONLL file
+  CONLL_COLS = ['index',
+                'sentence',
+                'lemma_sentence',
+                'upos_sentence',
+                'xpos_sentence',
+                'morph',
+                'head_indices',
+                'governance_relations',
+                'secondary_relations',
+                'extra_info']
+  ObservationClass = namedtuple("Observation", CONLL_COLS)
+  OBSERVATIONS = main.load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
+
+  with CLI_ARGS.input_file as scores_csv:
+
+  # NOT FINISHED
+  
+  print_tikz(
+    CLI_ARGS.output_file, predicted_edges, gold_edges, 
+    OBSERVATIONS[CLI_ARGS.sentence_index],
+    label1=str(CLI_ARGS.sentence_index),label2='')

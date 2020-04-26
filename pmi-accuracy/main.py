@@ -288,18 +288,21 @@ def score(
   return all_scores
 
 def print_means_to_file(all_scores, file):
+  ''' prints mean per sentence accuracies '''
   mean_linear = np.nanmean([scores['baseline_linear'] for scores in all_scores])
   mean_random_nonproj = np.nanmean([scores['baseline_random_nonproj'] for scores in all_scores])
   mean_random_proj = np.nanmean([scores['baseline_random_proj'] for scores in all_scores])
   mean_nonproj = {symmethod:np.nanmean([scores['nonproj']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
   mean_proj = {symmethod:np.nanmean([scores['projective']['uuas'][symmethod] for scores in all_scores]) for symmethod in ['sum', 'triu', 'tril', 'none']}
-  
-  with open(file, mode='a') as infofile:
-    infofile.write("=========\nmean uuas values\n")
-    infofile.write(f'linear : {mean_linear:.3}\n')
-    infofile.write(f'random :\n\t\tnonproj   {mean_random_nonproj:.3}\n\tprojective {mean_random_proj:.3}\n')
-    infofile.write(f'nonproj: { {k:round(v,3) for k, v in mean_nonproj.items()}}\n')
-    infofile.write(f'proj   : { {k:round(v,3) for k, v in mean_proj.items()}}\n')
+  means_string = f'''=========\nmean uuas values
+    linear         :  {mean_linear:.3}
+    random nonproj :  {mean_random_nonproj:.3}
+    random proj    :  {mean_random_proj:.3}
+    PMI nonproj    :  { {k:round(v,3) for k, v in mean_nonproj.items()}}
+    PMI proj       :  { {k:round(v,3) for k, v in mean_proj.items()}}'''
+  print(means_string)
+  with open(file, mode='a') as file:
+    file.write(means_string)
 
 if __name__ == '__main__':
   ARGP = ArgumentParser()
