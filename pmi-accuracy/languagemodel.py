@@ -720,16 +720,18 @@ class Bart(LanguageModel):
     subword_lists = []
     if add_special_tokens:
       subword_lists.append(['<s>'])
-    for word in ptb_tokenlist:
-      add_prefix_space = False
-      if word[0] not in [',','.',':',';','!',"'",]:
-        add_prefix_space = True
+    for index, word in enumerate(ptb_tokenlist):
       if word == '-LCB-': word = '{'
       elif word == '-RCB-': word = '}'
       elif word == '-LSB-': word = '['
       elif word == '-RSB-': word = ']'
       elif word == '-LRB-': word = '('
       elif word == '-RRB-': word = ')'
+      add_prefix_space = True
+      if word[0] in [',','.',':',';','!',"'",")","]","}"]:
+        add_prefix_space = False
+      if index > 0 and ptb_tokenlist[index-1] in ["(","[","{","`","``"]:
+        add_prefix_space = False
       word_tokens = self.tokenizer.tokenize(word, add_prefix_space=add_prefix_space)
       subword_lists.append(word_tokens)
     if add_special_tokens:
