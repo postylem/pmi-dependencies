@@ -1,9 +1,14 @@
+import glob
+import pandas as pd
+import os.path
+
 from argparse import ArgumentParser
 from collections import namedtuple
+from ast import literal_eval
 
 import main # to use functions accessing data
 
-def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='', label2=''):
+def make_tikz_string(predicted_edges, gold_edges, observation, label1='', label2=''):
   ''' Writes out a tikz dependency TeX file for comparing predicted_edges and gold_edges'''
   words = observation.sentence
   gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
@@ -24,35 +29,57 @@ def print_tikz(tikz_filepath, predicted_edges, gold_edges, observation, label1='
   uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
   # replace non-TeXsafe characters... add as needed
   tex_replace = { '$':'\$', '&':'+', '%':'\%', '~':'\textasciitilde', '#':'\#'}
-  with open(tikz_filepath, 'a') as fout:
-    string = "\\begin{dependency}\n\\begin{deptext}\n"
-    string += "\\& ".join([tex_replace[x] if x in tex_replace else x for x in words]) + " \\\\" + '\n'
-    string += "\\end{deptext}" + '\n'
-    for i_index, j_index in gold_edge_label:
-      string += f'\\depedge{{{i_index+1}}}{{{j_index+1}}}{{{gold_edge_label[(i_index, j_index)]}}}\n'
-    for i_index, j_index in correct_edges:
-      string += f'\\depedge[hide label, edge below, edge style={{blue, opacity=0.5}}]{{{i_index+1}}}{{{j_index+1}}}{{}}\n'
-    for i_index, j_index in incorrect_edges:
-      string += f'\\depedge[hide label, edge below, edge style={{red, opacity=0.5}}]{{{i_index+1}}}{{{j_index+1}}}{{}}\n'
-    string += "\\node (R) at (\\matrixref.east) {{}};\n"
-    string += f"\\node (R1) [right of = R] {{\\begin{{footnotesize}}{label1}\\end{{footnotesize}}}};"
-    string += f"\\node (R2) at (R1.north) {{\\begin{{footnotesize}}{label2}\\end{{footnotesize}}}};"
-    string += f"\\node (R3) at (R1.south) {{\\begin{{footnotesize}}{uuas:.2f}\\end{{footnotesize}}}};"
-    string += f"\\end{{dependency}}\n"
-    fout.write('\n\n')
-    fout.write(string)
+  # make string
+  string = "\\begin{dependency}\n\t\\begin{deptext}\n\t\t"
+  string += "\\& ".join([tex_replace[x] if x in tex_replace else x for x in words]) + " \\\\" + '\n'
+  string += "\t\\end{deptext}" + '\n'
+  for i_index, j_index in gold_edge_label:
+    string += f'\t\\depedge{{{i_index+1}}}{{{j_index+1}}}{{{gold_edge_label[(i_index, j_index)]}}}\n'
+  for i_index, j_index in correct_edges:
+    string += f'\t\\depedge[hide label, edge below, edge style={{blue, opacity=0.5}}]{{{i_index+1}}}{{{j_index+1}}}{{}}\n'
+  for i_index, j_index in incorrect_edges:
+    string += f'\t\\depedge[hide label, edge below, edge style={{red, opacity=0.5}}]{{{i_index+1}}}{{{j_index+1}}}{{}}\n'
+  string += "\t\\node (R) at (\\matrixref.east) {{}};\n"
+  string += f"\t\\node (R1) [right of = R] {{\\begin{{footnotesize}}{label1}\\end{{footnotesize}}}};\n"
+  string += f"\t\\node (R2) at (R1.north) {{\\begin{{footnotesize}}{label2}\\end{{footnotesize}}}};\n"
+  string += f"\t\\node (R3) at (R1.south) {{\\begin{{footnotesize}}{uuas*100:.0f}\\%\\end{{footnotesize}}}};\n"
+  string += f"\\end{{dependency}}\n"
+  return(string)
 
+
+def write_tikz_files(outputdir, edges_df, sentence_indices, edge_type, output_prefix='', output_suffix=''):
+  for sentence_index in sentence_indices:
+    gold_edges = literal_eval(edges_df.at[sentence_index, "gold_edges"])
+    predicted_edges = literal_eval(edges_df.at[sentence_index, edge_type])
+    tikz_string = make_tikz_string(predicted_edges, gold_edges,
+                                   OBSERVATIONS[sentence_index],
+                                   label1=str(sentence_index), label2=output_suffix)
+    tikz_filename = os.path.join(outputdir, output_prefix + str(sentence_index) + output_suffix + ".tikz")
+    print(f'writing tikz to {tikz_filename}')
+    with open(tikz_filename, 'w') as fout:
+      fout.write(f"% dependencies for {OUTPUTDIR}\n")
+      fout.write(tikz_string)
 
 if __name__ == '__main__':
   ARGP = ArgumentParser()
-  ARGP.add_argument('--sentence_index', default=0, type=int,
-                    help='(int) sentence index')
-  ARGP.add_argument('--conllx_file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
-                    help='path/to/treebank.conllx: dependency file, in conllx format')
+  ARGP.add_argument('--sentence_indices', type=int, nargs='+',
+                    help='sentence indices to plot dependencies for')
   ARGP.add_argument('--input_file', default='scores.csv',
                     help='specify path/to/scores.csv')
-  ARGP.add_argument('--output_file', default='out.tikz',
-                    help='specify path/to/out.tikz')
+  ARGP.add_argument('--conllx_file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
+                    help='path/to/treebank.conllx: dependency file, in conllx format')
+  ARGP.add_argument('--output_prefix', default='',
+                    help='specify output [prefix]sentence_index.tikz')
+  ARGP.add_argument('--edge_types', type=str, default='projective.edges.sum', nargs='+',
+                    help="""Edge type to plot against the gold. Chose any subset of
+                        ['projective.edges.sum',
+                        'projective.edges.triu',
+                        'projective.edges.tril',
+                        'projective.edges.none',
+                        'nonproj.edges.sum',
+                        'nonproj.edges.triu',
+                        'nonproj.edges.tril',
+                        'nonproj.edges.none']""")
   CLI_ARGS = ARGP.parse_args()
 
   # Columns of CONLL file
@@ -68,12 +95,21 @@ if __name__ == '__main__':
                 'extra_info']
   ObservationClass = namedtuple("Observation", CONLL_COLS)
   OBSERVATIONS = main.load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
+  OUTPUTDIR = os.path.dirname(CLI_ARGS.input_file)
+  EDGES_DF = pd.read_csv(CLI_ARGS.input_file)
 
-  with CLI_ARGS.input_file as scores_csv:
+  for edge_type in CLI_ARGS.edge_types:
+    edgetype = edge_type.split(".")
+    label = f'{edgetype[2]}.{edgetype[0]}'
+    write_tikz_files(OUTPUTDIR, EDGES_DF, CLI_ARGS.sentence_indices, edge_type,
+      output_prefix=CLI_ARGS.output_prefix, output_suffix=label)
 
-  # NOT FINISHED
-  
-  print_tikz(
-    CLI_ARGS.output_file, predicted_edges, gold_edges, 
-    OBSERVATIONS[CLI_ARGS.sentence_index],
-    label1=str(CLI_ARGS.sentence_index),label2='')
+  TEX_FILEPATH = os.path.join(OUTPUTDIR, 'dependencies.tex')
+  with open(TEX_FILEPATH, mode='w') as tex_file:
+    print(f'writing TeX to {TEX_FILEPATH}')
+    tex_file.write("\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}\n\\pgfkeys{%\n/depgraph/edge unit distance=.75ex,%\n/depgraph/reserved/edge style/.style = {\n-, % arrow properties\nsemithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round\n},%\n/depgraph/reserved/label style/.style = {%\n% anchor = mid, draw, solid, black, rotate = 0, rounded corners = 2pt,%\nscale = .5,%\ntext height = 1.5ex, text depth = 0.25ex, % needed to center text vertically\ninner sep=.2ex,%\nouter sep = 0pt,%\ntext = black,%\nfill = white, %opacity = 0, text opacity = 0 % uncomment to hide all labels\n},%\n}\n\\begin{document}\n\n% % Put tikz dependencies here, like\n")
+    tex_file.write(f"% dependencies for {OUTPUTDIR}\n")
+    for tikzfile in sorted([os.path.basename(x) for x in glob.glob(os.path.join(OUTPUTDIR,'*.tikz'))]):
+        tex_file.write(f"\\input{{{tikzfile}}}\n")
+    tex_file.write("\n\\end{document}")
+

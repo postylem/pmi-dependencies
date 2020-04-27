@@ -136,16 +136,15 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 Plotting pmi dependencies vs gold is useful... maybe.  To look at some plots, use [print_tikz.py](pmi-accuracy/print_tikz.py).  For instance, to look at sentences 1696, run:
 
 ```bash
-python pmi-accuracy/print_tikz.py 1696 --input_file path/to/scores*.csv
+python pmi-accuracy/print_tikz.py --sentence_indices 1696 --input_file path/to/scores*.csv
 ```
 
 This will output a LaTeX file `dependencies.tex`, to print
 
-![example dependency plot](./example-bert-large-60-proj.sum.pdf)
 ![example dependency plot](latex-plotting/example-1696-bert-large-60-proj.sum.png)
 
-- `--edge_type` you can specify projective or non projective edges, or symmetrize method tril, triu, sum, none like: `--edge_type nonproj.edges.tril`, for instance.
-- optionally, multiple sentences at a time
+- `--edge_type` you can specify projective or non projective edges, or symmetrize method tril, triu, sum, none like: `--edge_type nonproj.edges.tril`, for instance.  Default is `projective.edges.sum`.
+- optionally, multiple sentences at a time, and multiple edge types in order to be able to compare...
 - see `-h` for more
 
 ### Saving PMI matrices (not implemented anymore):
