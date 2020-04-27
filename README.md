@@ -141,8 +141,8 @@ python pmi-accuracy/print_tikz.py 1696 --input_file path/to/scores*.csv
 
 This will output a LaTeX file `dependencies.tex`, to print
 
-![example dependency plot](example-bert-large-60-proj.sum.pdf)
-![example dependency plot](./example-bert-large-60-proj.sum.png)
+![example dependency plot](./example-bert-large-60-proj.sum.pdf)
+![example dependency plot](latex-plotting/example-1696-bert-large-60-proj.sum.png)
 
 - `--edge_type` you can specify projective or non projective edges, or symmetrize method tril, triu, sum, none like: `--edge_type nonproj.edges.tril`, for instance.
 - optionally, multiple sentences at a time

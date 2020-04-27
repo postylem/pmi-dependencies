@@ -1,0 +1,57 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz-dependency}
+\usepackage{tikz}
+
+\pgfkeys{%
+/depgraph/reserved/edge style/.style = {% 
+white, -, >=stealth, % arrow properties                                                                            
+black, solid, line cap=round, % line properties
+rounded corners=2, % make corners round
+},%
+}
+\begin{document}
+
+%% Put dependency plots here (from a `dev.tikz' file).
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+    \begin{deptext}[column sep=0.0cm]
+    What\& does\& the\& report\& say\& about\& the\& reproducibility\& issues\& ? \\
+\end{deptext}
+\depedge{3}{8}{.}
+\depedge{4}{5}{.}
+\depedge{6}{8}{.}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{1}{3}{.}
+\depedge{8}{10}{.}
+\depedge{6}{9}{.}
+\depedge{3}{7}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{6}{8}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{1}{5}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{5}{6}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{4}{5}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{5}{10}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{6}{9}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{3}{7}{.}
+\end{dependency}
+
+
+
+\begin{dependency}[hide label, edge unit distance=.5ex]
+    \begin{deptext}[column sep=0.0cm]
+    Colorless\& green\& ideas\& sleep\& furiously\& . \\
+\end{deptext}
+\depedge{1}{2}{.}
+\depedge{2}{5}{.}
+\depedge{1}{3}{.}
+\depedge{4}{5}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{1}{2}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{1}{3}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{2}{5}{.}
+\depedge[edge style={red!100!blue, opacity=0.5}, edge below]{2}{4}{.}
+\end{dependency}
+
+\end{document}
