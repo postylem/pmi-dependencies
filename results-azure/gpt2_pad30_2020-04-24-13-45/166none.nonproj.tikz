@@ -1,0 +1,42 @@
+% dependencies for results-azure/gpt2_pad30_2020-04-24-13-45
+\begin{dependency}
+	\begin{deptext}
+		The\& Jefferies\& office\& ,\& a\& branch\& of\& the\& Los\& Angeles-based\& firm\& ,\& played\& it\& conservatively\& ,\& seeking\& to\& avoid\& risk\& . \\
+	\end{deptext}
+	\depedge{2}{3}{nn}
+	\depedge{18}{19}{aux}
+	\depedge{13}{15}{advmod}
+	\depedge{5}{6}{det}
+	\depedge{6}{7}{prep}
+	\depedge{13}{14}{dobj}
+	\depedge{7}{11}{pobj}
+	\depedge{9}{11}{nn}
+	\depedge{17}{19}{xcomp}
+	\depedge{10}{11}{amod}
+	\depedge{19}{20}{dobj}
+	\depedge{3}{13}{nsubj}
+	\depedge{8}{11}{det}
+	\depedge{13}{17}{vmod}
+	\depedge{3}{6}{appos}
+	\depedge{1}{3}{det}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{18}{19}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{2}{3}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{5}{6}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{6}{7}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{13}{14}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{19}{20}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{1}{2}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{17}{18}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{7}{8}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{1}{15}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{1}{13}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{9}{10}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{1}{17}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{1}{11}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{1}{5}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{8}{9}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\begin{footnotesize}166\end{footnotesize}};
+	\node (R2) at (R1.north) {\begin{footnotesize}none.nonproj\end{footnotesize}};
+	\node (R3) at (R1.south) {\begin{footnotesize}38\%\end{footnotesize}};
+\end{dependency}

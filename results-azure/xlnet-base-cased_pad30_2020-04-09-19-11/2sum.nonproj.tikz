@@ -1,0 +1,44 @@
+% dependencies for results-azure/xlnet-base-cased_pad30_2020-04-09-19-11
+\begin{dependency}
+	\begin{deptext}
+		The\& bill\& intends\& to\& restrict\& the\& RTC\& to\& Treasury\& borrowings\& only\& ,\& unless\& the\& agency\& receives\& specific\& congressional\& authorization\& . \\
+	\end{deptext}
+	\depedge{1}{2}{det}
+	\depedge{2}{3}{nsubj}
+	\depedge{5}{8}{prep}
+	\depedge{13}{16}{mark}
+	\depedge{18}{19}{amod}
+	\depedge{5}{7}{dobj}
+	\depedge{6}{7}{det}
+	\depedge{14}{15}{det}
+	\depedge{17}{19}{amod}
+	\depedge{9}{10}{nn}
+	\depedge{10}{11}{advmod}
+	\depedge{15}{16}{nsubj}
+	\depedge{16}{19}{dobj}
+	\depedge{3}{16}{advcl}
+	\depedge{4}{5}{aux}
+	\depedge{3}{5}{xcomp}
+	\depedge{8}{10}{pobj}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{18}{19}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{13}{16}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{5}{8}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{6}{7}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{10}{11}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{9}{10}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{16}{19}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{17}{19}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{3}{17}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{7}{8}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{13}{15}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{14}{16}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{2}{15}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{5}{15}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{1}{18}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{3}{4}{}
+	\depedge[hide label, edge below, edge style={red, opacity=0.5}]{8}{11}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\begin{footnotesize}2\end{footnotesize}};
+	\node (R2) at (R1.north) {\begin{footnotesize}sum.nonproj\end{footnotesize}};
+	\node (R3) at (R1.south) {\begin{footnotesize}47\%\end{footnotesize}};
+\end{dependency}
