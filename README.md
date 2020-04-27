@@ -131,6 +131,23 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 - `tikz.zip` - a zipped directory of all the tikz dependencies for visualizing.
  -->
 
+### Plotting dependencies
+
+Plotting pmi dependencies vs gold is useful... maybe.  To look at some plots, use [print_tikz.py](pmi-accuracy/print_tikz.py).  For instance, to look at sentences 2, run:
+
+```bash
+python pmi-accuracy/print_tikz.py 2 --input_file path/to/scores*.csv
+```
+
+This will output a LaTeX file `dependencies.tex`, to print
+
+![example dependency plot](example-bert-large-60-nonproj.sum.pdf)
+![example dependency plot](example-bert-large-60-nonproj.sum.png)
+
+- `--edge_type` you can specify projective or non projective edges, or symmetrize method tril, triu, sum, none like: `--edge_type nonproj.edges.tril`, for instance.
+- optionally, multiple sentences at a time
+- see `-h` for more
+
 ### Saving PMI matrices (not implemented anymore):
 
 With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back in afterward like this:
@@ -150,20 +167,22 @@ To look at the dependency graphs predicted with PMI, say, sentence 42, add a lin
 a messy scratch notebook is [here](https://colab.research.google.com/drive/1kJdXQpXhNbTqqdLatH_qfJCeuRD_9ggW#scrollTo=vCfdPAT2QNXd) 
 a minimal example notebook from a few iterations ago [here](https://colab.research.google.com/drive/1VVcYrRLOUizEbvKvD5_zERHJQLqB_gu4)
 
+scratch for tokenization and models: [here](https://colab.research.google.com/drive/1NjUNw_1DRaejyLtuqq52l6sHEkJ9M-3E)
+
 Some prose is there about the dealing with the fact that these estimates of PMI are non-symmetric, subword tokenization, etc.
 
+
 --------------------------------------------------
+
 
 # Some results
 
 ### baselines
 linear : **0.50**
 
-random : 
+random non-proj:   0.13
 
-non-proj:   0.13
-
-projective: 0.27
+rndom projective: 0.27
 
 ### xlnet-base
 | *pad 0*  |  sum   |  triu  |  tril  |  none  |
@@ -205,7 +224,6 @@ projective: 0.27
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.45  |  0.44  |  0.42  |  0.46  |
 |  proj    |  0.46  |  0.46  |  0.44  |  0.44  |
-
 ### bert-base-cased
 | *pad 0*  |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
@@ -261,7 +279,24 @@ projective: 0.27
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.41  |  0.39  |  0.39  |  0.41  |
 |  proj    |  0.44  |  0.43  |  0.42  |  0.42  |
+### bart-large
+| *pad 0*  |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.37  |  0.24  |  0.39  |  0.37  |
+|  proj    |  0.38  |  0.28  |  0.40  |  0.38  |
+
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.38  |  0.23  |  0.40  |  0.38  |
+|  proj    |  0.39  |  0.27  |**0.41**|  0.40  |
+
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.38  |  0.23  |  0.41  |  0.38  |
+|  proj    |  0.40  |  0.27  |**0.42**|  0.40  |
 --------------------------------------------------
+
+
 <!-- 
 ### CACHED Dec 2019 version: no batches 
 File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py) gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
