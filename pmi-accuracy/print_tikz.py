@@ -48,6 +48,7 @@ def make_tikz_string(predicted_edges, gold_edges, observation, label1='', label2
 
 
 def write_tikz_files(outputdir, edges_df, sentence_indices, edge_type, output_prefix='', output_suffix=''):
+  ''' writes TikZ string to outputdir, a seperate file for each sentence index'''
   for sentence_index in sentence_indices:
     gold_edges = literal_eval(edges_df.at[sentence_index, "gold_edges"])
     predicted_edges = literal_eval(edges_df.at[sentence_index, edge_type])
@@ -79,7 +80,8 @@ if __name__ == '__main__':
                         'nonproj.edges.sum',
                         'nonproj.edges.triu',
                         'nonproj.edges.tril',
-                        'nonproj.edges.none']""")
+                        'nonproj.edges.none'],
+                        or enter 'all' for all.""")
   CLI_ARGS = ARGP.parse_args()
 
   # Columns of CONLL file
@@ -97,19 +99,24 @@ if __name__ == '__main__':
   OBSERVATIONS = main.load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
   OUTPUTDIR = os.path.dirname(CLI_ARGS.input_file)
   EDGES_DF = pd.read_csv(CLI_ARGS.input_file)
-
+  
+  if CLI_ARGS.edge_types == ['all']:
+    print(CLI_ARGS.edge_types)
+    CLI_ARGS.edge_types = [
+      'projective.edges.sum', 'projective.edges.triu', 'projective.edges.tril', 'projective.edges.none',
+      'nonproj.edges.sum', 'nonproj.edges.triu', 'nonproj.edges.tril', 'nonproj.edges.none'
+      ]
   for edge_type in CLI_ARGS.edge_types:
     edgetype = edge_type.split(".")
     label = f'{edgetype[2]}.{edgetype[0]}'
     write_tikz_files(OUTPUTDIR, EDGES_DF, CLI_ARGS.sentence_indices, edge_type,
-      output_prefix=CLI_ARGS.output_prefix, output_suffix=label)
+                     output_prefix=CLI_ARGS.output_prefix, output_suffix=label)
 
   TEX_FILEPATH = os.path.join(OUTPUTDIR, 'dependencies.tex')
   with open(TEX_FILEPATH, mode='w') as tex_file:
     print(f'writing TeX to {TEX_FILEPATH}')
     tex_file.write("\\documentclass[tikz]{standalone}\n\\usepackage{tikz,tikz-dependency}\n\\pgfkeys{%\n/depgraph/edge unit distance=.75ex,%\n/depgraph/reserved/edge style/.style = {\n-, % arrow properties\nsemithick, solid, line cap=round, % line properties\nrounded corners=2, % make corners round\n},%\n/depgraph/reserved/label style/.style = {%\n% anchor = mid, draw, solid, black, rotate = 0, rounded corners = 2pt,%\nscale = .5,%\ntext height = 1.5ex, text depth = 0.25ex, % needed to center text vertically\ninner sep=.2ex,%\nouter sep = 0pt,%\ntext = black,%\nfill = white, %opacity = 0, text opacity = 0 % uncomment to hide all labels\n},%\n}\n\\begin{document}\n\n% % Put tikz dependencies here, like\n")
     tex_file.write(f"% dependencies for {OUTPUTDIR}\n")
-    for tikzfile in sorted([os.path.basename(x) for x in glob.glob(os.path.join(OUTPUTDIR,'*.tikz'))]):
-        tex_file.write(f"\\input{{{tikzfile}}}\n")
+    for tikzfile in sorted([os.path.basename(x) for x in glob.glob(os.path.join(OUTPUTDIR, '*.tikz'))]):
+      tex_file.write(f"\\input{{{tikzfile}}}\n")
     tex_file.write("\n\\end{document}")
-

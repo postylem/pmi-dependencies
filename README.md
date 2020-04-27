@@ -11,6 +11,8 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
 - [parser.py](pmi-accuracy/parser.py) has the methods to get either a simple MST (Prim's algorithm) or a projective MST (Eisner's algorithm) from the PMI matrices.
 - [task.py](pmi-accuracy/task.py) has stuff for dealing with the raw PTB and getting a distance matrix (.conllx file -> torch tensor), to extract parse distance matrix, or linear string-distance matrix.
 
+[print_tikz.py](pmi-accuracy/print_tikz.py) prints dependency trees with TikZ.
+
 ### The models we're testing
 
 - XLNet
@@ -33,16 +35,10 @@ TODO:
 - ELMO
 
 
-Penn Treebank data:
+### Penn Treebank data:
 
-The Penn Treebank WSJ corpus is split into 24 sets. 
-The standard partitioning is:
-- 02-21 for train (39832 sentences)
-- {01,22,24} for dev (1700 sentences)
-- 23 for test (2416)
-- 00 is discarded
-
-*Data used here is the 1700 sentences of the standard dev split (in CONLL format, 40117 word-level tokens).*
+*Data used here is the 1700 sentences of the standard dev split, from partition 22 (in CONLL format, 40117 word-level tokens).*
+[According to a standard partitioning: 02-21 for train (39832 sentences), 01,22,24 for dev, 23 for test (2416 sentences)]
 
 ### Baselines
 
@@ -131,7 +127,7 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 - `tikz.zip` - a zipped directory of all the tikz dependencies for visualizing.
  -->
 
-### Plotting dependencies
+### Plotting dependencies in Ti*k*Z
 
 Plotting pmi dependencies vs gold is useful... maybe.  To look at some plots, use [print_tikz.py](pmi-accuracy/print_tikz.py).  For instance, to look at sentences 1696, run:
 
@@ -156,9 +152,6 @@ npzfile = np.load(RESULTS_DIR + 'pmi_matrices.npz')
 print(sorted(npzfile.files))
 matrix_0 = npzfile['sentence_0']
 ```
-
-### Output dependencies as tikz: (not implemented anymore)
-To look at the dependency graphs predicted with PMI, say, sentence 42, add a line `\input{tikz/42.tikz}`to the dependencies.tex file, and compile.  (Unzip tikz.zip first)
 
 
 ### Notes:
