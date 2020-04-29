@@ -359,8 +359,8 @@ if __name__ == '__main__':
   if CLI_ARGS.model_spec.startswith('xlnet'):
     MODEL_TYPE = 'xlnet'
     MODEL = languagemodel.XLNet(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-  elif CLI_ARGS.model_spec.startswith('bert'):
-    MODEL_TYPE = 'bert'
+  elif CLI_ARGS.model_spec.startswith('bert') or CLI_ARGS.model_spec.startswith('distilbert'):
+    MODEL_TYPE = 'bert' # DistilBERT should work just like BERT
     MODEL = languagemodel.BERT(DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
   elif CLI_ARGS.model_spec.startswith('xlm'):
     MODEL_TYPE = 'xlm'
