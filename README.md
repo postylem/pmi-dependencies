@@ -27,6 +27,8 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
   - [xlm-mlm-en-2048](https://huggingface.co/xlm-mlm-en-2048)
 - BART
   - [bart-large](https://huggingface.co/facebook/bart-large)
+- DistilBERT
+  - [distilbert-base-cased](https://huggingface.co/distilbert-base-cased)
 - GPT2 (small) (not bidirectional...)
   - [gpt2](https://huggingface.co/gpt2)
 
@@ -280,12 +282,33 @@ rndom projective: 0.27
 | *pad 30* |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.38  |  0.23  |  0.40  |  0.38  |
-|  proj    |  0.39  |  0.27  |**0.41**|  0.40  |
+|  proj    |  0.39  |  0.27  |  0.41  |  0.40  |
 
 | *pad 60* |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.38  |  0.23  |  0.41  |  0.38  |
-|  proj    |  0.40  |  0.27  |**0.42**|  0.40  |
+|  proj    |  0.40  |  0.27  |  0.42  |  0.40  |
+### distilbert-base-cased
+| *pad 0*  |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.46  |  0.44  |  0.43  |  0.46  |
+|  proj    |  0.48  |  0.46  |  0.46  |  0.46  |
+
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.47  |  0.45  |  0.45  |  0.47  |
+|  proj    |  0.48  |  0.47  |  0.46  |  0.47  |
+
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.48  |  0.46  |  0.45  |  0.48  |
+|  proj    |**0.49**|  0.48  |  0.47  |  0.47  |
+
+### gpt2  (just for exploration)
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.43  |  0.09  |  0.43  |  0.37  |
+|  proj    |  0.43  |**0.51**|  0.43  |  0.44  |
 --------------------------------------------------
 
 
