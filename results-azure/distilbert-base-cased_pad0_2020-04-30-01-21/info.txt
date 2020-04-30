@@ -1,0 +1,13 @@
+batch_size:	16
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_spec:	distilbert-base-cased
+n_observations:	all
+pad:	0
+results_dir:	results/
+=========
+mean uuas values
+    linear         :  0.504
+    random nonproj :  0.131
+    random proj    :  0.264
+    PMI nonproj    :  {'sum': 0.457, 'triu': 0.443, 'tril': 0.434, 'none': 0.462}
+    PMI proj       :  {'sum': 0.476, 'triu': 0.463, 'tril': 0.456, 'none': 0.462}

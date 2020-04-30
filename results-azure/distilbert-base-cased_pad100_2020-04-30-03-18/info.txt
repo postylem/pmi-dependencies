@@ -1,0 +1,6 @@
+batch_size:	8
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_spec:	distilbert-base-cased
+n_observations:	all
+pad:	100
+results_dir:	results/
