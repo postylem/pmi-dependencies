@@ -14,6 +14,7 @@ import torch
 import task
 import parser
 import languagemodel
+import embedding
 
 
 # Data input
@@ -311,6 +312,8 @@ def score(observations, padlen=0, n_obs='all',
                 for symmetrize_method in symmetrize_methods:
                     predictors.add_pmi_edges(f'pmi_edge_{symmetrize_method}',
                                              scores['projective']['edges'][symmetrize_method])
+                    predictors.add_pmi_edges(f'pmi_edge_nonproj_{symmetrize_method}',
+                                             scores['nonproj']['edges'][symmetrize_method])
                 with open(wordpair_csv, 'a') as f:
                     predictors.df.insert(0, 'sentence_index', i)
                     predictors.df.to_csv(f, mode='a', header=header, index=False, float_format='%.7f')
@@ -413,6 +416,10 @@ if __name__ == '__main__':
     elif CLI_ARGS.model_spec.startswith('gpt2'):
         MODEL = languagemodel.GPT2(
             DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+    elif CLI_ARGS.model_spec == 'w2v':
+        W2V_PATH = "w2v.txt"  # TODO: hardcoded for now...
+        MODEL = embedding.Word2Vec(
+            DEVICE, CLI_ARGS.model_spec, W2V_PATH)
     else:
         raise ValueError(
             f'Model spec string {CLI_ARGS.model_spec} not recognized.')

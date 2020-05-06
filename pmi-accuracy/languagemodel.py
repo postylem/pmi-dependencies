@@ -80,7 +80,7 @@ class XLNetSentenceDataset(torch.utils.data.Dataset):
                     abs_target_curr = self.n_pad_left + target_pos
                     # these are all the tokens we need to mask in the target span
                     abs_target_next = [self.n_pad_left + t
-                                                         for t in target_span[idx_target:]]
+                                       for t in target_span[idx_target:]]
                     # we replace all hidden target tokens with <mask>
                     input_ids = np.array(self.input_ids)
                     input_ids[abs_target_next] = self.mask_token_id
@@ -225,7 +225,7 @@ class XLNet(LanguageModel):
         # log_p[i, i] is log p(w_i | c)
         # log_p[i, j] is log p(w_i | c \ w_j)
         log_p_wi_I_c = np.diag(log_p)
-        pseudo_loglik = np.trace(log_p) 
+        pseudo_loglik = np.trace(log_p)
         pmi_matrix = log_p_wi_I_c[:, None] - log_p
         return pmi_matrix, pseudo_loglik
 
