@@ -75,6 +75,7 @@ class Word2Vec:
         with torch.no_grad():
             in_sentence = self.in_embedding(sentence_as_ids)
             out_sentence = self.out_embedding(sentence_as_ids)
-            pmi_matrix = torch.matmul(in_sentence, out_sentence.T)
+            pmi_matrix = torch.matmul(
+                in_sentence, out_sentence.T).cpu().numpy()
         pseudo_loglik = 0  # meaningless for now
         return pmi_matrix, pseudo_loglik
