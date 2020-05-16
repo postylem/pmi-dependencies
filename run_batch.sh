@@ -16,4 +16,9 @@
 
 # # Running bert-base-uncased to compare with checkpoints:
 
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --pad 60 --batch_size 16 > bert-base-uncased-pad60.out 2> bert-base-uncased-pad60.err
+python pmi-accuracy/main.py --model_spec bert-base-uncased --pad 60 --batch_size 16 > bert-base-uncased-pad60.out 2> bert-base-uncased-pad60.err
+python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_1000000.pt --pad 60 --batch_size 16 > bert-ckpt1000k.out 2> bert-ckpt1000k.err
+python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_500000.pt --pad 60 --batch_size 16 > bert-ckpt500k.out 2> bert-ckpt500k.err
+python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_100000.pt --pad 60 --batch_size 16 > bert-ckpt100k.out 2> bert-ckpt100k.err
+python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_50000.pt --pad 60 --batch_size 16 > bert-ckpt50k.out 2> bert-ckpt50k.err
+python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_10000.pt --pad 60 --batch_size 16 > bert-ckpt10k.out 2> bert-ckpt10k.err
