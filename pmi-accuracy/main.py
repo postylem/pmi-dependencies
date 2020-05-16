@@ -352,7 +352,6 @@ if __name__ == '__main__':
     ARGP = ArgumentParser()
     ARGP.add_argument('--n_observations', default='all',
                       help='number of sentences to look at')
-    # ARGP.add_argument('--from_disk', nargs='?', const='pmi_mats.npz') # TODO
     ARGP.add_argument('--model_spec', default='xlnet-base-cased',
                       help='''specify model
                       (e.g. "xlnet-base-cased", "bert-large-cased"),or path for offline''')
@@ -360,8 +359,8 @@ if __name__ == '__main__':
                       help='path/to/treebank.conllx: dependency file, in conllx format')
     ARGP.add_argument('--results_dir', default='results/',
                       help='specify path/to/results/directory/')
-    # ARGP.add_argument('--save_matrices', action='store_true',
-    #                   help='to save PMI matrices to disk.')
+    ARGP.add_argument('--bert_model_path',
+                      help='optional: load model state from file')
     ARGP.add_argument('--batch_size', default=32, type=int)
     ARGP.add_argument('--pad', default=0, type=int,
                       help='(int) pad sentences to be at least this long')
@@ -407,6 +406,11 @@ if __name__ == '__main__':
         # DistilBERT will work just like BERT
         MODEL = languagemodel.BERT(
             DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+        if CLI_ARGS.bert_model_path:
+            STATE = torch.load(CLI_ARGS.bert_model_path)
+            MODEL = languagemodel.BERT(
+                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
+                state_dict=STATE)
     elif CLI_ARGS.model_spec.startswith('xlm'):
         MODEL = languagemodel.XLM(
             DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)

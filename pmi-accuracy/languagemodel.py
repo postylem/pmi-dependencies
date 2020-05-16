@@ -1,6 +1,6 @@
 """
 Methods for getting probability estimates from a language model
-Classes for XLNet, BERT, XLM, etc ...ELMo?
+Classes for XLNet, BERT, XLM, etc 
 TODO: consolidate. A lot of repeated code.
 -
 March 2020
@@ -18,9 +18,11 @@ class LanguageModel:
     Base class for getting probability estimates from a pretrained contextual embedding model.
     Contains methods to be used by XLNet BERT XLM ...
     """
-    def __init__(self, device, model_spec, batchsize):
+    def __init__(self, device, model_spec, batchsize, state_dict=None):
         self.device = device
-        self.model = AutoModelWithLMHead.from_pretrained(model_spec).to(device)
+        self.model = AutoModelWithLMHead.from_pretrained(
+            pretrained_model_name_or_path=model_spec,
+            state_dict=state_dict).to(device)
         self.tokenizer = AutoTokenizer.from_pretrained(model_spec)
         self.batchsize = batchsize
         print(f"Language model '{model_spec}' initialized (batchsize = {batchsize}) on {device}.")
