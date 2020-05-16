@@ -429,7 +429,7 @@ if __name__ == '__main__':
         MODEL = languagemodel.GPT2(
             DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
     elif CLI_ARGS.model_spec == 'w2v':
-        W2V_PATH = "w2v.txt"  # TODO: hardcoded for now...
+        W2V_PATH = "gensim_w2v.txt"  # TODO: hardcoded for now...
         MODEL = embedding.Word2Vec(
             DEVICE, CLI_ARGS.model_spec, W2V_PATH)
     else:
