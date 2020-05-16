@@ -367,6 +367,12 @@ if __name__ == '__main__':
     CLI_ARGS = ARGP.parse_args()
 
     SPEC_STRING = str(CLI_ARGS.model_spec)
+    if CLI_ARGS.bert_model_path:
+        # custom naming just for readability
+        import re
+        number = re.findall("(\d+)", CLI_ARGS.bert_model_path)
+        number = str(int(int(number[-1]) / 1000.0))
+        SPEC_STRING = SPEC_STRING + ".ckpt-" + number + "k"
 
     N_OBS = CLI_ARGS.n_observations
     if N_OBS != 'all':
@@ -404,13 +410,15 @@ if __name__ == '__main__':
     elif (CLI_ARGS.model_spec.startswith('bert') or
           CLI_ARGS.model_spec.startswith('distilbert')):
         # DistilBERT will work just like BERT
-        MODEL = languagemodel.BERT(
-            DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
         if CLI_ARGS.bert_model_path:
+            # load checkpointed weights from disk, if specified
             STATE = torch.load(CLI_ARGS.bert_model_path)
             MODEL = languagemodel.BERT(
                 DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
                 state_dict=STATE)
+        else:
+            MODEL = languagemodel.BERT(
+                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
     elif CLI_ARGS.model_spec.startswith('xlm'):
         MODEL = languagemodel.XLM(
             DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
