@@ -309,9 +309,61 @@ rndom projective: 0.27
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.43  |  0.09  |  0.43  |  0.37  |
 |  proj    |  0.43  |**0.51**|  0.43  |  0.44  |
+
+### Word2Vec trained on wikipedia and bookcorpus
+| *pad 0*  |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.305 |  0.323 |  0.254 |  0.287 |
+|  proj    |  0.411 |  0.399 |  0.323 |  0.419 |
+### Word2Vec `gensim` implementation
+| *pad 0*  |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.308 |  0.291 |  0.314 |  0.307 |
+|  proj    |  0.408 |  0.376 |  0.401 |  0.441 |
 --------------------------------------------------
 
 
+## Checkpoints along training (BERT), 500 sentences
+
+- linear         0.499
+- random nonproj 0.135
+- random proj    0.267
+
+### bert-base-uncased pad60 off-shelf
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.452 |  0.434 |  0.432 |  0.462 |
+|  proj    |  0.463 |  0.452 |  0.448 |  0.442 |
+### bert-base-uncased pad60 1500000
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.415 |  0.404 |  0.388 |  0.424 |
+|  proj    |  0.434 |  0.423 |  0.41  |  0.413 |
+### bert-base-uncased pad60 1000000
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.419 |  0.405 |  0.399 |  0.437 |
+|  proj    |  0.439 |  0.426 |  0.425 |  0.431 |
+### bert-base-uncased pad60 500000
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.376 |  0.339 |  0.351 |  0.375 |
+|  proj    |  0.409 |  0.372 |  0.389 |  0.395 |
+### bert-base-uncased pad60 100000
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.431 |  0.409 |  0.42  |  0.447 |
+|  proj    |  0.444 |  0.425 |  0.437 |  0.446 |
+### bert-base-uncased pad60 50000
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.151 |  0.148 |  0.152 |  0.149 |
+|  proj    |  0.27  |  0.261 |  0.256 |  0.265 |
+### bert-base-uncased pad60 10000
+| *pad 60* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.115 |  0.129 |  0.095 |  0.104 |
+|  proj    |  0.244 |  0.21  |  0.165 |  0.178 |
 <!-- 
 ### CACHED Dec 2019 version: no batches 
 File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py) gets pmi dependencies and calculates undirected attachment score, without using batches. Run:

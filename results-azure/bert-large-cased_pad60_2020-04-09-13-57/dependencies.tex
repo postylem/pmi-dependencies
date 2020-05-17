@@ -8,9 +8,9 @@ semithick, solid, line cap=round, % line properties
 rounded corners=2, % make corners round
 },%
 /depgraph/reserved/label style/.style = {%
-% anchor = mid, draw, solid, black, rotate = 0, rounded corners = 2pt,%
+% anchor = mid, draw, solid, black, rotate = 0,rounded corners = 2pt,%
 scale = .5,%
-text height = 1.5ex, text depth = 0.25ex, % needed to center text vertically
+text height = 1.5ex,text depth = 0.25ex, % needed to center text vertically
 inner sep=.2ex,%
 outer sep = 0pt,%
 text = black,%
@@ -21,6 +21,14 @@ fill = white, %opacity = 0, text opacity = 0 % uncomment to hide all labels
 
 % % Put tikz dependencies here, like
 % dependencies for results-azure/bert-large-cased_pad60_2020-04-09-13-57
+\input{1442none.nonproj.tikz}
+\input{1442none.projective.tikz}
+\input{1442sum.nonproj.tikz}
+\input{1442sum.projective.tikz}
+\input{1442tril.nonproj.tikz}
+\input{1442tril.projective.tikz}
+\input{1442triu.nonproj.tikz}
+\input{1442triu.projective.tikz}
 \input{166none.nonproj.tikz}
 \input{166none.projective.tikz}
 \input{166sum.nonproj.tikz}
@@ -45,5 +53,21 @@ fill = white, %opacity = 0, text opacity = 0 % uncomment to hide all labels
 \input{2tril.projective.tikz}
 \input{2triu.nonproj.tikz}
 \input{2triu.projective.tikz}
+\input{66none.nonproj.tikz}
+\input{66none.projective.tikz}
+\input{66sum.nonproj.tikz}
+\input{66sum.projective.tikz}
+\input{66tril.nonproj.tikz}
+\input{66tril.projective.tikz}
+\input{66triu.nonproj.tikz}
+\input{66triu.projective.tikz}
+\input{69none.nonproj.tikz}
+\input{69none.projective.tikz}
+\input{69sum.nonproj.tikz}
+\input{69sum.projective.tikz}
+\input{69tril.nonproj.tikz}
+\input{69tril.projective.tikz}
+\input{69triu.nonproj.tikz}
+\input{69triu.projective.tikz}
 
 \end{document}

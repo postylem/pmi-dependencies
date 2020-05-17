@@ -367,7 +367,7 @@ if __name__ == '__main__':
     CLI_ARGS = ARGP.parse_args()
 
     SPEC_STRING = str(CLI_ARGS.model_spec)
-    if CLI_ARGS.model_path:
+    if CLI_ARGS.model_path and CLI_ARGS.model_spec == 'bert-base-uncased':
         # custom naming just for readability
         import re
         number = re.findall("(\d+)", CLI_ARGS.model_path)

@@ -11,6 +11,7 @@ to-ignore/
 # repos
 hewitt-repo/
 marvin-repo-LM_syneval-master/
+cpllab-syntactic-generalization/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
