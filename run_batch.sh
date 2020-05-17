@@ -13,14 +13,14 @@
 #python pmi-accuracy/main.py --model_spec xlnet-large-cased --pad 30 --batch_size 10 > xlnet-large-pad30.out 2> xlnet-large-pad30.err
 #python pmi-accuracy/main.py --model_spec xlnet-large-cased --pad 30 --batch_size 10 > xlnet-large-pad30.out 2> xlnet-large-pad30.err
 #python pmi-accuracy/main.py --model_spec w2v --pad 0 > w2v.out 2> w2v.err
-python pmi-accuracy/main.py --model_spec w2v --pad 0 > gensim_w2v.out 2> gensim_w2v.err
+python pmi-accuracy/main.py --model_spec w2v --pad 0 --model_path gensim_w2v.txt > gensim_w2v.out 2> gensim_w2v.err
 
 # # Running bert-base-uncased to compare with checkpoints:
 
 #python pmi-accuracy/main.py --model_spec bert-base-uncased --pad 60 --batch_size 16 --n_observations 500 > bert-base-uncased-pad60.out 2> bert-base-uncased-pad60.err
-python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_1500000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt1500k.out 2> bert-ckpt1500k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_1000000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt1000k.out 2> bert-ckpt1000k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_500000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt500k.out 2> bert-ckpt500k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_100000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt100k.out 2> bert-ckpt100k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_50000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt50k.out 2> bert-ckpt50k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --bert_model_path ~/bert_base_ckpt/model_steps_10000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt10k.out 2> bert-ckpt10k.err
+#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_1500000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt1500k.out 2> bert-ckpt1500k.err
+#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_1000000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt1000k.out 2> bert-ckpt1000k.err
+#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_500000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt500k.out 2> bert-ckpt500k.err
+#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_100000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt100k.out 2> bert-ckpt100k.err
+#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_50000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt50k.out 2> bert-ckpt50k.err
+#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_10000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt10k.out 2> bert-ckpt10k.err
