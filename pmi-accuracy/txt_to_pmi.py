@@ -103,8 +103,11 @@ if __name__ == '__main__':
     if DEVICE.type == 'cuda':
         print(torch.cuda.get_device_name(0))
         print('Memory Usage:')
-        print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
-        print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
+        print('Allocated:',
+              round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
+        print('Cached:   ',
+              round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
+        print()
 
     # Instantiate the language model to use for getting estimates
 
@@ -151,16 +154,13 @@ if __name__ == '__main__':
             SENTENCES, N_SENTENCES, PMI_DIR,
             outfilename=TASKNAME + '.npz', verbose=False)
     else:
-        counter = 0
         for dir_entry in tqdm(os.scandir(CLI_ARGS.txt)):
-            if counter < 1:
-                SENTENCES = load_sentences_txt(dir_entry)
-                TASKNAME = os.path.splitext(dir_entry.name)[0]
-                tqdm.write(f"getting pmi for: {TASKNAME}")
-                save_pmi(
-                    SENTENCES, N_SENTENCES, PMI_DIR,
-                    outfilename=TASKNAME + '.npz', verbose=False)
-            counter += 1
+            SENTENCES = load_sentences_txt(dir_entry)
+            TASKNAME = os.path.splitext(dir_entry.name)[0]
+            tqdm.write(f"getting pmi for: {TASKNAME}")
+            save_pmi(
+                SENTENCES, N_SENTENCES, PMI_DIR,
+                outfilename=TASKNAME + '.npz', verbose=False)
 
     if CLI_ARGS.archive:
         shutil.make_archive(
