@@ -359,18 +359,18 @@ if __name__ == '__main__':
                       help='path/to/treebank.conllx: dependency file, in conllx format')
     ARGP.add_argument('--results_dir', default='results/',
                       help='specify path/to/results/directory/')
-    ARGP.add_argument('--bert_model_path',
-                      help='optional: load model state from file')
+    ARGP.add_argument('--model_path',
+                      help='optional: load model state or embeddings from file')
     ARGP.add_argument('--batch_size', default=32, type=int)
     ARGP.add_argument('--pad', default=0, type=int,
                       help='(int) pad sentences to be at least this long')
     CLI_ARGS = ARGP.parse_args()
 
     SPEC_STRING = str(CLI_ARGS.model_spec)
-    if CLI_ARGS.bert_model_path:
+    if CLI_ARGS.model_path:
         # custom naming just for readability
         import re
-        number = re.findall("(\d+)", CLI_ARGS.bert_model_path)
+        number = re.findall("(\d+)", CLI_ARGS.model_path)
         number = str(int(int(number[-1]) / 1000.0))
         SPEC_STRING = SPEC_STRING + ".ckpt-" + number + "k"
 
@@ -410,9 +410,9 @@ if __name__ == '__main__':
     elif (CLI_ARGS.model_spec.startswith('bert') or
           CLI_ARGS.model_spec.startswith('distilbert')):
         # DistilBERT will work just like BERT
-        if CLI_ARGS.bert_model_path:
+        if CLI_ARGS.model_path:
             # load checkpointed weights from disk, if specified
-            STATE = torch.load(CLI_ARGS.bert_model_path)
+            STATE = torch.load(CLI_ARGS.model_path)
             MODEL = languagemodel.BERT(
                 DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
                 state_dict=STATE)
@@ -429,7 +429,7 @@ if __name__ == '__main__':
         MODEL = languagemodel.GPT2(
             DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
     elif CLI_ARGS.model_spec == 'w2v':
-        W2V_PATH = "gensim_w2v.txt"  # TODO: hardcoded for now...
+        W2V_PATH = CLI_ARGS.model_path
         MODEL = embedding.Word2Vec(
             DEVICE, CLI_ARGS.model_spec, W2V_PATH)
     else:

@@ -16,8 +16,11 @@ class Word2Vec:
     """
     def __init__(self, device, model_spec, path):
         self.device = device
-        self.vocabsize = 1779969
-        self.embedding_dim = 300
+        with open(path) as f:
+            first_line = f.readline().strip()
+            vsize, dim = [int(x) for x in first_line.split(' ')]
+        self.vocabsize = vsize
+        self.embedding_dim = dim
         print(f'Loading word embeddings from {path} ...')
         matrix, self.word_to_index = self._load_embeddings(path)
         self.in_embedding, self.out_embedding = self._prepare_embeddings(matrix)
