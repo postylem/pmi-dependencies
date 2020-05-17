@@ -1,0 +1,14 @@
+batch_size:	16
+bert_model_path:	/home/alsordon/bert_base_ckpt/model_steps_100000.pt
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_spec:	bert-base-uncased
+n_observations:	500
+pad:	60
+results_dir:	results/
+=========
+mean sentence uuas
+        linear         :  0.499
+        random nonproj :  0.132
+        random proj    :  0.271
+        PMI nonproj    :  {'sum': 0.431, 'triu': 0.409, 'tril': 0.42, 'none': 0.447}
+        PMI proj       :  {'sum': 0.444, 'triu': 0.425, 'tril': 0.437, 'none': 0.446}
