@@ -1,0 +1,7 @@
+archive:	False
+batch_size:	32
+model_path:	gensim_w2v.txt
+model_spec:	w2v
+n_sentences:	all
+results_dir:	results/
+txt:	SyntaxGym_test_suites/txt/

@@ -1,0 +1,7 @@
+archive:	False
+batch_size:	32
+model_path:	None
+model_spec:	bart-large
+n_sentences:	all
+results_dir:	results/
+txt:	SyntaxGym_test_suites/txt/
