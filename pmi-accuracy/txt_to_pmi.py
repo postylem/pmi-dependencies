@@ -1,23 +1,31 @@
 '''
 Get PMI matrices for sentences in SyntaxGym tasks.
 '''
+import json
+import os
+import shutil
 
 from datetime import datetime
 from argparse import ArgumentParser
-import os
-import shutil
-import torch
-from tqdm import tqdm
 import numpy as np
+
+from tqdm import tqdm
+import torch
 
 import languagemodel
 import embedding
 
 
+def load_testsuite_json(path):
+    with open(path) as file:
+        data = json.load(file)
+    return data
+
+
 def load_sentences_txt(path):
-    with open(path) as f:
+    with open(path) as file:
         sentences = [line.strip().split(' ')
-                     for line in f]
+                     for line in file]
     return sentences
 
 
@@ -59,6 +67,8 @@ if __name__ == '__main__':
     ARGP.add_argument('--txt', default='cpllab-syntactic-generalization/test_suites/txt',
                       help='''specify path/to/results/sentences.txt
                            or directory containing multiple txt files''')
+    ARGP.add_argument('--json', default='cpllab-syntactic-generalization/test_suites/json',
+                      help='''specify path/to/results/testsuite.json''')
     ARGP.add_argument('--model_spec', default='xlnet-base-cased',
                       help='''specify model
                       (e.g. "xlnet-base-cased", "bert-large-cased")''')
@@ -168,13 +178,3 @@ if __name__ == '__main__':
             format='zip',
             root_dir=PMI_DIR)
         shutil.rmtree(PMI_DIR)
-
-
-
-
-
-
-
-
-
-

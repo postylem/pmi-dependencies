@@ -1,0 +1,14 @@
+% dependencies for results-azure/bert-large-cased_pad60_2020-04-09-13-57
+\begin{dependency}
+	\begin{deptext}
+		Ad\& Notes\& ...\& . \\
+	\end{deptext}
+	\depedge{1}{2}{nn}
+	\depedge{2}{3}{punct}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{1}{2}{}
+	\depedge[hide label, edge below, edge style={blue, opacity=0.5}]{2}{3}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\begin{footnotesize}66\end{footnotesize}};
+	\node (R2) at (R1.north) {\begin{footnotesize}tril.projective\end{footnotesize}};
+	\node (R3) at (R1.south) {\begin{footnotesize}100\%\end{footnotesize}};
+\end{dependency}

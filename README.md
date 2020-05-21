@@ -178,7 +178,7 @@ random non-proj:   0.13
 
 rndom projective: 0.27
 
-### xlnet-base
+### xlnet-base-cased
 | *pad 0*  |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.43  |  0.41  |  0.38  |  0.43  |
@@ -193,7 +193,7 @@ rndom projective: 0.27
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.42  |  0.40  |  0.39  |  0.43  |
 |  proj    |  0.46  |  0.44  |  0.44  |  0.44  |
-### xlnet-large
+### xlnet-large-cased
 | *pad 0*  |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.38  |  0.35  |  0.33  |  0.37  |
