@@ -13,41 +13,50 @@ from ast import literal_eval
 import main  # to use functions accessing data
 
 
+EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".", ";", "!", "?", ":", "``", "-LRB-", "-RRB-"]
+
+def is_edge_to_ignore(edge, observation):
+    is_d_punct = bool(observation.sentence[edge[0]-1] in EXCLUDED_PUNCTUATION)
+    is_h_root = bool(edge[1] == 0)
+    return is_d_punct or is_h_root
+
+
 def make_tikz_string(
         predicted_edges, gold_edges, observation,
         label1='', label2=''):
     ''' Writes out a tikz dependency TeX file
     for comparing predicted_edges and gold_edges'''
-    words = observation.sentence
-    gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
 
-    gold_edge_label = {key : None for key in gold_edges_set}
-    for i, _ in enumerate(observation.index):
-        d, h = int(observation.index[i]), int(observation.head_indices[i])
-        if (d-1, h-1) in gold_edges_set:
-            gold_edge_label[(d-1, h-1)] = observation.governance_relations[i]
-        elif (h-1, d-1) in gold_edges_set:
-            gold_edge_label[(h-1, d-1)] = observation.governance_relations[i]
+    gold_edges_list = list(zip(list(map(int, observation.index)),
+                               list(map(int, observation.head_indices)),
+                               observation.governance_relations))
+    gold_edge_to_label = {(e[0], e[1]): e[2] for e in gold_edges_list
+                          if not is_edge_to_ignore(e, observation)}
+    gold_edges_set = {tuple(sorted(e)) for e in gold_edge_to_label.keys()}
 
-    predicted_edges_set = {tuple(sorted(x)) for x in predicted_edges}
+    # note converting to 1-indexing
+    predicted_edges_set = {tuple(sorted((x[0]+1, x[1]+1))) for x in predicted_edges}
     correct_edges = list(gold_edges_set.intersection(predicted_edges_set))
     incorrect_edges = list(predicted_edges_set.difference(gold_edges_set))
     num_correct = len(correct_edges)
-    num_total = len(gold_edges)
+    num_total = len(gold_edges_set)
     uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
+
     # replace non-TeXsafe characters... add as needed
     tex_replace = {'$': '\$', '&': '+', '%': '\%',
                    '~': '\textasciitilde', '#': '\#'}
+
     # make string
     string = "\\begin{dependency}\n\t\\begin{deptext}\n\t\t"
-    string += "\\& ".join([tex_replace[x] if x in tex_replace else x for x in words]) + " \\\\" + '\n'
+    string += "\\& ".join([tex_replace[x] if x in tex_replace
+                           else x for x in observation.sentence]) + " \\\\" + '\n'
     string += "\t\\end{deptext}" + '\n'
-    for i_index, j_index in gold_edge_label:
-        string += f'\t\\depedge{{{i_index+1}}}{{{j_index+1}}}{{{gold_edge_label[(i_index, j_index)]}}}\n'
+    for i_index, j_index in gold_edge_to_label:
+        string += f'\t\\depedge{{{i_index}}}{{{j_index}}}{{{gold_edge_to_label[(i_index, j_index)]}}}\n'
     for i_index, j_index in correct_edges:
-        string += f'\t\\depedge[hide label, edge below, edge style={{blue, opacity=0.5}}]{{{i_index+1}}}{{{j_index+1}}}{{}}\n'
+        string += f'\t\\depedge[hide label, edge below, edge style={{-, blue, opacity=0.5}}]{{{i_index}}}{{{j_index}}}{{}}\n'
     for i_index, j_index in incorrect_edges:
-        string += f'\t\\depedge[hide label, edge below, edge style={{red, opacity=0.5}}]{{{i_index+1}}}{{{j_index+1}}}{{}}\n'
+        string += f'\t\\depedge[hide label, edge below, edge style={{-, red, opacity=0.5}}]{{{i_index}}}{{{j_index}}}{{}}\n'
     string += "\t\\node (R) at (\\matrixref.east) {{}};\n"
     string += f"\t\\node (R1) [right of = R] {{\\begin{{footnotesize}}{label1}\\end{{footnotesize}}}};\n"
     string += f"\t\\node (R2) at (R1.north) {{\\begin{{footnotesize}}{label2}\\end{{footnotesize}}}};\n"
@@ -62,9 +71,9 @@ def write_tikz_files(
     ''' writes TikZ string to outputdir,
     a seperate file for each sentence index'''
     for sentence_index in sentence_indices:
-        gold_edges = literal_eval(edges_df.at[sentence_index, "gold_edges"])
+        gold_edges = literal_eval(edges_df.at[sentence_index, "gold_edges"])  # TODO this is unnecessary. Get from 'observation'
         predicted_edges = literal_eval(edges_df.at[sentence_index, edge_type])
-        tikz_string = make_tikz_string(predicted_edges, gold_edges,
+        tikz_string = make_tikz_string(predicted_edges, gold_edges,  # TODO remove gold_edges arg
                                        OBSERVATIONS[sentence_index],
                                        label1=str(sentence_index),
                                        label2=output_suffix)
@@ -79,7 +88,8 @@ def write_tikz_files(
 if __name__ == '__main__':
     ARGP = ArgumentParser()
     ARGP.add_argument('--sentence_indices', type=int, nargs='+',
-                      help='sentence indices to plot dependencies for')
+                      help='''sentence indices to plot dependencies for.
+                              enter integer(s)''')
     ARGP.add_argument('--input_file',
                       default='scores.csv',
                       help='specify path/to/scores.csv')
@@ -144,7 +154,8 @@ if __name__ == '__main__':
             "\\documentclass[tikz]{standalone}\n"
             "\\usepackage{tikz,tikz-dependency}\n"
             "\\pgfkeys{%\n/depgraph/edge unit distance=.75ex,%\n"
-            "/depgraph/reserved/edge style/.style = {\n-, % arrow properties\n"
+            "/depgraph/edge horizontal padding=2,%\n"
+            "/depgraph/reserved/edge style/.style = {\n<-, % arrow properties\n"
             "semithick, solid, line cap=round, % line properties\n"
             "rounded corners=2, % make corners round\n},%\n"
             "/depgraph/reserved/label style/.style = {%\n"
