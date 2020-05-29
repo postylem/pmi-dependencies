@@ -151,7 +151,7 @@ Example:
 
 - Word2Vec
 
-![example dependency plot](latex-plotting/example-1696-w2v-60-proj.sum.png)
+![example dependency plot](latex-plotting/example-1696-w2v-proj.sum.png)
 
 
 - `--edge_type` you can specify projective or non projective edges, or symmetrize method tril, triu, sum, none like: `--edge_type nonproj.edges.tril`, for instance.  Default is `projective.edges.sum`.
