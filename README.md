@@ -137,9 +137,22 @@ Plotting pmi dependencies vs gold is useful... maybe.  To look at some plots, us
 python pmi-accuracy/print_tikz.py --sentence_indices 1696 --input_file path/to/scores*.csv
 ```
 
-This will output a LaTeX file `dependencies.tex`, to print
+This will output a LaTeX file `dependencies.tex`.
+
+Example: 
+
+- BERT
 
 ![example dependency plot](latex-plotting/example-1696-bert-large-60-proj.sum.png)
+
+- DisitilBERT
+
+![example dependency plot](latex-plotting/example-1696-distilbert-60-proj.sum.png)
+
+- Word2Vec
+
+![example dependency plot](latex-plotting/example-1696-w2v-60-proj.sum.png)
+
 
 - `--edge_type` you can specify projective or non projective edges, or symmetrize method tril, triu, sum, none like: `--edge_type nonproj.edges.tril`, for instance.  Default is `projective.edges.sum`.
 - optionally, multiple sentences at a time, and multiple edge types in order to be able to compare...
