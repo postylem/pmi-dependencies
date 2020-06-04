@@ -2,8 +2,9 @@
 \usepackage{tikz,tikz-dependency}
 \pgfkeys{%
 /depgraph/edge unit distance=.75ex,%
+%/depgraph/edge horizontal padding=2,%
 /depgraph/reserved/edge style/.style = {
--, % arrow properties
+->, % arrow properties
 semithick, solid, line cap=round, % line properties
 rounded corners=2, % make corners round
 },%
@@ -21,45 +22,10 @@ fill = white, %opacity = 0, text opacity = 0 % uncomment to hide all labels
 
 % % Put tikz dependencies here, like
 % dependencies for results-azure/distilbert-base-cased_pad60_2020-04-29-19-35
-\input{1442none.nonproj.tikz}
-\input{1442none.projective.tikz}
-\input{1442sum.nonproj.tikz}
 \input{1442sum.projective.tikz}
-\input{1442tril.nonproj.tikz}
-\input{1442tril.projective.tikz}
-\input{1442triu.nonproj.tikz}
-\input{1442triu.projective.tikz}
-\input{166none.nonproj.tikz}
-\input{166none.projective.tikz}
-\input{166sum.nonproj.tikz}
 \input{166sum.projective.tikz}
-\input{166tril.nonproj.tikz}
-\input{166tril.projective.tikz}
-\input{166triu.nonproj.tikz}
-\input{166triu.projective.tikz}
-\input{1696none.nonproj.tikz}
-\input{1696none.projective.tikz}
-\input{1696sum.nonproj.tikz}
 \input{1696sum.projective.tikz}
-\input{1696tril.nonproj.tikz}
-\input{1696tril.projective.tikz}
-\input{1696triu.nonproj.tikz}
-\input{1696triu.projective.tikz}
-\input{2none.nonproj.tikz}
-\input{2none.projective.tikz}
-\input{2sum.nonproj.tikz}
 \input{2sum.projective.tikz}
-\input{2tril.nonproj.tikz}
-\input{2tril.projective.tikz}
-\input{2triu.nonproj.tikz}
-\input{2triu.projective.tikz}
-\input{329none.nonproj.tikz}
-\input{329none.projective.tikz}
-\input{329sum.nonproj.tikz}
 \input{329sum.projective.tikz}
-\input{329tril.nonproj.tikz}
-\input{329tril.projective.tikz}
-\input{329triu.nonproj.tikz}
-\input{329triu.projective.tikz}
 
 \end{document}
