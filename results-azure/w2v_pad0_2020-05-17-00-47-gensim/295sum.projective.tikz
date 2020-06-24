@@ -1,0 +1,41 @@
+% dependencies for results-azure/w2v_pad0_2020-05-17-00-47-gensim
+\begin{dependency}
+	\begin{deptext}
+		Late\& buying\& gave\& the\& Paris\& Bourse\& a\& parachute\& after\& its\& free\& fall\& early\& in\& the\& day\& . \\
+	\end{deptext}
+	\depedge{2}{1}{amod}
+	\depedge{3}{2}{nsubj}
+	\depedge{6}{4}{det}
+	\depedge{6}{5}{nn}
+	\depedge{3}{6}{iobj}
+	\depedge{8}{7}{det}
+	\depedge{3}{8}{dobj}
+	\depedge{3}{9}{prep}
+	\depedge{12}{10}{poss}
+	\depedge{12}{11}{amod}
+	\depedge{9}{12}{pobj}
+	\depedge{12}{13}{advmod}
+	\depedge{13}{14}{prep}
+	\depedge{16}{15}{det}
+	\depedge{14}{16}{pobj}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{7}{8}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{5}{6}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{13}{14}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{3}{9}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{11}{12}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{9}{12}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{5}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{9}{13}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{4}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{13}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{16}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{13}{15}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{8}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{9}{10}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\begin{footnotesize}w2v\end{footnotesize}};
+	\node (R2) at (R1.north) {\begin{footnotesize}sum.projective\end{footnotesize}};
+	\node (R3) at (R2.north) {\begin{footnotesize}295\end{footnotesize}};
+	\node (R4) at (R1.south) {\begin{footnotesize}40\%\end{footnotesize}};
+\end{dependency}

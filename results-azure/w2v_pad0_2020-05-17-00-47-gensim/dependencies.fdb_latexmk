@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1591565714 "dependencies.xdv" "dependencies.pdf" "dependencies" 1591565715
-  "dependencies.xdv" 1591565714 370116 cdd1bfbc40fd727238ac319bcd653c71 "xelatex"
+["xdvipdfmx"] 1591302743 "dependencies.xdv" "dependencies.pdf" "dependencies" 1591565612
+  "dependencies.xdv" 1591302742 368948 315a7759460d8b6c946a716d840350eb "xelatex"
   (generated)
   "dependencies.pdf"
-["xelatex"] 1591565711 "dependencies.tex" "dependencies.xdv" "dependencies" 1591565715
-  "/dev/null" 1591565702 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1591302739 "dependencies.tex" "dependencies.xdv" "dependencies" 1591565612
+  "/dev/null" 1591565610 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1480098815 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1480098815 7324 2310d1247db0114eb4726807c8837a0e ""
   "/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty" 1490564930 1251 d170e11a3246c3392bc7f59595af42cb ""
@@ -114,19 +114,19 @@
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/xetex/xelatex.fmt" 1523934532 3731946 97a69080a287fbc922a3cd699c6fd124 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "1352sum.projective.tikz" 1591302703 1909 742b3118b833a7b0bee106ce0c20e4cb ""
-  "237sum.projective.tikz" 1591302703 1700 bdd5c4bff894ed5d3adae78d0d7bbe9c ""
-  "295sum.projective.tikz" 1591302703 2113 eb7986298f598fbd75a82ee3d93e902a ""
-  "376sum.projective.tikz" 1591302703 1590 2df4cc77bc90c529e9532a75e00625d4 ""
-  "381sum.projective.tikz" 1591302703 1825 69655f0aa749f3b9aa44e2bafa146fd1 ""
-  "435sum.projective.tikz" 1591302703 1159 bbd48cc48ebe7057b8a36f830c5107c8 ""
-  "442sum.projective.tikz" 1591297791 1465 1ad3f5332f85bc43b9db2e3e7bf0c8ea ""
-  "817sum.projective.tikz" 1591302703 931 08f7607d6a6cb3673d25061a0e111fac ""
-  "900sum.projective.tikz" 1591302703 1149 e0b2675dc1e76e672a4a067696424f4b ""
-  "930sum.projective.tikz" 1591565704 1030 ab41873e23493c97fc459cef774a2b02 ""
-  "dependencies.aux" 1591565714 8 a94a2480d3289e625eea47cd1b285758 ""
-  "dependencies.tex" 1591304190 1103 b321b19a35ffaa79619f8ea9cbd1b8e7 ""
+  "1352sum.projective.tikz" 1591302713 1888 cf6823315f5791fc045152fa9d7c9de8 ""
+  "237sum.projective.tikz" 1591302713 1680 8daf9427df7d2076e46411295b4e53e9 ""
+  "295sum.projective.tikz" 1591302713 2089 b3481c2ba55fc7ff7909b8559dda5a79 ""
+  "376sum.projective.tikz" 1591302713 1572 5c02c5f85a045b9396624328b5f23960 ""
+  "381sum.projective.tikz" 1591302713 1802 9e4e573c1fa380f8354d0914a73695c8 ""
+  "435sum.projective.tikz" 1591302713 1136 2e798d69d29d135a6d4630dd7358e84d ""
+  "442sum.projective.tikz" 1591302713 1443 97ad056178d405c3c02a99bee2547463 ""
+  "817sum.projective.tikz" 1591302713 911 35f8580f17bad27be9749c09523955df ""
+  "900sum.projective.tikz" 1591302713 1128 65edec047e4f12ddd4c05a080d05c77e ""
+  "930sum.projective.tikz" 1591302713 1011 1c5afc0cdafd309fefeaefa6288281a8 ""
+  "dependencies.aux" 1591302742 8 a94a2480d3289e625eea47cd1b285758 ""
+  "dependencies.tex" 1591302713 1096 a836769cfb86c940da19f31b9be8abc5 ""
   (generated)
+  "dependencies.log"
   "dependencies.xdv"
   "dependencies.aux"
-  "dependencies.log"

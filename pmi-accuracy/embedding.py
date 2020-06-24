@@ -69,7 +69,7 @@ class Word2Vec:
     def ptb_tokenlist_to_pmi_matrix(
             self, ptb_tokenlist, add_special_tokens=True,
             pad_left=None, pad_right=None, verbose=True):
-        """Maps tokenlist to PMI matrix,
+        """Maps ptb_tokenlist to PMI matrix,
         TODO: this just ignores the rest of the arguments,
         but this way no custom call from main.py"""
 
