@@ -44,7 +44,9 @@ TODO:
 
 ### Baselines
 
-Baseline classes defined in [task.py](pmi-accuracy/task.py).
+The matched-length baseline is computed in [lengthmatch_baseline.ipynb](lengthmatch_baseline.ipynb).
+
+Two other simple baseline classes are defined in [task.py](pmi-accuracy/task.py).
 
 - `LinearBaselineTask`: makes a matrix whose entries are simply word-to-word distance in the string.  Recovering an min spanning tree from this matrix will give a relatively strong baseline.
 
