@@ -334,8 +334,7 @@ def score(observations, padlen=0, n_obs='all',
 
     if save_matrices:
         print("Saving PMI matrices in npz file.")
-        pmi_npz = 'pmi_matrices_' + SUFFIX + '.npz'
-        save_pmi(savez_dict, RESULTS_DIR, outfilename=pmi_npz)
+        save_pmi(savez_dict, RESULTS_DIR, outfilename="pmi_matrices.npz")
     return all_scores
 
 
