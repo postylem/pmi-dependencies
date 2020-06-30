@@ -34,7 +34,10 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
 
 TODO:
 
-- ELMO
+- ELMo
+- Models explicitly modelling linguistic structure, like 
+  - ordered neuron LSTM, 
+  - recursive neural network grammars
 
 
 ### Penn Treebank data:
