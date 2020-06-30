@@ -6,7 +6,7 @@ import csv
 import shutil
 from datetime import datetime
 from argparse import ArgumentParser
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 from itertools import combinations
 
 import torch
@@ -279,9 +279,10 @@ def get_padding(i, observations, threshold):
 
 
 def score(observations, padlen=0, n_obs='all',
-          write_wordpair_data=False, verbose=False):
+          write_wordpair_data=False, save_matrices=False, verbose=False):
     '''get estimates get scores for n (default all) observations'''
     all_scores = []
+    savez_dict = OrderedDict()
     if write_wordpair_data:
         wordpair_csv = RESULTS_DIR + 'wordpair_' + SUFFIX + '.csv'
         header = True
@@ -319,6 +320,9 @@ def score(observations, padlen=0, n_obs='all',
                     predictors.df.to_csv(f, mode='a', header=header, index=False, float_format='%.7f')
             header = False
 
+        if save_matrices:
+            savez_dict[str(' '.join(obs.sentence))] = pmi_matrix
+
         scores['pseudo_loglik'] = pseudo_loglik
         all_scores.append(scores)
         print(f"uuas:\nlinear         : {scores['baseline_linear']}")
@@ -326,8 +330,20 @@ def score(observations, padlen=0, n_obs='all',
         print(f"random proj    : {scores['baseline_random_proj']}")
         print(f"nonproj  { {k:round(v,3) for k, v in scores['nonproj']['uuas'].items()}}")
         print(f"proj     { {k:round(v,3) for k, v in scores['projective']['uuas'].items()}}\n")
-    print("all scores computed.")
+    print("All scores computed.")
+
+    if save_matrices:
+        print("Saving PMI matrices in npz file.")
+        pmi_npz = 'pmi_matrices_' + SUFFIX + '.npz'
+        save_pmi(savez_dict, RESULTS_DIR, outfilename=pmi_npz)
     return all_scores
+
+
+def save_pmi(
+        savez_dict, resultsdir,
+        outfilename='pmi_matrices.npz'):
+    save_filepath = os.path.join(resultsdir, outfilename)
+    np.savez(save_filepath, **savez_dict)
 
 
 def print_means_to_file(all_scores, file):
@@ -364,6 +380,8 @@ if __name__ == '__main__':
     ARGP.add_argument('--batch_size', default=32, type=int)
     ARGP.add_argument('--pad', default=0, type=int,
                       help='(int) pad sentences to be at least this long')
+    ARGP.add_argument('--save_matrices', action='store_true',
+                      help='to save pmi matrices as npz')
     CLI_ARGS = ARGP.parse_args()
 
     SPEC_STRING = str(CLI_ARGS.model_spec)
@@ -452,7 +470,8 @@ if __name__ == '__main__':
     OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
     SCORES = score(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS,
-                   write_wordpair_data=True, verbose=True)
+                   write_wordpair_data=True, save_matrices=CLI_ARGS.save_matrices,
+                   verbose=True)
     print_means_to_file(SCORES, RESULTS_DIR+'info.txt')
     DF = pd.json_normalize(SCORES, sep='.')
     DF.to_csv(path_or_buf=RESULTS_DIR + 'scores_' + SUFFIX + '.csv',

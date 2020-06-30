@@ -87,6 +87,7 @@ CLI options:
 - `--results_dir`: the root folder for results to be generated. A run of the script will generate a timestamped subfolder with results within this directory (default=`results/`)
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--pad`: (int) default=0. Since these models do worse on short sentences (espeially XLNet), sentences in the PTB which are less than `pad` words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running the model on longer inputs does slow the testing down somewhat, and you may need to lower `batch_size` in order to keep from running out of cuda RAM.
+- `--save_matrices`: (boolean) set to save pmi matrices to disk
 
 ### Output
 
@@ -163,14 +164,14 @@ Example:
 - optionally, multiple sentences at a time, and multiple edge types in order to be able to compare...
 - see `-h` for more
 
-### Saving PMI matrices (not implemented anymore):
+### Saving PMI matrices:
 
 With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back in afterward like this:
 
 ```python
 npzfile = np.load(RESULTS_DIR + 'pmi_matrices.npz')
 print(sorted(npzfile.files))
-matrix_0 = npzfile['sentence_0']
+matrix_0 = npzfile['0']
 ```
 
 
