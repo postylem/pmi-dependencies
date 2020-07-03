@@ -70,7 +70,7 @@ def load_conll_dataset(filepath, observation_class):
 
 
 # Running and reporting
-def score_observation(observation, pmi_matrix):
+def score_observation(observation, pmi_matrix, absolute_value=False):
     # Get gold edges distances tensor from conllx file
     # (note 'mst' will always give projective gold edges)
     gold_dist_matrix = task.ParseDistanceTask.labels(observation)
@@ -105,7 +105,8 @@ def score_observation(observation, pmi_matrix):
     for symmetrize_method in symmetrize_methods:
         pmi_edges[symmetrize_method] = mstparser.tree(
             symmetrize_method=symmetrize_method,
-            maximum_spanning_tree=True)
+            maximum_spanning_tree=True,
+            absolute_value=absolute_value)
 
     # Instantiate a parser.DepParse object,
     # with parsetype 'projective', to get pmi projective parse
@@ -118,7 +119,9 @@ def score_observation(observation, pmi_matrix):
         # since the PMI is theoretically symmetric
         pmi_edges_proj[symmetrize_method] = projparser.tree(
             symmetrize_method=symmetrize_method,
-            maximum_spanning_tree=True)
+            maximum_spanning_tree=True,
+            absolute_value=absolute_value)
+
     print("edges:\ngold       ", gold_edges)
     print("pmi nonproj", pmi_edges)
     print("pmi proj   ", pmi_edges_proj)
@@ -280,8 +283,9 @@ def get_padding(i, observations, threshold):
     return prepadding, postpadding
 
 
-def score(observations, padlen=0, n_obs='all',
-          write_wordpair_data=False, save_matrices=False, verbose=False):
+def score(observations, padlen=0, n_obs='all', absolute_value=False,
+          write_wordpair_data=False, save_matrices=False,
+          verbose=False):
     '''get estimates get scores for n (default all) observations'''
     all_scores = []
     savez_dict = OrderedDict()
@@ -306,7 +310,7 @@ def score(observations, padlen=0, n_obs='all',
             obs.sentence, add_special_tokens=True, verbose=True,  # might want to toggle verbosity
             pad_left=prepadding, pad_right=postpadding)
         # calculate score
-        scores = score_observation(obs, pmi_matrix)
+        scores = score_observation(obs, pmi_matrix, absolute_value=absolute_value)
 
         if write_wordpair_data:
             predictors = PredictorClass(obs, pmi_matrix)
@@ -383,6 +387,8 @@ if __name__ == '__main__':
                       help='(int) pad sentences to be at least this long')
     ARGP.add_argument('--save_matrices', action='store_true',
                       help='to save pmi matrices as npz')
+    ARGP.add_argument('--absolute_value', action='store_true',
+                      help='to treat negative CPMI values as positive')
     CLI_ARGS = ARGP.parse_args()
 
     SPEC_STRING = str(CLI_ARGS.model_spec)
@@ -472,6 +478,7 @@ if __name__ == '__main__':
 
     SCORES = score(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS,
                    write_wordpair_data=True, save_matrices=CLI_ARGS.save_matrices,
+                   absolute_value=CLI_ARGS.absolute_value,
                    verbose=True)
     print_means_to_file(SCORES, RESULTS_DIR+'info.txt')
     DF = pd.json_normalize(SCORES, sep='.')

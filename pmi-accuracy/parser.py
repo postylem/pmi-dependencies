@@ -81,7 +81,7 @@ class DepParse:
 
     def tree(self, symmetrize_method='sum',
              maximum_spanning_tree=True,
-             absolute_value=True):
+             absolute_value=False):
         '''
         Gets a Spanning Tree (list of edges) from a nonsymmetric (PMI) matrix,
         using the specified method. and using maximum spanning tree for prims,
@@ -95,6 +95,10 @@ class DepParse:
         returns: tree (list of edges)
         '''
         sym_matrix = self.matrix
+
+        if absolute_value:
+            sym_matrix = np.absolute(sym_matrix)
+
         if symmetrize_method == 'sum':
             sym_matrix = sym_matrix + np.transpose(sym_matrix)
         elif symmetrize_method == 'triu':
@@ -103,9 +107,6 @@ class DepParse:
             sym_matrix = np.tril(sym_matrix) + np.transpose(np.tril(sym_matrix))
         elif symmetrize_method != 'none':
             raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
-
-        if absolute_value:
-            sym_matrix = np.absolute(sym_matrix)
 
         if self.parsetype == "mst":
             edges = self.prims(sym_matrix, self.words,
