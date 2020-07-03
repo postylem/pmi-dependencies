@@ -91,7 +91,7 @@ def score_observation(observation, pmi_matrix):
     baseline_random_nonproj_edges = parser.DepParse(
         'mst', random_dist_matrix, observation.sentence).tree(
             symmetrize_method='none',
-            maximum_spanning_tree=False)
+            maximum_spanning_tree=True)
     baseline_random_proj_edges = parser.DepParse(
         'projective', random_dist_matrix, observation.sentence).tree(
             symmetrize_method='none',
@@ -104,7 +104,8 @@ def score_observation(observation, pmi_matrix):
     symmetrize_methods = ['sum', 'triu', 'tril', 'none']
     for symmetrize_method in symmetrize_methods:
         pmi_edges[symmetrize_method] = mstparser.tree(
-            symmetrize_method=symmetrize_method)
+            symmetrize_method=symmetrize_method,
+            maximum_spanning_tree=True)
 
     # Instantiate a parser.DepParse object,
     # with parsetype 'projective', to get pmi projective parse
@@ -116,7 +117,8 @@ def score_observation(observation, pmi_matrix):
         # though this isn't very interpretable as such
         # since the PMI is theoretically symmetric
         pmi_edges_proj[symmetrize_method] = projparser.tree(
-            symmetrize_method=symmetrize_method)
+            symmetrize_method=symmetrize_method,
+            maximum_spanning_tree=True)
     print("edges:\ngold       ", gold_edges)
     print("pmi nonproj", pmi_edges)
     print("pmi proj   ", pmi_edges_proj)

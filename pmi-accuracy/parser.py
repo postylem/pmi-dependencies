@@ -68,18 +68,25 @@ class DepParse:
     """Gets tree as MST from matrix of distances"""
 
     def __init__(self, parsetype, matrix, words):
+        '''
+        input
+            parsetype: a string to specify the decoding/parsing
+                       algorithm (e.g. "mst" or "projective")
+            matrix: an array of PMIs
+            words: a list of tokens
+        '''
         self.parsetype = parsetype
         self.matrix = matrix
         self.words = words
 
-    def tree(self, symmetrize_method='sum', maximum_spanning_tree=True):
+    def tree(self, symmetrize_method='sum',
+             maximum_spanning_tree=True,
+             absolute_value=True):
         '''
         Gets a Spanning Tree (list of edges) from a nonsymmetric (PMI) matrix,
         using the specified method. and using maximum spanning tree for prims,
         unless otherwise specified
         input:
-            matrix: an array of PMIs
-            words: a list of tokens
             symmetrize_method:
                 'sum' (default): sums matrix with transpose of matrix;
                 'triu': uses only the upper triangle of matrix;
@@ -96,6 +103,9 @@ class DepParse:
             sym_matrix = np.tril(sym_matrix) + np.transpose(np.tril(sym_matrix))
         elif symmetrize_method != 'none':
             raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
+
+        if absolute_value:
+            sym_matrix = np.absolute(sym_matrix)
 
         if self.parsetype == "mst":
             edges = self.prims(sym_matrix, self.words,
