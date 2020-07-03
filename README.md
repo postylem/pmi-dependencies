@@ -383,6 +383,39 @@ rndom projective: 0.27
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.115 |  0.129 |  0.095 |  0.104 |
 |  proj    |  0.244 |  0.21  |  0.165 |  0.178 |
+
+
+
+------------------------------------------------
+
+## Absolute valuing
+
+PMI may be positive or negative.  A positive value means that the two outcomes are more likely together than they are individually (the joint probability of the outcomes is higher than the product of their marginal probabilities).  A negative value means the opposite: the outcomes are less likely to appear jointly than they are individually.  PMI=0 means the outcomes are independent of each other.
+
+Under the predictability-dependency hypothesis, a high PMI value should be correlated with dependency, and pairs of words with low absolute value PMI would be less likely to be syntactically dependent. It isn't clear what the prediction would be for word-pairs with large negative PMI values.
+
+So far, the working assumption was that these should be treated as being anticorrelated with dependency.  However, it's worth testing what happens if we take the absolute value of the CPMI, before we extract dependency structures.
+
+### bert-large-cased_pad30
+
+*no abs:*
+
+PMI nonproj    :  {'sum': 0.469, 'triu': 0.465, 'tril': 0.432, 'none': 0.479}
+PMI proj       :  {'sum': 0.477, 'triu': 0.477, 'tril': 0.447, 'none': 0.448}
+
+
+*abs after symmetrizing:*
+
+PMI nonproj    :  {'sum': 0.482, 'triu': 0.480, 'tril': 0.447, 'none': 0.485}
+PMI proj       :  {'sum': 0.492, 'triu': 0.493, 'tril': 0.461, 'none': 0.458}
+
+
+*abs before symmetrizing:*
+
+PMI nonproj    :  {'sum': 0.493, 'triu': 0.480, 'tril': 0.447, 'none': 0.485}
+PMI proj       :  {'sum': 0.499, 'triu': 0.493, 'tril': 0.461, 'none': 0.458}
+
+
 <!-- 
 ### CACHED Dec 2019 version: no batches 
 File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py) gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
