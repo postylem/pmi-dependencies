@@ -170,10 +170,25 @@ With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_mat
 
 ```python
 npzfile = np.load(RESULTS_DIR + 'pmi_matrices.npz')
-print(sorted(npzfile.files))
-matrix_0 = npzfile['0']
+print(npzfile.files)
+matrix_0 = npzfile[npzfile.files[0]]
 ```
 
+### Scoring from saved PMI matrices
+
+Load saved matrices by specifying  `--model_spec load_npz` instead of a language model. Specify the directory containing `pmi_matrices.npz` and `pseudo_logliks.npz` with `--model_path`. This will create a new results directory with the calculated scores.  
+
+Example: after saving matrices and (pseudo logliklihoods) to disk in directory `results/bert-base-cased_pad10`, by running 
+
+```bash
+python pmi-accuracy/main.py --model_spec bert-base-cased --save_matrices --pad 10
+```
+
+you can score these again (perhaps just to try out the option `--absolute_value`, say), with
+
+```bash
+python pmi-accuracy/main.py --model_spec load_npz --model_path results/bert-base-cased_pad10 --absolute_value
+```
 
 ### Notes:
 
@@ -388,7 +403,7 @@ rndom projective: 0.27
 
 ------------------------------------------------
 
-## Absolute valuing
+## How to treat negative CPMI values?
 
 PMI may be positive or negative.  A positive value means that the two outcomes are more likely together than they are individually (the joint probability of the outcomes is higher than the product of their marginal probabilities).  A negative value means the opposite: the outcomes are less likely to appear jointly than they are individually.  PMI=0 means the outcomes are independent of each other.
 
@@ -399,22 +414,25 @@ So far, the working assumption was that these should be treated as being anticor
 ### bert-large-cased_pad30
 
 *no abs:*
-
-PMI nonproj    :  {'sum': 0.469, 'triu': 0.465, 'tril': 0.432, 'none': 0.479}
-PMI proj       :  {'sum': 0.477, 'triu': 0.477, 'tril': 0.447, 'none': 0.448}
-
+|          |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.469 |  0.465 |  0.432 |  0.479 |
+|  proj    |  0.477 |  0.477 |  0.447 |  0.448 |
 
 *abs after symmetrizing:*
-
-PMI nonproj    :  {'sum': 0.482, 'triu': 0.480, 'tril': 0.447, 'none': 0.485}
-PMI proj       :  {'sum': 0.492, 'triu': 0.493, 'tril': 0.461, 'none': 0.458}
-
+|          |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.482 |  0.480 |  0.447 |  0.485 |
+|  proj    |  0.492 |  0.493 |  0.461 |  0.458 |
 
 *abs before symmetrizing:*
+|          |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.493 |  0.480 |  0.447 |  0.485 |
+|  proj    |  0.499 |  0.493 |  0.461 |  0.458 |
 
-PMI nonproj    :  {'sum': 0.493, 'triu': 0.480, 'tril': 0.447, 'none': 0.485}
-PMI proj       :  {'sum': 0.499, 'triu': 0.493, 'tril': 0.461, 'none': 0.458}
 
+Okay, so it's actually a bit better when we use the absolute value of the CPMI.  What about if we *prioritize* the negative CPMI values?
 
 <!-- 
 ### CACHED Dec 2019 version: no batches 

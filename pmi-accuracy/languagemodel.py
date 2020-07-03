@@ -1,6 +1,6 @@
 """
 Methods for getting probability estimates from a language model
-Classes for XLNet, BERT, XLM, etc 
+Classes for XLNet, BERT, XLM, etc
 TODO: consolidate. A lot of repeated code.
 -
 March 2020

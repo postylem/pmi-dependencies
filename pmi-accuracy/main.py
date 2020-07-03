@@ -283,12 +283,45 @@ def get_padding(i, observations, threshold):
     return prepadding, postpadding
 
 
+def write_wordpair(i, obs, pmi_matrix, scores, wordpair_csv, header):
+    predictors = PredictorClass(obs, pmi_matrix)
+    if predictors.includesentence:
+        symmetrize_methods = ['sum', 'triu', 'tril', 'none']
+        for symmetrize_method in symmetrize_methods:
+            predictors.add_pmi_edges(
+                f'pmi_edge_{symmetrize_method}',
+                scores['projective']['edges'][symmetrize_method])
+            predictors.add_pmi_edges(
+                f'pmi_edge_nonproj_{symmetrize_method}',
+                scores['nonproj']['edges'][symmetrize_method])
+        with open(wordpair_csv, 'a') as f:
+            predictors.df.insert(0, 'sentence_index', i)
+            predictors.df.to_csv(
+                f, mode='a', header=header,
+                index=False, float_format='%.7f')
+
+
 def score(observations, padlen=0, n_obs='all', absolute_value=False,
-          write_wordpair_data=False, save_matrices=False,
+          write_wordpair_data=True,
+          load_npz=False, save_npz=False,
           verbose=False):
     '''get estimates get scores for n (default all) observations'''
+
+    if save_npz and load_npz:
+        raise ValueError(
+            "Error: load_npz and save_npz both True.\n"
+            "Choose one or the other (or neither).")
+
     all_scores = []
-    savez_dict = OrderedDict()
+
+    if save_npz:
+        matrices_orddict = OrderedDict()
+        loglik_orddict = OrderedDict()
+
+    if load_npz:
+        matrices_npz = np.load(os.path.join(NPZ_DIR,'pmi_matrices.npz'))
+        loglik_npz = np.load(os.path.join(NPZ_DIR,'pseudo_logliks.npz'))
+
     if write_wordpair_data:
         wordpair_csv = RESULTS_DIR + 'wordpair_' + SUFFIX + '.csv'
         header = True
@@ -306,28 +339,31 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
 
         prepadding, postpadding = get_padding(i, observations, padlen)
         # get a pmi matrix and a pseudo-logprob for the sentence
-        pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
-            obs.sentence, add_special_tokens=True, verbose=True,  # might want to toggle verbosity
-            pad_left=prepadding, pad_right=postpadding)
+
+        if load_npz:
+            sentence_i = matrices_npz.files[i]
+            assert sentence_i == str(' '.join(obs.sentence))
+            pmi_matrix = matrices_npz[sentence_i]
+            assert sentence_i == loglik_npz.files[i]
+            pseudo_loglik = loglik_npz[sentence_i]
+
+        else:
+            pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
+                obs.sentence, add_special_tokens=True,
+                verbose=True,  # might be too much verbosity
+                pad_left=prepadding, pad_right=postpadding)
         # calculate score
-        scores = score_observation(obs, pmi_matrix, absolute_value=absolute_value)
+        scores = score_observation(
+            obs, pmi_matrix, absolute_value=absolute_value)
 
         if write_wordpair_data:
-            predictors = PredictorClass(obs, pmi_matrix)
-            if predictors.includesentence:
-                symmetrize_methods = ['sum', 'triu', 'tril', 'none']
-                for symmetrize_method in symmetrize_methods:
-                    predictors.add_pmi_edges(f'pmi_edge_{symmetrize_method}',
-                                             scores['projective']['edges'][symmetrize_method])
-                    predictors.add_pmi_edges(f'pmi_edge_nonproj_{symmetrize_method}',
-                                             scores['nonproj']['edges'][symmetrize_method])
-                with open(wordpair_csv, 'a') as f:
-                    predictors.df.insert(0, 'sentence_index', i)
-                    predictors.df.to_csv(f, mode='a', header=header, index=False, float_format='%.7f')
+            write_wordpair(i, obs, pmi_matrix,
+                           scores, wordpair_csv, header)
             header = False
 
-        if save_matrices:
-            savez_dict[str(' '.join(obs.sentence))] = pmi_matrix
+        if save_npz:
+            matrices_orddict[str(' '.join(obs.sentence))] = pmi_matrix
+            loglik_orddict[str(' '.join(obs.sentence))] = pseudo_loglik
 
         scores['pseudo_loglik'] = pseudo_loglik
         all_scores.append(scores)
@@ -338,17 +374,18 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
         print(f"proj     { {k:round(v,3) for k, v in scores['projective']['uuas'].items()}}\n")
     print("All scores computed.")
 
-    if save_matrices:
+    if save_npz:
         print("Saving PMI matrices in npz file.")
-        save_pmi(savez_dict, RESULTS_DIR, outfilename="pmi_matrices.npz")
+        write_npz(matrices_orddict, RESULTS_DIR, outfilename="pmi_matrices.npz")
+        write_npz(loglik_orddict, RESULTS_DIR, outfilename="pseudo_logliks.npz")
     return all_scores
 
 
-def save_pmi(
-        savez_dict, resultsdir,
-        outfilename='pmi_matrices.npz'):
+def write_npz(
+        ordered_dict, resultsdir,
+        outfilename='saved.npz'):
     save_filepath = os.path.join(resultsdir, outfilename)
-    np.savez(save_filepath, **savez_dict)
+    np.savez(save_filepath, **ordered_dict)
 
 
 def print_means_to_file(all_scores, file):
@@ -381,11 +418,15 @@ if __name__ == '__main__':
     ARGP.add_argument('--results_dir', default='results/',
                       help='specify path/to/results/directory/')
     ARGP.add_argument('--model_path',
-                      help='optional: load model state or embeddings from file')
+                      help='''
+                      with model, optional:
+                        load model state or embeddings from file
+                      with --model_spec load_npz:
+                        directory where pmi matrices and loglik npz files are''')
     ARGP.add_argument('--batch_size', default=32, type=int)
     ARGP.add_argument('--pad', default=0, type=int,
                       help='(int) pad sentences to be at least this long')
-    ARGP.add_argument('--save_matrices', action='store_true',
+    ARGP.add_argument('--save_npz', action='store_true',
                       help='to save pmi matrices as npz')
     ARGP.add_argument('--absolute_value', action='store_true',
                       help='to treat negative CPMI values as positive')
@@ -393,7 +434,7 @@ if __name__ == '__main__':
 
     SPEC_STRING = str(CLI_ARGS.model_spec)
     if CLI_ARGS.model_path and CLI_ARGS.model_spec == 'bert-base-uncased':
-        # custom naming just for readability
+        # custom naming just for readability, for the checkpointed bert
         import re
         number = re.findall("(\d+)", CLI_ARGS.model_path)
         number = str(int(int(number[-1]) / 1000.0))
@@ -427,9 +468,17 @@ if __name__ == '__main__':
         print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
         print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
 
-    # Instantiate the language model to use for getting estimates
+    # Either load PMI estimates from disk
+    LOAD_NPZ = False
+    if CLI_ARGS.model_spec == 'load_npz':
+        if CLI_ARGS.model_path:
+            NPZ_DIR = CLI_ARGS.model_path
+            LOAD_NPZ = True
+        else:
+            raise ValueError("No path specified for saved CPMI matrices.")
 
-    if CLI_ARGS.model_spec.startswith('xlnet'):
+    # Or, instantiate the language model to use for getting estimates
+    elif CLI_ARGS.model_spec.startswith('xlnet'):
         MODEL = languagemodel.XLNet(
             DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
     elif (CLI_ARGS.model_spec.startswith('bert') or
@@ -477,7 +526,8 @@ if __name__ == '__main__':
     OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
 
     SCORES = score(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS,
-                   write_wordpair_data=True, save_matrices=CLI_ARGS.save_matrices,
+                   write_wordpair_data=True,
+                   load_npz=LOAD_NPZ, save_npz=CLI_ARGS.save_npz,
                    absolute_value=CLI_ARGS.absolute_value,
                    verbose=True)
     print_means_to_file(SCORES, RESULTS_DIR+'info.txt')
