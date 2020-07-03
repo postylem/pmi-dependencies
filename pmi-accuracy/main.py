@@ -105,7 +105,7 @@ def score_observation(observation, pmi_matrix, absolute_value=False):
     for symmetrize_method in symmetrize_methods:
         pmi_edges[symmetrize_method] = mstparser.tree(
             symmetrize_method=symmetrize_method,
-            maximum_spanning_tree=False,
+            maximum_spanning_tree=True,
             absolute_value=absolute_value)
 
     # Instantiate a parser.DepParse object,
@@ -119,7 +119,7 @@ def score_observation(observation, pmi_matrix, absolute_value=False):
         # since the PMI is theoretically symmetric
         pmi_edges_proj[symmetrize_method] = projparser.tree(
             symmetrize_method=symmetrize_method,
-            maximum_spanning_tree=False,
+            maximum_spanning_tree=True,
             absolute_value=absolute_value)
 
     print("edges:\ngold       ", gold_edges)

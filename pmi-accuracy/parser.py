@@ -96,6 +96,8 @@ class DepParse:
         '''
         sym_matrix = self.matrix
 
+        sym_matrix = sym_matrix * -1  # TODO: this is just a test!
+
         if absolute_value:
             sym_matrix = np.absolute(sym_matrix)
 
