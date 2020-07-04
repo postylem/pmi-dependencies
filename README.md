@@ -178,7 +178,7 @@ matrix_0 = npzfile[npzfile.files[0]]
 
 Load saved matrices by specifying  `--model_spec load_npz` instead of a language model. Specify the directory containing `pmi_matrices.npz` and `pseudo_logliks.npz` with `--model_path`. This will create a new results directory with the calculated scores.  
 
-Example: after saving matrices and (pseudo logliklihoods) to disk in directory `results/bert-base-cased_pad10`, by running 
+Example: after saving matrices and (pseudo log-liklihoods) to disk in directory `results/bert-base-cased_pad10`, by running 
 
 ```bash
 python pmi-accuracy/main.py --model_spec bert-base-cased --save_matrices --pad 10
@@ -413,26 +413,35 @@ So far, the working assumption was that these should be treated as being anticor
 
 ### bert-large-cased_pad30
 
-*no abs:*
+*no absolute value:*
 |          |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.469 |  0.465 |  0.432 |  0.479 |
 |  proj    |  0.477 |  0.477 |  0.447 |  0.448 |
 
-*abs after symmetrizing:*
+*absolute value after symmetrizing:*
 |          |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.482 |  0.480 |  0.447 |  0.485 |
 |  proj    |  0.492 |  0.493 |  0.461 |  0.458 |
 
-*abs before symmetrizing:*
+*absolute value before symmetrizing:*
 |          |  sum   |  triu  |  tril  |  none  |
 |  ------  |  ----  |  ----  |  ----  |  ----  |
 |  nonproj |  0.493 |  0.480 |  0.447 |  0.485 |
 |  proj    |  0.499 |  0.493 |  0.461 |  0.458 |
 
 
-Okay, so it's actually a bit better when we use the absolute value of the CPMI.  What about if we *prioritize* the negative CPMI values?
+Okay, so it's actually a bit better when we use the absolute value of the CPMI.  What about if we *prioritize* the negative CPMI values?  Accuracy suffers catastrophically.  
+(TODO: Confirm this)
+
+|          |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.122 |  0.119 |  0.118 |  0.106 |
+|  proj    |  0.133 |  0.120 |  0.121 |  0.109 |
+
+
+
 
 <!-- 
 ### CACHED Dec 2019 version: no batches 
