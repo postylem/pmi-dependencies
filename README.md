@@ -123,17 +123,14 @@ The results will be reported in a timestamped folder in the `/results` dir (or o
 | info.txt
 | scores{...}.csv
 | wordpairs{...}.csv
-| (pmi_matrices.npz) [not implemented]
-| (dependencies.tex) [not implemented]
-| (tikz.zip)		 [not implemented]
+| (pmi_matrices.npz)
+| (pseudo_logliks.npz)
 ```
 - `spec.txt` - echo of CLI arguments, and also mean uuas scores, for reference and convenience.
 - `scores.csv` - one row per sentence, reporting the sentence length, uuas with the four different ways of symmetrizing, and baseline uuas.
 - `wordpairs.csv` - one row per pair of words in sentence (unordered), with various possible predictors including PMI scores.
-<!-- - `pmi_matrices.npz` - an .npz archive of numpy arrays, with the key 'sentence_`i`' for sentence observation number `i`.
-- `dependencies.tex` - a template to run to quickly visualize the predictions (which are in the tikz folder) 
-- `tikz.zip` - a zipped directory of all the tikz dependencies for visualizing.
- -->
+- `pmi_matrices.npz` - (generated with the cli option `--save_npz`) an .npz archive of a collections.OrderedDict of calculated CPMI matrices as numpy arrays, with the space delimited sentence as the key.
+- `pseudo_logliks.npz` - (generated with the cli option `--save_npz`) an .npz archive of a collections.OrderedDict of calculated pseudo-loglikelihoods, with the space delimited sentence as the key.
 
 ### Plotting dependencies in Ti*k*Z
 
@@ -143,7 +140,7 @@ Plotting pmi dependencies vs gold is useful... maybe.  To look at some plots, us
 python pmi-accuracy/print_tikz.py --sentence_indices 1696 --input_file path/to/scores*.csv
 ```
 
-This will output a LaTeX file `dependencies.tex`.
+This will output a LaTeX file `dependencies.tex` into the results directory where the scores are.
 
 Example: 
 
@@ -161,12 +158,12 @@ Example:
 
 
 - `--edge_type` you can specify projective or non projective edges, or symmetrize method tril, triu, sum, none like: `--edge_type nonproj.edges.tril`, for instance.  Default is `projective.edges.sum`.
-- optionally, multiple sentences at a time, and multiple edge types in order to be able to compare...
+- optionally, specify multiple sentence indices to plot multiple sentences at a time, and/or specify multiple edge types likewise.
 - see `-h` for more
 
-### Saving PMI matrices:
+### Saving CPMI matrices
 
-With the cli option `--save_matrices`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back in afterward like this:
+With the cli option `--save_npz`, PMI matrices are saved to a file 'pmi_matrices.npz' in the results dir.  These can be read back in afterward like this:
 
 ```python
 npzfile = np.load(RESULTS_DIR + 'pmi_matrices.npz')
@@ -174,7 +171,7 @@ print(npzfile.files)
 matrix_0 = npzfile[npzfile.files[0]]
 ```
 
-### Scoring from saved PMI matrices
+### Loading CPMI matrices and scoring from them
 
 Load saved matrices by specifying  `--model_spec load_npz` instead of a language model. Specify the directory containing `pmi_matrices.npz` and `pseudo_logliks.npz` with `--model_path`. This will create a new results directory with the calculated scores.  
 
@@ -440,7 +437,9 @@ Okay, so it's actually a bit better when we use the absolute value of the CPMI. 
 |  nonproj |  0.122 |  0.119 |  0.118 |  0.106 |
 |  proj    |  0.133 |  0.120 |  0.121 |  0.109 |
 
+### testing with more models:
 
+TODO
 
 
 <!-- 
