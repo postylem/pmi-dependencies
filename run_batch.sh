@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# keep track of things I've run, for pseudologlik by commenting them out for now
+# keep track of things I've run
 
 #python pmi-accuracy/main.py --model_spec distilbert-base-cased --pad 100 --batch_size 8 > distilbert-pad100.out 2> distilbert-pad100.err
 #python pmi-accuracy/main.py --model_spec distilbert-base-cased --pad 60 --batch_size 24 > distilbert-pad60.out 2> distilbert-pad60.err
@@ -13,7 +13,7 @@
 #python pmi-accuracy/main.py --model_spec xlnet-large-cased --pad 30 --batch_size 10 > xlnet-large-pad30.out 2> xlnet-large-pad30.err
 #python pmi-accuracy/main.py --model_spec xlnet-large-cased --pad 30 --batch_size 10 > xlnet-large-pad30.out 2> xlnet-large-pad30.err
 #python pmi-accuracy/main.py --model_spec w2v --pad 0 > w2v.out 2> w2v.err
-python pmi-accuracy/main.py --model_spec w2v --pad 0 --model_path gensim_w2v.txt > gensim_w2v.out 2> gensim_w2v.err
+#python pmi-accuracy/main.py --model_spec w2v --pad 0 --model_path gensim_w2v.txt > gensim_w2v.out 2> gensim_w2v.err
 
 # # Running bert-base-uncased to compare with checkpoints:
 
@@ -24,3 +24,5 @@ python pmi-accuracy/main.py --model_spec w2v --pad 0 --model_path gensim_w2v.txt
 #python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_100000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt100k.out 2> bert-ckpt100k.err
 #python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_50000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt50k.out 2> bert-ckpt50k.err
 #python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_10000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt10k.out 2> bert-ckpt10k.err
+
+python pmi-accuracy/main.py --save_npz --model_spec bert-large-cased --pad 30 --batch_size 10 > bert-large-cased-pad:30.out 2> bert-large-cased-pad30.err
