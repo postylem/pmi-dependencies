@@ -1,0 +1,16 @@
+absolute_value:	True
+batch_size:	32
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_path:	results-clean/xlnet-base-cased_pad30_2020-07-04-17-13
+model_spec:	load_npz
+n_observations:	all
+pad:	0
+results_dir:	results/
+save_npz:	False
+=========
+mean sentence uuas
+        linear         :  0.504
+        random nonproj :  0.133
+        random proj    :  0.267
+        PMI nonproj    :  {'sum': 0.457, 'triu': 0.421, 'tril': 0.402, 'none': 0.446}
+        PMI proj       :  {'sum': 0.485, 'triu': 0.457, 'tril': 0.44, 'none': 0.446}
