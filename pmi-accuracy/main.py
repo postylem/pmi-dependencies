@@ -341,10 +341,13 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
         # get a pmi matrix and a pseudo-logprob for the sentence
 
         if load_npz:
-            sentence_i = matrices_npz.files[i]
-            assert sentence_i == str(' '.join(obs.sentence))
+            # sentence_i = matrices_npz.files[i]
+            # assert sentence_i == str(' '.join(obs.sentence))
+            # pmi_matrix = matrices_npz[sentence_i]
+            # assert sentence_i == loglik_npz.files[i]
+            # pseudo_loglik = loglik_npz[sentence_i]
+            sentence_i = str(' '.join(obs.sentence))
             pmi_matrix = matrices_npz[sentence_i]
-            assert sentence_i == loglik_npz.files[i]
             pseudo_loglik = loglik_npz[sentence_i]
 
         else:
