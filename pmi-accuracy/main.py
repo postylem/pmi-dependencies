@@ -319,8 +319,8 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
         loglik_orddict = OrderedDict()
 
     if load_npz:
-        matrices_npz = np.load(os.path.join(NPZ_DIR,'pmi_matrices.npz'))
-        loglik_npz = np.load(os.path.join(NPZ_DIR,'pseudo_logliks.npz'))
+        matrices_npz = np.load(os.path.join(NPZ_DIR, 'pmi_matrices.npz'))
+        loglik_npz = np.load(os.path.join(NPZ_DIR, 'pseudo_logliks.npz'))
 
     if write_wordpair_data:
         wordpair_csv = RESULTS_DIR + 'wordpair_' + SUFFIX + '.csv'
@@ -353,7 +353,7 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
         else:
             pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
                 obs.sentence, add_special_tokens=True,
-                verbose=True,  # might be too much verbosity
+                verbose=verbose,  # toggle for troubleshoooting.
                 pad_left=prepadding, pad_right=postpadding)
         # calculate score
         scores = score_observation(
