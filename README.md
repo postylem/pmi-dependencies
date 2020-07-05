@@ -411,35 +411,163 @@ So far, the working assumption was that these should be treated as being anticor
 ### bert-large-cased_pad30
 
 *no absolute value:*
-|          |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.469 |  0.465 |  0.432 |  0.479 |
-|  proj    |  0.477 |  0.477 |  0.447 |  0.448 |
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.469  |  0.465  |  0.432  |**0.479**|
+|  proj     |**0.477**|**0.477**|**0.447**|  0.448  |
 
 *absolute value after symmetrizing:*
-|          |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.482 |  0.480 |  0.447 |  0.485 |
-|  proj    |  0.492 |  0.493 |  0.461 |  0.458 |
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.482  |  0.480  |  0.447  |  0.485  |
+|  proj     |**0.492**|  0.493  |  0.461  |  0.458  |
 
 *absolute value before symmetrizing:*
-|          |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.493 |  0.480 |  0.447 |  0.485 |
-|  proj    |  0.499 |  0.493 |  0.461 |  0.458 |
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.493  |  0.480  |  0.447  |  0.485  |
+|  proj     |**0.499**|  0.493  |  0.461  |  0.458  |
 
 
 Okay, so it's actually a bit better when we use the absolute value of the CPMI.  What about if we *prioritize* the negative CPMI values?  Accuracy suffers catastrophically.  
 (TODO: Confirm this)
 
-|          |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.122 |  0.119 |  0.118 |  0.106 |
-|  proj    |  0.133 |  0.120 |  0.121 |  0.109 |
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.122  |  0.119  |  0.118  |  0.106  |
+|  proj     |  0.133  |  0.120  |  0.121  |  0.109  |
 
 ### testing with more models:
 
-TODO
+Okay, so taking the absolute value of CPMI (before symmetrizing), the results across models look like:
+
+
+#### bart-large 60             
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.404  |  0.203  |  0.426  |  0.398  |
+|  proj     |  0.419  |  0.248  |  0.440  |  0.426  |
+
+#### bert-base-cased 30       
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.493  |  0.462  |  0.457  |  0.486  |
+|  proj     |  0.504  |  0.482  |  0.475  |  0.474  |
+
+#### bert-base-uncased 30     
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.48,  |  0.458  |  0.447  |  0.474  |
+|  proj     |  0.493  |  0.479  |  0.466  |  0.462  |
+
+#### bert-large-cased 60      
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.496  |  0.487  |  0.448  |  0.489  |
+|  proj     |  0.501  |  0.497  |  0.461  |  0.454  |
+
+#### bert-large-uncased 30    
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.464  |  0.437  |  0.424  |  0.454  |
+|  proj     |  0.477  |  0.456  |  0.444  |  0.439  |
+
+#### distilbert-base-cased 60 
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.498  |  0.476  |  0.464  |  0.492  |
+|  proj     |  0.511  |  0.493  |  0.481  |  0.483  |
+
+#### w2v 0                   
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.094  |  0.121  |  0.091  |  0.097  |
+|  proj     |  0.145  |  0.176  |  0.146  |  0.163  |
+
+#### xlm-mlm-en-2048 60       
+
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.434  |  0.405  |  0.400  |  0.422  |
+|  proj     |  0.465  |  0.437  |  0.434  |  0.435  |
+
+#### xlnet-base-cased 30      
+
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.457  |  0.421  |  0.402  |  0.446  |
+|  proj     |  0.485  |  0.457  |  0.440  |  0.446  |
+
+#### xlnet-large-cased 30     
+
+|           |  sum    |  triu   |  tril   |  none   |
+|  ------   |  ----   |  ----   |  ----   |  ----   |
+|  nonproj  |  0.399  |  0.359  |  0.367  |  0.384  |
+|  proj     |  0.437  |  0.405  |  0.409  |  0.408  |
+
+
+
+-----------------------
+
+#### bart-large 60             
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.404  |  0.384  |
+|  proj     |  0.419  |  0.390  |
+
+#### bert-base-cased 30       
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.493  |  0.461  |
+|  proj     |  0.504  |  0.472  |
+
+#### bert-base-uncased 30     
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.48,  |  0.450  |
+|  proj     |  0.493  |  0.464  |
+
+#### bert-large-cased 60      
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.496  |  0.475  |
+|  proj     |  0.501  |  0.482  |
+
+#### bert-large-uncased 30    
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.464  |  0.442  |
+|  proj     |  0.477  |  0.458  |
+
+#### distilbert-base-cased 60 
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.498  |  0.475  |
+|  proj     |  0.511  |  0.489  |
+
+#### w2v 0                   
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.094  |  0.308  |
+|  proj     |  0.145  |  0.408  |
+
+#### xlm-mlm-en-2048 60       
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.434  |  0.407  |
+|  proj     |  0.465  |  0.441  |
+
+#### xlnet-base-cased 30      
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.457  |  0.439  |
+|  proj     |  0.485  |  0.468  |
+
+#### xlnet-large-cased 30     
+|           | sum(abs)|  sum    |
+|  ------   |  ----   |  ----   |
+|  nonproj  |  0.399  |  0.386  |
+|  proj     |  0.437  |  0.430  |
 
 
 <!-- 

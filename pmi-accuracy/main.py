@@ -337,20 +337,25 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
                                  'head_indices', 'governance_relations']],
                   "\n", sep='')
 
-        prepadding, postpadding = get_padding(i, observations, padlen)
-        # get a pmi matrix and a pseudo-logprob for the sentence
-
         if load_npz:
-            # sentence_i = matrices_npz.files[i]
-            # assert sentence_i == str(' '.join(obs.sentence))
-            # pmi_matrix = matrices_npz[sentence_i]
-            # assert sentence_i == loglik_npz.files[i]
-            # pseudo_loglik = loglik_npz[sentence_i]
-            sentence_i = str(' '.join(obs.sentence))
+            # check that obs.sentence matches the saved file
+            sentence_i = str(' '.join([str(i), *obs.sentence]))
+            assert sentence_i == matrices_npz.files[i], \
+                f'''Loaded sentence {i} != observed sentence:
+                loaded (pmi_matrices.npz) : '{matrices_npz.files[i]}'
+                observed (from connl file): '{sentence_i}'
+                '''
+            assert sentence_i == loglik_npz.files[i], \
+                f'''Loaded sentence {i} != observed sentence:
+                loaded (pseudo_logliks.npz) : '{loglik_npz.files[i]}'
+                observed (from connl file)  : '{sentence_i}'
+                '''
             pmi_matrix = matrices_npz[sentence_i]
             pseudo_loglik = loglik_npz[sentence_i]
 
-        else:
+        else:  # Calculate CPMI scores.
+            prepadding, postpadding = get_padding(i, observations, padlen)
+            # get a pmi matrix and a pseudo-logprob for the sentence
             pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
                 obs.sentence, add_special_tokens=True,
                 verbose=verbose,  # toggle for troubleshoooting.
@@ -365,8 +370,9 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
             header = False
 
         if save_npz:
-            matrices_orddict[str(' '.join(obs.sentence))] = pmi_matrix
-            loglik_orddict[str(' '.join(obs.sentence))] = pseudo_loglik
+            sentence_i = str(' '.join([str(i), *obs.sentence]))
+            matrices_orddict[sentence_i] = pmi_matrix
+            loglik_orddict[sentence_i] = pseudo_loglik
 
         scores['pseudo_loglik'] = pseudo_loglik
         all_scores.append(scores)
@@ -409,6 +415,15 @@ def print_means_to_file(all_scores, file):
         file.write(means_string)
 
 
+def get_info(directory, key):
+    ''' gets specified spec value from info.txt'''
+    info = os.path.join(directory, 'info.txt')
+    with open(info, 'r') as infofile:
+        for line in infofile:
+            if line.split()[0] == key+':':
+                return(line.split()[1])
+
+
 if __name__ == '__main__':
     ARGP = ArgumentParser()
     ARGP.add_argument('--n_observations', default='all',
@@ -449,8 +464,20 @@ if __name__ == '__main__':
 
     NOW = datetime.now()
     DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
-    SPEC_SUFFIX = SPEC_STRING+'('+str(CLI_ARGS.n_observations)+')' if CLI_ARGS.n_observations != 'all' else SPEC_STRING
-    SPEC_SUFFIX += '_pad'+str(CLI_ARGS.pad)
+
+    LOAD_NPZ = False
+    if CLI_ARGS.model_spec == 'load_npz':
+        if CLI_ARGS.model_path:
+            NPZ_DIR = CLI_ARGS.model_path
+            LOAD_NPZ = True
+        else:
+            raise ValueError("No path specified from which to load npz.")
+        LOADED_MODEL_SPEC = get_info(NPZ_DIR, 'model_spec')
+        LOADED_PAD = "pad"+get_info(NPZ_DIR, 'pad')
+        SPEC_SUFFIX = 'loaded=' + '_'.join([LOADED_MODEL_SPEC, LOADED_PAD])
+    else:
+        SPEC_SUFFIX = SPEC_STRING + '(' + str(CLI_ARGS.n_observations) + ')' if CLI_ARGS.n_observations != 'all' else SPEC_STRING
+        SPEC_SUFFIX += '_pad'+str(CLI_ARGS.pad)
     SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX
     RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
     os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -471,47 +498,40 @@ if __name__ == '__main__':
         print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
         print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
 
-    # Either load PMI estimates from disk
-    LOAD_NPZ = False
-    if CLI_ARGS.model_spec == 'load_npz':
-        if CLI_ARGS.model_path:
-            NPZ_DIR = CLI_ARGS.model_path
-            LOAD_NPZ = True
-        else:
-            raise ValueError("No path specified for saved CPMI matrices.")
-
-    # Or, instantiate the language model to use for getting estimates
-    elif CLI_ARGS.model_spec.startswith('xlnet'):
-        MODEL = languagemodel.XLNet(
-            DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif (CLI_ARGS.model_spec.startswith('bert') or
-          CLI_ARGS.model_spec.startswith('distilbert')):
-        # DistilBERT will work just like BERT
-        if CLI_ARGS.model_path:
-            # load checkpointed weights from disk, if specified
-            STATE = torch.load(CLI_ARGS.model_path)
-            MODEL = languagemodel.BERT(
-                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
-                state_dict=STATE)
-        else:
-            MODEL = languagemodel.BERT(
+    if not LOAD_NPZ:
+        # Or, instantiate the language model to use for getting estimates
+        # if not loading from disk
+        if CLI_ARGS.model_spec.startswith('xlnet'):
+            MODEL = languagemodel.XLNet(
                 DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif CLI_ARGS.model_spec.startswith('xlm'):
-        MODEL = languagemodel.XLM(
-            DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif CLI_ARGS.model_spec.startswith('bart'):
-        MODEL = languagemodel.Bart(
-            DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif CLI_ARGS.model_spec.startswith('gpt2'):
-        MODEL = languagemodel.GPT2(
-            DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-    elif CLI_ARGS.model_spec == 'w2v':
-        W2V_PATH = CLI_ARGS.model_path
-        MODEL = embedding.Word2Vec(
-            DEVICE, CLI_ARGS.model_spec, W2V_PATH)
-    else:
-        raise ValueError(
-            f'Model spec string {CLI_ARGS.model_spec} not recognized.')
+        elif (CLI_ARGS.model_spec.startswith('bert') or
+              CLI_ARGS.model_spec.startswith('distilbert')):
+            # DistilBERT will work just like BERT
+            if CLI_ARGS.model_path:
+                # load checkpointed weights from disk, if specified
+                STATE = torch.load(CLI_ARGS.model_path)
+                MODEL = languagemodel.BERT(
+                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
+                    state_dict=STATE)
+            else:
+                MODEL = languagemodel.BERT(
+                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+        elif CLI_ARGS.model_spec.startswith('xlm'):
+            MODEL = languagemodel.XLM(
+                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+        elif CLI_ARGS.model_spec.startswith('bart'):
+            MODEL = languagemodel.Bart(
+                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+        elif CLI_ARGS.model_spec.startswith('gpt2'):
+            MODEL = languagemodel.GPT2(
+                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+        elif CLI_ARGS.model_spec == 'w2v':
+            W2V_PATH = CLI_ARGS.model_path
+            MODEL = embedding.Word2Vec(
+                DEVICE, CLI_ARGS.model_spec, W2V_PATH)
+        else:
+            raise ValueError(
+                f'Model spec string {CLI_ARGS.model_spec} not recognized.')
 
     # Columns of CONLL file
     CONLL_COLS = ['index',
