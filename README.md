@@ -396,7 +396,43 @@ rndom projective: 0.27
 |  nonproj |  0.115 |  0.129 |  0.095 |  0.104 |
 |  proj    |  0.244 |  0.21  |  0.165 |  0.178 |
 
+And, with absolute value
 
+### bert-base-uncased pad30 off-shelf
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.450 |  0.436 |  0.424 |  0.461 |
+|  proj    |  0.464 |  0.459 |  0.443 |  0.442 |
+### bert-base-uncased pad30 1500000
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.396 |  0.357 |  0.374 |  0.377 |
+|  proj    |  0.423 |  0.389 |  0.406 |  0.385 |
+### bert-base-uncased pad30 1000000
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.432 |  0.388 |  0.403 |  0.418 |
+|  proj    |  0.455 |  0.417 |  0.430 |  0.420 |
+### bert-base-uncased pad30 500000
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.335 |  0.289 |  0.313 |  0.310 |
+|  proj    |  0.377 |  0.341 |  0.362 |  0.342 |
+### bert-base-uncased pad30 100000
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.460 |  0.432 |  0.430 |  0.457 |
+|  proj    |  0.475 |  0.453 |  0.450 |  0.462 |
+### bert-base-uncased pad30 50000
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.131 |  0.127 |  0.135 |  0.130 |
+|  proj    |  0.224 |  0.228 |  0.233 |  0.246 |
+### bert-base-uncased pad30 10000
+| *pad 30* |  sum   |  triu  |  tril  |  none  |
+|  ------  |  ----  |  ----  |  ----  |  ----  |
+|  nonproj |  0.098 |  0.105 |  0.129 |  0.101 |
+|  proj    |  0.143 |  0.166 |  0.198 |  0.188 |
 
 ------------------------------------------------
 

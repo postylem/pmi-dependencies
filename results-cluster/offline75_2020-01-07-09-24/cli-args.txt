@@ -1,5 +1,0 @@
-	batch_size:	75
-	conllx_file:	ptb3-wsj-data/ptb3-wsj-test.conllx
-	offline_mode:	True
-	results_dir:	/home/postylem/wdir-morgan/xlnet-pmi/results-cluster/
-	xlnet_spec:	/home/postylem/wdir-morgan/xlnet-pmi/XLNet-large/
