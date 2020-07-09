@@ -130,11 +130,14 @@ class POSProbeLoss(nn.Module):
                 number_of_sentences: number of sentences in the batch
         """
         number_of_sentences = torch.sum((length_batch != 0)).float()
+        device = self.args['device']
         if number_of_sentences > 0:
+            prediction_batch = prediction_batch.view(
+                -1, len(self.args['POS_set'])).to(device)
+            label_batch.view(-1).to(device)
             batch_loss = nn.CrossEntropyLoss(
                 ignore_index=self.args['pad_POS_id'])(
-                prediction_batch.view(-1, len(self.args['POS_set'])),
-                label_batch.view(-1))
+                    prediction_batch, label_batch)
         else:
             batch_loss = torch.tensor(0.0, device=self.args['device'])
         return batch_loss, number_of_sentences
