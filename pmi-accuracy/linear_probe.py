@@ -207,15 +207,23 @@ class POSDataset(Dataset):
         return len(self.observations)
 
     def __getitem__(self, index):
-        return self.input_ids[index], self.pos_ids[index], len(self.input_ids[index])
+        return self.input_ids[index], self.pos_ids[index]
 
     @staticmethod
     def collate_fn(batch):
-        padded_input_ids = torch.rnn.utils.pad_sequence(
-            [b[0] for b in batch], batch_first=True)
-        padded_pos_ids = torch.rnn.utils.pad_sequence(
-            [b[1] for b in batch], batch_first=True)
-        return padded_input_ids, padded_pos_ids, [1]
+        print("/--------------input--------------\\")
+        print(batch)
+        print("•••••••••••••••output••••••••••••••")
+        seqs = [torch.tensor(b[0]) for b in batch]
+        pos_ids = [torch.tensor(b[1]) for b in batch]
+        lengths = torch.tensor([len(s) for s in seqs])
+        padded_input_ids = nn.utils.rnn.pad_sequence(
+            seqs, batch_first=True)
+        padded_pos_ids = nn.utils.rnn.pad_sequence(
+            pos_ids, batch_first=True)
+        print((padded_input_ids, padded_pos_ids, lengths))
+        print("\\---------------------------------/")
+        return padded_input_ids, padded_pos_ids, lengths
 
 
 def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
@@ -281,8 +289,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
 def train_probe(args, model, probe, loss, tokenizer):
     train_dataset, dev_dataset, _ = load_datasets(args, tokenizer)
 
-    params = {'batch_size': 10, 'shuffle': False,
-              # 'collate_fn': POSDataset.collate_fn
+    params = {'batch_size': 5, 'shuffle': True,
+              'collate_fn': POSDataset.collate_fn
               }
     train_loader = DataLoader(train_dataset, **params)
     dev_loader = DataLoader(dev_dataset, **params)
