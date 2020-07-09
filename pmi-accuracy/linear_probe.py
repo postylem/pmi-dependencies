@@ -252,9 +252,10 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             probe.train()
             optimizer.zero_grad()
             input_ids_batch, label_batch, length_batch = batch
-            embedding_batch = model.get_embeddings(input_ids_batch)
+            length_batch = length_batch.to(device)
+            embedding_batch = model.get_embeddings(input_ids_batch).to(device)
             # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
-            prediction_batch = probe(embedding_batch)
+            prediction_batch = probe(embedding_batch).to(device)
             # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
@@ -269,9 +270,10 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             optimizer.zero_grad()
             probe.eval()
             input_ids_batch, label_batch, length_batch = batch
-            embedding_batch = model.get_embeddings(input_ids_batch)
+            length_batch = length_batch.to(device)
+            embedding_batch = model.get_embeddings(input_ids_batch).to(device)
             # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
-            prediction_batch = probe(embedding_batch)
+            prediction_batch = probe(embedding_batch).to(device)
             # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
