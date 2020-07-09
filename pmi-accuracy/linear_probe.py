@@ -211,13 +211,11 @@ class POSDataset(Dataset):
 
     @staticmethod
     def collate_fn(batch):
-        print(type(batch))
-        print(len(batch))
-        print(batch)
-        input_ids = torch.LongTensor([b[0] for b in batch])
-        pos_ids = torch.LongTensor([b[1] for b in batch])
-        lengths = torch.LongTensor([b[2] for b in batch])
-        return input_ids, pos_ids, lengths
+        padded_input_ids = torch.rnn.utils.pad_sequence(
+            [b[0] for b in batch], batch_first=True)
+        padded_pos_ids = torch.rnn.utils.pad_sequence(
+            [b[1] for b in batch], batch_first=True)
+        return padded_input_ids, padded_pos_ids, [1]
 
 
 def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
