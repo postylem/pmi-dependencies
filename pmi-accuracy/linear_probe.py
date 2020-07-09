@@ -387,9 +387,9 @@ if __name__ == '__main__':
         epochs=20,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    train_path='CUSTOM.conllx',  # ptb3-wsj-train.conllx
-                    dev_path='CUSTOM4.conllx',    # ptb3-wsj-dev.conllx
-                    test_path='CUSTOM4.conllx'),  # ptb3-wsj-test.conllx
+                    train_path='ptb3-wsj-train.conllx',
+                    dev_path='ptb3-wsj-dev.conllx',
+                    test_path='ptb3-wsj-test.conllx')
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
