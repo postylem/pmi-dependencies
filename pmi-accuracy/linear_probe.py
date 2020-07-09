@@ -220,7 +220,7 @@ class POSDataset(Dataset):
         return input_ids, pos_ids, lengths
 
 
-def run_train_probe(args, probe, loss, train_loader, dev_loader):
+def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     optimizer = torch.optim.Adam(probe.parameters(), lr=0.001)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
@@ -240,7 +240,7 @@ def run_train_probe(args, probe, loss, train_loader, dev_loader):
             probe.train()
             optimizer.zero_grad()
             observation_batch, label_batch, length_batch = batch
-            embedding_batch = MODEL(observation_batch)
+            embedding_batch = model(observation_batch)
             prediction_batch = probe(embedding_batch)
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
@@ -255,7 +255,7 @@ def run_train_probe(args, probe, loss, train_loader, dev_loader):
             optimizer.zero_grad()
             probe.eval()
             observation_batch, label_batch, length_batch = batch
-            embedding_batch = MODEL(observation_batch)
+            embedding_batch = model(observation_batch)
             prediction_batch = probe(embedding_batch)
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
@@ -280,15 +280,16 @@ def run_train_probe(args, probe, loss, train_loader, dev_loader):
             break
 
 
-def train_probe(args, probe, loss, tokenizer):
+def train_probe(args, model, probe, loss, tokenizer):
     train_dataset, dev_dataset, _ = load_datasets(args, tokenizer)
 
     params = {'batch_size': 10, 'shuffle': False,
-              'collate_fn': POSDataset.collate_fn}
+              # 'collate_fn': POSDataset.collate_fn
+              }
     train_loader = DataLoader(train_dataset, **params)
     dev_loader = DataLoader(dev_dataset, **params)
 
-    run_train_probe(args, probe, loss, train_loader, dev_loader)
+    run_train_probe(args, model, probe, loss, train_loader, dev_loader)
 
 
 def load_datasets(args, tokenizer):
@@ -356,4 +357,4 @@ if __name__ == '__main__':
     PROBE = POSProbe(ARGS)
     LOSS = POSProbeLoss(ARGS)
 
-    train_probe(ARGS, PROBE, LOSS, TOKENIZER)
+    train_probe(ARGS, MODEL, PROBE, LOSS, TOKENIZER)

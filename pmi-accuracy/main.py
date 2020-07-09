@@ -17,56 +17,68 @@ import languagemodel
 import embedding
 
 
-# Data input
-def generate_lines_for_sent(lines):
-    '''Yields batches of lines describing a sentence in conllx.
+class CONLLReader():
+    def __init__(self, conll_cols, additional_field_name=None):
+        if additional_field_name:
+            conll_cols += [additional_field_name]
+        self.conll_cols = conll_cols
+        self.observation_class = namedtuple("Observation", conll_cols)
+        self.additional_field_name = additional_field_name
 
-    Args:
-        lines: Each line of a conllx file.
-    Yields:
-        a list of lines describing a single sentence in conllx.
-    '''
-    buf = []
-    for line in lines:
-        if line.startswith('#'):
-            continue
-        if not line.strip():
-            if buf:
-                yield buf
-                buf = []
-            else:
+    # Data input
+    @staticmethod
+    def generate_lines_for_sent(lines):
+        '''Yields batches of lines describing a sentence in conllx.
+
+        Args:
+            lines: Each line of a conllx file.
+        Yields:
+            a list of lines describing a single sentence in conllx.
+        '''
+        buf = []
+        for line in lines:
+            if line.startswith('#'):
                 continue
-        else:
-            buf.append(line.strip())
-    if buf:
-        yield buf
+            if not line.strip():
+                if buf:
+                    yield buf
+                    buf = []
+                else:
+                    continue
+            else:
+                buf.append(line.strip())
+        if buf:
+            yield buf
 
+    def load_conll_dataset(self, filepath):
+        '''Reads in a conllx file; generates Observation objects
 
-def load_conll_dataset(filepath, observation_class):
-    '''Reads in a conllx file; generates Observation objects
+        For each sentence in a conllx file, generates a single Observation
+        object.
 
-    For each sentence in a conllx file, generates a single Observation
-    object.
+        Args:
+            filepath: the filesystem path to the conll dataset
+            observation_class: namedtuple for observations
 
-    Args:
-        filepath: the filesystem path to the conll dataset
-        observation_class: namedtuple for observations
+        Returns:
+        A list of Observations
+        '''
+        observations = []
+        lines = (x for x in open(filepath))
+        for buf in self.generate_lines_for_sent(lines):
+            conllx_lines = []
+            for line in buf:
+                conllx_lines.append(line.strip().split('\t'))
+            if self.additional_field_name:
+                newfield = [None for x in range(len(conllx_lines))]
+                observation = self.observation_class(
+                    *zip(*conllx_lines), newfield)
+            else:
+                observation = self.observation_class(
+                    *zip(*conllx_lines))
+            observations.append(observation)
+        return observations
 
-    Returns:
-    A list of Observations
-    '''
-    observations = []
-    lines = (x for x in open(filepath))
-    for buf in generate_lines_for_sent(lines):
-        conllx_lines = []
-        for line in buf:
-            conllx_lines.append(line.strip().split('\t'))
-        # embeddings = [None for x in range(len(conllx_lines))]
-        observation = observation_class(*zip(*conllx_lines)
-                                        # ,embeddings
-                                        )
-        observations.append(observation)
-    return observations
 
 
 # Running and reporting
@@ -533,6 +545,9 @@ if __name__ == '__main__':
             raise ValueError(
                 f'Model spec string {CLI_ARGS.model_spec} not recognized.')
 
+    EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".", ";",
+                            "!", "?", ":", "``",
+                            "-LRB-", "-RRB-"]
     # Columns of CONLL file
     CONLL_COLS = ['index',
                   'sentence',
@@ -545,8 +560,8 @@ if __name__ == '__main__':
                   'secondary_relations',
                   'extra_info']
 
-    ObservationClass = namedtuple("Observation", CONLL_COLS)
-    OBSERVATIONS = load_conll_dataset(CLI_ARGS.conllx_file, ObservationClass)
+    OBSERVATIONS = CONLLReader(CONLL_COLS).load_conll_dataset(
+        CLI_ARGS.conllx_file)
 
     SCORES = score(OBSERVATIONS, padlen=CLI_ARGS.pad, n_obs=N_OBS,
                    write_wordpair_data=True,
