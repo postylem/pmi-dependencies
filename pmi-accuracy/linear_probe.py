@@ -139,7 +139,7 @@ class POSProbeLoss(nn.Module):
                 ignore_index=self.args['pad_POS_id'])(
                     prediction_batch, label_batch)
         else:
-            batch_loss = torch.tensor(0.0, device=self.args['device'])
+            batch_loss = torch.tensor(0.0, device=device)
         return batch_loss, number_of_sentences
 
 
@@ -305,7 +305,7 @@ def train_probe(args, model, probe, loss, tokenizer):
     train_dataset, dev_dataset, _ = load_datasets(args, tokenizer)
 
     params = {
-        'batch_size': 5, 'shuffle': True,
+        'batch_size': args['batch_size'], 'shuffle': True,
         'collate_fn': partial(
             POSDataset.collate_fn,
             pad_token_id=model.pad_token_id,
@@ -389,6 +389,7 @@ if __name__ == '__main__':
         hidden_dim=MODEL.hidden_size,
         pad_token_id=MODEL.pad_token_id,
         pad_POS_id=MODEL.pad_POS_id,
+        batch_size=16,
         epochs=20,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
