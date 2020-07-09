@@ -9,6 +9,9 @@ import torch
 import torch.nn.functional as F
 import sys
 import os
+import json
+
+from functools import partial
 from tqdm import tqdm
 from torch.utils.data import Dataset, DataLoader
 from collections import namedtuple
@@ -126,9 +129,10 @@ class POSProbeLoss(nn.Module):
                 batch_loss: average loss in the batch
                 number_of_sentences: number of sentences in the batch
         """
-        number_of_sentences = torch.sum(length_batch != 0).float()
+        number_of_sentences = torch.sum((length_batch != 0)).float()
         if number_of_sentences > 0:
-            batch_loss = nn.CrossEntropyLoss()(
+            batch_loss = nn.CrossEntropyLoss(
+                ignore_index=self.args['pad_POS_id'])(
                 prediction_batch.view(-1, len(self.args['POS_set'])),
                 label_batch.view(-1))
         else:
@@ -139,7 +143,7 @@ class POSProbeLoss(nn.Module):
 class POSDataset(Dataset):
     """ PyTorch dataloader for POS from Observations.
     """
-    def __init__(self, observations, tokenizer, observation_class, POS_set):
+    def __init__(self, args, observations, tokenizer, observation_class):
         '''
         Args:
             observations: A list of Observations describing a dataset
@@ -148,7 +152,9 @@ class POSDataset(Dataset):
             POS_set: the set of POS tags
         '''
         self.observations = observations
-        self.POS_set = POS_set
+        self.POS_set = args['POS_set']
+        self.pad_token_id = args['pad_token_id']
+        self.pad_POS_id = args['pad_POS_id']
         self.tokenizer = tokenizer
         self.POS_to_id = {POS: i for i, POS in enumerate(self.POS_set)}
         self.observation_class = observation_class
@@ -210,23 +216,24 @@ class POSDataset(Dataset):
         return self.input_ids[index], self.pos_ids[index]
 
     @staticmethod
-    def collate_fn(batch):
-        print("/--------------input--------------\\")
-        print(batch)
-        print("•••••••••••••••output••••••••••••••")
+    def collate_fn(batch, pad_token_id, pad_POS_id):
+        # print("/--------------input--------------\\")
+        # print(batch)
+        # print("•••••••••••••••output••••••••••••••")
         seqs = [torch.tensor(b[0]) for b in batch]
         pos_ids = [torch.tensor(b[1]) for b in batch]
         lengths = torch.tensor([len(s) for s in seqs])
         padded_input_ids = nn.utils.rnn.pad_sequence(
-            seqs, batch_first=True)
+            seqs, padding_value=pad_token_id, batch_first=True)
         padded_pos_ids = nn.utils.rnn.pad_sequence(
-            pos_ids, batch_first=True)
-        print((padded_input_ids, padded_pos_ids, lengths))
-        print("\\---------------------------------/")
+            pos_ids, padding_value=pad_POS_id, batch_first=True)
+        # print((padded_input_ids, padded_pos_ids, lengths))
+        # print("\\---------------------------------/")
         return padded_input_ids, padded_pos_ids, lengths
 
 
 def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
+    device = args['device']
     optimizer = torch.optim.Adam(probe.parameters(), lr=0.001)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
@@ -241,13 +248,14 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
         epoch_train_loss_count = 0
         epoch_dev_loss_count = 0
 
-        for batch in tqdm(train_loader, desc='training batch'):
-            print(batch)
+        for batch in tqdm(train_loader, desc='training batch', leave=False):
             probe.train()
             optimizer.zero_grad()
-            observation_batch, label_batch, length_batch = batch
-            embedding_batch = model(observation_batch)
+            input_ids_batch, label_batch, length_batch = batch
+            embedding_batch = model.get_embeddings(input_ids_batch)
+            # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
             prediction_batch = probe(embedding_batch)
+            # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
             batch_loss.backward()
@@ -257,12 +265,14 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             epoch_train_loss_count += count.detach().cpu().numpy()
             optimizer.step()
 
-        for batch in tqdm(dev_loader, desc='dev batch'):
+        for batch in tqdm(dev_loader, desc='dev batch', leave=False):
             optimizer.zero_grad()
             probe.eval()
-            observation_batch, label_batch, length_batch = batch
-            embedding_batch = model(observation_batch)
+            input_ids_batch, label_batch, length_batch = batch
+            embedding_batch = model.get_embeddings(input_ids_batch)
+            # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
             prediction_batch = probe(embedding_batch)
+            # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
             epoch_dev_loss += (batch_loss.detach() *
@@ -271,8 +281,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             epoch_dev_epoch_count += 1
         scheduler.step(epoch_dev_loss)
         tqdm.write(
-            f'[epoch {epoch_i}]'
-            f'train loss: {epoch_train_loss/epoch_train_loss_count},'
+            f'[epoch {epoch_i}] '
+            f'train loss: {epoch_train_loss/epoch_train_loss_count}, '
             f'dev loss: {epoch_dev_loss/epoch_dev_loss_count}'
             )
         if epoch_dev_loss/epoch_dev_loss_count < min_dev_loss - 0.0001:
@@ -289,9 +299,13 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
 def train_probe(args, model, probe, loss, tokenizer):
     train_dataset, dev_dataset, _ = load_datasets(args, tokenizer)
 
-    params = {'batch_size': 5, 'shuffle': True,
-              'collate_fn': POSDataset.collate_fn
-              }
+    params = {
+        'batch_size': 5, 'shuffle': True,
+        'collate_fn': partial(
+            POSDataset.collate_fn,
+            pad_token_id=model.pad_token_id,
+            pad_POS_id=model.pad_POS_id)
+        }
     train_loader = DataLoader(train_dataset, **params)
     dev_loader = DataLoader(dev_dataset, **params)
 
@@ -317,12 +331,33 @@ def load_datasets(args, tokenizer):
     test_obs = reader.load_conll_dataset(test_corpus_path)
 
     obs_class = reader.observation_class
-    POS_set = args['POS_set']
-    train_dataset = POSDataset(train_obs, tokenizer, obs_class, POS_set)
-    dev_dataset = POSDataset(dev_obs, tokenizer, obs_class, POS_set)
-    test_dataset = POSDataset(test_obs, tokenizer, obs_class, POS_set)
+    train_dataset = POSDataset(args, train_obs, tokenizer, obs_class)
+    dev_dataset = POSDataset(args, dev_obs, tokenizer, obs_class)
+    test_dataset = POSDataset(args, test_obs, tokenizer, obs_class)
 
     return train_dataset, dev_dataset, test_dataset
+
+
+class TransformersModel:
+    def __init__(self, spec, device='cpu'):
+        self.device = device
+        self.Model = AutoModel.from_pretrained(spec).to(device)
+        self.Tokenizer = AutoTokenizer.from_pretrained(spec)
+        self.hidden_size = self.Model.config.hidden_size
+        self.pad_token_id = self.Model.config.pad_token_id
+        self.pad_POS_id = -1
+
+    def get_embeddings(self, input_ids_batch):
+        '''takes a batch of (padded) input ids,
+        returns last hidden layer of model for that batch'''
+        # 0 for MASKED tokens. 1 for NOT MASKED tokens.
+        attention_mask = (input_ids_batch !=
+                          self.pad_token_id).type(torch.float)
+        with torch.no_grad():
+            outputs = self.Model(
+                input_ids=input_ids_batch.to(self.device),
+                attention_mask=attention_mask.to(self.device))
+        return outputs[0]  # the hidden states are in the first component
 
 
 if __name__ == '__main__':
@@ -331,8 +366,8 @@ if __name__ == '__main__':
 
     SPEC = 'bert-base-uncased'
 
-    MODEL = AutoModel.from_pretrained(SPEC).to(DEVICE)
-    TOKENIZER = AutoTokenizer.from_pretrained(SPEC)
+    MODEL = TransformersModel(SPEC, DEVICE)
+    TOKENIZER = MODEL.Tokenizer
 
     # UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
     #                'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
@@ -346,7 +381,9 @@ if __name__ == '__main__':
                    'WDT', 'WP', 'WP$', 'WRB', '``']
     ARGS = dict(
         device=DEVICE,
-        hidden_dim=MODEL.config.hidden_size,
+        hidden_dim=MODEL.hidden_size,
+        pad_token_id=MODEL.pad_token_id,
+        pad_POS_id=MODEL.pad_POS_id,
         epochs=20,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
