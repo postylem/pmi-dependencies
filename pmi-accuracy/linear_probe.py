@@ -389,7 +389,7 @@ if __name__ == '__main__':
         corpus=dict(root='ptb3-wsj-data/',
                     train_path='ptb3-wsj-train.conllx',
                     dev_path='ptb3-wsj-dev.conllx',
-                    test_path='ptb3-wsj-test.conllx')
+                    test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
