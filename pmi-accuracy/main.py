@@ -1,14 +1,16 @@
+'''
+Calculate CPMI scores for a (contextual) embedding model,
+on PTB CONLL data.
+'''
+
 import os
-from tqdm import tqdm
-import numpy as np
-import pandas as pd
-import csv
-import shutil
 from datetime import datetime
 from argparse import ArgumentParser
 from collections import namedtuple, OrderedDict
 from itertools import combinations
-
+import pandas as pd
+import numpy as np
+from tqdm import tqdm
 import torch
 
 import task

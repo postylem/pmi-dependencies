@@ -4,17 +4,16 @@ Training a linear probe to extract POS embeddings.
 July 2020
 '''
 
-import torch.nn as nn
-import torch
-import torch.nn.functional as F
 import sys
 import os
-import json
-
 from functools import partial
+from collections import namedtuple
+from datetime import datetime
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 from tqdm import tqdm
 from torch.utils.data import Dataset, DataLoader
-from collections import namedtuple
 from transformers import AutoModel, AutoTokenizer
 
 
@@ -291,7 +290,9 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             f'dev loss: {epoch_dev_loss/epoch_dev_loss_count}'
             )
         if epoch_dev_loss/epoch_dev_loss_count < min_dev_loss - 0.0001:
-            save_path = os.path.join(args['results_path'], "state_dict.pt")
+            datestring = f'_{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
+            params_filename = args['spec'] + datestring + ".state_dict"
+            save_path = os.path.join(args['results_path'], params_filename)
             torch.save(probe.state_dict(), save_path)
             min_dev_loss = epoch_dev_loss/epoch_dev_loss_count
             min_dev_loss_epoch = epoch_i
@@ -366,10 +367,11 @@ class TransformersModel:
 
 
 if __name__ == '__main__':
+    NOW = datetime.now()
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {DEVICE}')
 
-    SPEC = 'bert-base-uncased'
+    SPEC = 'bert-large-cased'
 
     MODEL = TransformersModel(SPEC, DEVICE)
     TOKENIZER = MODEL.Tokenizer
@@ -386,11 +388,12 @@ if __name__ == '__main__':
                    'WDT', 'WP', 'WP$', 'WRB', '``']
     ARGS = dict(
         device=DEVICE,
+        spec=SPEC,
         hidden_dim=MODEL.hidden_size,
         pad_token_id=MODEL.pad_token_id,
         pad_POS_id=MODEL.pad_POS_id,
         batch_size=16,
-        epochs=20,
+        epochs=50,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
                     train_path='ptb3-wsj-train.conllx',
