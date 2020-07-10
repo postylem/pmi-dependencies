@@ -236,7 +236,7 @@ class POSDataset(Dataset):
 
 def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     device = args['device']
-    optimizer = torch.optim.Adam(probe.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(probe.parameters(), lr=0.005)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
     min_dev_loss = sys.maxsize
