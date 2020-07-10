@@ -315,12 +315,14 @@ def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
     ''' get the prediction accuracy for the positions that aren't padding '''
     # not_pad is the only positions in prediction to care about
     not_padding = label_batch.view(-1).ne(pad_POS_id)
-    actual_labels = label_batch.view(-1)[not_padding]
-    actual_preds = prediction_batch.view(-1, pos_vocabsize)[not_padding]
-    actual_preds = actual_preds.argmax(-1)
-    assert len(actual_preds) == len(actual_labels),\
+    labels = label_batch.view(-1)[not_padding]
+    preds = prediction_batch.view(-1, pos_vocabsize)[not_padding]
+    preds = preds.argmax(-1)
+    assert len(preds) == len(labels),\
         "predictions don't align with labels"
-    acc = float(sum(actual_preds == actual_labels)) / len(actual_labels)
+    correct = (preds.eq(labels)).sum().float()
+    print(type(preds), type(labels), correct)
+    acc = correct / len(labels)
     return acc
 
 
@@ -393,7 +395,7 @@ if __name__ == '__main__':
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {DEVICE}')
 
-    SPEC = 'bert-large-cased'
+    SPEC = 'bert-base-cased'
 
     MODEL = TransformersModel(SPEC, DEVICE)
     TOKENIZER = MODEL.Tokenizer
@@ -418,12 +420,12 @@ if __name__ == '__main__':
         epochs=50,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    # train_path='CUSTOM.conllx',
-                    # dev_path='CUSTOM4.conllx',
-                    # test_path='CUSTOM4.conllx'),
-                    train_path='ptb3-wsj-train.conllx',
-                    dev_path='ptb3-wsj-dev.conllx',
-                    test_path='ptb3-wsj-test.conllx'),
+                    train_path='CUSTOM.conllx',
+                    dev_path='CUSTOM4.conllx',
+                    test_path='CUSTOM4.conllx'),
+                    # train_path='ptb3-wsj-train.conllx',
+                    # dev_path='ptb3-wsj-dev.conllx',
+                    # test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
