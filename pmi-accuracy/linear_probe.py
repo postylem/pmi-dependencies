@@ -320,6 +320,8 @@ def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
     preds = preds.argmax(-1)
     assert len(preds) == len(labels),\
         "predictions don't align with labels"
+    print(preds.device)
+    print(labels.device)
     correct = (preds.eq(labels)).sum().float()
     print(type(preds), type(labels), correct)
     acc = correct / len(labels)
