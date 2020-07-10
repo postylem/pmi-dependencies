@@ -128,7 +128,7 @@ class POSProbeLoss(nn.Module):
                 batch_loss: average loss in the batch
                 number_of_sentences: number of sentences in the batch
         """
-        number_of_sentences = torch.sum((length_batch != 0)).float()
+        number_of_sentences = torch.sum(length_batch != 0).float()
         device = self.args['device']
         if number_of_sentences > 0:
             prediction_batch = prediction_batch.view(
@@ -236,6 +236,9 @@ class POSDataset(Dataset):
 
 def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     device = args['device']
+    pad_POS_id = args['pad_POS_id']
+    pos_vocabsize = len(args['POS_set'])
+
     optimizer = torch.optim.Adam(probe.parameters(), lr=0.005)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
@@ -259,6 +262,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
             prediction_batch = probe(embedding_batch).to(device)
             # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
+            prediction_accuracy = get_batch_acc(
+                label_batch, prediction_batch, pad_POS_id, pos_vocabsize)
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
             batch_loss.backward()
@@ -277,6 +282,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
             prediction_batch = probe(embedding_batch).to(device)
             # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
+            dev_accuracy = get_batch_acc(
+                label_batch, prediction_batch, pad_POS_id, pos_vocabsize)
             batch_loss, count = loss(
                 prediction_batch, label_batch, length_batch)
             epoch_dev_loss += (batch_loss.detach() *
@@ -285,21 +292,36 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             epoch_dev_epoch_count += 1
         scheduler.step(epoch_dev_loss)
         tqdm.write(
-            f'[epoch {epoch_i}] '
-            f'train loss: {epoch_train_loss/epoch_train_loss_count}, '
-            f'dev loss: {epoch_dev_loss/epoch_dev_loss_count}'
+            f'[epoch {epoch_i}]\n'
+            f'\ttrain loss (per sent): {epoch_train_loss/epoch_train_loss_count:.5f},'
+            f'\ttrain acc: {prediction_accuracy*100:.2f} %\n'
+            f'\tdev loss (per sent)  : {epoch_dev_loss/epoch_dev_loss_count:.5f},'
+            f'\tdev acc  : {dev_accuracy*100:.2f} %'
             )
         if epoch_dev_loss/epoch_dev_loss_count < min_dev_loss - 0.0001:
-            datestring = f'_{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
-            params_filename = args['spec'] + datestring + ".state_dict"
+            datestring = NOW.strftime("%y.%m.%d-%H.%M")
+            params_filename = args['spec'] + '_' + datestring + ".state_dict"
             save_path = os.path.join(args['results_path'], params_filename)
             torch.save(probe.state_dict(), save_path)
             min_dev_loss = epoch_dev_loss/epoch_dev_loss_count
             min_dev_loss_epoch = epoch_i
-            tqdm.write('Saving probe state_dict')
+            tqdm.write('\tSaving probe state_dict')
         elif min_dev_loss_epoch < epoch_i - 4:
-            tqdm.write('Early stopping')
+            tqdm.write('\tEarly stopping')
             break
+
+
+def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
+    ''' get the prediction accuracy for the positions that aren't padding '''
+    # not_pad is the only positions in prediction to care about
+    not_padding = label_batch.view(-1).ne(pad_POS_id)
+    actual_labels = label_batch.view(-1)[not_padding]
+    actual_preds = prediction_batch.view(-1, pos_vocabsize)[not_padding]
+    actual_preds = actual_preds.argmax(-1)
+    assert len(actual_preds) == len(actual_labels),\
+        "predictions don't align with labels"
+    acc = float(sum(actual_preds == actual_labels)) / len(actual_labels)
+    return acc
 
 
 def train_probe(args, model, probe, loss, tokenizer):
@@ -396,6 +418,9 @@ if __name__ == '__main__':
         epochs=50,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
+                    # train_path='CUSTOM.conllx',
+                    # dev_path='CUSTOM4.conllx',
+                    # test_path='CUSTOM4.conllx'),
                     train_path='ptb3-wsj-train.conllx',
                     dev_path='ptb3-wsj-dev.conllx',
                     test_path='ptb3-wsj-test.conllx'),
