@@ -300,7 +300,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             )
         if epoch_dev_loss/epoch_dev_loss_count < min_dev_loss - 0.0001:
             datestring = NOW.strftime("%y.%m.%d-%H.%M")
-            params_filename = args['spec'] + '_' + datestring + ".state_dict"
+            params_filename = (
+                args['spec'] + '_' + datestring + ".state_dict")
             save_path = os.path.join(args['results_path'], params_filename)
             torch.save(probe.state_dict(), save_path)
             min_dev_loss = epoch_dev_loss/epoch_dev_loss_count
@@ -317,13 +318,10 @@ def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
     not_padding = label_batch.view(-1).ne(pad_POS_id)
     labels = label_batch.view(-1)[not_padding]
     preds = prediction_batch.view(-1, pos_vocabsize)[not_padding]
-    preds = preds.argmax(-1)
+    preds = preds.argmax(-1).cpu()
     assert len(preds) == len(labels),\
         "predictions don't align with labels"
-    print(preds.device)
-    print(labels.device)
     correct = (preds.eq(labels)).sum().float()
-    print(type(preds), type(labels), correct)
     acc = correct / len(labels)
     return acc
 
@@ -397,7 +395,7 @@ if __name__ == '__main__':
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {DEVICE}')
 
-    SPEC = 'bert-base-cased'
+    SPEC = 'bert-large-cased'
 
     MODEL = TransformersModel(SPEC, DEVICE)
     TOKENIZER = MODEL.Tokenizer
@@ -418,7 +416,7 @@ if __name__ == '__main__':
         hidden_dim=MODEL.hidden_size,
         pad_token_id=MODEL.pad_token_id,
         pad_POS_id=MODEL.pad_POS_id,
-        batch_size=16,
+        batch_size=32,
         epochs=50,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
