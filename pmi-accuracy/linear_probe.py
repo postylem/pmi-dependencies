@@ -9,6 +9,8 @@ import os
 from functools import partial
 from collections import namedtuple
 from datetime import datetime
+from argparse import ArgumentParser
+from contextlib import redirect_stdout
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -244,6 +246,9 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
         optimizer, mode='min', factor=0.1, patience=0)
     min_dev_loss = sys.maxsize
     min_dev_loss_epoch = -1
+    track_acc = True  # set to False to track dev loss instead
+    max_acc = -100
+    max_acc_epoch = -1
 
     for epoch_i in tqdm(range(args['epochs']), desc='training'):
         epoch_train_loss = 0
@@ -253,7 +258,7 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
         epoch_train_loss_count = 0
         epoch_dev_loss_count = 0
 
-        for batch in tqdm(train_loader, desc='training batch', leave=False):
+        for batch in tqdm(train_loader, desc='train batch', leave=False):
             probe.train()
             optimizer.zero_grad()
             input_ids_batch, label_batch, length_batch = batch
@@ -298,18 +303,29 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             f'\tdev loss (per sent)  : {epoch_dev_loss/epoch_dev_loss_count:.5f},'
             f'\tdev acc  : {dev_accuracy*100:.2f} %'
             )
-        if epoch_dev_loss/epoch_dev_loss_count < min_dev_loss - 0.0001:
-            datestring = NOW.strftime("%y.%m.%d-%H.%M")
-            params_filename = (
-                args['spec'] + '_' + datestring + ".state_dict")
-            save_path = os.path.join(args['results_path'], params_filename)
-            torch.save(probe.state_dict(), save_path)
-            min_dev_loss = epoch_dev_loss/epoch_dev_loss_count
-            min_dev_loss_epoch = epoch_i
-            tqdm.write('\tSaving probe state_dict')
-        elif min_dev_loss_epoch < epoch_i - 4:
-            tqdm.write('\tEarly stopping')
-            break
+        if track_acc:
+            if dev_accuracy > max_acc + 0.000001:
+                save_path = os.path.join(args['results_path'], 'probe.state_dict')
+                torch.save(probe.state_dict(), save_path)
+                max_acc = dev_accuracy
+                max_acc_epoch = epoch_i
+                tqdm.write('\tSaving probe state_dict')
+                if dev_accuracy == 1:
+                    break
+            elif max_acc_epoch < epoch_i - 6:
+                tqdm.write('\tEarly stopping')
+                break
+        else:
+            if epoch_dev_loss/epoch_dev_loss_count < min_dev_loss - 0.0001:
+                save_path = os.path.join(
+                    args['results_path'], 'probe.state_dict')
+                torch.save(probe.state_dict(), save_path)
+                min_dev_loss = epoch_dev_loss/epoch_dev_loss_count
+                min_dev_loss_epoch = epoch_i
+                tqdm.write('\tSaving probe state_dict')
+            elif min_dev_loss_epoch < epoch_i - 4:
+                tqdm.write('\tEarly stopping')
+                break
 
 
 def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
@@ -390,14 +406,31 @@ class TransformersModel:
         return outputs[0]  # the hidden states are in the first component
 
 
+def pretty_print_dict(d, indent=0):
+    for key, value in d.items():
+        print('    '*indent + key, end=': ')
+        if isinstance(value, dict):
+            print()
+            pretty_print_dict(value, indent+1)
+        else:
+            print(repr(value))
+
+
 if __name__ == '__main__':
+    ARGP = ArgumentParser()
+    ARGP.add_argument('--model_spec', default='bert-large-cased',
+                      help='''specify model
+                      (e.g. "xlnet-base-cased", "bert-large-cased"),
+                      or path for offline''')
+    ARGP.add_argument('--batch_size', default=32, type=int)
+    ARGP.add_argument('--epochs', default=40, type=int)
+    CLI_ARGS = ARGP.parse_args()
+
     NOW = datetime.now()
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f'Using device: {DEVICE}')
 
-    SPEC = 'bert-large-cased'
-
-    MODEL = TransformersModel(SPEC, DEVICE)
+    MODEL = TransformersModel(CLI_ARGS.model_spec, DEVICE)
     TOKENIZER = MODEL.Tokenizer
 
     # UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
@@ -412,12 +445,12 @@ if __name__ == '__main__':
                    'WDT', 'WP', 'WP$', 'WRB', '``']
     ARGS = dict(
         device=DEVICE,
-        spec=SPEC,
+        spec=CLI_ARGS.model_spec,
+        batch_size=CLI_ARGS.batch_size,
+        epochs=CLI_ARGS.epochs,
         hidden_dim=MODEL.hidden_size,
         pad_token_id=MODEL.pad_token_id,
         pad_POS_id=MODEL.pad_POS_id,
-        batch_size=32,
-        epochs=50,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
                     # train_path='CUSTOM.conllx',
@@ -432,6 +465,17 @@ if __name__ == '__main__':
             'governance_relations', 'secondary_relations', 'extra_info'],
         POS_set=XPOS_TAGSET,
         )
+
+    RESULTS_DIRNAME = ARGS['spec'] + '_' + NOW.strftime("%y.%m.%d-%H.%M") + '/'
+    RESULTS_PATH = os.path.join(ARGS['results_path'], RESULTS_DIRNAME)
+    ARGS['results_path'] = RESULTS_PATH
+
+    os.makedirs(RESULTS_PATH, exist_ok=True)
+    print(f"RESULTS_PATH: {ARGS['results_path']}\n")
+
+    with open(RESULTS_PATH+'info.txt', mode='w') as infofile:
+        with redirect_stdout(infofile):
+            pretty_print_dict(ARGS)
 
     PROBE = POSProbe(ARGS)
     LOSS = POSProbeLoss(ARGS)
