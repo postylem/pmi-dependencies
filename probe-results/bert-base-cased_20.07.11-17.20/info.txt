@@ -1,0 +1,15 @@
+device: device(type='cuda')
+spec: 'bert-base-cased'
+batch_size: 32
+epochs: 40
+hidden_dim: 768
+pad_token_id: 0
+pad_POS_id: -1
+results_path: 'probe-results/bert-base-cased_20.07.11-17.20/'
+corpus: 
+    root: 'ptb3-wsj-data/'
+    train_path: 'ptb3-wsj-train.conllx'
+    dev_path: 'ptb3-wsj-dev.conllx'
+    test_path: 'ptb3-wsj-test.conllx'
+conll_fieldnames: ['index', 'sentence', 'lemma_sentence', 'upos_sentence', 'xpos_sentence', 'morph', 'head_indices', 'governance_relations', 'secondary_relations', 'extra_info']
+POS_set: ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
