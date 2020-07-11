@@ -244,9 +244,6 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     optimizer = torch.optim.Adam(probe.parameters(), lr=0.005)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
-    min_dev_loss = sys.maxsize
-    min_dev_loss_epoch = -1
-    track_acc = True  # set to False to track dev loss instead
     max_acc = -100
     max_acc_epoch = -1
 
@@ -296,36 +293,32 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             epoch_dev_loss_count += count.detach().cpu().numpy()
             epoch_dev_epoch_count += 1
         scheduler.step(epoch_dev_loss)
-        tqdm.write(
+        msg = (
             f'[epoch {epoch_i}]\n'
             f'\ttrain loss (per sent): {epoch_train_loss/epoch_train_loss_count:.5f},'
             f'\ttrain acc: {prediction_accuracy*100:.2f} %\n'
             f'\tdev loss (per sent)  : {epoch_dev_loss/epoch_dev_loss_count:.5f},'
             f'\tdev acc  : {dev_accuracy*100:.2f} %'
             )
-        if track_acc:
-            if dev_accuracy > max_acc + 0.000001:
-                save_path = os.path.join(args['results_path'], 'probe.state_dict')
-                torch.save(probe.state_dict(), save_path)
-                max_acc = dev_accuracy
-                max_acc_epoch = epoch_i
-                tqdm.write('\tSaving probe state_dict')
-                if dev_accuracy == 1:
-                    break
-            elif max_acc_epoch < epoch_i - 6:
-                tqdm.write('\tEarly stopping')
+        if dev_accuracy > max_acc + 0.000001:
+            save_path = os.path.join(args['results_path'], 'probe.state_dict')
+            torch.save(probe.state_dict(), save_path)
+            max_acc = dev_accuracy
+            max_acc_epoch = epoch_i
+            tqdm.write(msg + '\tSaving probe state_dict')
+            write_saved_acc(RESULTS_PATH,save_path,epoch_i,dev_accuracy)
+            if dev_accuracy == 1:
                 break
-        else:
-            if epoch_dev_loss/epoch_dev_loss_count < min_dev_loss - 0.0001:
-                save_path = os.path.join(
-                    args['results_path'], 'probe.state_dict')
-                torch.save(probe.state_dict(), save_path)
-                min_dev_loss = epoch_dev_loss/epoch_dev_loss_count
-                min_dev_loss_epoch = epoch_i
-                tqdm.write('\tSaving probe state_dict')
-            elif min_dev_loss_epoch < epoch_i - 4:
-                tqdm.write('\tEarly stopping')
-                break
+        elif max_acc_epoch < epoch_i - 6:
+            tqdm.write(msg + '\tEarly stopping')
+            break
+
+
+def write_saved_acc(RESULTS_PATH,save_path,epoch_i,dev_accuracy):
+    with open(RESULTS_PATH+'info.txt', mode='w') as infofile:
+        infofile.write(
+            f'saved params to {save_path}\n'+
+            f'epoch {epoch_i} dev acc = {dev_accuracy*100} %')
 
 
 def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
@@ -476,6 +469,7 @@ if __name__ == '__main__':
     with open(RESULTS_PATH+'info.txt', mode='w') as infofile:
         with redirect_stdout(infofile):
             pretty_print_dict(ARGS)
+        infofile.write('')
 
     PROBE = POSProbe(ARGS)
     LOSS = POSProbeLoss(ARGS)
