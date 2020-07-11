@@ -4,7 +4,6 @@ Training a linear probe to extract POS embeddings.
 July 2020
 '''
 
-import sys
 import os
 from functools import partial
 from collections import namedtuple
@@ -236,12 +235,36 @@ class POSDataset(Dataset):
         return padded_input_ids, padded_pos_ids, lengths
 
 
+class TransformersModel:
+    def __init__(self, spec, device='cpu'):
+        self.device = device
+        self.Model = AutoModel.from_pretrained(spec).to(device)
+        self.Tokenizer = AutoTokenizer.from_pretrained(spec)
+        self.hidden_size = self.Model.config.hidden_size
+        self.pad_token_id = self.Model.config.pad_token_id
+        self.pad_POS_id = -1
+
+    def get_embeddings(self, input_ids_batch):
+        '''takes a batch of (padded) input ids,
+        returns last hidden layer of model for that batch'''
+        # 0 for MASKED tokens. 1 for NOT MASKED tokens.
+        attention_mask = (input_ids_batch !=
+                          self.pad_token_id).type(torch.float)
+        with torch.no_grad():
+            outputs = self.Model(
+                input_ids=input_ids_batch.to(self.device),
+                attention_mask=attention_mask.to(self.device))
+        return outputs[0]  # the hidden states are in the first component
+
+
 def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     device = args['device']
     pad_POS_id = args['pad_POS_id']
     pos_vocabsize = len(args['POS_set'])
 
-    optimizer = torch.optim.Adam(probe.parameters(), lr=0.005)
+    # optimizer = torch.optim.Adam(probe.parameters(), lr=0.05)
+    optimizer = torch.optim.SGD(
+        probe.parameters(), lr=0.3, weight_decay=1e-3, momentum=0.9)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
     max_acc = -100
@@ -306,19 +329,20 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             max_acc = dev_accuracy
             max_acc_epoch = epoch_i
             tqdm.write(msg + '\tSaving probe state_dict')
-            write_saved_acc(RESULTS_PATH,save_path,epoch_i,dev_accuracy)
+            write_saved_acc(RESULTS_PATH, epoch_i, dev_accuracy)
             if dev_accuracy == 1:
                 break
         elif max_acc_epoch < epoch_i - 6:
             tqdm.write(msg + '\tEarly stopping')
             break
+        else:
+            tqdm.write(msg)
 
 
-def write_saved_acc(RESULTS_PATH,save_path,epoch_i,dev_accuracy):
-    with open(RESULTS_PATH+'info.txt', mode='w') as infofile:
-        infofile.write(
-            f'saved params to {save_path}\n'+
-            f'epoch {epoch_i} dev acc = {dev_accuracy*100} %')
+def write_saved_acc(RESULTS_PATH, epoch_i, dev_accuracy):
+    with open(RESULTS_PATH+'info.txt', mode='a') as infof:
+        infof.write(
+            f'epoch{epoch_i:3d} dev acc = {dev_accuracy*100} %\n')
 
 
 def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
@@ -377,28 +401,6 @@ def load_datasets(args, tokenizer):
     return train_dataset, dev_dataset, test_dataset
 
 
-class TransformersModel:
-    def __init__(self, spec, device='cpu'):
-        self.device = device
-        self.Model = AutoModel.from_pretrained(spec).to(device)
-        self.Tokenizer = AutoTokenizer.from_pretrained(spec)
-        self.hidden_size = self.Model.config.hidden_size
-        self.pad_token_id = self.Model.config.pad_token_id
-        self.pad_POS_id = -1
-
-    def get_embeddings(self, input_ids_batch):
-        '''takes a batch of (padded) input ids,
-        returns last hidden layer of model for that batch'''
-        # 0 for MASKED tokens. 1 for NOT MASKED tokens.
-        attention_mask = (input_ids_batch !=
-                          self.pad_token_id).type(torch.float)
-        with torch.no_grad():
-            outputs = self.Model(
-                input_ids=input_ids_batch.to(self.device),
-                attention_mask=attention_mask.to(self.device))
-        return outputs[0]  # the hidden states are in the first component
-
-
 def pretty_print_dict(d, indent=0):
     for key, value in d.items():
         print('    '*indent + key, end=': ')
@@ -446,12 +448,12 @@ if __name__ == '__main__':
         pad_POS_id=MODEL.pad_POS_id,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    # train_path='CUSTOM.conllx',
-                    # dev_path='CUSTOM4.conllx',
-                    # test_path='CUSTOM4.conllx'),
-                    train_path='ptb3-wsj-train.conllx',
-                    dev_path='ptb3-wsj-dev.conllx',
-                    test_path='ptb3-wsj-test.conllx'),
+                    train_path='CUSTOM.conllx',
+                    dev_path='CUSTOM4.conllx',
+                    test_path='CUSTOM4.conllx'),
+                    # train_path='ptb3-wsj-train.conllx',
+                    # dev_path='ptb3-wsj-dev.conllx',
+                    # test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
@@ -466,7 +468,7 @@ if __name__ == '__main__':
     os.makedirs(RESULTS_PATH, exist_ok=True)
     print(f"RESULTS_PATH: {ARGS['results_path']}\n")
 
-    with open(RESULTS_PATH+'info.txt', mode='w') as infofile:
+    with open(RESULTS_PATH+'info.txt', mode='a') as infofile:
         with redirect_stdout(infofile):
             pretty_print_dict(ARGS)
         infofile.write('')
