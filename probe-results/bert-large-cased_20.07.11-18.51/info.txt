@@ -1,2 +1,0 @@
-saved params to probe-results/bert-large-cased_20.07.11-18.51/probe.state_dict
-epoch 14 dev acc = 92.77108001708984 %

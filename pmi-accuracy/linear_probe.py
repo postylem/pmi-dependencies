@@ -261,10 +261,12 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     device = args['device']
     pad_POS_id = args['pad_POS_id']
     pos_vocabsize = len(args['POS_set'])
-
-    # optimizer = torch.optim.Adam(probe.parameters(), lr=0.05)
-    optimizer = torch.optim.SGD(
-        probe.parameters(), lr=0.3, weight_decay=1e-3, momentum=0.9)
+    #opt = dict(alg='adam', hyper=dict(lr=0.1))
+    opt = dict(alg='sgd', hyper=dict(lr=0.33, weight_decay=5e-4, momentum=0.9))
+    if opt['alg']=='adam':
+        optimizer = torch.optim.Adam(probe.parameters(), **opt['hyper'])
+    elif opt['alg']=='sgd':
+        optimizer = torch.optim.SGD(probe.parameters(), **opt['hyper'])
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
     max_acc = -100
@@ -329,7 +331,7 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             max_acc = dev_accuracy
             max_acc_epoch = epoch_i
             tqdm.write(msg + '\tSaving probe state_dict')
-            write_saved_acc(RESULTS_PATH, epoch_i, dev_accuracy)
+            write_saved_acc(RESULTS_PATH, epoch_i, dev_accuracy, str(opt))
             if dev_accuracy == 1:
                 break
         elif max_acc_epoch < epoch_i - 6:
@@ -339,10 +341,11 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             tqdm.write(msg)
 
 
-def write_saved_acc(RESULTS_PATH, epoch_i, dev_accuracy):
+def write_saved_acc(RESULTS_PATH, epoch_i, dev_accuracy,extra):
     with open(RESULTS_PATH+'info.txt', mode='a') as infof:
         infof.write(
-            f'epoch{epoch_i:3d} dev acc = {dev_accuracy*100} %\n')
+            f'epoch{epoch_i:3d} dev acc = {dev_accuracy*100} % '+ extra +
+            '\n')
 
 
 def get_batch_acc(label_batch, prediction_batch, pad_POS_id, pos_vocabsize):
