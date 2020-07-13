@@ -35,8 +35,8 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
 TODO:
 
 - ELMo
-- Models explicitly modelling linguistic structure, like 
-  - ordered neuron LSTM, 
+- Models explicitly modelling linguistic structure, like
+  - ordered neuron LSTM,
   - recursive neural network grammars
 
 
@@ -67,12 +67,12 @@ pip install transformers
 pip install sentencepiece # install sentencepiece tokenizer for xlnet
 ```
 
-With `pmienv` active, to run: 
+With `pmienv` active, to run:
 
 ```bash
 python pmi-accuracy/main.py > out
 ```
-<!-- 
+<!--
 or something more specific like:
 ```bash
 nohup python pmi-accuracy/main.py --long_enough 30 --batch_size 32 --n_observations 100 > out 2> err &
@@ -91,10 +91,10 @@ CLI options:
 
 ### Output
 
-Two datasets as output: 
+Two datasets as output:
 
-- `scores` (sentence level data), 
-- `wordpairs` (word-pair level data within sentences). 
+- `scores` (sentence level data),
+- `wordpairs` (word-pair level data within sentences).
 
 In each of these, the column `sentence_index` refers to the same sentence in the input dataset.
 
@@ -107,7 +107,7 @@ Tokenization is a little bit of an issue, since XLNet is trained on text which i
 
 What XLNet expects: tokenized input, according to the sentencepiece format, where `▁` (U+2581, "LOWER ONE EIGHTH BLOCK") corresponds to whitespace.
 
-<!-- A hack method: 
+<!-- A hack method:
 - transform plaintext version of PTB sentences (tokens delineated with spaces) into fake sentencepiece tokenized text, that is, prefixing most PTB tokens with a `▁`.
 - use the result as input to XLNet.  This results in a good number of words mapped to id=0 (= `<unk>`) when these tokens are fed into `XLNetTokenizer.convert_tokens_to_ids()`, which might be a problem.
  -->
@@ -142,7 +142,7 @@ python pmi-accuracy/print_tikz.py --sentence_indices 1696 --input_file path/to/s
 
 This will output a LaTeX file `dependencies.tex` into the results directory where the scores are.
 
-Example: 
+Example:
 
 - BERT
 
@@ -175,7 +175,7 @@ matrix_0 = npzfile[npzfile.files[0]]
 
 Load saved matrices by specifying  `--model_spec load_npz` instead of a language model. Specify the directory containing `pmi_matrices.npz` and `pseudo_logliks.npz` with `--model_path`. This will create a new results directory with the calculated scores.  
 
-Example: after saving matrices and (pseudo log-liklihoods) to disk in directory `results/bert-base-cased_pad10`, by running 
+Example: after saving matrices and (pseudo log-liklihoods) to disk in directory `results/bert-base-cased_pad10`, by running
 
 ```bash
 python pmi-accuracy/main.py --model_spec bert-base-cased --save_matrices --pad 10
@@ -189,7 +189,7 @@ python pmi-accuracy/main.py --model_spec load_npz --model_path results/bert-base
 
 ### Notes:
 
-a messy scratch notebook is [here](https://colab.research.google.com/drive/1kJdXQpXhNbTqqdLatH_qfJCeuRD_9ggW#scrollTo=vCfdPAT2QNXd) 
+a messy scratch notebook is [here](https://colab.research.google.com/drive/1kJdXQpXhNbTqqdLatH_qfJCeuRD_9ggW#scrollTo=vCfdPAT2QNXd)
 a minimal example notebook from a few iterations ago [here](https://colab.research.google.com/drive/1VVcYrRLOUizEbvKvD5_zERHJQLqB_gu4)
 
 scratch for tokenization and models: [here](https://colab.research.google.com/drive/1NjUNw_1DRaejyLtuqq52l6sHEkJ9M-3E)
@@ -199,415 +199,30 @@ Some prose is there about the dealing with the fact that these estimates of PMI 
 
 --------------------------------------------------
 
+# CPMI Results
 
-# Some results
+See [results-clean/README.md](results-clean/README.md).
 
-### baselines
-linear : **0.50**
-
-random non-proj:   0.13
-
-rndom projective: 0.27
-
-### xlnet-base-cased
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.43  |  0.41  |  0.38  |  0.43  |
-|  proj    |  0.46  |  0.44  |  0.41  |  0.43  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.44  |  0.42  |  0.39  |  0.44  |
-|  proj    |  0.47  |  0.45  |  0.43  |  0.44  |
-
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.42  |  0.40  |  0.39  |  0.43  |
-|  proj    |  0.46  |  0.44  |  0.44  |  0.44  |
-### xlnet-large-cased
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.38  |  0.35  |  0.33  |  0.37  |
-|  proj    |  0.42  |  0.40  |  0.38  |  0.39  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.39  |  0.36  |  0.36  |  0.39  |
-|  proj    |  0.43  |  0.41  |  0.40  |  0.41  |
-
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.38  |  0.36  |  0.37  |  0.39  |
-|  proj    |  0.43  |  0.41  |  0.41  |  0.41  |
-### bert-base-uncased
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.44  |  0.43  |  0.42  |  0.45  |
-|  proj    |  0.46  |  0.45  |  0.44  |  0.44  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.45  |  0.44  |  0.42  |  0.46  |
-|  proj    |  0.46  |  0.46  |  0.44  |  0.44  |
-### bert-base-cased
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.45  |  0.44  |  0.43  |  0.46  |
-|  proj    |  0.47  |  0.46  |  0.45  |  0.45  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.46  |  0.44  |  0.44  |  0.47  |
-|  proj    |  0.47  |  0.46  |  0.46  |  0.46  |
-
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.46  |  0.44  |  0.44  |  0.47  |
-|  proj    |  0.47  |  0.46  |  0.46  |  0.46  |
-### bert-large-uncased
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.43  |  0.41  |  0.40  |  0.44  |
-|  proj    |  0.45  |  0.44  |  0.43  |  0.43  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.44  |  0.43  |  0.42  |  0.45  |
-|  proj    |  0.46  |  0.45  |  0.44  |  0.44  |
-### bert-large-cased
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.45  |  0.45  |  0.42  |  0.46  |
-|  proj    |  0.46  |  0.46  |  0.44  |  0.45  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.47  |  0.47  |  0.43  |**0.48**|
-|  proj    |**0.48**|**0.48**|  0.45  |  0.45  |
-
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |**0.48**|  0.47  |  0.44  |**0.48**|
-|  proj    |**0.48**|**0.48**|  0.45  |  0.45  |
-### xlm-mlm-en-2048
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.39  |  0.36  |  0.37  |  0.39  |
-|  proj    |  0.43  |  0.41  |  0.41  |  0.42  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.40  |  0.38  |  0.38  |  0.40  |
-|  proj    |  0.43  |  0.42  |  0.42  |  0.42  |
-
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.41  |  0.39  |  0.39  |  0.41  |
-|  proj    |  0.44  |  0.43  |  0.42  |  0.42  |
-### bart-large
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.37  |  0.24  |  0.39  |  0.37  |
-|  proj    |  0.38  |  0.28  |  0.40  |  0.38  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.38  |  0.23  |  0.40  |  0.38  |
-|  proj    |  0.39  |  0.27  |  0.41  |  0.40  |
-
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.38  |  0.23  |  0.41  |  0.38  |
-|  proj    |  0.40  |  0.27  |  0.42  |  0.40  |
-### distilbert-base-cased
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.46  |  0.44  |  0.43  |  0.46  |
-|  proj    |  0.48  |  0.46  |  0.46  |  0.46  |
-
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.47  |  0.45  |  0.45  |  0.47  |
-|  proj    |  0.48  |  0.47  |  0.46  |  0.47  |
-
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.48  |  0.46  |  0.45  |  0.48  |
-|  proj    |**0.49**|  0.48  |  0.47  |  0.47  |
-
-### gpt2  (just for exploration)
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.43  |  0.09  |  0.43  |  0.37  |
-|  proj    |  0.43  |**0.51**|  0.43  |  0.44  |
-
-### Word2Vec trained on wikipedia and bookcorpus
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.305 |  0.323 |  0.254 |  0.287 |
-|  proj    |  0.411 |  0.399 |  0.323 |  0.419 |
-### Word2Vec `gensim` implementation
-| *pad 0*  |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.308 |  0.291 |  0.314 |  0.307 |
-|  proj    |  0.408 |  0.376 |  0.401 |  0.441 |
 --------------------------------------------------
 
+# Linear probe for POS embeddings
 
-## Checkpoints along training (BERT), 500 sentences
+[linear-probe.py](pmi-accuracy/linear-probe.py) trains a single-layer linear network to extract POS embeddings from pretrained contextual embeddings.
+This linear probe is a `d`-by-`h`-matrix, where input dimension `h` is the contextual embedding network's hidden layer dimension, and output dimension `d` is size of the POS tagset. Interpreting the output as an unnormalized probability distribution over POS tags, it is trained to minimize the cross-entropy loss between the predicted and observed POS, using the Penn Treebank (standard training split being partitions 02-21, with partitions 01,22,24 for validation).
 
-- linear         0.499
-- random nonproj 0.135
-- random proj    0.267
+Currently the probe achieves the following validation accuracy:
 
-### bert-base-uncased pad60 off-shelf
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.452 |  0.434 |  0.432 |  0.462 |
-|  proj    |  0.463 |  0.452 |  0.448 |  0.442 |
-### bert-base-uncased pad60 1500000
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.415 |  0.404 |  0.388 |  0.424 |
-|  proj    |  0.434 |  0.423 |  0.41  |  0.413 |
-### bert-base-uncased pad60 1000000
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.419 |  0.405 |  0.399 |  0.437 |
-|  proj    |  0.439 |  0.426 |  0.425 |  0.431 |
-### bert-base-uncased pad60 500000
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.376 |  0.339 |  0.351 |  0.375 |
-|  proj    |  0.409 |  0.372 |  0.389 |  0.395 |
-### bert-base-uncased pad60 100000
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.431 |  0.409 |  0.42  |  0.447 |
-|  proj    |  0.444 |  0.425 |  0.437 |  0.446 |
-### bert-base-uncased pad60 50000
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.151 |  0.148 |  0.152 |  0.149 |
-|  proj    |  0.27  |  0.261 |  0.256 |  0.265 |
-### bert-base-uncased pad60 10000
-| *pad 60* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.115 |  0.129 |  0.095 |  0.104 |
-|  proj    |  0.244 |  0.21  |  0.165 |  0.178 |
+| model             | accuracy |
+| ------------------|----------|
+|`bert-base-cased`  | 97.50 %  |
+|`bert-large-cased` | 93.52 %  |
 
-And, with absolute value
+## Using the POS-embeddings to get a POS-CPMI score
 
-### bert-base-uncased pad30 off-shelf
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.450 |  0.436 |  0.424 |  0.461 |
-|  proj    |  0.464 |  0.459 |  0.443 |  0.442 |
-### bert-base-uncased pad30 1500000
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.396 |  0.357 |  0.374 |  0.377 |
-|  proj    |  0.423 |  0.389 |  0.406 |  0.385 |
-### bert-base-uncased pad30 1000000
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.432 |  0.388 |  0.403 |  0.418 |
-|  proj    |  0.455 |  0.417 |  0.430 |  0.420 |
-### bert-base-uncased pad30 500000
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.335 |  0.289 |  0.313 |  0.310 |
-|  proj    |  0.377 |  0.341 |  0.362 |  0.342 |
-### bert-base-uncased pad30 100000
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.460 |  0.432 |  0.430 |  0.457 |
-|  proj    |  0.475 |  0.453 |  0.450 |  0.462 |
-### bert-base-uncased pad30 50000
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.131 |  0.127 |  0.135 |  0.130 |
-|  proj    |  0.224 |  0.228 |  0.233 |  0.246 |
-### bert-base-uncased pad30 10000
-| *pad 30* |  sum   |  triu  |  tril  |  none  |
-|  ------  |  ----  |  ----  |  ----  |  ----  |
-|  nonproj |  0.098 |  0.105 |  0.129 |  0.101 |
-|  proj    |  0.143 |  0.166 |  0.198 |  0.188 |
+Running a contextual embedding model with the pretrained probe on top, we get estimates for the probability of the observed POS tags in the PTB.
 
-------------------------------------------------
-
-## How to treat negative CPMI values?
-
-PMI may be positive or negative.  A positive value means that the two outcomes are more likely together than they are individually (the joint probability of the outcomes is higher than the product of their marginal probabilities).  A negative value means the opposite: the outcomes are less likely to appear jointly than they are individually.  PMI=0 means the outcomes are independent of each other.
-
-Under the predictability-dependency hypothesis, a high PMI value should be correlated with dependency, and pairs of words with low absolute value PMI would be less likely to be syntactically dependent. It isn't clear what the prediction would be for word-pairs with large negative PMI values.
-
-So far, the working assumption was that these should be treated as being anticorrelated with dependency.  However, it's worth testing what happens if we take the absolute value of the CPMI, before we extract dependency structures.
-
-### bert-large-cased_pad30
-
-*no absolute value:*
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.469  |  0.465  |  0.432  |**0.479**|
-|  proj     |**0.477**|**0.477**|**0.447**|  0.448  |
-
-*absolute value after symmetrizing:*
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.482  |  0.480  |  0.447  |  0.485  |
-|  proj     |**0.492**|  0.493  |  0.461  |  0.458  |
-
-*absolute value before symmetrizing:*
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.493  |  0.480  |  0.447  |  0.485  |
-|  proj     |**0.499**|  0.493  |  0.461  |  0.458  |
-
-
-Okay, so it's actually a bit better when we use the absolute value of the CPMI.  What about if we *prioritize* the negative CPMI values?  Accuracy suffers catastrophically.  
-(TODO: Confirm this)
-
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.122  |  0.119  |  0.118  |  0.106  |
-|  proj     |  0.133  |  0.120  |  0.121  |  0.109  |
-
-### testing with more models:
-
-Okay, so taking the absolute value of CPMI (before symmetrizing), the results across models look like:
-
-
-#### bart-large 60             
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.404  |  0.203  |  0.426  |  0.398  |
-|  proj     |  0.419  |  0.248  |  0.440  |  0.426  |
-
-#### bert-base-cased 30       
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.493  |  0.462  |  0.457  |  0.486  |
-|  proj     |  0.504  |  0.482  |  0.475  |  0.474  |
-
-#### bert-base-uncased 30     
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.48,  |  0.458  |  0.447  |  0.474  |
-|  proj     |  0.493  |  0.479  |  0.466  |  0.462  |
-
-#### bert-large-cased 60      
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.496  |  0.487  |  0.448  |  0.489  |
-|  proj     |  0.501  |  0.497  |  0.461  |  0.454  |
-
-#### bert-large-uncased 30    
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.464  |  0.437  |  0.424  |  0.454  |
-|  proj     |  0.477  |  0.456  |  0.444  |  0.439  |
-
-#### distilbert-base-cased 60 
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.498  |  0.476  |  0.464  |  0.492  |
-|  proj     |  0.511  |  0.493  |  0.481  |  0.483  |
-
-#### w2v 0                   
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.094  |  0.121  |  0.091  |  0.097  |
-|  proj     |  0.145  |  0.176  |  0.146  |  0.163  |
-
-#### xlm-mlm-en-2048 60       
-
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.434  |  0.405  |  0.400  |  0.422  |
-|  proj     |  0.465  |  0.437  |  0.434  |  0.435  |
-
-#### xlnet-base-cased 30      
-
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.457  |  0.421  |  0.402  |  0.446  |
-|  proj     |  0.485  |  0.457  |  0.440  |  0.446  |
-
-#### xlnet-large-cased 30     
-
-|           |  sum    |  triu   |  tril   |  none   |
-|  ------   |  ----   |  ----   |  ----   |  ----   |
-|  nonproj  |  0.399  |  0.359  |  0.367  |  0.384  |
-|  proj     |  0.437  |  0.405  |  0.409  |  0.408  |
-
-
-
------------------------
-
-#### bart-large 60             
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.404  |  0.384  |
-|  proj     |  0.419  |  0.390  |
-
-#### bert-base-cased 30       
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.493  |  0.461  |
-|  proj     |  0.504  |  0.472  |
-
-#### bert-base-uncased 30     
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.48,  |  0.450  |
-|  proj     |  0.493  |  0.464  |
-
-#### bert-large-cased 60      
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.496  |  0.475  |
-|  proj     |  0.501  |  0.482  |
-
-#### bert-large-uncased 30    
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.464  |  0.442  |
-|  proj     |  0.477  |  0.458  |
-
-#### distilbert-base-cased 60 
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.498  |  0.475  |
-|  proj     |  0.511  |  0.489  |
-
-#### w2v 0                   
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.094  |  0.308  |
-|  proj     |  0.145  |  0.408  |
-
-#### xlm-mlm-en-2048 60       
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.434  |  0.407  |
-|  proj     |  0.465  |  0.441  |
-
-#### xlnet-base-cased 30      
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.457  |  0.439  |
-|  proj     |  0.485  |  0.468  |
-
-#### xlnet-large-cased 30     
-|           | sum(abs)|  sum    |
-|  ------   |  ----   |  ----   |
-|  nonproj  |  0.399  |  0.386  |
-|  proj     |  0.437  |  0.430  |
-
-
-<!-- 
-### CACHED Dec 2019 version: no batches 
+<!--
+### CACHED Dec 2019 version: no batches
 File cached as [pmi-accuracy_nobatch.py](pmi-accuracy/old.pmi-accuracy_nobatch.py) gets pmi dependencies and calculates undirected attachment score, without using batches. Run:
 ```bash
 python pmi-accuracy/old.pmi-accuracy_nobatch.py > out.txt
@@ -640,13 +255,13 @@ wget -O spiece.model https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-l
 wget -O config.json https://s3.amazonaws.com/models.huggingface.co/bert/xlnet-large-cased-config.json
 ```
 
-!Watch out. The pytorch_model.bin files... they're large files. Eg, 
+!Watch out. The pytorch_model.bin files... they're large files. Eg,
 
 ```
 XLNet-large/
 | config.json         699  
 | pytorch_model.bin  1,4G  
-| spiece.model       798K 
+| spiece.model       798K
 ```
 
 Just specify the directory as `--xlnet-spec  XLNet-large/`
