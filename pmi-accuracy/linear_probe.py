@@ -180,7 +180,6 @@ class POSDataset(Dataset):
         '''Gets a list of subword ids for an item (word).'''
         return self.tokenizer.encode(item, add_special_tokens=False)
 
-
     def get_input_ids_and_pos_ids(self):
         '''Gets flat list of input ids and POS ids for each observation
         Returns:

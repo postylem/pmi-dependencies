@@ -1,6 +1,6 @@
 # PMI dependencies from contextual embeddings
 
-Data from PTB as [Stanford dependencies](https://nlp.stanford.edu/software/dependencies_manual.pdf).
+Data from [PTB](https://catalog.ldc.upenn.edu/LDC99T42) (corpus annotated as [Stanford dependencies](https://nlp.stanford.edu/software/dependencies_manual.pdf)).
 
 
 ## Accuracy of PMI dependencies
@@ -47,7 +47,7 @@ TODO:
 
 ### Baselines
 
-The matched-length baseline is computed in [lengthmatch_baseline.ipynb](lengthmatch_baseline.ipynb).
+The matched-length baseline/control is computed in [lengthmatch_baseline.ipynb](lengthmatch_baseline.ipynb).
 
 Two other simple baseline classes are defined in [task.py](pmi-accuracy/task.py).
 
@@ -76,7 +76,8 @@ python pmi-accuracy/main.py > out
 or something more specific like:
 ```bash
 nohup python pmi-accuracy/main.py --long_enough 30 --batch_size 32 --n_observations 100 > out 2> err &
-``` -->
+``` 
+-->
 
 CLI options:
 
