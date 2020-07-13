@@ -7,6 +7,9 @@
 *.pylintrc
 to-ignore/
 /results/
+gensim_w2v.txt
+w2v.txt
+w2v100.txt
 
 # repos
 hewitt-repo/
