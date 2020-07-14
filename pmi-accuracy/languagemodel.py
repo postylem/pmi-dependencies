@@ -15,7 +15,8 @@ from transformers import AutoTokenizer, AutoModelWithLMHead
 
 class LanguageModel:
     """
-    Base class for getting probability estimates from a pretrained contextual embedding model.
+    Base class for getting probability estimates from
+    a pretrained contextual embedding model.
     Contains methods to be used by XLNet BERT XLM ...
     """
     def __init__(self, device, model_spec, batchsize, state_dict=None):
@@ -26,7 +27,7 @@ class LanguageModel:
         self.tokenizer = AutoTokenizer.from_pretrained(model_spec)
         self.batchsize = batchsize
         print(f"Language model '{model_spec}'" +
-              "initialized (batchsize = {batchsize}) on {device}.")
+              f"initialized (batchsize = {batchsize}) on {device}.")
 
     def _create_pmi_dataset(
             self, ptb_tokenlist,

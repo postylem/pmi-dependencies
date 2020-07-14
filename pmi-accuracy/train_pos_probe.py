@@ -446,7 +446,7 @@ if __name__ == '__main__':
     #                'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
     #                'SCONJ', 'SYM', 'VERB', 'X']
 
-    Xpos_TAGSET = ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':',
+    XPOS_TAGSET = ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':',
                    'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR',
                    'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT',
                    'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM',
@@ -472,7 +472,7 @@ if __name__ == '__main__':
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
             'governance_relations', 'secondary_relations', 'extra_info'],
-        pos_set=Xpos_TAGSET,
+        pos_set=XPOS_TAGSET,
         )
 
     RESULTS_DIRNAME = ARGS['spec'] + '_' + NOW.strftime("%y.%m.%d-%H.%M") + '/'
