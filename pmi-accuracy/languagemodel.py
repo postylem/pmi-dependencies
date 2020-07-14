@@ -25,7 +25,8 @@ class LanguageModel:
             state_dict=state_dict).to(device)
         self.tokenizer = AutoTokenizer.from_pretrained(model_spec)
         self.batchsize = batchsize
-        print(f"Language model '{model_spec}' initialized (batchsize = {batchsize}) on {device}.")
+        print(f"Language model '{model_spec}'" +
+              "initialized (batchsize = {batchsize}) on {device}.")
 
     def _create_pmi_dataset(
             self, ptb_tokenlist,

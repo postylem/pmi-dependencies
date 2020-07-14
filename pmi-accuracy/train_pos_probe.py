@@ -30,13 +30,13 @@ class CONLLReader():
     # Data input
     @staticmethod
     def generate_lines_for_sent(lines):
-        '''Yields batches of lines describing a sentence in conllx.
+        """Yields batches of lines describing a sentence in conllx.
 
         Args:
             lines: Each line of a conllx file.
         Yields:
             a list of lines describing a single sentence in conllx.
-        '''
+        """
         buf = []
         for line in lines:
             if line.startswith('#'):
