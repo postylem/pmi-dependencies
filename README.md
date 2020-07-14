@@ -76,7 +76,7 @@ python pmi-accuracy/main.py > out
 or something more specific like:
 ```bash
 nohup python pmi-accuracy/main.py --long_enough 30 --batch_size 32 --n_observations 100 > out 2> err &
-``` 
+```
 -->
 
 CLI options:

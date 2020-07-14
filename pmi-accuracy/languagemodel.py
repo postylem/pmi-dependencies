@@ -119,7 +119,7 @@ class XLNet(LanguageModel):
     """Class for using XLNet as estimator"""
 
     def _create_pmi_dataset(
-            self, ptb_tokenlist, 
+            self, ptb_tokenlist,
             pad_left=None, pad_right=None,
             add_special_tokens=True, verbose=True):
 
@@ -695,7 +695,7 @@ class Bart(LanguageModel):
         # log_p[i, i] is log p(w_i | c)
         # log_p[i, j] is log p(w_i | c \ w_j)
         log_p_wi_I_c = np.diag(log_p)
-        pseudo_loglik = np.trace(log_p) 
+        pseudo_loglik = np.trace(log_p)
         pmi_matrix = log_p_wi_I_c[:, None] - log_p
         return pmi_matrix, pseudo_loglik
 
@@ -871,7 +871,7 @@ class XLM(LanguageModel):
             dataset, shuffle=False, batch_size=self.batchsize,
             collate_fn=XLMSentenceDataset.collate_fn)
         return dataset, loader
-    
+
     def ptb_tokenlist_to_pmi_matrix(
             self, ptb_tokenlist, add_special_tokens=True,
             pad_left=None, pad_right=None, verbose=True):
@@ -928,7 +928,7 @@ class XLM(LanguageModel):
         # log_p[i, i] is log p(w_i | c)
         # log_p[i, j] is log p(w_i | c \ w_j)
         log_p_wi_I_c = np.diag(log_p)
-        pseudo_loglik = np.trace(log_p) 
+        pseudo_loglik = np.trace(log_p)
         pmi_matrix = log_p_wi_I_c[:, None] - log_p
         return pmi_matrix, pseudo_loglik
 
@@ -1040,7 +1040,7 @@ class GPT2SentenceDataset(torch.utils.data.Dataset):
 
 
 class GPT2(LanguageModel):
-    """Class for using GPT2 as estimator : 
+    """Class for using GPT2 as estimator :
     Not bidirectional, so doesn't make much sense."""
 
     def _create_pmi_dataset(
