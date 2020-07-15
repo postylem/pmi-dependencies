@@ -89,7 +89,7 @@ CLI options:
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--pad`: (int) default=0. Since these models do worse on short sentences (espeially XLNet), sentences in the PTB which are less than `pad` words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running the model on longer inputs does slow the testing down somewhat, and you may need to lower `batch_size` in order to keep from running out of cuda RAM.
 - `--save_matrices`: (boolean) set to save pmi matrices to disk
-- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See **§ Linear probe for POS embeddings** below.
+- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See § [Linear probe for POS embeddings](Linear-probe-for-POS-embeddings) below.
 - `--pos_set_type`: for the word embedding plus linear POS probe, which POS tagset to use. Specify `upos` (the 17-POS tagset of Universal Dependencies) or `xpos` (the 45-POS tagset of the PTB). Default `xpos`.
 
 ### Output
@@ -223,10 +223,10 @@ Saves trained probe's state_dict to a directory `probe-results/{model_spec}-{dat
 
 Currently the probe achieves the following validation accuracy:
 
-| model             | accuracy |
-| ------------------|----------|
-|`bert-base-cased`  | 97.50 %  |
-|`bert-large-cased` | 93.52 %  |
+| model             | accuracy (xpos)| accuracy (upos)|
+| ------------------|----------------|----------------|
+|`bert-base-cased`  | 97.50 %        | 96.83 %        |
+|`bert-large-cased` | 93.52 %        | 91.96 %        |
 
 ## Using the POS-embeddings to get a POS-CPMI score
 
@@ -240,7 +240,6 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.493 |  0.449 |  0.460 |  0.496 |
 |  proj                     |  0.502 |  0.463 |  0.476 |  0.480 |
-|---------------------------|--------|--------|--------|--------|
 |  nonproj absolute value   |  0.507 |  0.460 |  0.470 |  0.503 |
 |  proj    absolute value   |  0.516 |  0.474 |  0.486 |  0.491 |
 
@@ -248,14 +247,42 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.460 |  0.419 |  0.426 |  0.472 |
 |  proj                     |  0.468 |  0.432 |  0.443 |  0.453 |
-|---------------------------|--------|--------|--------|--------|
 |  nonproj absolute value   |  0.490 |  0.446 |  0.445 |  0.484 |
 |  proj    absolute value   |  0.498 |  0.460 |  0.463 |  0.467 |
 
+### BERT (UPOS)
+| `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj                  |  0.462 |  0.435 |  0.415 |  0.471 |
+|  proj                     |  0.471 |  0.449 |  0.433 |  0.453 |
+|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+
+| `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj                  |  ????? |  ????? |  ????? |  ????? |
+|  proj                     |  ????? |  ????? |  ????? |  ????? |
+|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+
+### XLNet (XPOS)
+| `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj                  |  ????? |  ????? |  ????? |  ????? |
+|  proj                     |  ????? |  ????? |  ????? |  ????? |
+|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+
+| `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj                  |  ????? |  ????? |  ????? |  ????? |
+|  proj                     |  ????? |  ????? |  ????? |  ????? |
+|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
 
 <!--
 #### Running on the offline cluster
-To run on computecanada cluster, which has `pytorch-transformers` (an earlier verion) installed in their wheel, we need to change the corresponding import statement.  This is done by setting the additional optional CLI
+To run on compute-canada cluster, which has `pytorch-transformers` (an earlier version) installed in their wheel, we need to change the corresponding import statement.  This is done by setting the additional optional CLI
 
 - `--offline-mode`
 
