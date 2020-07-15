@@ -16,6 +16,7 @@ import torch
 import task
 import parser
 import languagemodel
+import languagemodel_pos
 import embedding
 
 
@@ -370,10 +371,17 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
         else:  # Calculate CPMI scores.
             prepadding, postpadding = get_padding(i, observations, padlen)
             # get a pmi matrix and a pseudo-logprob for the sentence
-            pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
-                obs.sentence, add_special_tokens=True,
-                verbose=verbose,  # toggle for troubleshoooting.
-                pad_left=prepadding, pad_right=postpadding)
+            if CLI_ARGS.probe_state_dict:
+                pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
+                    obs.sentence, obs.xpos_sentence,
+                    add_special_tokens=True,
+                    verbose=verbose,  # toggle for troubleshoooting.
+                    pad_left=prepadding, pad_right=postpadding)
+            else:
+                pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
+                    obs.sentence, add_special_tokens=True,
+                    verbose=verbose,  # toggle for troubleshoooting.
+                    pad_left=prepadding, pad_right=postpadding)
         # calculate score
         scores = score_observation(
             obs, pmi_matrix, absolute_value=absolute_value)
@@ -440,6 +448,8 @@ def get_info(directory, key):
 
 if __name__ == '__main__':
     ARGP = ArgumentParser()
+    ARGP.add_argument('--probe_state_dict',
+                      help='path to saved linear probe state_dict')
     ARGP.add_argument('--n_observations', default='all',
                       help='number of sentences to look at')
     ARGP.add_argument('--model_spec', default='xlnet-base-cased',
@@ -477,10 +487,13 @@ if __name__ == '__main__':
         N_OBS = int(N_OBS)
 
     NOW = datetime.now()
-    DATE_SUFFIX = f'{NOW.year}-{NOW.month:02}-{NOW.day:02}-{NOW.hour:02}-{NOW.minute:02}'
+    DATE_SUFFIX = NOW.strftime("%Y-%m-%d-%H-%M")
 
     LOAD_NPZ = False
     if CLI_ARGS.model_spec == 'load_npz':
+        if CLI_ARGS.probe_state_dict:
+            raise ValueError(
+                "Can't use both load_npz and probe_state_dict.")
         if CLI_ARGS.model_path:
             NPZ_DIR = CLI_ARGS.model_path
             LOAD_NPZ = True
@@ -493,6 +506,8 @@ if __name__ == '__main__':
         SPEC_SUFFIX = SPEC_STRING + '(' + str(CLI_ARGS.n_observations) + ')' if CLI_ARGS.n_observations != 'all' else SPEC_STRING
         SPEC_SUFFIX += '_pad'+str(CLI_ARGS.pad)
     SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX
+    if CLI_ARGS.probe_state_dict:
+        SUFFIX = "POS_" + SUFFIX
     RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
     os.makedirs(RESULTS_DIR, exist_ok=True)
     print(f'RESULTS_DIR: {RESULTS_DIR}\n')
@@ -504,6 +519,17 @@ if __name__ == '__main__':
             infofile.write(argvalue+'\n')
             print(argvalue)
 
+    # UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
+    #                'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
+    #                'SCONJ', 'SYM', 'VERB', 'X']
+
+    XPOS_TAGSET = ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':',
+                   'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR',
+                   'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT',
+                   'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM',
+                   'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ',
+                   'WDT', 'WP', 'WP$', 'WRB', '``']
+
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print('Using device:', DEVICE)
     if DEVICE.type == 'cuda':
@@ -513,39 +539,47 @@ if __name__ == '__main__':
         print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
 
     if not LOAD_NPZ:
-        # Or, instantiate the language model to use for getting estimates
-        # if not loading from disk
-        if CLI_ARGS.model_spec.startswith('xlnet'):
-            MODEL = languagemodel.XLNet(
-                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-        elif (CLI_ARGS.model_spec.startswith('bert') or
-              CLI_ARGS.model_spec.startswith('distilbert')):
-            # DistilBERT will work just like BERT
-            if CLI_ARGS.model_path:
-                # load checkpointed weights from disk, if specified
-                STATE = torch.load(CLI_ARGS.model_path)
-                MODEL = languagemodel.BERT(
+        if CLI_ARGS.probe_state_dict:
+            if CLI_ARGS.model_spec.startswith('bert'):
+                PROBE_STATE = torch.load(CLI_ARGS.probe_state_dict)
+                MODEL = languagemodel_pos.BERT(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
-                    state_dict=STATE)
+                    XPOS_TAGSET, PROBE_STATE)
             else:
-                MODEL = languagemodel.BERT(
-                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-        elif CLI_ARGS.model_spec.startswith('xlm'):
-            MODEL = languagemodel.XLM(
-                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-        elif CLI_ARGS.model_spec.startswith('bart'):
-            MODEL = languagemodel.Bart(
-                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-        elif CLI_ARGS.model_spec.startswith('gpt2'):
-            MODEL = languagemodel.GPT2(
-                DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
-        elif CLI_ARGS.model_spec == 'w2v':
-            W2V_PATH = CLI_ARGS.model_path
-            MODEL = embedding.Word2Vec(
-                DEVICE, CLI_ARGS.model_spec, W2V_PATH)
+                raise NotImplementedError
         else:
-            raise ValueError(
-                f'Model spec string {CLI_ARGS.model_spec} not recognized.')
+            # Instantiate the language model, if not loading from disk
+            if CLI_ARGS.model_spec.startswith('xlnet'):
+                MODEL = languagemodel.XLNet(
+                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+            elif (CLI_ARGS.model_spec.startswith('bert') or
+                  CLI_ARGS.model_spec.startswith('distilbert')):
+                # DistilBERT will work just like BERT
+                if CLI_ARGS.model_path:
+                    # load checkpointed weights from disk, if specified
+                    STATE = torch.load(CLI_ARGS.model_path)
+                    MODEL = languagemodel.BERT(
+                        DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
+                        state_dict=STATE)
+                else:
+                    MODEL = languagemodel.BERT(
+                        DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+            elif CLI_ARGS.model_spec.startswith('xlm'):
+                MODEL = languagemodel.XLM(
+                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+            elif CLI_ARGS.model_spec.startswith('bart'):
+                MODEL = languagemodel.Bart(
+                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+            elif CLI_ARGS.model_spec.startswith('gpt2'):
+                MODEL = languagemodel.GPT2(
+                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size)
+            elif CLI_ARGS.model_spec == 'w2v':
+                W2V_PATH = CLI_ARGS.model_path
+                MODEL = embedding.Word2Vec(
+                    DEVICE, CLI_ARGS.model_spec, W2V_PATH)
+            else:
+                raise ValueError(
+                    f'Model spec string {CLI_ARGS.model_spec} not recognized.')
 
     EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".", ";",
                             "!", "?", ":", "``",

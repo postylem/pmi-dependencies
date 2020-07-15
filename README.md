@@ -89,6 +89,7 @@ CLI options:
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--pad`: (int) default=0. Since these models do worse on short sentences (espeially XLNet), sentences in the PTB which are less than `pad` words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running the model on longer inputs does slow the testing down somewhat, and you may need to lower `batch_size` in order to keep from running out of cuda RAM.
 - `--save_matrices`: (boolean) set to save pmi matrices to disk
+- `--probe_state_dict`: path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See **§ Linear probe for POS embeddings** below.
 
 ### Output
 
@@ -208,8 +209,16 @@ See [results-clean/README.md](results-clean/README.md).
 
 # Linear probe for POS embeddings
 
+## Training a linear layer to get POS embeddings
+
 [linear-probe.py](pmi-accuracy/linear-probe.py) trains a single-layer linear network to extract POS embeddings from pretrained contextual embeddings.
-This linear probe is a `d`-by-`h`-matrix, where input dimension `h` is the contextual embedding network's hidden layer dimension, and output dimension `d` is size of the POS tagset. Interpreting the output as an unnormalized probability distribution over POS tags, it is trained to minimize the cross-entropy loss between the predicted and observed POS, using the Penn Treebank (standard training split being partitions 02-21, with partitions 01,22,24 for validation).
+This linear probe is a `d`-by-`h`-matrix, where input dimension `h` is the contextual embedding network's hidden layer dimension, and output dimension `d` is size of the POS tagset. Interpreting the output as an unnormalized probability distribution over POS tags, it is trained to minimize the cross-entropy loss between the predicted and observed POS, using the Penn Treebank (standard training split being partitions 02-21, with partitions 01,22,24 for validation).  
+
+```bash
+python pmi-accuracy/pos_probe.py
+```
+
+Saves trained probe's state_dict to a directory `probe-results/{model_spec}-{date}/` with an info.txt file.
 
 Currently the probe achieves the following validation accuracy:
 
@@ -220,7 +229,10 @@ Currently the probe achieves the following validation accuracy:
 
 ## Using the POS-embeddings to get a POS-CPMI score
 
-Running a contextual embedding model with the pretrained probe on top, we get estimates for the probability of the observed POS tags in the PTB.
+Running a contextual embedding model with the pretrained probe on top, we get estimates for the probability of the observed POS tags in the PTB.  These are computed by using the `--probe_state_dict` CLI option for `main.py` (which uses module `languagemodel_pos.py`). For example, to get POS-based CPMI scores using a probe with weights saved in `path/to/probe.state_dict`, on top of bert-base-cased (_be sure to use model_spec that the probe was trained on_):
+```bash
+python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path/to/probe.state_dict
+```
 
 <!--
 ### CACHED Dec 2019 version: no batches
