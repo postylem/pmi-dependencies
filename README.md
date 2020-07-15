@@ -89,7 +89,8 @@ CLI options:
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--pad`: (int) default=0. Since these models do worse on short sentences (espeially XLNet), sentences in the PTB which are less than `pad` words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running the model on longer inputs does slow the testing down somewhat, and you may need to lower `batch_size` in order to keep from running out of cuda RAM.
 - `--save_matrices`: (boolean) set to save pmi matrices to disk
-- `--probe_state_dict`: path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See **§ Linear probe for POS embeddings** below.
+- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See **§ Linear probe for POS embeddings** below.
+- `--pos_set_type`: for the word embedding plus linear POS probe, which POS tagset to use. Specify `upos` (the 17-POS tagset of Universal Dependencies) or `xpos` (the 45-POS tagset of the PTB). Default `xpos`.
 
 ### Output
 
@@ -234,20 +235,20 @@ Running a contextual embedding model with the pretrained probe on top, we get es
 python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path/to/probe.state_dict
 ```
 
-### BERT
+### BERT (XPOS)
 | `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
-|  ------                   |  ----  |  ----  |  ----  |  ----  |
+|---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.493 |  0.449 |  0.460 |  0.496 |
-|  proj                     |  0.502 |  0.463 |  0.476 |  0.48  |
-|  ------                   |  ----  |  ----  |  ----  |  ----  |
+|  proj                     |  0.502 |  0.463 |  0.476 |  0.480 |
+|---------------------------|--------|--------|--------|--------|
 |  nonproj absolute value   |  0.507 |  0.460 |  0.470 |  0.503 |
 |  proj    absolute value   |  0.516 |  0.474 |  0.486 |  0.491 |
 
 | `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
-|  ------                   |  ----  |  ----  |  ----  |  ----  |
+|---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.460 |  0.419 |  0.426 |  0.472 |
 |  proj                     |  0.468 |  0.432 |  0.443 |  0.453 |
-|  ------                   |  ----  |  ----  |  ----  |  ----  |
+|---------------------------|--------|--------|--------|--------|
 |  nonproj absolute value   |  0.490 |  0.446 |  0.445 |  0.484 |
 |  proj    absolute value   |  0.498 |  0.460 |  0.463 |  0.467 |
 

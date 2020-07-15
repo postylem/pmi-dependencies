@@ -372,8 +372,12 @@ def score(observations, padlen=0, n_obs='all', absolute_value=False,
             prepadding, postpadding = get_padding(i, observations, padlen)
             # get a pmi matrix and a pseudo-logprob for the sentence
             if CLI_ARGS.probe_state_dict:
-                pmi_matrix, pseudo_loglik = MODEL.ptb_tokenlist_to_pmi_matrix(
-                    obs.sentence, obs.xpos_sentence,
+                if POS_SET_TYPE == 'upos':
+                    obs_pos_sentence = obs.upos_sentence
+                elif POS_SET_TYPE == 'xpos':
+                    obs_pos_sentence = obs.xpos_sentence
+                pmi_matrix, pseudo_loglik = POS_MODEL.ptb_tokenlist_to_pmi_matrix(
+                    obs.sentence, obs_pos_sentence,
                     add_special_tokens=True,
                     verbose=verbose,  # toggle for troubleshoooting.
                     pad_left=prepadding, pad_right=postpadding)
@@ -548,7 +552,7 @@ if __name__ == '__main__':
         if CLI_ARGS.probe_state_dict:
             if CLI_ARGS.model_spec.startswith('bert'):
                 PROBE_STATE = torch.load(CLI_ARGS.probe_state_dict)
-                MODEL = languagemodel_pos.BERT(
+                POS_MODEL = languagemodel_pos.BERT(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
                     POS_TAGSET, PROBE_STATE)
             else:

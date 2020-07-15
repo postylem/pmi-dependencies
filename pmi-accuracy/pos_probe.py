@@ -247,6 +247,7 @@ class TransformersModel:
 
     def __init__(self, spec, device='cpu'):
         """Initialize transformers model and tokenizer on device."""
+        self.spec = spec
         self.device = device
         self.model = AutoModel.from_pretrained(spec).to(device)
         self.tokenizer = AutoTokenizer.from_pretrained(spec)
@@ -255,20 +256,24 @@ class TransformersModel:
         self.mask_token_id = self.tokenizer.mask_token_id
         self.pad_pos_id = -1
 
-    def get_embeddings(self, input_ids_batch):
+    def get_embeddings(self, input_ids_batch, **kwds):
         """Get POS embeddings for batch.
 
-        Input: a batch of (padded) input ids
+        Input:
+            input_ids_batch: a batch of (padded) input ids
+            kwds:
+                no kwds expected for BERT;
+                'perm_mask' and 'target mapping' batches for XLNet
         Returns: last hidden layer of pretrained model for that batch
         """
         # 0 for MASKED tokens. 1 for NOT MASKED tokens.
-        # print(input_ids_batch.size())
         attention_mask = (input_ids_batch !=
                           self.pad_token_id).type(torch.float)
         with torch.no_grad():
             outputs = self.model(
                 input_ids=input_ids_batch.to(self.device),
-                attention_mask=attention_mask.to(self.device))
+                attention_mask=attention_mask.to(self.device),
+                **kwds)
         return outputs[0]  # the hidden states are in the first component
 
 
