@@ -89,7 +89,7 @@ CLI options:
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--pad`: (int) default=0. Since these models do worse on short sentences (espeially XLNet), sentences in the PTB which are less than `pad` words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running the model on longer inputs does slow the testing down somewhat, and you may need to lower `batch_size` in order to keep from running out of cuda RAM.
 - `--save_matrices`: (boolean) set to save pmi matrices to disk
-- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See § [Linear probe for POS embeddings](Linear-probe-for-POS-embeddings) below.
+- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See § [#Linear probe for POS embeddings](Linear-probe-for-POS-embeddings) below.
 - `--pos_set_type`: for the word embedding plus linear POS probe, which POS tagset to use. Specify `upos` (the 17-POS tagset of Universal Dependencies) or `xpos` (the 45-POS tagset of the PTB). Default `xpos`.
 
 ### Output
