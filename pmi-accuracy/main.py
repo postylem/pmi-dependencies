@@ -450,6 +450,8 @@ if __name__ == '__main__':
     ARGP = ArgumentParser()
     ARGP.add_argument('--probe_state_dict',
                       help='path to saved linear probe state_dict')
+    ARGP.add_argument('--pos_set_type', default='xpos',
+                      help='xpos or upos')
     ARGP.add_argument('--n_observations', default='all',
                       help='number of sentences to look at')
     ARGP.add_argument('--model_spec', default='xlnet-base-cased',
@@ -506,8 +508,23 @@ if __name__ == '__main__':
         SPEC_SUFFIX = SPEC_STRING + '(' + str(CLI_ARGS.n_observations) + ')' if CLI_ARGS.n_observations != 'all' else SPEC_STRING
         SPEC_SUFFIX += '_pad'+str(CLI_ARGS.pad)
     SUFFIX = SPEC_SUFFIX + '_' + DATE_SUFFIX
+
+    UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
+                   'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
+                   'SCONJ', 'SYM', 'VERB', 'X']
+    XPOS_TAGSET = ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':',
+                   'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR',
+                   'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT',
+                   'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM',
+                   'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ',
+                   'WDT', 'WP', 'WP$', 'WRB', '``']
+    POS_SET_TYPE = CLI_ARGS.pos_set_type  # set 'xpos' or 'upos'
+    if POS_SET_TYPE == 'upos':
+        POS_TAGSET = UPOS_TAGSET
+    elif POS_SET_TYPE == 'xpos':
+        POS_TAGSET = XPOS_TAGSET
     if CLI_ARGS.probe_state_dict:
-        SUFFIX = "POS_" + SUFFIX
+        SUFFIX = POS_SET_TYPE + "_" + SUFFIX
     RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
     os.makedirs(RESULTS_DIR, exist_ok=True)
     print(f'RESULTS_DIR: {RESULTS_DIR}\n')
@@ -518,17 +535,6 @@ if __name__ == '__main__':
             argvalue = f"{arg}:\t{value}"
             infofile.write(argvalue+'\n')
             print(argvalue)
-
-    # UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
-    #                'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
-    #                'SCONJ', 'SYM', 'VERB', 'X']
-
-    XPOS_TAGSET = ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':',
-                   'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR',
-                   'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT',
-                   'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM',
-                   'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ',
-                   'WDT', 'WP', 'WP$', 'WRB', '``']
 
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print('Using device:', DEVICE)
@@ -544,7 +550,7 @@ if __name__ == '__main__':
                 PROBE_STATE = torch.load(CLI_ARGS.probe_state_dict)
                 MODEL = languagemodel_pos.BERT(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
-                    XPOS_TAGSET, PROBE_STATE)
+                    POS_TAGSET, PROBE_STATE)
             else:
                 raise NotImplementedError
         else:

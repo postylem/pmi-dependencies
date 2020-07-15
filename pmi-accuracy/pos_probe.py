@@ -162,6 +162,7 @@ class POSDataset(Dataset):
             pos_set: the set of POS tags
         """
         self.observations = observations
+        self.pos_set_type = args['pos_set_type']
         self.pos_set = args['pos_set']
         self.pad_token_id = args['pad_token_id']
         self.pad_pos_id = args['pad_pos_id']
@@ -196,9 +197,12 @@ class POSDataset(Dataset):
                 observation, which will repeat when there is more than
                 one subtoken per POS tagged word.
         """
-        idlist_observations = self.sentences_to_idlists()
-        subtoken_id_lists = [obs.sentence for obs in idlist_observations]
-        pos_label_lists = [obs.xpos_sentence for obs in idlist_observations]
+        idlist_observations = self.sentences_to_idlists()  # ids replace words
+        subtoken_id_lists = [ob.sentence for ob in idlist_observations]
+        if self.pos_set_type == 'xpos':
+            pos_label_lists = [ob.xpos_sentence for ob in idlist_observations]
+        elif self.pos_set_type == 'upos':
+            pos_label_lists = [ob.upos_sentence for ob in idlist_observations]
         input_ids, pos_ids = self.repeat_pos_to_match(
             subtoken_id_lists, pos_label_lists)
         return input_ids, pos_ids
@@ -248,6 +252,7 @@ class TransformersModel:
         self.tokenizer = AutoTokenizer.from_pretrained(spec)
         self.hidden_size = self.model.config.hidden_size
         self.pad_token_id = self.model.config.pad_token_id
+        self.mask_token_id = self.tokenizer.mask_token_id
         self.pad_pos_id = -1
 
     def get_embeddings(self, input_ids_batch):
@@ -257,6 +262,7 @@ class TransformersModel:
         Returns: last hidden layer of pretrained model for that batch
         """
         # 0 for MASKED tokens. 1 for NOT MASKED tokens.
+        # print(input_ids_batch.size())
         attention_mask = (input_ids_batch !=
                           self.pad_token_id).type(torch.float)
         with torch.no_grad():
@@ -429,6 +435,8 @@ if __name__ == '__main__':
                       help='''specify model
                       (e.g. "xlnet-base-cased", "bert-large-cased"),
                       or path for offline''')
+    ARGP.add_argument('--pos_set_type', default='xpos',
+                      help="xpos (PTB's 17 tags) or upos (UD's 45 tags)")
     ARGP.add_argument('--batch_size', default=32, type=int)
     ARGP.add_argument('--epochs', default=40, type=int)
     CLI_ARGS = ARGP.parse_args()
@@ -440,9 +448,9 @@ if __name__ == '__main__':
     MODEL = TransformersModel(CLI_ARGS.model_spec, DEVICE)
     TOKENIZER = MODEL.tokenizer
 
-    # UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
-    #                'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
-    #                'SCONJ', 'SYM', 'VERB', 'X']
+    UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
+                   'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
+                   'SCONJ', 'SYM', 'VERB', 'X']
 
     XPOS_TAGSET = ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':',
                    'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR',
@@ -450,6 +458,12 @@ if __name__ == '__main__':
                    'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM',
                    'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ',
                    'WDT', 'WP', 'WP$', 'WRB', '``']
+
+    POS_SET_TYPE = CLI_ARGS.pos_set_type  # set 'xpos' or 'upos'
+    if POS_SET_TYPE == 'upos':
+        POS_TAGSET = UPOS_TAGSET
+    elif POS_SET_TYPE == 'xpos':
+        POS_TAGSET = XPOS_TAGSET
     ARGS = dict(
         device=DEVICE,
         spec=CLI_ARGS.model_spec,
@@ -460,17 +474,18 @@ if __name__ == '__main__':
         pad_pos_id=MODEL.pad_pos_id,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    train_path='CUSTOM.conllx',
-                    dev_path='CUSTOM4.conllx',
-                    test_path='CUSTOM4.conllx'),
-                    # train_path='ptb3-wsj-train.conllx',
-                    # dev_path='ptb3-wsj-dev.conllx',
-                    # test_path='ptb3-wsj-test.conllx'),
+                    # train_path='CUSTOM.conllx',
+                    # dev_path='CUSTOM4.conllx',
+                    # test_path='CUSTOM4.conllx'),
+                    train_path='ptb3-wsj-train.conllx',
+                    dev_path='ptb3-wsj-dev.conllx',
+                    test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
             'governance_relations', 'secondary_relations', 'extra_info'],
-        pos_set=XPOS_TAGSET,
+        pos_set_type=POS_SET_TYPE,
+        pos_set=POS_TAGSET
         )
 
     RESULTS_DIRNAME = ARGS['spec'] + '_' + NOW.strftime("%y.%m.%d-%H.%M") + '/'
