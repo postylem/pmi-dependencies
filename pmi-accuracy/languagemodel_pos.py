@@ -9,9 +9,10 @@ July 2020
 import itertools
 import numpy as np
 import torch
-import torch.nn.functional as F
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModel
+
+import pos_probe
 
 
 class LanguageModelPOS:
@@ -21,19 +22,31 @@ class LanguageModelPOS:
     """
 
     def __init__(
-            self, device, model_spec,
-            batchsize, model_state_dict=None):
+            self, device, model_spec, batchsize,
+            pos_set, probe_state_dict,
+            model_state_dict=None):
         self.device = device
-        self.model = AutoModel.from_pretrained(
-            pretrained_model_name_or_path=model_spec,
-            state_dict=model_state_dict).to(device)
-        self.tokenizer = AutoTokenizer.from_pretrained(model_spec)
+        # self.model = AutoModel.from_pretrained(
+        #     pretrained_model_name_or_path=model_spec,
+        #     state_dict=model_state_dict).to(device)
+        # self.tokenizer = AutoTokenizer.from_pretrained(model_spec)
+        self.model = pos_probe.TransformersModel(model_spec, device)
+        self.tokenizer = self.model.tokenizer
         self.batchsize = batchsize
-        print(f"Language model '{model_spec}'" +
+        print(f"Language model '{model_spec}' " +
               f"initialized (batchsize = {batchsize}) on {device}.")
+        self.pos_set = pos_set
+        self.pos_to_id = {POS: i for i, POS in enumerate(self.pos_set)}
+        args = dict(
+            hidden_dim=self.model.hidden_size, pos_set=pos_set,
+            device=device)
+        pretrained_probe = pos_probe.POSProbe(args).to(device)
+        pretrained_probe.load_state_dict(probe_state_dict)
+        self.pretrained_probe = pretrained_probe
+        print(f"Pretrained probe loaded to {device}.")
 
     def _create_pmi_dataset(
-            self, ptb_tokenlist,
+            self, ptb_tokenlist, ptb_pos_list,
             pad_left=None, pad_right=None,
             add_special_tokens=True, verbose=True):
         """Return a torch Dataset and DataLoader
@@ -41,7 +54,8 @@ class LanguageModelPOS:
         raise NotImplementedError
 
     def ptb_tokenlist_to_pmi_matrix(
-            self, ptb_tokenlist, add_special_tokens=True,
+            self, ptb_tokenlist, ptb_pos_list,
+            add_special_tokens=True,
             pad_left=None, pad_right=None, verbose=True):
         """Maps tokenlist to PMI matrix, and also returns pseudo log likelihood.
         (override in implementing class)."""
@@ -55,14 +69,17 @@ class BERTSentenceDataset(torch.utils.data.Dataset):
     """Dataset class for BERT"""
 
     def __init__(
-            self, input_ids, ptbtok_to_span, span_to_ptbtok,
-            mask_token_id=103, n_pad_left=0, n_pad_right=0):
+            self, input_ids, pos_ids, ptbtok_to_span, span_to_ptbtok,
+            mask_token_id=103, pad_pos_id=-1,
+            n_pad_left=0, n_pad_right=0):
         self.input_ids = input_ids
         self.n_pad_left = n_pad_left
         self.n_pad_right = n_pad_right
         self.mask_token_id = mask_token_id
         self.ptbtok_to_span = ptbtok_to_span
         self.span_to_ptbtok = span_to_ptbtok
+        self.pos_ids = pos_ids
+        self.pad_pos_id = pad_pos_id
         self._make_tasks()
 
     @staticmethod
@@ -71,7 +88,7 @@ class BERTSentenceDataset(torch.utils.data.Dataset):
         tbatch = {}
         tbatch["input_ids"] = torch.LongTensor([b['input_ids'] for b in batch])
         tbatch["target_loc"] = [b['target_loc'] for b in batch]
-        tbatch["target_id"] = [b['target_id'] for b in batch]
+        tbatch["target_pos_id"] = [b['target_pos_id'] for b in batch]
         tbatch["source_span"] = [b['source_span'] for b in batch]
         tbatch["target_span"] = [b['target_span'] for b in batch]
         return tbatch
@@ -85,7 +102,7 @@ class BERTSentenceDataset(torch.utils.data.Dataset):
                     abs_source = [self.n_pad_left + s for s in source_span]
                     # this is the token we want to predict in the target span
                     abs_target_curr = self.n_pad_left + target_pos
-                    # these are all the tokens we need to mask in the target span
+                    # these are all the toks we need to mask in the target span
                     abs_target_next = [self.n_pad_left + t
                                        for t in target_span[idx_target:]]
                     # we replace all hidden target tokens with [MASK]
@@ -103,7 +120,7 @@ class BERTSentenceDataset(torch.utils.data.Dataset):
                     task_dict["source_span"] = source_span
                     task_dict["target_span"] = target_span
                     task_dict["target_loc"] = target_loc
-                    task_dict["target_id"] = self.input_ids[abs_target_curr]
+                    task_dict["target_pos_id"] = self.pos_ids[abs_target_curr]
                     tasks.append(task_dict)
         self._tasks = tasks
 
@@ -118,7 +135,7 @@ class BERT(LanguageModelPOS):
     """Class for using BERT with probe on top"""
 
     def _create_pmi_dataset(
-            self, ptb_tokenlist,
+            self, ptb_tokenlist, ptb_pos_list,
             pad_left=None, pad_right=None,
             add_special_tokens=True, verbose=True):
 
@@ -134,7 +151,7 @@ class BERT(LanguageModelPOS):
             assert span not in span_to_ptbtok
             span_to_ptbtok[span] = i
 
-        # just convert here, tokenization is taken care of by make_subword_lists
+        # just convert here, tokenizat'n is taken care of by make_subword_lists
         ids = self.tokenizer.convert_tokens_to_ids(tokens)
 
         # add special characters add optional padding
@@ -158,18 +175,34 @@ class BERT(LanguageModelPOS):
         n_pad_left = len(pad_left)
         n_pad_right = len(pad_right)
 
+        ptb_pos_ids = [self.pos_to_id[pos] for pos in ptb_pos_list]
+
+        # copy POS id to each subtoken of the word it corresponds to
+        # [i for (i, span) in zip(ptb_pos_ids, ptbtok_to_span) for _ in span]
+        target_pos_ids = []
+        for idx, span in zip(ptb_pos_ids, ptbtok_to_span):
+            for _ in span:
+                target_pos_ids.append(idx)
+
+        pos_ids = list(itertools.chain(
+            [-1 for _ in pad_left], target_pos_ids, [-1 for _ in pad_right]))
+
         if verbose:
-            print(f"PTB token list:\n{ptb_tokenlist}")
+            print(f"PTB tokenlist, ids:\n{list(zip(ptb_tokenlist, ids))}")
             print(f"resulting subword tokens:\n{tokens}")
-            print(f"ptbtok->pos:\n{ptbtok_to_span}")
-            print(f"pos->ptbtok:\n{span_to_ptbtok}")
+            print(f"POS list, POS ids:\n{list(zip(ptb_pos_list,ptb_pos_ids))}")
+            print(f"ptbtok_to_span: {ptbtok_to_span}")
+            # print(f"span_to_ptbtok: {span_to_ptbtok}")
+            print(f"target_pos_ids: {target_pos_ids}")
             print(f'padleft:{pad_left}\npadright:{pad_right}')
-            print(f'input_ids:{ids}')
+            print(f'input_ids: {ids}')
+            print(f"padded pos_ids: {pos_ids}")
 
         # setup data loader
         dataset = BERTSentenceDataset(
-            ids, ptbtok_to_span, span_to_ptbtok,
+            ids, pos_ids, ptbtok_to_span, span_to_ptbtok,
             mask_token_id=self.tokenizer.mask_token_id,
+            pad_pos_id=-1,
             n_pad_left=n_pad_left, n_pad_right=n_pad_right)
         loader = torch.utils.data.DataLoader(
             dataset, shuffle=False, batch_size=self.batchsize,
@@ -177,7 +210,8 @@ class BERT(LanguageModelPOS):
         return dataset, loader
 
     def ptb_tokenlist_to_pmi_matrix(
-            self, ptb_tokenlist, add_special_tokens=True,
+            self, ptb_tokenlist, ptb_pos_list,
+            add_special_tokens=True,
             pad_left=None, pad_right=None, verbose=True):
         '''
         input: ptb_tokenlist: PTB-tokenized sentence as list
@@ -186,48 +220,53 @@ class BERT(LanguageModelPOS):
 
         # create dataset for observed ptb sentence
         dataset, loader = self._create_pmi_dataset(
-            ptb_tokenlist, verbose=verbose,
+            ptb_tokenlist, ptb_pos_list,
+            verbose=verbose,
             pad_left=pad_left, pad_right=pad_right,
             add_special_tokens=add_special_tokens)
 
         # use model to compute PMIs
         results = []
-        for batch in tqdm(loader, leave=False):
-            outputs = self.model(
+        for batch in tqdm(loader, desc="[getting embeddings]", leave=False):
+            embeddings = self.model.get_embeddings(
                 batch['input_ids'].to(self.device))
-            outputs = F.log_softmax(outputs[0], 2)
-            # TODO: outputs = pretrained_probe(outputs)
+            outputs = self.pretrained_probe(embeddings)  # as logprobs
             for i, output in enumerate(outputs):
-                # the token id we need to predict, this belongs to target span
-                target_id = batch['target_id'][i]
+                # the token id we need to predict belongs to target span
+                target_pos_id = batch['target_pos_id'][i]
                 input_ids = batch['input_ids'][i]
                 target_loc = batch['target_loc'][i]
                 assert output.size(0) == len(input_ids)
-                log_target = output[target_loc, target_id].item()
+                log_target = output[target_loc, target_pos_id].item()
                 result_dict = {}
                 result_dict['source_span'] = batch['source_span'][i]
                 result_dict['target_span'] = batch['target_span'][i]
                 result_dict['log_target'] = log_target
-                result_dict['target_id'] = target_id
+                result_dict['target_pos_id'] = target_pos_id
                 results.append(result_dict)
 
         num_ptbtokens = len(ptb_tokenlist)
         log_p = np.zeros((num_ptbtokens, num_ptbtokens))
-        # num = np.zeros((num_ptbtokens, num_ptbtokens))
+        num = np.zeros((num_ptbtokens, num_ptbtokens))
         for result in results:
-            log_target = result['log_target']
-            source_span = result['source_span']
-            target_span = result['target_span']
-            ptbtok_source = dataset.span_to_ptbtok[source_span]
-            ptbtok_target = dataset.span_to_ptbtok[target_span]
+            log_target = result['log_target']  # predicted log prob
+            source_span = result['source_span']  # tuple of indices
+            target_span = result['target_span']  # tuple of indices
+            ptbtok_source = dataset.span_to_ptbtok[source_span]  # single index
+            ptbtok_target = dataset.span_to_ptbtok[target_span]  # single index
             if len(target_span) == 1:
                 # sanity check: if target_span is 1 token, then we don't need
                 # to accumulate subwords probabilities
                 assert log_p[ptbtok_target, ptbtok_source] == 0.
             # we accumulate all log probs for subwords in a given span
-            log_p[ptbtok_target, ptbtok_source] += log_target
-            # num[ptbtok_target, ptbtok_source] += 1
-        # print(f'num:\n{num}')
+            # and get linear mean
+            log_p[ptbtok_target, ptbtok_source] = np.logaddexp(
+                log_p[ptbtok_target, ptbtok_source], log_target)
+            num[ptbtok_target, ptbtok_source] += 1
+        # logsumexp summed in logspace, divide by num in log space for mean
+        log_p -= np.log(num)
+        print(f"logp\n{log_p}")
+        print(f'num:\n{np.log(num)}')
 
         # PMI(w_i, w_j | c ) = log p(w_i | c) - log p(w_i | c \ w_j)
         # log_p[i, i] is log p(w_i | c)

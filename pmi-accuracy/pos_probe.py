@@ -190,7 +190,7 @@ class POSDataset(Dataset):
         """Get flat list of input and POS ids for each observation.
 
         Returns:
-            input_ids: a list containgin a list of input ids for each
+            input_ids: a list containing a list of input ids for each
                 observation
             pos_ids: a list containing a list of POS 'ids' for each
                 observation, which will repeat when there is more than
@@ -342,8 +342,6 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             max_acc_epoch = ep_i
             tqdm.write(msg + '\tSaving probe state_dict')
             write_saved_acc(RESULTS_PATH, ep_i, dev_accuracy, str(opt))
-            if dev_accuracy == 1:
-                break
         elif max_acc_epoch < ep_i - 6:
             tqdm.write(msg + '\tEarly stopping')
             break
@@ -427,7 +425,7 @@ def pretty_print_dict(dic, indent=0):
 
 if __name__ == '__main__':
     ARGP = ArgumentParser()
-    ARGP.add_argument('--model_spec', default='bert-large-cased',
+    ARGP.add_argument('--model_spec', default='bert-base-cased',
                       help='''specify model
                       (e.g. "xlnet-base-cased", "bert-large-cased"),
                       or path for offline''')
@@ -442,7 +440,7 @@ if __name__ == '__main__':
     MODEL = TransformersModel(CLI_ARGS.model_spec, DEVICE)
     TOKENIZER = MODEL.tokenizer
 
-    # Upos_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
+    # UPOS_TAGSET = ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ',
     #                'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT',
     #                'SCONJ', 'SYM', 'VERB', 'X']
 
@@ -462,12 +460,12 @@ if __name__ == '__main__':
         pad_pos_id=MODEL.pad_pos_id,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    # train_path='CUSTOM.conllx',
-                    # dev_path='CUSTOM4.conllx',
-                    # test_path='CUSTOM4.conllx'),
-                    train_path='ptb3-wsj-train.conllx',
-                    dev_path='ptb3-wsj-dev.conllx',
-                    test_path='ptb3-wsj-test.conllx'),
+                    train_path='CUSTOM.conllx',
+                    dev_path='CUSTOM4.conllx',
+                    test_path='CUSTOM4.conllx'),
+                    # train_path='ptb3-wsj-train.conllx',
+                    # dev_path='ptb3-wsj-dev.conllx',
+                    # test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
