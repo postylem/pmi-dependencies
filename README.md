@@ -89,7 +89,7 @@ CLI options:
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--pad`: (int) default=0. Since these models do worse on short sentences (espeially XLNet), sentences in the PTB which are less than `pad` words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running the model on longer inputs does slow the testing down somewhat, and you may need to lower `batch_size` in order to keep from running out of cuda RAM.
 - `--save_matrices`: (boolean) set to save pmi matrices to disk
-- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See § [Linear probe for POS embeddings](#linear-probe-for-pos-embeddings) below.
+- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See § [Linear probe for POS embeddings](linear-probe-for-pos-embeddings) below.
 - `--pos_set_type`: for the word embedding plus linear POS probe, which POS tagset to use. Specify `upos` (the 17-POS tagset of Universal Dependencies) or `xpos` (the 45-POS tagset of the PTB). Default `xpos`.
 
 ### Output
@@ -227,6 +227,9 @@ Currently the probe achieves the following validation accuracy:
 | ------------------|----------------|----------------|
 |`bert-base-cased`  | 97.50 %        | 96.83 %        |
 |`bert-large-cased` | 93.52 %        | 91.96 %        |
+|`xlnet-base-cased` | 92.00 %        |                |
+|`xlnet-large-cased`| 93.52 %        |                |
+
 
 ## Using the POS-embeddings to get a POS-CPMI score
 
@@ -255,25 +258,25 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.462 |  0.435 |  0.415 |  0.471 |
 |  proj                     |  0.471 |  0.449 |  0.433 |  0.453 |
-|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
-|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  nonproj absolute value   |  0.488 |  0.452 |  0.435 |  0.481 |
+|  proj    absolute value   |  0.497 |  0.468 |  0.456 |  0.465 |
 
 | `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
-|  nonproj                  |  ????? |  ????? |  ????? |  ????? |
-|  proj                     |  ????? |  ????? |  ????? |  ????? |
-|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
-|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  nonproj                  |  0.441 |  0.417 |  0.391 |  0.457 |
+|  proj                     |  0.448 |  0.429 |  0.407 |  0.435 |
+|  nonproj absolute value   |  0.485 |  0.458 |  0.421 |  0.481 |
+|  proj    absolute value   |  0.491 |  0.470 |  0.437 |  0.456 |
 
 ### XLNet (XPOS)
-| `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
+| `xlnet-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  ????? |  ????? |  ????? |  ????? |
 |  proj                     |  ????? |  ????? |  ????? |  ????? |
 |  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
 |  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
 
-| `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
+| `xlnet-large-cased` pad 60|  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  ????? |  ????? |  ????? |  ????? |
 |  proj                     |  ????? |  ????? |  ????? |  ????? |
