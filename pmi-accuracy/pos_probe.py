@@ -282,12 +282,11 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     device = args['device']
     pad_pos_id = args['pad_pos_id']
     pos_vocabsize = len(args['pos_set'])
-    # opt = dict(alg='adam', hyper=dict(lr=0.1))
-    opt = dict(alg='sgd', hyper=dict(lr=0.33, weight_decay=5e-4, momentum=0.9))
-    if opt['alg'] == 'adam':
-        optimizer = torch.optim.Adam(probe.parameters(), **opt['hyper'])
-    elif opt['alg'] == 'sgd':
-        optimizer = torch.optim.SGD(probe.parameters(), **opt['hyper'])
+    opt = args['training_options']
+    if opt['algorithm'] == 'adam':
+        optimizer = torch.optim.Adam(probe.parameters(), **opt['hyperparams'])
+    elif opt['algorithm'] == 'sgd':
+        optimizer = torch.optim.SGD(probe.parameters(), **opt['hyperparams'])
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=0.1, patience=0)
     max_acc = -100
@@ -352,7 +351,7 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             max_acc = dev_accuracy
             max_acc_epoch = ep_i
             tqdm.write(msg + '\tSaving probe state_dict')
-            write_saved_acc(RESULTS_PATH, ep_i, dev_accuracy, str(opt))
+            write_saved_acc(RESULTS_PATH, ep_i, dev_accuracy)
         elif max_acc_epoch < ep_i - 6:
             tqdm.write(msg + '\tEarly stopping')
             break
@@ -360,12 +359,11 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             tqdm.write(msg)
 
 
-def write_saved_acc(results_path, ep_i, dev_accuracy, msg):
+def write_saved_acc(results_path, ep_i, dev_accuracy, msg=""):
     """Append accuracy (and optional message) to info file."""
     with open(results_path+'info.txt', mode='a') as infof:
         infof.write(
-            f'epoch{ep_i:3d} dev acc = {dev_accuracy*100} % ' + msg +
-            '\n')
+            f'epoch{ep_i:3d} dev acc = {dev_accuracy*100} % ' + msg + '\n')
 
 
 def get_batch_acc(label_batch, prediction_batch, pad_pos_id, pos_vocabsize):
@@ -469,6 +467,14 @@ if __name__ == '__main__':
         POS_TAGSET = UPOS_TAGSET
     elif POS_SET_TYPE == 'xpos':
         POS_TAGSET = XPOS_TAGSET
+    # TRAINING_OPTIONS = dict(  # Hewitt uses Adam with lr=0.001
+    #     algorithm='adam',
+    #     hyperparams=dict(lr=0.1)
+    #     )
+    TRAINING_OPTIONS = dict(
+        algorithm='sgd',
+        hyperparams=dict(lr=0.33, weight_decay=5e-4, momentum=0.9)
+        )
     ARGS = dict(
         device=DEVICE,
         spec=CLI_ARGS.model_spec,
@@ -490,7 +496,8 @@ if __name__ == '__main__':
             'xpos_sentence', 'morph', 'head_indices',
             'governance_relations', 'secondary_relations', 'extra_info'],
         pos_set_type=POS_SET_TYPE,
-        pos_set=POS_TAGSET
+        pos_set=POS_TAGSET,
+        training_options=TRAINING_OPTIONS
         )
 
     RESULTS_DIRNAME = ARGS['spec'] + '_' + NOW.strftime("%y.%m.%d-%H.%M") + '/'

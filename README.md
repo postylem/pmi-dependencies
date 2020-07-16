@@ -7,7 +7,7 @@ Data from [PTB](https://catalog.ldc.upenn.edu/LDC99T42) (corpus annotated as [St
 
 running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentences in PTB, using a language model to get PMI estimates, extracts a tree, calculates undirected attachment score, reports the results.
 
-- [langaugemodel.py](pmi-accuracy/langaugemodel.py) has a class for each of the language models we're using, with method to get a PMI matrix from a sentence (that is, from a list of Penn Treebank tokens).
+- [languagemodel.py](pmi-accuracy/languagemodel.py) has a class for each of the language models we're using, with method to get a PMI matrix from a sentence (that is, from a list of Penn Treebank tokens).
 - [parser.py](pmi-accuracy/parser.py) has the methods to get either a simple MST (Prim's algorithm) or a projective MST (Eisner's algorithm) from the PMI matrices.
 - [task.py](pmi-accuracy/task.py) has stuff for dealing with the raw PTB and getting a distance matrix (.conllx file -> torch tensor), to extract parse distance matrix, or linear string-distance matrix.
 
@@ -89,7 +89,7 @@ CLI options:
 - `--batch_size`: (int) size of batch dimension of input to xlnet (default 64).
 - `--pad`: (int) default=0. Since these models do worse on short sentences (espeially XLNet), sentences in the PTB which are less than `pad` words long will be padded with context up until they achieve this threshold.  Predictions are still made only on the sentence in question, but running the model on longer inputs does slow the testing down somewhat, and you may need to lower `batch_size` in order to keep from running out of cuda RAM.
 - `--save_matrices`: (boolean) set to save pmi matrices to disk
-- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See § [Linear probe for POS embeddings](#linear-probe-for-pos-embeddings) below.
+- `--probe_state_dict`: for the word embedding plus linear POS probe. Specify path from which to load linear probe state_dict.  With this option, POS-based CPMI is computed (a PMI estimate based on the probability of POS tag, rather than word identity, as a hypothetically more purely syntactic measure).  See § [Linear probe for POS embeddings](linear-probe-for-pos-embeddings) below.
 - `--pos_set_type`: for the word embedding plus linear POS probe, which POS tagset to use. Specify `upos` (the 17-POS tagset of Universal Dependencies) or `xpos` (the 45-POS tagset of the PTB). Default `xpos`.
 
 ### Output
@@ -215,18 +215,27 @@ See [results-clean/README.md](results-clean/README.md).
 [linear-probe.py](pmi-accuracy/linear-probe.py) trains a single-layer linear network to extract POS embeddings from pretrained contextual embeddings.
 This linear probe is a `d`-by-`h`-matrix, where input dimension `h` is the contextual embedding network's hidden layer dimension, and output dimension `d` is size of the POS tagset. Interpreting the output as an unnormalized probability distribution over POS tags, it is trained to minimize the cross-entropy loss between the predicted and observed POS, using the Penn Treebank (standard training split being partitions 02-21, with partitions 01,22,24 for validation).  
 
+Running `pos_probe.py` saves trained probe's state_dict to a directory `probe-results/{model_spec}-{date}/` with an info.txt file.  
+
 ```bash
 python pmi-accuracy/pos_probe.py
 ```
 
-Saves trained probe's state_dict to a directory `probe-results/{model_spec}-{date}/` with an info.txt file.
+- `--model_spec`: optional, specify transformers model (e.g. "xlnet-base-cased", "bert-large-cased"), or path for offline (default `bert-base-cased`).
+- `--pos_set_type`: optional, specify `xpos` (PTB's 17 tags) or `upos` (UD's 45 tags) (default='xpos').
+- `--batch_size`, optional, default `32`
+- `--epochs`, optional, default `40`
 
-Currently the probe achieves the following validation accuracy:
+
+Currently the probe achieves the following validation accuracy see [probe-results/](/pmi-accuracy/probe-results/):
 
 | model             | accuracy (xpos)| accuracy (upos)|
 | ------------------|----------------|----------------|
 |`bert-base-cased`  | 97.50 %        | 96.83 %        |
 |`bert-large-cased` | 93.52 %        | 91.96 %        |
+|`xlnet-base-cased` | 92.00 %        |                |
+|`xlnet-large-cased`| 92.86 %  ?      |                |
+
 
 ## Using the POS-embeddings to get a POS-CPMI score
 
@@ -255,25 +264,25 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.462 |  0.435 |  0.415 |  0.471 |
 |  proj                     |  0.471 |  0.449 |  0.433 |  0.453 |
-|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
-|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  nonproj absolute value   |  0.488 |  0.452 |  0.435 |  0.481 |
+|  proj    absolute value   |  0.497 |  0.468 |  0.456 |  0.465 |
 
 | `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
-|  nonproj                  |  ????? |  ????? |  ????? |  ????? |
-|  proj                     |  ????? |  ????? |  ????? |  ????? |
-|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
-|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  nonproj                  |  0.441 |  0.417 |  0.391 |  0.457 |
+|  proj                     |  0.448 |  0.429 |  0.407 |  0.435 |
+|  nonproj absolute value   |  0.485 |  0.458 |  0.421 |  0.481 |
+|  proj    absolute value   |  0.491 |  0.470 |  0.437 |  0.456 |
 
 ### XLNet (XPOS)
-| `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
+| `xlnet-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  ????? |  ????? |  ????? |  ????? |
 |  proj                     |  ????? |  ????? |  ????? |  ????? |
 |  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
 |  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
 
-| `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
+| `xlnet-large-cased` pad 60|  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  ????? |  ????? |  ????? |  ????? |
 |  proj                     |  ????? |  ????? |  ????? |  ????? |

@@ -154,7 +154,8 @@ class XLNet(LanguageModel):
         else:
             pad_right = []
         if add_special_tokens:
-            pad_right += [self.tokenizer.sep_token_id, self.tokenizer.cls_token_id]
+            pad_right += [self.tokenizer.sep_token_id,
+                          self.tokenizer.cls_token_id]
         ids = pad_left + ids + pad_right
         n_pad_left = len(pad_left)
         n_pad_right = len(pad_right)
