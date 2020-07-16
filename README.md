@@ -234,7 +234,7 @@ Currently the probe achieves the following validation accuracy see [probe-result
 |`bert-base-cased`  | 97.50 %        | 96.83 %        |
 |`bert-large-cased` | 93.52 %        | 91.96 %        |
 |`xlnet-base-cased` | 92.00 %        |                |
-|`xlnet-large-cased`| 92.86 %  ?      |                |
+|`xlnet-large-cased`| 94.51 %        |                |
 
 
 ## Using the POS-embeddings to get a POS-CPMI score

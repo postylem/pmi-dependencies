@@ -555,6 +555,11 @@ if __name__ == '__main__':
                 POS_MODEL = languagemodel_pos.BERT(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
                     POS_TAGSET, PROBE_STATE)
+            if CLI_ARGS.model_spec.startswith('xlnet'):
+                PROBE_STATE = torch.load(CLI_ARGS.probe_state_dict)
+                POS_MODEL = languagemodel_pos.XLNet(
+                    DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
+                    POS_TAGSET, PROBE_STATE)
             else:
                 raise NotImplementedError
         else:
