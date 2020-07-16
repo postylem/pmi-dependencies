@@ -436,10 +436,8 @@ class XLNet(LanguageModelPOS):
             for i, output in enumerate(outputs):
                 # the token id we need to predict belongs to target span
                 target_pos_id = batch['target_pos_id'][i]
-                input_ids = batch['input_ids'][i]
-                target_loc = batch['target_loc'][i]
-                assert output.size(0) == len(input_ids)
-                log_target = output[target_loc, target_pos_id].item()
+                assert output.size(0) == 1
+                log_target = output[0, target_pos_id].item()
                 result_dict = {}
                 result_dict['source_span'] = batch['source_span'][i]
                 result_dict['target_span'] = batch['target_span'][i]
