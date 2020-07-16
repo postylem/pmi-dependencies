@@ -1,0 +1,39 @@
+% dependencies for reported_scores
+\begin{dependency}
+	\begin{deptext}
+		Black-and-white\& film\& costs\& consumers\& a\& little\& less\& than\& color\& film\& ,\& and\& processing\& costs\& the\& same\& . \\
+	\end{deptext}
+	\depedge{2}{1}{amod}
+	\depedge{3}{2}{nsubj}
+	\depedge{3}{4}{iobj}
+	\depedge{6}{5}{det}
+	\depedge{7}{6}{npadvmod}
+	\depedge{3}{7}{dobj}
+	\depedge{7}{8}{prep}
+	\depedge{10}{9}{nn}
+	\depedge{8}{10}{pobj}
+	\depedge{3}{12}{cc}
+	\depedge{14}{13}{nsubj}
+	\depedge{3}{14}{conj}
+	\depedge{16}{15}{det}
+	\depedge{14}{16}{dobj}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{1}{2}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{7}{8}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{6}{7}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{5}{6}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{13}{14}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{9}{10}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{15}{16}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{3}{14}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{16}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{7}{14}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{9}{13}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{12}{13}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{4}{14}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{3}{16}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\tiny\textsf{w2v}};
+%	\node (R2) at (R1.north) {\tiny\textsf{sum.projective}};
+%	\node (R3) at (R2.north) {\tiny\textsf{1132}};
+	\node (R4) at (R1.south) {\tiny $ 8/14 = 57\% $};
+\end{dependency}

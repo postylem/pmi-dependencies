@@ -1,0 +1,57 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz,tikz-dependency}
+\pgfkeys{%
+/depgraph/edge unit distance=.75ex,%
+%/depgraph/edge horizontal padding=2,%
+/depgraph/reserved/edge style/.style = {
+->, % arrow properties
+semithick, solid, line cap=round, % line properties
+rounded corners=2, % make corners round
+},%
+/depgraph/reserved/label style/.style = {%
+% anchor = mid, draw, solid, black, rotate = 0,rounded corners = 2pt,%
+scale = .5,%
+text height = 1.5ex,text depth = 0.25ex, % needed to center text vertically
+inner sep=.2ex,%
+outer sep = 0pt,%
+text = black,%
+fill = white, %opacity = 0, text opacity = 0 % uncomment to hide all labels
+},%
+}
+\begin{document}
+
+% % Put tikz dependencies here, like
+% dependencies for reported_scores
+\input{1081sum.nonproj_bart.tikz}
+\input{1081sum.nonproj_bert.tikz}
+\input{1081sum.nonproj_distilbert.tikz}
+\input{1081sum.nonproj_w2v.tikz}
+\input{1081sum.nonproj_xlm.tikz}
+\input{1081sum.nonproj_xlnet.tikz}
+\input{1132sum.nonproj_bart.tikz}
+\input{1132sum.nonproj_bert.tikz}
+\input{1132sum.nonproj_distilbert.tikz}
+\input{1132sum.nonproj_w2v.tikz}
+\input{1132sum.nonproj_xlm.tikz}
+\input{1132sum.nonproj_xlnet.tikz}
+\input{237sum.nonproj_bart.tikz}
+\input{237sum.nonproj_bert.tikz}
+\input{237sum.nonproj_distilbert.tikz}
+\input{237sum.nonproj_w2v.tikz}
+\input{237sum.nonproj_xlm.tikz}
+\input{237sum.nonproj_xlnet.tikz}
+\input{381sum.nonproj_bart.tikz}
+\input{381sum.nonproj_bert.tikz}
+\input{381sum.nonproj_distilbert.tikz}
+\input{381sum.nonproj_w2v.tikz}
+\input{381sum.nonproj_xlm.tikz}
+\input{381sum.nonproj_xlnet.tikz}
+\input{78sum.nonproj_bart.tikz}
+\input{78sum.nonproj_bert.tikz}
+\input{78sum.nonproj_distilbert.tikz}
+\input{78sum.nonproj_w2v.tikz}
+\input{78sum.nonproj_xlm.tikz}
+\input{78sum.nonproj_xlnet.tikz}
+
+
+\end{document}

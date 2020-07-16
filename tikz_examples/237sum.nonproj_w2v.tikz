@@ -1,0 +1,33 @@
+% dependencies for reported_scores
+\begin{dependency}
+	\begin{deptext}
+		Currently\& ,\& average\& pay\& for\& machinists\& is\& \$\& 13.39\& an\& hour\& ,\& Boeing\& said\& . \\
+	\end{deptext}
+	\depedge{8}{1}{advmod}
+	\depedge{4}{3}{amod}
+	\depedge{8}{4}{nsubj}
+	\depedge{4}{5}{prep}
+	\depedge{5}{6}{pobj}
+	\depedge{8}{7}{cop}
+	\depedge{14}{8}{ccomp}
+	\depedge{8}{9}{num}
+	\depedge{11}{10}{det}
+	\depedge{8}{11}{npadvmod}
+	\depedge{14}{13}{nsubj}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{4}{5}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{10}{11}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{8}{9}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{4}{8}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{7}{14}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{4}{6}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{13}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{3}{10}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{3}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{7}{10}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{7}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\tiny\textsf{w2v}};
+%	\node (R2) at (R1.north) {\tiny\textsf{sum.nonproj}};
+%	\node (R3) at (R2.north) {\tiny\textsf{237}};
+	\node (R4) at (R1.south) {\tiny $ 4/11 = 36\% $};
+\end{dependency}
