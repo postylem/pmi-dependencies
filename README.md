@@ -222,7 +222,7 @@ python pmi-accuracy/pos_probe.py
 ```
 
 - `--model_spec`: optional, specify transformers model (e.g. "xlnet-base-cased", "bert-large-cased"), or path for offline (default `bert-base-cased`).
-- `--pos_set_type`: optional, specify `xpos` (PTB's 17 tags) or `upos` (UD's 45 tags) (default='xpos').
+- `--pos_set_type`: optional, specify `xpos` (PTB's 45 tags) or `upos` (UD's 17 tags) (default='xpos').
 - `--batch_size`, optional, default `32`
 - `--epochs`, optional, default `40`
 
