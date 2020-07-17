@@ -462,7 +462,7 @@ if __name__ == '__main__':
                    'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ',
                    'WDT', 'WP', 'WP$', 'WRB', '``']
 
-    POS_SET_TYPE = CLI_ARGS.pos_set_type  # set 'xpos' or 'upos'
+    POS_SET_TYPE = CLI_ARGS.pos_set_type  # 'xpos' or 'upos'
     if POS_SET_TYPE == 'upos':
         POS_TAGSET = UPOS_TAGSET
     elif POS_SET_TYPE == 'xpos':
@@ -500,7 +500,8 @@ if __name__ == '__main__':
         training_options=TRAINING_OPTIONS
         )
 
-    RESULTS_DIRNAME = ARGS['spec'] + '_' + NOW.strftime("%y.%m.%d-%H.%M") + '/'
+    SPEC_STRING = ARGS['pos_set_type'] + '_' + ARGS['spec']
+    RESULTS_DIRNAME = SPEC_STRING + '_' + NOW.strftime("%y.%m.%d-%H.%M") + '/'
     RESULTS_PATH = os.path.join(ARGS['results_path'], RESULTS_DIRNAME)
     ARGS['results_path'] = RESULTS_PATH
 

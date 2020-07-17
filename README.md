@@ -244,7 +244,7 @@ Running a contextual embedding model with the pretrained probe on top, we get es
 python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path/to/probe.state_dict
 ```
 
-### BERT (XPOS)
+#### BERT (XPOS) - a tiny bit _higher_ than CPMI
 | `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.493 |  0.449 |  0.460 |  0.496 |
@@ -259,7 +259,7 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |  nonproj absolute value   |  0.490 |  0.446 |  0.445 |  0.484 |
 |  proj    absolute value   |  0.498 |  0.460 |  0.463 |  0.467 |
 
-### BERT (UPOS)
+#### BERT (UPOS) - a tiny bit _higher_ than CPMI
 | `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.462 |  0.435 |  0.415 |  0.471 |
@@ -274,20 +274,20 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |  nonproj absolute value   |  0.485 |  0.458 |  0.421 |  0.481 |
 |  proj    absolute value   |  0.491 |  0.470 |  0.437 |  0.456 |
 
-### XLNet (XPOS)
+#### XLNet (XPOS) - a lot _lower_ than CPMI
 | `xlnet-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
-|  nonproj                  |  ????? |  ????? |  ????? |  ????? |
-|  proj                     |  ????? |  ????? |  ????? |  ????? |
-|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
-|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  nonproj                  |  0.315 |  0.271 |  0.252 |  0.318 |
+|  proj                     |  0.383 |  0.367 |  0.369 |  0.367 |
+|  nonproj absolute value   |  0.330 |  0.270 |  0.266 |  0.328 |
+|  proj    absolute value   |  0.383 |  0.348 |  0.353 |  0.353 |
 
 | `xlnet-large-cased` pad 60|  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
-|  nonproj                  |  ????? |  ????? |  ????? |  ????? |
-|  proj                     |  ????? |  ????? |  ????? |  ????? |
-|  nonproj absolute value   |  ????? |  ????? |  ????? |  ????? |
-|  proj    absolute value   |  ????? |  ????? |  ????? |  ????? |
+|  nonproj                  |  0.295 |  0.251 |  0.240 |  0.301 |
+|  proj                     |  0.353 |  0.332 |  0.344 |  0.348 |
+|  nonproj absolute value   |  0.306 |  0.254 |  0.250 |  0.306 |
+|  proj    absolute value   |  0.343 |  0.302 |  0.320 |  0.321 |
 
 <!--
 #### Running on the offline cluster
