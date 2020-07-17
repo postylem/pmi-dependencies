@@ -13,7 +13,7 @@ running [main.py](pmi-accuracy/main.py) gets PMI-based dependencies for sentence
 
 [print_tikz.py](pmi-accuracy/print_tikz.py) prints dependency trees with TikZ.
 
-### The models we're testing
+### The models we're using
 
 - XLNet
   - [xlnet-base-cased](https://huggingface.co/xlnet-base-cased)
@@ -233,16 +233,18 @@ Currently the probe achieves the following validation accuracy see [probe-result
 | ------------------|----------------|----------------|
 |`bert-base-cased`  | 97.50 %        | 96.83 %        |
 |`bert-large-cased` | 93.52 %        | 91.96 %        |
-|`xlnet-base-cased` | 92.00 %        |                |
-|`xlnet-large-cased`| 94.51 %        |                |
+|`xlnet-base-cased` | 92.00 %        | 96.12 %        |
+|`xlnet-large-cased`| 94.51 %        | 94.01 %        |
 
 
 ## Using the POS-embeddings to get a POS-CPMI score
 
-Running a contextual embedding model with the pretrained probe on top, we get estimates for the probability of the observed POS tags in the PTB.  These are computed by using the `--probe_state_dict` CLI option for `main.py` (which uses module `languagemodel_pos.py`). For example, to get POS-based CPMI scores using a probe with weights saved in `path/to/probe.state_dict`, on top of bert-base-cased (_be sure to use model_spec that the probe was trained on_):
+Running a contextual embedding model with the pretrained probe on top, we get estimates for the probability of the observed POS tags in the PTB.  These are computed by using the `--probe_state_dict` CLI option for `main.py` (which uses module `languagemodel_pos.py`). For example, to get POS-based CPMI scores using a probe with weights saved in `path/to/probe.state_dict`, on top of `bert-base-cased` (_being careful to use model_spec that the probe was trained on_):
 ```bash
 python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path/to/probe.state_dict
 ```
+
+### Accuracy of resulting dependency structures
 
 #### BERT (XPOS) - a tiny bit _higher_ than CPMI
 | `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
@@ -288,6 +290,25 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |  proj                     |  0.353 |  0.332 |  0.344 |  0.348 |
 |  nonproj absolute value   |  0.306 |  0.254 |  0.250 |  0.306 |
 |  proj    absolute value   |  0.343 |  0.302 |  0.320 |  0.321 |
+
+#### XLNet (UPOS) - a lot _lower_ than CPMI
+| `xlnet-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj                  |  0.317 |  0.284 |  0.237 |  0.323 |
+|  proj                     |  0.367 |  0.357 |  0.345 |  0.360 |
+|  nonproj absolute value   |  0.334 |  0.290 |  0.250 |  0.335 |
+|  proj    absolute value   |  0.369 |  0.343 |  0.327 |  0.347 |
+
+| `xlnet-large-cased` pad 60|  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj                  |  0.272 |  0.248 |  0.205 |  0.279 |
+|  proj                     |  0.345 |  0.348 |  0.336 |  0.343 |
+|  nonproj absolute value   |  0.285 |  0.250 |  0.218 |  0.284 |
+|  proj    absolute value   |  0.327 |  0.313 |  0.308 |  0.315 |
+
+## POS probe with information bottleneck
+
+TODO
 
 <!--
 #### Running on the offline cluster
