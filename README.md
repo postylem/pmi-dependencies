@@ -246,13 +246,17 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 
 ### Accuracy of resulting dependency structures
 
-#### BERT (XPOS) - a tiny bit _higher_ than CPMI
+#### BERT (XPOS) -
+a bit _higher_ than CPMI:
+
 | `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.493 |  0.449 |  0.460 |  0.496 |
 |  proj                     |  0.502 |  0.463 |  0.476 |  0.480 |
 |  nonproj absolute value   |  0.507 |  0.460 |  0.470 |  0.503 |
 |  proj    absolute value   |  0.516 |  0.474 |  0.486 |  0.491 |
+
+a bit _lower_ than CPMI:
 
 | `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
@@ -261,13 +265,17 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |  nonproj absolute value   |  0.490 |  0.446 |  0.445 |  0.484 |
 |  proj    absolute value   |  0.498 |  0.460 |  0.463 |  0.467 |
 
-#### BERT (UPOS) - a tiny bit _higher_ than CPMI
+#### BERT (UPOS)
+about the same as CPMI:
+
 | `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.462 |  0.435 |  0.415 |  0.471 |
 |  proj                     |  0.471 |  0.449 |  0.433 |  0.453 |
 |  nonproj absolute value   |  0.488 |  0.452 |  0.435 |  0.481 |
 |  proj    absolute value   |  0.497 |  0.468 |  0.456 |  0.465 |
+
+a bit _lower_ than CPMI:
 
 | `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
@@ -276,7 +284,9 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |  nonproj absolute value   |  0.485 |  0.458 |  0.421 |  0.481 |
 |  proj    absolute value   |  0.491 |  0.470 |  0.437 |  0.456 |
 
-#### XLNet (XPOS) - a lot _lower_ than CPMI
+#### XLNet (XPOS)
+a lot _lower_ than CPMI:
+
 | `xlnet-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.315 |  0.271 |  0.252 |  0.318 |
@@ -284,14 +294,16 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |  nonproj absolute value   |  0.330 |  0.270 |  0.266 |  0.328 |
 |  proj    absolute value   |  0.383 |  0.348 |  0.353 |  0.353 |
 
-| `xlnet-large-cased` pad 60|  sum   |  triu  |  tril  |  none  |
+| `xlnet-large-cased` pad 30|  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.295 |  0.251 |  0.240 |  0.301 |
 |  proj                     |  0.353 |  0.332 |  0.344 |  0.348 |
 |  nonproj absolute value   |  0.306 |  0.254 |  0.250 |  0.306 |
 |  proj    absolute value   |  0.343 |  0.302 |  0.320 |  0.321 |
 
-#### XLNet (UPOS) - a lot _lower_ than CPMI
+#### XLNet (UPOS)
+a lot _lower_ than CPMI:
+
 | `xlnet-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.317 |  0.284 |  0.237 |  0.323 |
@@ -299,7 +311,7 @@ python pmi-accuracy/main.py --model_spec bert-base-cased --probe_state_dict path
 |  nonproj absolute value   |  0.334 |  0.290 |  0.250 |  0.335 |
 |  proj    absolute value   |  0.369 |  0.343 |  0.327 |  0.347 |
 
-| `xlnet-large-cased` pad 60|  sum   |  triu  |  tril  |  none  |
+| `xlnet-large-cased` pad 30|  sum   |  triu  |  tril  |  none  |
 |---------------------------|--------|--------|--------|--------|
 |  nonproj                  |  0.272 |  0.248 |  0.205 |  0.279 |
 |  proj                     |  0.345 |  0.348 |  0.336 |  0.343 |
