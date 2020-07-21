@@ -18,6 +18,8 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from transformers import AutoModel, AutoTokenizer
 
+import pos_probe_ib
+
 
 class CONLLReader():
     def __init__(self, conll_cols, additional_field_name=None):
@@ -104,17 +106,16 @@ class POSProbe(nn.Module):
             H: a batch of sequences, i.e. a tensor of shape
                 (batch_size, max_slen, hidden_dim)
         Returns:
-            distances: a list of distance matrices, i.e. a tensor of shape
-                (batch_size, max_slen, max_slen)
+            prediction: a batch of predictions, i.e. a tensor of shape
+                (batch_size, max_slen, pos_vocabsize)
         """
-        # apply W to batch H to get shape (batch_size, max_slen, pos_vocabsize)
         WH = self.linear(H)
         prediction = F.log_softmax(WH, dim=-1)
         return prediction
 
 
 class POSProbeLoss(nn.Module):
-    """Loss for linear probe."""
+    """Cross entropy loss for linear probe."""
 
     def __init__(self, args):
         """Args: global args dict."""
@@ -262,9 +263,10 @@ class TransformersModel:
         Input:
             input_ids_batch: a batch of (padded) input ids
             kwds:
-                no kwds expected for BERT;
-                'perm_mask' and 'target mapping' batches for XLNet
-        Returns: last hidden layer of pretrained model for that batch
+                - no kwds expected for BERT;
+                - 'perm_mask' and 'target mapping' batches for XLNet
+        Return:
+            last hidden layer of pretrained model for that batch
         """
         # 0 for MASKED tokens. 1 for NOT MASKED tokens.
         attention_mask = (input_ids_batch !=
@@ -274,12 +276,14 @@ class TransformersModel:
                 input_ids=input_ids_batch.to(self.device),
                 attention_mask=attention_mask.to(self.device),
                 **kwds)
-        return outputs[0]  # the hidden states are in the first component
+        # the hidden states are the first component of the outputs tuple
+        return outputs[0]
 
 
 def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
     """Train probe."""
     device = args['device']
+    use_bottleneck = args['bottleneck']
     pad_pos_id = args['pad_pos_id']
     pos_vocabsize = len(args['pos_set'])
     opt = args['training_options']
@@ -306,13 +310,22 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             input_ids_batch, label_batch, length_batch = batch
             length_batch = length_batch.to(device)
             embedding_batch = model.get_embeddings(input_ids_batch).to(device)
-            # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
-            prediction_batch = probe(embedding_batch).to(device)
-            # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
+            if use_bottleneck:
+                # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
+                prediction_batch, train_kld = probe(embedding_batch)
+                # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
+                batch_loss, count = loss(
+                    prediction_batch.to(device),
+                    label_batch, length_batch, train_kld)
+            else:
+                # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
+                prediction_batch = probe(embedding_batch)
+                # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
+                batch_loss, count = loss(
+                    prediction_batch.to(device),
+                    label_batch, length_batch)
             prediction_accuracy = get_batch_acc(
                 label_batch, prediction_batch, pad_pos_id, pos_vocabsize)
-            batch_loss, count = loss(
-                prediction_batch, label_batch, length_batch)
             batch_loss.backward()
             ep_train_loss += (batch_loss.detach() *
                               count.detach()).cpu().numpy()
@@ -326,24 +339,40 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             input_ids_batch, label_batch, length_batch = batch
             length_batch = length_batch.to(device)
             embedding_batch = model.get_embeddings(input_ids_batch).to(device)
-            # embedding_batch size = ([batchsize, maxsentlen, embeddingsize])
-            prediction_batch = probe(embedding_batch).to(device)
-            # prediction_batch size = ([batchsize, maxsentlen, POSvocabsize])
+            if use_bottleneck:
+                # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
+                prediction_batch, dev_kld = probe(embedding_batch)
+                # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
+                batch_loss, count = loss(
+                    prediction_batch.to(device),
+                    label_batch, length_batch, dev_kld)
+            else:
+                # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
+                prediction_batch = probe(embedding_batch)
+                # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
+                batch_loss, count = loss(
+                    prediction_batch.to(device),
+                    label_batch, length_batch)
             dev_accuracy = get_batch_acc(
                 label_batch, prediction_batch, pad_pos_id, pos_vocabsize)
-            batch_loss, count = loss(
-                prediction_batch, label_batch, length_batch)
             ep_dev_loss += (batch_loss.detach() *
                             count.detach()).cpu().numpy()
             ep_dev_loss_count += count.detach().cpu().numpy()
             ep_dev_ep_count += 1
         scheduler.step(ep_dev_loss)
+        if use_bottleneck:
+            train_kld = f'\ttrain_kld: {train_kld:.3f}'
+            dev_kld = f'\t  dev_kld: {dev_kld:.3f}'
+        else:
+            dev_kld, train_kld = '', ''
         msg = (
             f'[epoch {ep_i}]\n'
-            f'\tper sent train loss: {ep_train_loss/ep_train_loss_count:.5f},'
+            f'\tper sent train loss: {ep_train_loss/ep_train_loss_count:.3f},'
+            + train_kld +
             f'\ttrain acc: {prediction_accuracy*100:.2f} %\n'
-            f'\tper sent dev loss  : {ep_dev_loss/ep_dev_loss_count:.5f},'
-            f'\tdev acc  : {dev_accuracy*100:.2f} %'
+            f'\tper sent   dev loss: {ep_dev_loss/ep_dev_loss_count:.3f},'
+            + dev_kld +
+            f'\t  dev acc: {dev_accuracy*100:.2f} %'
             )
         if dev_accuracy > max_acc + 0.000001:
             save_path = os.path.join(args['results_path'], 'probe.state_dict')
@@ -440,6 +469,11 @@ if __name__ == '__main__':
                       or path for offline''')
     ARGP.add_argument('--pos_set_type', default='xpos',
                       help="xpos (PTB's 17 tags) or upos (UD's 45 tags)")
+    ARGP.add_argument('--bottleneck', action='store_true',
+                      help='''set to run information bottleneck version,
+                           higher beta = more compression''')
+    ARGP.add_argument('--beta', default=0.01, type=float,
+                      help='''higher beta = more compression''')
     ARGP.add_argument('--batch_size', default=32, type=int)
     ARGP.add_argument('--epochs', default=40, type=int)
     CLI_ARGS = ARGP.parse_args()
@@ -467,40 +501,48 @@ if __name__ == '__main__':
         POS_TAGSET = UPOS_TAGSET
     elif POS_SET_TYPE == 'xpos':
         POS_TAGSET = XPOS_TAGSET
-    # TRAINING_OPTIONS = dict(  # Hewitt uses Adam with lr=0.001
+    # TRAIN_OPTS = dict(  # Hewitt uses Adam with lr=0.001
     #     algorithm='adam',
     #     hyperparams=dict(lr=0.1)
     #     )
-    TRAINING_OPTIONS = dict(
+    TRAIN_OPTS = dict(
         algorithm='sgd',
         hyperparams=dict(lr=0.33, weight_decay=5e-4, momentum=0.9)
         )
+    IB_TRAIN_OPTS = dict(
+        algorithm='sgd',
+        hyperparams=dict(lr=0.03, weight_decay=5e-4, momentum=0.9)
+        )
     ARGS = dict(
+        bottleneck=CLI_ARGS.bottleneck,
         device=DEVICE,
         spec=CLI_ARGS.model_spec,
         batch_size=CLI_ARGS.batch_size,
         epochs=CLI_ARGS.epochs,
+        beta=CLI_ARGS.beta,
         hidden_dim=MODEL.hidden_size,
         pad_token_id=MODEL.pad_token_id,
         pad_pos_id=MODEL.pad_pos_id,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    # train_path='CUSTOM.conllx',
-                    # dev_path='CUSTOM4.conllx',
-                    # test_path='CUSTOM4.conllx'),
-                    train_path='ptb3-wsj-train.conllx',
-                    dev_path='ptb3-wsj-dev.conllx',
-                    test_path='ptb3-wsj-test.conllx'),
+                    train_path='CUSTOM2.conllx',
+                    dev_path='CUSTOM.conllx',
+                    test_path='CUSTOM.conllx'),
+                    # train_path='ptb3-wsj-train.conllx',
+                    # dev_path='ptb3-wsj-dev.conllx',
+                    # test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
             'governance_relations', 'secondary_relations', 'extra_info'],
         pos_set_type=POS_SET_TYPE,
         pos_set=POS_TAGSET,
-        training_options=TRAINING_OPTIONS
+        training_options=IB_TRAIN_OPTS if CLI_ARGS.bottleneck else TRAIN_OPTS
         )
 
     SPEC_STRING = ARGS['pos_set_type'] + '_' + ARGS['spec']
+    if CLI_ARGS.bottleneck:
+        SPEC_STRING = 'IB_' + SPEC_STRING
     RESULTS_DIRNAME = SPEC_STRING + '_' + NOW.strftime("%y.%m.%d-%H.%M") + '/'
     RESULTS_PATH = os.path.join(ARGS['results_path'], RESULTS_DIRNAME)
     ARGS['results_path'] = RESULTS_PATH
@@ -513,7 +555,11 @@ if __name__ == '__main__':
             pretty_print_dict(ARGS)
         infofile.write('')
 
-    PROBE = POSProbe(ARGS)
-    LOSS = POSProbeLoss(ARGS)
+    if CLI_ARGS.bottleneck:
+        PROBE = pos_probe_ib.IB_POSProbe(ARGS)
+        LOSS = pos_probe_ib.IB_POSLoss(ARGS)
+    else:
+        PROBE = POSProbe(ARGS)
+        LOSS = POSProbeLoss(ARGS)
 
     train_probe(ARGS, MODEL, PROBE, LOSS, TOKENIZER)
