@@ -309,8 +309,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             optimizer.zero_grad()
             input_ids_batch, label_batch, length_batch = batch
             length_batch = length_batch.to(device)
-            mask = (label_batch != args['pad_pos_id']).type(torch.float)
-            mask.to(device)
+            mask = (
+                label_batch != args['pad_pos_id']).type(torch.float).to(device)
             embedding_batch = model.get_embeddings(input_ids_batch).to(device)
             if use_bottleneck:
                 # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
@@ -343,8 +343,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             probe.eval()
             input_ids_batch, label_batch, length_batch = batch
             length_batch = length_batch.to(device)
-            mask = (label_batch != args['pad_pos_id']).type(torch.float)
-            mask.to(device)
+            mask = (
+                label_batch != args['pad_pos_id']).type(torch.float).to(device)
             embedding_batch = model.get_embeddings(input_ids_batch).to(device)
             if use_bottleneck:
                 # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
