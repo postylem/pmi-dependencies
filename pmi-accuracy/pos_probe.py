@@ -18,7 +18,7 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from transformers import AutoModel, AutoTokenizer
 
-import pos_probe_ib
+import ib_pos_probe
 
 
 class CONLLReader():
@@ -309,10 +309,15 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             optimizer.zero_grad()
             input_ids_batch, label_batch, length_batch = batch
             length_batch = length_batch.to(device)
+            mask = (label_batch != args['pad_pos_id']).type(torch.float)
+            mask.to(device)
             embedding_batch = model.get_embeddings(input_ids_batch).to(device)
             if use_bottleneck:
                 # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
-                prediction_batch, train_kld = probe(embedding_batch)
+                prediction_batch, kld_batch = probe(embedding_batch)
+                # get the mean kld per sentence, ignoring words not to predict
+                mean_kld = (kld_batch * mask).sum(1) / mask.sum(1)
+                train_kld = mean_kld.mean(0)  # mean across batch
                 # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
                 batch_loss, count = loss(
                     prediction_batch.to(device),
@@ -338,10 +343,15 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             probe.eval()
             input_ids_batch, label_batch, length_batch = batch
             length_batch = length_batch.to(device)
+            mask = (label_batch != args['pad_pos_id']).type(torch.float)
+            mask.to(device)
             embedding_batch = model.get_embeddings(input_ids_batch).to(device)
             if use_bottleneck:
                 # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
-                prediction_batch, dev_kld = probe(embedding_batch)
+                prediction_batch, kld_batch = probe(embedding_batch)
+                # get the mean kld per sentence, ignoring words not to predict
+                mean_kld = (kld_batch * mask).sum(dim=1)/mask.sum(dim=1)
+                dev_kld = mean_kld.mean(0)  # mean across batch
                 # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
                 batch_loss, count = loss(
                     prediction_batch.to(device),
@@ -529,12 +539,12 @@ if __name__ == '__main__':
         pad_pos_id=MODEL.pad_pos_id,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    # train_path='CUSTOM2.conllx',
-                    # dev_path='CUSTOM.conllx',
-                    # test_path='CUSTOM.conllx'),
-                    train_path='ptb3-wsj-train.conllx',
-                    dev_path='ptb3-wsj-dev.conllx',
-                    test_path='ptb3-wsj-test.conllx'),
+                    train_path='CUSTOM2.conllx',
+                    dev_path='CUSTOM.conllx',
+                    test_path='CUSTOM.conllx'),
+                    # train_path='ptb3-wsj-train.conllx',
+                    # dev_path='ptb3-wsj-dev.conllx',
+                    # test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
@@ -565,8 +575,8 @@ if __name__ == '__main__':
         infofile.write('')
 
     if CLI_ARGS.bottleneck:
-        PROBE = pos_probe_ib.IB_POSProbe(ARGS)
-        LOSS = pos_probe_ib.IB_POSLoss(ARGS)
+        PROBE = ib_pos_probe.IBProbe(ARGS)
+        LOSS = ib_pos_probe.IBLoss(ARGS)
     else:
         PROBE = POSProbe(ARGS)
         LOSS = POSProbeLoss(ARGS)

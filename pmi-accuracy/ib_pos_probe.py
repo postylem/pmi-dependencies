@@ -7,13 +7,8 @@ JL Hoover
 July 2020
 """
 
-import os
-from argparse import ArgumentParser
-from datetime import datetime
-from contextlib import redirect_stdout
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 import pos_probe
 
@@ -46,14 +41,14 @@ class Bottleneck(nn.Module):
         return means, log_covariances
 
 
-class IB_POSProbe(nn.Module):
-    """Samples from bottleneck"""
+class IBProbe(nn.Module):
+    """Given embedding, samples from bottleneck, returns KL and prediction"""
 
     def __init__(self, args):
         super().__init__()
         self.args = args
-        self.bottleneck = Bottleneck(args)
-        self.W_pos = pos_probe.POSProbe(args)
+        self.W_encoder = Bottleneck(args)
+        self.W_decoder = pos_probe.POSProbe(args)
         self.to(args['device'])
 
     def forward(self, H):
@@ -64,20 +59,25 @@ class IB_POSProbe(nn.Module):
         Returns:
             prediction: a batch of predictions, log_softmaxed, of shape
                 (batch_size, max_slen, pos_vocabsize)
-            kld: KL divergence for the batch
+            kld: a batch of KL divergences, of shape
+                (batch_size, max_slen)
+
             """
-        mus, logsigs = self.bottleneck(H)
+        mus, logsigs = self.W_encoder(H)
         # KLD(q(z | x) || r(z)), where r(z) = N(0,I^d)
+        # kld.shape = (batch_size, maxsentlen)
         kld = 0.5 * (
-            logsigs.exp() + mus.pow(2) - 1 - logsigs).sum(2).mean(1).mean(0)
+            logsigs.exp() + mus.pow(2) - 1 - logsigs).sum(2)
+        # to get loss do kld = kld.mean(1).mean(0)
         # get logits for (y given z) = Wz using z ~ q(z | x)
         sample = mus + torch.randn_like(logsigs) * torch.exp(0.5 * logsigs)
-        prediction = self.W_pos(sample)
+        prediction = self.W_decoder(sample)
         return prediction, kld
 
 
-class IB_POSLoss(nn.Module):
-    """ xent_loss + beta*kld
+class IBLoss(nn.Module):
+    """Calculates the IB loss
+    L_IB = Xent(decoder;y) + beta * KL(encoder || gaussian approx)
     """
 
     def __init__(self, args):
@@ -94,7 +94,7 @@ class IB_POSLoss(nn.Module):
             prediction_batch: pytorch batch of softmaxed POS predictions
             label_batch: pytorch batch of true POS label ids (torch.long)
             length_batch: pytorch batch of sentence lengths
-            kld_batch: pytorch batch of KL divergence
+            kld: KL divergence for batch, float (size 0 tensor)
 
         Returns:
             A tuple of:
@@ -103,5 +103,5 @@ class IB_POSLoss(nn.Module):
         """
         batch_xent_loss, number_of_sentences = self.xent_loss(
             prediction_batch, label_batch, length_batch)
-        batch_IB_loss = batch_xent_loss + self.args['beta'] * kld
-        return batch_IB_loss, number_of_sentences
+        batch_ib_loss = batch_xent_loss + self.args['beta'] * kld
+        return batch_ib_loss, number_of_sentences

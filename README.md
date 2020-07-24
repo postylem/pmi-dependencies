@@ -326,7 +326,7 @@ a lot _lower_ than CPMI:
 
 ## POS probe with information bottleneck
 
-Use `--bottleneck` option.
+Implemented in `ib_pos_probe.py`. Use `pos_probe.py` with the `--bottleneck` option to run.
 
 Li's defaults for english:
 ```bash
