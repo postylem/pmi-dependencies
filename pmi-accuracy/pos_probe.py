@@ -316,7 +316,7 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
                 # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
                 prediction_batch, kld_batch = probe(embedding_batch)
                 # get the mean kld per sentence, ignoring words not to predict
-                mean_kld = (kld_batch * mask).sum(1) / mask.sum(1)
+                mean_kld = (kld_batch.to(device) * mask).sum(1) / mask.sum(1)
                 train_kld = mean_kld.mean(0)  # mean across batch
                 # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
                 batch_loss, count = loss(
@@ -350,7 +350,7 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
                 # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
                 prediction_batch, kld_batch = probe(embedding_batch)
                 # get the mean kld per sentence, ignoring words not to predict
-                mean_kld = (kld_batch * mask).sum(dim=1)/mask.sum(dim=1)
+                mean_kld = (kld_batch.to(device) * mask).sum(1)/mask.sum(1)
                 dev_kld = mean_kld.mean(0)  # mean across batch
                 # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
                 batch_loss, count = loss(
