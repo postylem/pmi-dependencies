@@ -225,6 +225,12 @@ python pmi-accuracy/pos_probe.py
 - `--pos_set_type`: optional, specify `xpos` (PTB's 45 tags) or `upos` (UD's 17 tags) (default='xpos').
 - `--batch_size`, optional, default `32`
 - `--epochs`, optional, default `40`
+- `bottleneck`, set to use bottleneck probe
+- `--optimizer`, default='adam' ('adam' or 'sgd')
+- `--lr`, default=0.001
+- `--weight_decay`, default=0.0001
+- `--momentum`, default=0 (for optimizer='sgd')
+- `--epochs`, default=40
 
 
 Currently the probe achieves the following validation accuracy see [probe-results/](/pmi-accuracy/probe-results/):
@@ -320,7 +326,12 @@ a lot _lower_ than CPMI:
 
 ## POS probe with information bottleneck
 
-TODO
+Use `--bottleneck` option.
+
+Li's defaults for english:
+```bash
+python pmi-accuracy/pos_probe.py --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
+```
 
 <!--
 #### Running on the offline cluster

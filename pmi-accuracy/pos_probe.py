@@ -475,6 +475,10 @@ if __name__ == '__main__':
     ARGP.add_argument('--beta', default=0.01, type=float,
                       help='''higher beta = more compression''')
     ARGP.add_argument('--batch_size', default=32, type=int)
+    ARGP.add_argument('--optimizer', default='adam', type=str)
+    ARGP.add_argument('--lr', default=0.001, type=float)
+    ARGP.add_argument('--weight_decay', default=0.0001, type=float)
+    # ARGP.add_argument('--momentum', default=0, type=float)
     ARGP.add_argument('--epochs', default=40, type=int)
     CLI_ARGS = ARGP.parse_args()
 
@@ -505,14 +509,14 @@ if __name__ == '__main__':
     #     algorithm='adam',
     #     hyperparams=dict(lr=0.1)
     #     )
-    TRAIN_OPTS = dict(
-        algorithm='sgd',
-        hyperparams=dict(lr=0.33, weight_decay=5e-4, momentum=0.9)
-        )
-    IB_TRAIN_OPTS = dict(
-        algorithm='sgd',
-        hyperparams=dict(lr=0.03, weight_decay=5e-4, momentum=0.9)
-        )
+    # TRAIN_OPTS = dict(
+    #     algorithm='sgd',
+    #     hyperparams=dict(lr=0.33, weight_decay=5e-4, momentum=0.9)
+    #     )
+    # IB_TRAIN_OPTS = dict(
+    #     algorithm='adam',
+    #     hyperparams=dict(lr=1e-3, weight_decay=0.00001, momentum=0.9)
+    #     )
     ARGS = dict(
         bottleneck=CLI_ARGS.bottleneck,
         device=DEVICE,
@@ -537,7 +541,12 @@ if __name__ == '__main__':
             'governance_relations', 'secondary_relations', 'extra_info'],
         pos_set_type=POS_SET_TYPE,
         pos_set=POS_TAGSET,
-        training_options=IB_TRAIN_OPTS if CLI_ARGS.bottleneck else TRAIN_OPTS
+        training_options=dict(
+            algorithm=CLI_ARGS.optimizer,
+            hyperparams=dict(
+                lr=CLI_ARGS.lr,
+                # mementum=CLI_ARGS.momentum,
+                weight_decay=CLI_ARGS.weight_decay))
         )
 
     SPEC_STRING = ARGS['pos_set_type'] + '_' + ARGS['spec']
