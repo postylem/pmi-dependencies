@@ -83,7 +83,6 @@ class CONLLReader():
         return observations
 
 
-
 # Running and reporting
 def score_observation(observation, pmi_matrix, absolute_value=False):
     # Get gold edges distances tensor from conllx file
@@ -184,7 +183,7 @@ class PredictorClass:
         # head_indices
         # governance_relations
         obs_df = obs_df.astype({'index': 'int32', 'head_indices': 'int32'})
-        obs_df[['index','head_indices']] -= 1 # convert to 0-indexing
+        obs_df[['index', 'head_indices']] -= 1  # convert to 0-indexing
         obs_df = obs_df.set_index('index')
         if exclude_punctuation:
             obs_df = obs_df[~obs_df.sentence.isin(EXCLUDED_PUNCTUATION)]
@@ -460,7 +459,8 @@ if __name__ == '__main__':
                       help='number of sentences to look at')
     ARGP.add_argument('--model_spec', default='xlnet-base-cased',
                       help='''specify model
-                      (e.g. "xlnet-base-cased", "bert-large-cased"),or path for offline''')
+                      (e.g. "xlnet-base-cased", "bert-large-cased"),
+                      or path for offline''')
     ARGP.add_argument('--conllx_file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
                       help='path/to/treebank.conllx: dependency file, in conllx format')
     ARGP.add_argument('--results_dir', default='results/',
@@ -470,7 +470,8 @@ if __name__ == '__main__':
                       with model, optional:
                         load model state or embeddings from file
                       with --model_spec load_npz:
-                        directory where pmi matrices and loglik npz files are''')
+                        directory where pmi matrices
+                        and loglik npz files are''')
     ARGP.add_argument('--batch_size', default=32, type=int)
     ARGP.add_argument('--pad', default=0, type=int,
                       help='(int) pad sentences to be at least this long')
@@ -619,7 +620,7 @@ if __name__ == '__main__':
                    load_npz=LOAD_NPZ, save_npz=CLI_ARGS.save_npz,
                    absolute_value=CLI_ARGS.absolute_value,
                    verbose=True)
-    print_means_to_file(SCORES, RESULTS_DIR+'info.txt')
+    print_means_to_file(SCORES, RESULTS_DIR + 'info.txt')
     DF = pd.json_normalize(SCORES, sep='.')
     DF.to_csv(path_or_buf=RESULTS_DIR + 'scores_' + SUFFIX + '.csv',
               index_label='sentence_index')
