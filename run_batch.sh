@@ -18,21 +18,14 @@
 # # Running bert-base-uncased to compare with checkpoints:
 
 #python pmi-accuracy/main.py --model_spec bert-base-uncased --pad 30 --batch_size 16 --save_npz --absolute_value> bert-base-uncased-pad60.out 2> bert-base-uncased-pad60.err
-for  n in 10 50 100 500 1000 1500; do
-  python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_${n}000.pt --pad 30 --batch_size 16 --save_npz --absolute_value > bert-ckpt${n}k.out 2> bert-ckpt${n}k.err
-done
-
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_1500000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt1500k.out 2> bert-ckpt1500k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_1000000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt1000k.out 2> bert-ckpt1000k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_500000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt500k.out 2> bert-ckpt500k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_100000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt100k.out 2> bert-ckpt100k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_50000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt50k.out 2> bert-ckpt50k.err
-#python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_10000.pt --pad 60 --batch_size 16 --n_observations 500 > bert-ckpt10k.out 2> bert-ckpt10k.err
+#for  n in 10 50 100 500 1000 1500; do
+#  python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_${n}000.pt --pad 30 --batch_size 16 --save_npz --absolute_value > bert-ckpt${n}k.out 2> bert-ckpt${n}k.err
+#done
 
 # # Saving matrices for all models (to be placed in results-clean/)
 
 #python pmi-accuracy/main.py --save_npz --model_spec bert-large-cased --pad 60 --batch_size 4 > bert-large-cased-pad60.out 2> bert-large-cased-pad60.err
-#python pmi-accuracy/main.py --save_npz --model_spec bert-base-cased --pad 30 --batch_size 10 > bert-base-cased-pad30.out 2> bert-base-cased-pad30.err
+python pmi-accuracy/main.py --save_npz --model_spec bert-base-cased --pad 30 --batch_size 16 > bert-base-cased-pad30.out 2> bert-base-cased-pad30.err
 #python pmi-accuracy/main.py --save_npz --model_spec bert-large-uncased --pad 30 --batch_size 10 > bert-large-uncased-pad30.out 2> bert-large-uncased-pad30.err
 #python pmi-accuracy/main.py --save_npz --model_spec bert-base-uncased --pad 30 --batch_size 10 > bert-base-uncased-pad30.out 2> bert-base-uncased-pad30.err
 #python pmi-accuracy/main.py --save_npz --model_spec xlnet-large-cased --pad 30 --batch_size 10 > xlnet-large-cased-pad30.out 2> xlnet-large-cased-pad30.err
@@ -59,3 +52,38 @@ done
 #python pmi-accuracy/main.py --model_spec load_npz --model_path results-clean/xlnet-base-cased_pad30_2020-07-04-17-13 --absolute_value > abs-xlnet-base.out
 #python pmi-accuracy/main.py --model_spec load_npz --model_path results-clean/xlnet-large-cased_pad30_2020-07-04-13-22 --absolute_value > abs-xlnet-large.out
 
+# just checking on test set
+#python pmi-accuracy/main.py --save_npz --model_spec bert-large-cased --pad 60 --batch_size 6 --conllx_file 'ptb3-wsj-data/ptb3-wsj-test.conllx' > bert-large-cased-pad60-test.out 2> bert-large-cased-pad60-test.err
+
+#--------
+
+# train probe
+#python pmi-accuracy/pos_probe.py --model_spec bert-base-cased --pos_set_type upos
+#python pmi-accuracy/pos_probe.py --model_spec bert-large-cased --pos_set_type upos
+
+# evaluate linear probe bert
+#python pmi-accuracy/main.py --save_npz --model_spec bert-base-cased --pad 30 --batch_size 16 --probe_state_dict probe-results/bert-base-cased_20.07.15-20.06/probe.state_dict --pos_set_type upos > upos-bert-base-cased.out 2> upos-base.err
+#python pmi-accuracy/main.py --save_npz --model_spec bert-large-cased --pad 60 --batch_size 4 --probe_state_dict probe-results/bert-large-cased_20.07.15-20.28/probe.state_dict --pos_set_type upos > upos-bert-large-cased.out 2> upos-large.err
+
+# bert get abs value version also
+#python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_bert-base-cased_pad30_2020-07-15-21-55 --absolute_value --results_dir results/upos_bert-base-cased_pad30_2020-07-15-21-55/ > upos-base-abs.out
+#python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_bert-large-cased_pad60_2020-07-15-22-52 --absolute_value --results_dir results/upos_bert-large-cased_pad60_2020-07-15-22-52/ > upos-large-abs.out
+
+# train probe xlnet
+#python pmi-accuracy/pos_probe.py --model_spec xlnet-base-cased  --pos_set_type upos
+#python pmi-accuracy/pos_probe.py --model_spec xlnet-large-cased --pos_set_type upos
+
+# evaluate linear probe xlnet
+#python pmi-accuracy/main.py --save_npz --model_spec xlnet-base-cased --pad 30 --batch_size 32 --probe_state_dict probe-results/upos_xlnet-base-cased*/probe.state_dict --pos_set_type upos > upos-base.out 2> upos-base.err
+#python pmi-accuracy/main.py --save_npz --model_spec xlnet-large-cased --pad 30 --batch_size 16 --probe_state_dict probe-results/upos_xlnet-large-cased*/probe.state_dict --pos_set_type upos > upos-large.out 2> upos-large.err
+
+# xlnet get abs value version also
+#python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_xlnet-base-cased* --absolute_value --results_dir results/upos_xlnet-base-cased*/ > upos-base-abs.out
+#python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_xlnet-large-cased* --absolute_value --results_dir results/upos_xlnet-large-cased*/ > upos-large-abs.out
+
+# Running Li's default
+#python pmi-accuracy/pos_probe.py --model_spec bert-base-cased --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
+#python pmi-accuracy/pos_probe.py --model_spec bert-base-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
+#python pmi-accuracy/pos_probe.py --model_spec bert-large-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
+#python pmi-accuracy/pos_probe.py --model_spec xlnet-base-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
+#python pmi-accuracy/pos_probe.py --model_spec xlnet-large-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
