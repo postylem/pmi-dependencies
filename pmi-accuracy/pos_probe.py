@@ -269,8 +269,8 @@ class TransformersModel:
             last hidden layer of pretrained model for that batch
         """
         # 0 for MASKED tokens. 1 for NOT MASKED tokens.
-        attention_mask = (input_ids_batch !=
-                          self.pad_token_id).type(torch.float)
+        attention_mask = (
+            input_ids_batch != self.pad_token_id).type(torch.float)
         with torch.no_grad():
             outputs = self.model(
                 input_ids=input_ids_batch.to(self.device),
@@ -332,8 +332,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             prediction_accuracy = get_batch_acc(
                 label_batch, prediction_batch, pad_pos_id, pos_vocabsize)
             batch_loss.backward()
-            ep_train_loss += (batch_loss.detach() *
-                              count.detach()).cpu().numpy()
+            ep_train_loss += (
+                batch_loss.detach() * count.detach()).cpu().numpy()
             ep_train_ep_count += 1
             ep_train_loss_count += count.detach().cpu().numpy()
             optimizer.step()
@@ -350,7 +350,7 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
                 # embedding_batch size ([batchsize, maxsentlen, embeddingsize])
                 prediction_batch, kld_batch = probe(embedding_batch)
                 # get the mean kld per sentence, ignoring words not to predict
-                mean_kld = (kld_batch.to(device) * mask).sum(1)/mask.sum(1)
+                mean_kld = (kld_batch.to(device) * mask).sum(1) / mask.sum(1)
                 dev_kld = mean_kld.mean(0)  # mean across batch
                 # prediction_batch size ([batchsize, maxsentlen, POSvocabsize])
                 batch_loss, count = loss(
@@ -365,8 +365,8 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
                     label_batch, length_batch)
             dev_accuracy = get_batch_acc(
                 label_batch, prediction_batch, pad_pos_id, pos_vocabsize)
-            ep_dev_loss += (batch_loss.detach() *
-                            count.detach()).cpu().numpy()
+            ep_dev_loss += (
+                batch_loss.detach() * count.detach()).cpu().numpy()
             ep_dev_loss_count += count.detach().cpu().numpy()
             ep_dev_ep_count += 1
         scheduler.step(ep_dev_loss)
@@ -377,13 +377,13 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             dev_kld, train_kld = '', ''
         msg = (
             f'[epoch {ep_i}]\n'
-            f'\tper sent train loss: {ep_train_loss/ep_train_loss_count:.3f},'
-            + train_kld +
-            f'\ttrain acc: {prediction_accuracy*100:.2f} %\n'
-            f'\tper sent   dev loss: {ep_dev_loss/ep_dev_loss_count:.3f},'
-            + dev_kld +
-            f'\t  dev acc: {dev_accuracy*100:.2f} %'
-            )
+            + f'\tper sent train loss:'
+            + f'{ep_train_loss/ep_train_loss_count:.3f},'
+            + train_kld
+            + f'\ttrain acc: {prediction_accuracy*100:.2f} %\n'
+            + f'\tper sent   dev loss: {ep_dev_loss/ep_dev_loss_count:.3f},'
+            + dev_kld
+            + f'\t  dev acc: {dev_accuracy*100:.2f} %')
         if dev_accuracy > max_acc + 0.000001:
             save_path = os.path.join(args['results_path'], 'probe.state_dict')
             torch.save(probe.state_dict(), save_path)
@@ -400,7 +400,7 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
 
 def write_saved_acc(results_path, ep_i, dev_accuracy, msg=""):
     """Append accuracy (and optional message) to info file."""
-    with open(results_path+'info.txt', mode='a') as infof:
+    with open(results_path + 'info.txt', mode='a') as infof:
         infof.write(
             f'epoch{ep_i:3d} dev acc = {dev_accuracy*100} % ' + msg + '\n')
 
@@ -428,8 +428,7 @@ def train_probe(args, model, probe, loss, tokenizer):
         'collate_fn': partial(
             POSDataset.collate_fn,
             pad_token_id=model.pad_token_id,
-            pad_pos_id=model.pad_pos_id)
-        }
+            pad_pos_id=model.pad_pos_id)}
     train_loader = DataLoader(train_dataset, **params)
     dev_loader = DataLoader(dev_dataset, **params)
 
@@ -463,10 +462,10 @@ def load_datasets(args, tokenizer):
 def pretty_print_dict(dic, indent=0):
     """Pretty print nested dict to stdout."""
     for key, value in dic.items():
-        print('    '*indent + key, end=': ')
+        print('    ' * indent + key, end=': ')
         if isinstance(value, dict):
             print()
-            pretty_print_dict(value, indent+1)
+            pretty_print_dict(value, indent + 1)
         else:
             print(repr(value))
 
@@ -556,8 +555,7 @@ if __name__ == '__main__':
             hyperparams=dict(
                 lr=CLI_ARGS.lr,
                 # mementum=CLI_ARGS.momentum,
-                weight_decay=CLI_ARGS.weight_decay))
-        )
+                weight_decay=CLI_ARGS.weight_decay)))
 
     SPEC_STRING = ARGS['pos_set_type'] + '_' + ARGS['spec']
     if CLI_ARGS.bottleneck:
