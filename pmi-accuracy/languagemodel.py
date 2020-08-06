@@ -21,6 +21,7 @@ class LanguageModel:
     """
     def __init__(self, device, model_spec, batchsize, state_dict=None):
         self.device = device
+        self.model_spec = model_spec
         self.model = AutoModelWithLMHead.from_pretrained(
             pretrained_model_name_or_path=model_spec,
             state_dict=state_dict).to(device)
