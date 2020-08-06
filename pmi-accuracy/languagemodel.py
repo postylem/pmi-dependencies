@@ -73,8 +73,8 @@ class XLNetSentenceDataset(torch.utils.data.Dataset):
 
     def _make_tasks(self):
         tasks = []
-        len_s = len(self.input_ids) # length in subword tokens
-        len_t = len(self.ptbtok_to_span) # length in ptb tokens
+        len_s = len(self.input_ids)  # length in subword tokens
+        len_t = len(self.ptbtok_to_span)  # length in ptb tokens
         for source_span in self.ptbtok_to_span:
             for target_span in self.ptbtok_to_span:
                 for idx_target, target_pos in enumerate(target_span):
@@ -980,7 +980,9 @@ class XLM(LanguageModel):
 
 
 class GPT2SentenceDataset(torch.utils.data.Dataset):
-    """Dataset class for GPT2. Not bidirectional, so doesn't make much sense."""
+    """Dataset class for GPT2. Warning:
+    Not bidirectional, so only lower triangular will be interpretable
+    Also, masking doesn't match training."""
 
     def __init__(
             self, input_ids, ptbtok_to_span, span_to_ptbtok,
@@ -998,6 +1000,8 @@ class GPT2SentenceDataset(torch.utils.data.Dataset):
         """concatenate and prepare batch"""
         tbatch = {}
         tbatch["input_ids"] = torch.LongTensor([b['input_ids'] for b in batch])
+        tbatch["attention_mask"] = torch.FloatTensor(
+            [b['attention_mask'] for b in batch])
         tbatch["target_loc"] = [b['target_loc'] for b in batch]
         tbatch["target_id"] = [b['target_id'] for b in batch]
         tbatch["source_span"] = [b['source_span'] for b in batch]
@@ -1006,6 +1010,7 @@ class GPT2SentenceDataset(torch.utils.data.Dataset):
 
     def _make_tasks(self):
         tasks = []
+        len_s = len(self.input_ids)  # length in subword tokens
         for source_span in self.ptbtok_to_span:
             for target_span in self.ptbtok_to_span:
                 for idx_target, target_pos in enumerate(target_span):
@@ -1015,15 +1020,19 @@ class GPT2SentenceDataset(torch.utils.data.Dataset):
                     abs_target_curr = self.n_pad_left + target_pos
                     # these are all the tokens we need to mask in the target span
                     abs_target_next = [self.n_pad_left + t
-                                                         for t in target_span[idx_target:]]
-                    # we replace all hidden target tokens with the mask token <special1>
+                                       for t in target_span[idx_target:]]
+                    # we replace all hidden target tokens with the eof token (not to be seen)
                     input_ids = np.array(self.input_ids)
                     input_ids[abs_target_next] = self.mask_token_id
+                    # create attention_mask
+                    attention_mask = np.ones((len_s))
+                    attention_mask[abs_target_next] = 0.  # force not to attend to rest
                     # if the source span is different from target span,
                     # then we need to mask all of its tokens
                     if source_span != target_span:
                         input_ids[abs_source] = self.mask_token_id
-                    # the location in the input list to predict (since bert predicts all)
+                        attention_mask[abs_source] = 0.  # force not to attend to source
+                    # the location in the input list to predict (since it predicts all)
                     target_loc = abs_target_curr
                     # build all
                     task_dict = {}
@@ -1031,6 +1040,7 @@ class GPT2SentenceDataset(torch.utils.data.Dataset):
                     task_dict["source_span"] = source_span
                     task_dict["target_span"] = target_span
                     task_dict["target_loc"] = target_loc
+                    task_dict["attention_mask"] = attention_mask
                     task_dict["target_id"] = self.input_ids[abs_target_curr]
                     tasks.append(task_dict)
         self._tasks = tasks
@@ -1120,7 +1130,8 @@ class GPT2(LanguageModel):
         results = []
         for batch in tqdm(loader, leave=False):
             outputs = self.model(
-                batch['input_ids'].to(self.device))
+                batch['input_ids'].to(self.device),
+                attention_mask=batch['attention_mask'].to(self.device))
             outputs = F.log_softmax(outputs[0], 2)
             for i, output in enumerate(outputs):
                 # the token id we need to predict, this belongs to target span
