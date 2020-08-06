@@ -1018,22 +1018,16 @@ class GPT2SentenceDataset(torch.utils.data.Dataset):
                     abs_source = [self.n_pad_left + s for s in source_span]
                     # this is the token we want to predict in the target span
                     abs_target_curr = self.n_pad_left + target_pos
-                    # these are all the tokens we need to mask in the target span
-                    abs_target_next = [self.n_pad_left + t
-                                       for t in target_span[idx_target:]]
-                    # we replace all hidden target tokens with the eof token (not to be seen)
                     input_ids = np.array(self.input_ids)
-                    input_ids[abs_target_next] = self.mask_token_id
                     # create attention_mask
                     attention_mask = np.ones((len_s))
-                    attention_mask[abs_target_next] = 0.  # force not to attend to rest
+                    attention_mask[abs_target_curr:] = 0.  # force not to attend past curr
                     # if the source span is different from target span,
-                    # then we need to mask all of its tokens
+                    # then we need to attn mask all of its tokens
                     if source_span != target_span:
-                        input_ids[abs_source] = self.mask_token_id
                         attention_mask[abs_source] = 0.  # force not to attend to source
                     # the location in the input list to predict (since it predicts all)
-                    target_loc = abs_target_curr
+                    target_loc = abs_target_curr - 1
                     # build all
                     task_dict = {}
                     task_dict["input_ids"] = input_ids
