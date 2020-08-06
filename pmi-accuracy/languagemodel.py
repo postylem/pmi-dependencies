@@ -982,7 +982,8 @@ class XLM(LanguageModel):
 class GPT2SentenceDataset(torch.utils.data.Dataset):
     """Dataset class for GPT2. Warning:
     Not bidirectional, so only lower triangular will be interpretable
-    Also, masking doesn't match training."""
+    Also, masking doesn't match training.  Mask token will not be used.
+    Attention masking used instead (still not like training but less catastrophic)."""
 
     def __init__(
             self, input_ids, ptbtok_to_span, span_to_ptbtok,
