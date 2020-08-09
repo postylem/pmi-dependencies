@@ -1,0 +1,18 @@
+absolute_value:	True
+batch_size:	32
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_path:	results-clean/bert-base-uncased.ckpt-50k_pad30_2020-08-08-15-15
+model_spec:	load_npz
+n_observations:	all
+pad:	0
+pos_set_type:	xpos
+probe_state_dict:	None
+results_dir:	results/
+save_npz:	False
+=========
+mean sentence uuas
+        linear         :  0.504
+        random nonproj :  0.134
+        random proj    :  0.263
+        PMI nonproj    :  {'sum': 0.131, 'triu': 0.127, 'tril': 0.135, 'none': 0.13}
+        PMI proj       :  {'sum': 0.224, 'triu': 0.228, 'tril': 0.233, 'none': 0.246}
