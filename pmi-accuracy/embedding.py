@@ -16,6 +16,7 @@ class Word2Vec:
     """
     def __init__(self, device, model_spec, path):
         self.device = device
+        self.model_spec = model_spec
         with open(path) as f:
             first_line = f.readline().strip()
             vsize, dim = [int(x) for x in first_line.split(' ')]
