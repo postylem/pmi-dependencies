@@ -452,7 +452,7 @@ def get_info(directory, key):
 if __name__ == '__main__':
     ARGP = ArgumentParser()
     ARGP.add_argument('--probe_state_dict',
-                      help='path to saved linear probe state_dict')
+                      help='path to saved linear probe.state_dict')
     ARGP.add_argument('--pos_set_type', default='xpos',
                       help='xpos or upos')
     ARGP.add_argument('--n_observations', default='all',
@@ -551,16 +551,23 @@ if __name__ == '__main__':
 
     if not LOAD_NPZ:
         if CLI_ARGS.probe_state_dict:
+            PROBE_STATE = torch.load(
+                CLI_ARGS.probe_state_dict,
+                map_location=DEVICE)
+            if len(PROBE_STATE) == 2:
+                PROBE_TYPE = 'linear'
+            elif len(PROBE_STATE) == 4:
+                PROBE_TYPE = 'IB'
+            else:
+                raise NotImplementedError
             if CLI_ARGS.model_spec.startswith('bert'):
-                PROBE_STATE = torch.load(CLI_ARGS.probe_state_dict)
                 POS_MODEL = languagemodel_pos.BERT(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
-                    POS_TAGSET, PROBE_STATE)
-            if CLI_ARGS.model_spec.startswith('xlnet'):
-                PROBE_STATE = torch.load(CLI_ARGS.probe_state_dict)
+                    POS_TAGSET, PROBE_STATE, probe_type=PROBE_TYPE)
+            elif CLI_ARGS.model_spec.startswith('xlnet'):
                 POS_MODEL = languagemodel_pos.XLNet(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
-                    POS_TAGSET, PROBE_STATE)
+                    POS_TAGSET, PROBE_STATE, probe_type=PROBE_TYPE)
             else:
                 raise NotImplementedError
         else:

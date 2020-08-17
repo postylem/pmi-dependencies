@@ -12,7 +12,7 @@ from tqdm import tqdm
 import torch
 
 import pos_probe
-
+import ib_pos_probe
 
 class LanguageModelPOS:
     """
@@ -23,7 +23,7 @@ class LanguageModelPOS:
     def __init__(
             self, device, model_spec, batchsize,
             pos_set, probe_state_dict,
-            model_state_dict=None):
+            model_state_dict=None, probe_type='linear'):
         self.device = device
         # self.model = AutoModel.from_pretrained(
         #     pretrained_model_name_or_path=model_spec,
@@ -39,10 +39,16 @@ class LanguageModelPOS:
         args = dict(
             hidden_dim=self.model.hidden_size, pos_set=pos_set,
             device=device)
-        pretrained_probe = pos_probe.POSProbe(args).to(device)
+        if probe_type == 'IB':
+            pretrained_probe = ib_pos_probe.IBProbe(args).to(device)
+        elif probe_type == 'linear':
+            pretrained_probe = pos_probe.POSProbe(args).to(device)
+        else:
+            raise ValueError('Unknown probe type. Use "linear" or "IB".')
+        self.probe_type = probe_type
         pretrained_probe.load_state_dict(probe_state_dict)
         self.pretrained_probe = pretrained_probe
-        print(f"Pretrained probe loaded to {device}.")
+        print(f"Pretrained {probe_type} probe loaded to {device}.")
 
     def _create_pmi_dataset(
             self, ptb_tokenlist, ptb_pos_list,
@@ -170,7 +176,11 @@ class BERT(LanguageModelPOS):
         for batch in tqdm(loader, desc="[getting embeddings]", leave=False):
             embeddings = self.model.get_embeddings(
                 batch['input_ids'].to(self.device))
-            outputs = self.pretrained_probe(embeddings)  # as logprobs
+            if self.probe_type=='linear':
+                outputs = self.pretrained_probe(embeddings)  # as logprobs
+            elif self.probe_type=='IB':
+                outputs = self.pretrained_probe(embeddings)
+                outputs = outputs[0]  # ignore kld output
             for i, output in enumerate(outputs):
                 # the token id we need to predict belongs to target span
                 target_pos_id = batch['target_pos_id'][i]
@@ -432,7 +442,11 @@ class XLNet(LanguageModelPOS):
                 batch['input_ids'].to(self.device),
                 perm_mask=batch['perm_mask'].to(self.device),
                 target_mapping=batch['target_map'].to(self.device))
-            outputs = self.pretrained_probe(embeddings)  # as logprobs
+            if self.probe_type=='linear':
+                outputs = self.pretrained_probe(embeddings)  # as logprobs
+            elif self.probe_type=='IB':
+                outputs = self.pretrained_probe(embeddings)
+                outputs = outputs[0]  # ignore first component (kld)
             for i, output in enumerate(outputs):
                 # the token id we need to predict belongs to target span
                 target_pos_id = batch['target_pos_id'][i]

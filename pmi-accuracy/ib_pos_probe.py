@@ -65,10 +65,10 @@ class IBProbe(nn.Module):
             """
         mus, logsigs = self.W_encoder(H)
         # KLD(q(z | x) || r(z)), where r(z) = N(0,I^d)
-        # kld.shape = (batch_size, maxsentlen)
+        # kld.shape = (batch_size, maxsentlen), so
+        # to get loss do kld_loss = kld.mean(1).mean(0)
         kld = 0.5 * (
             logsigs.exp() + mus.pow(2) - 1 - logsigs).sum(2)
-        # to get loss do kld = kld.mean(1).mean(0)
         # get logits for (y given z) = Wz using z ~ q(z | x)
         sample = mus + torch.randn_like(logsigs) * torch.exp(0.5 * logsigs)
         prediction = self.W_decoder(sample)

@@ -326,9 +326,18 @@ a lot _lower_ than CPMI:
 
 ## POS probe with information bottleneck
 
-Implemented in `ib_pos_probe.py`. Use `pos_probe.py` with the `--bottleneck` option to run.
+Projection by a linear probe is a rough way to get a compressed representations from contextual embeddings.  A more correct way of extracting these representations is by a variational information bottleneck technique.  We implement this technique roughly following (Li and Eisner 2019)[https://www.aclweb.org/anthology/D19-1276.pdf].
 
-Li's defaults for english:
+Optimization: minimize $$L =- I[Y;Z] + \beta I[H;Z]$$
+
+1. Encoder I[H;Z]: to compress the representation Z, we minimize this term.  In practice, we minimize minimize an upper bound which takes the form of a KL between approximations of conditional q(z|h) and marginal r(z), where we choose to restrict r to be a multivatiate normal distribution centred at 0. Thus this loss term acts as a kind of regularizer on the compressed representations.
+2. Decoder -I[Y;Z]: to enforce accuracy of decoding, we maximize I[Y;Z]. In practice this involves parametrizing a tagger s(y|z) by maximizing a lower bound equivalent to the expected log likelihood of true POS tags according to s, given embeddings sampled from our encoder.
+
+This technique trains two sets of parameters: the decoder `W_decoder` (which is a linear model just as in the simple linear POS probe), and the encoder `W_encoder` (another linear model, whose output is interpreted as means and log-variances of a multivariate gaussian).
+
+The variational version of the POS probe is implemented in `ib_pos_probe.py`. Use `pos_probe.py` with the `--bottleneck` option to run.
+
+To run with Li's default hyperparameters:
 ```bash
 python pmi-accuracy/pos_probe.py --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
 ```

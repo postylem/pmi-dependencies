@@ -385,8 +385,9 @@ def run_train_probe(args, model, probe, loss, train_loader, dev_loader):
             + dev_kld
             + f'\t  dev acc: {dev_accuracy*100:.2f} %')
         if dev_accuracy > max_acc + 0.000001:
-            save_path = os.path.join(args['results_path'], 'probe.state_dict')
-            torch.save(probe.state_dict(), save_path)
+            torch.save(
+                probe.state_dict(),
+                os.path.join(ARGS['results_path'], 'probe.state_dict'))
             max_acc = dev_accuracy
             max_acc_epoch = ep_i
             tqdm.write(msg + '\tSaving probe state_dict')
@@ -538,12 +539,12 @@ if __name__ == '__main__':
         pad_pos_id=MODEL.pad_pos_id,
         results_path="probe-results/",
         corpus=dict(root='ptb3-wsj-data/',
-                    # train_path='CUSTOM2.conllx',
-                    # dev_path='CUSTOM.conllx',
-                    # test_path='CUSTOM.conllx'),
-                    train_path='ptb3-wsj-train.conllx',
-                    dev_path='ptb3-wsj-dev.conllx',
-                    test_path='ptb3-wsj-test.conllx'),
+                    train_path='CUSTOM2.conllx',
+                    dev_path='CUSTOM.conllx',
+                    test_path='CUSTOM.conllx'),
+                    # train_path='ptb3-wsj-train.conllx',
+                    # dev_path='ptb3-wsj-dev.conllx',
+                    # test_path='ptb3-wsj-test.conllx'),
         conll_fieldnames=[  # Columns of CONLL file
             'index', 'sentence', 'lemma_sentence', 'upos_sentence',
             'xpos_sentence', 'morph', 'head_indices',
