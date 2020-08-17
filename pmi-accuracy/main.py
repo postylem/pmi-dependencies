@@ -529,7 +529,16 @@ if __name__ == '__main__':
     elif POS_SET_TYPE == 'xpos':
         POS_TAGSET = XPOS_TAGSET
     if CLI_ARGS.probe_state_dict:
-        SUFFIX = POS_SET_TYPE + "_" + SUFFIX
+        PROBE_STATE = torch.load(
+                CLI_ARGS.probe_state_dict,
+                map_location=DEVICE)
+        if len(PROBE_STATE) == 2:
+            PROBE_TYPE = 'linear'
+        elif len(PROBE_STATE) == 4:
+            PROBE_TYPE = 'IB'
+        else:
+            raise NotImplementedError
+        SUFFIX = PROBE_TYPE + "_" + POS_SET_TYPE + "_" + SUFFIX
     RESULTS_DIR = os.path.join(CLI_ARGS.results_dir, SUFFIX + '/')
     os.makedirs(RESULTS_DIR, exist_ok=True)
     print(f'RESULTS_DIR: {RESULTS_DIR}\n')
@@ -551,15 +560,6 @@ if __name__ == '__main__':
 
     if not LOAD_NPZ:
         if CLI_ARGS.probe_state_dict:
-            PROBE_STATE = torch.load(
-                CLI_ARGS.probe_state_dict,
-                map_location=DEVICE)
-            if len(PROBE_STATE) == 2:
-                PROBE_TYPE = 'linear'
-            elif len(PROBE_STATE) == 4:
-                PROBE_TYPE = 'IB'
-            else:
-                raise NotImplementedError
             if CLI_ARGS.model_spec.startswith('bert'):
                 POS_MODEL = languagemodel_pos.BERT(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
