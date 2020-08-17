@@ -481,6 +481,16 @@ if __name__ == '__main__':
                       help='to treat negative CPMI values as positive')
     CLI_ARGS = ARGP.parse_args()
 
+    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print('Using device:', DEVICE)
+    if DEVICE.type == 'cuda':
+        print(torch.cuda.get_device_name(0))
+        print('Memory Usage:')
+        print('Allocated:',
+              round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
+        print('Cached:   ',
+              round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
+
     SPEC_STRING = str(CLI_ARGS.model_spec)
     if CLI_ARGS.model_path and CLI_ARGS.model_spec == 'bert-base-uncased':
         # custom naming just for readability, for the checkpointed bert
@@ -549,14 +559,6 @@ if __name__ == '__main__':
             argvalue = f"{arg}:\t{value}"
             infofile.write(argvalue+'\n')
             print(argvalue)
-
-    DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    print('Using device:', DEVICE)
-    if DEVICE.type == 'cuda':
-        print(torch.cuda.get_device_name(0))
-        print('Memory Usage:')
-        print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
-        print('Cached:   ', round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
 
     if not LOAD_NPZ:
         if CLI_ARGS.probe_state_dict:
