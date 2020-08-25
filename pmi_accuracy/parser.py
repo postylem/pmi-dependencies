@@ -20,6 +20,7 @@ class UnionFind:
     '''
     Naive UnionFind (for computing MST with Prim's algorithm).
     '''
+
     def __init__(self, n):
         self.parents = list(range(n))
 
@@ -48,6 +49,7 @@ class Accuracy:
     '''
     Gets accuracy score for list of edges wrt gold list of edges.
     '''
+
     def __init__(self, gold_edges):
         self.gold_edges = gold_edges
         self.gold_edges_set = {tuple(sorted(x)) for x in gold_edges}
@@ -60,7 +62,7 @@ class Accuracy:
         '''
         prediction_edges_set = {tuple(sorted(x)) for x in prediction_edges}
         common = self.gold_edges_set.intersection(prediction_edges_set)
-        uuas = len(common)/float(self.n_gold) if self.n_gold != 0 else np.NaN
+        uuas = len(common) / float(self.n_gold) if self.n_gold != 0 else np.NaN
         return uuas
 
 
@@ -102,11 +104,14 @@ class DepParse:
         if symmetrize_method == 'sum':
             sym_matrix = sym_matrix + np.transpose(sym_matrix)
         elif symmetrize_method == 'triu':
-            sym_matrix = np.triu(sym_matrix) + np.transpose(np.triu(sym_matrix))
+            sym_matrix = np.triu(sym_matrix) + \
+                np.transpose(np.triu(sym_matrix))
         elif symmetrize_method == 'tril':
-            sym_matrix = np.tril(sym_matrix) + np.transpose(np.tril(sym_matrix))
+            sym_matrix = np.tril(sym_matrix) + \
+                np.transpose(np.tril(sym_matrix))
         elif symmetrize_method != 'none':
-            raise ValueError("Unknown symmetrize_method. Use 'sum', 'triu', 'tril', or 'none'")
+            raise ValueError(
+                "Unknown symmetrize_method. Use 'sum' 'triu' 'tril' or 'none'")
 
         if self.parsetype == "mst":
             edges = self.prims(sym_matrix, self.words,
@@ -114,9 +119,11 @@ class DepParse:
         elif self.parsetype == "projective":
             edges = self.eisners(sym_matrix, self.words)
         else:
-            raise ValueError("Unknown parsetype.  Choose 'mst' or 'projective'")
+            raise ValueError(
+                "Unknown parsetype.  Choose 'mst' or 'projective'")
         if self.parsetype == "projective" and not maximum_spanning_tree:
-            raise ValueError("Please only use Eisner's algorithm for maximum_spanning_tree.")
+            raise ValueError(
+                "Only use Eisner's algorithm for maximum_spanning_tree.")
         return edges
 
     @staticmethod
@@ -135,13 +142,17 @@ class DepParse:
         union_find = UnionFind(len(matrix))
         for i_index, line in enumerate(matrix):
             for j_index, dist in enumerate(line):
-                if words[i_index] in excluded: continue
-                if words[j_index] in excluded: continue
+                if words[i_index] in excluded:
+                    continue
+                if words[j_index] in excluded:
+                    continue
                 pairs_to_weights[(i_index, j_index)] = dist
         edges = []
-        for (i_index, j_index), _ in sorted(pairs_to_weights.items(),
-                                            key=lambda x: float('-inf') if (x[1] != x[1]) else x[1],
-                                            reverse=maximum_spanning_tree):
+        sorted_pairs = sorted(
+            pairs_to_weights.items(),
+            key=lambda x: float('-inf') if (x[1] != x[1]) else x[1],
+            reverse=maximum_spanning_tree)
+        for (i_index, j_index), _ in sorted_pairs:
             if union_find.find(i_index) != union_find.find(j_index):
                 union_find.union(i_index, j_index)
                 edges.append((i_index, j_index))
@@ -181,7 +192,8 @@ class DepParse:
         # I'll fill the first row with a large negative value, to prevent more than one arc from root
         col_zeros = np.zeros((matrix.shape[0], 1))
         matrix_paddedcol = np.concatenate((col_zeros, matrix), 1)
-        row_zeros = np.zeros((1, matrix_paddedcol.shape[1])).reshape(1, -1) - 50
+        row_zeros = np.zeros(
+            (1, matrix_paddedcol.shape[1])).reshape(1, -1) - 50
         scores = np.concatenate([row_zeros, matrix_paddedcol], 0)
 
         # ---- begin algorithm ------
@@ -193,25 +205,29 @@ class DepParse:
         N = nrows - 1  # Number of words (excluding root).
 
         # Initialize CKY table.
-        complete = np.zeros([N+1, N+1, 2])  # s, t, direction (right=1).
-        incomplete = np.zeros([N+1, N+1, 2])  # s, t, direction (right=1).
-        complete_backtrack = -np.ones([N+1, N+1, 2], dtype=int)  # s, t, direction (right=1).
-        incomplete_backtrack = -np.ones([N+1, N+1, 2], dtype=int)  # s, t, direction (right=1).
+        complete = np.zeros([N + 1, N + 1, 2])  # s, t, direction (right=1).
+        incomplete = np.zeros([N + 1, N + 1, 2])  # s, t, direction (right=1).
+        # s, t, direction (right=1).
+        complete_backtrack = -np.ones([N + 1, N + 1, 2], dtype=int)
+        # s, t, direction (right=1).
+        incomplete_backtrack = -np.ones([N + 1, N + 1, 2], dtype=int)
 
         incomplete[0, :, 0] -= np.inf
 
         # Loop from smaller items to larger items.
-        for k in range(1, N+1):
-            for s in range(N-k+1):
+        for k in range(1, N + 1):
+            for s in range(N - k + 1):
                 t = s + k
 
                 # First, create incomplete items.
                 # left tree
-                incomplete_vals0 = complete[s, s:t, 1] + complete[(s+1):(t+1), t, 0] + scores[t, s]
+                incomplete_vals0 = complete[s, s:t, 1] + \
+                    complete[(s + 1):(t + 1), t, 0] + scores[t, s]
                 incomplete[s, t, 0] = np.max(incomplete_vals0)
                 incomplete_backtrack[s, t, 0] = s + np.argmax(incomplete_vals0)
                 # right tree
-                incomplete_vals1 = complete[s, s:t, 1] + complete[(s+1):(t+1), t, 0] + scores[s, t]
+                incomplete_vals1 = complete[s, s:t, 1] + \
+                    complete[(s + 1):(t + 1), t, 0] + scores[s, t]
                 incomplete[s, t, 1] = np.max(incomplete_vals1)
                 incomplete_backtrack[s, t, 1] = s + np.argmax(incomplete_vals1)
 
@@ -221,60 +237,86 @@ class DepParse:
                 complete[s, t, 0] = np.max(complete_vals0)
                 complete_backtrack[s, t, 0] = s + np.argmax(complete_vals0)
                 # right tree
-                complete_vals1 = incomplete[s, (s+1):(t+1), 1] + complete[(s+1):(t+1), t, 1]
+                complete_vals1 = incomplete[
+                    s, (s + 1):(t + 1), 1] + complete[(s + 1):(t + 1), t, 1]
                 complete[s, t, 1] = np.max(complete_vals1)
                 complete_backtrack[s, t, 1] = s + 1 + np.argmax(complete_vals1)
 
         # value = complete[0][N][1]
         heads = -np.ones(N + 1, dtype=int)
-        self.eisners_backtrack(incomplete_backtrack, complete_backtrack, 0, N, 1, 1, heads)
+        self.eisners_backtrack(incomplete_backtrack,
+                               complete_backtrack, 0, N, 1, 1, heads)
 
         # ---- end algorithm -----------
 
         edgelist = list(enumerate(heads))
-        # Eisner edges, sorted, removing the root node (taking indices [2:] and shifting all values -1)
-        sortededges_noroot = sorted({tuple(sorted(tuple([i-1 for i in edge]))) for edge in edgelist})[2:]
-        # Now with indices translated to give word-to-word edges (simply skipping puncuation indices)
-        edges = [tuple(wordnum_to_index[w] for w in pair) for pair in sortededges_noroot]
+        # Eisner edges, sorted, removing the root node
+        # (taking indices [2:] and shifting all values -1)
+        sortededges_noroot = sorted({tuple(sorted(tuple(
+            [i - 1 for i in edge]))) for edge in edgelist})[2:]
+        # Now with indices translated to give word-to-word edges
+        # (simply skipping puncuation indices)
+        edges = [tuple(wordnum_to_index[w] for w in pair)
+                 for pair in sortededges_noroot]
         return edges
 
-    def eisners_backtrack(self, incomplete_backtrack, complete_backtrack, s, t, direction, complete, heads):
+    def eisners_backtrack(
+            self, incomplete_backtrack, complete_backtrack,
+            s, t, direction, complete, heads):
         """
         Backtracking step in Eisner's algorithm.
-        - incomplete_backtrack is a (NW+1)-by-(NW+1) numpy array indexed by a start position,
-        an end position, and a direction flag (0 means left, 1 means right). This array contains
-        the arg-maxes of each step in the Eisner algorithm when building *incomplete* spans.
-        - complete_backtrack is a (NW+1)-by-(NW+1) numpy array indexed by a start position,
-        an end position, and a direction flag (0 means left, 1 means right). This array contains
-        the arg-maxes of each step in the Eisner algorithm when building *complete* spans.
+        - incomplete_backtrack is a (NW+1)-by-(NW+1) numpy array indexed by a
+            start position, an end position, and a direction flag (0 means
+            left, 1 means right). This array contains the arg-maxes of each
+            step in the Eisner algorithm when building *incomplete* spans.
+        - complete_backtrack is a (NW+1)-by-(NW+1) numpy array indexed by a 
+            start position, an end position, and a direction flag (0 means
+            left, 1 means right). This array contains the arg-maxes of each
+            step in the Eisner algorithm when building *complete* spans.
         - s is the current start of the span
         - t is the current end of the span
         - direction is 0 (left attachment) or 1 (right attachment)
         - complete is 1 if the current span is complete, and 0 otherwise
-        - heads is a (NW+1)-sized numpy array of integers which is a placeholder for storing the
-        head of each word.
+        - heads is a (NW+1)-sized numpy array of integers which is a
+            placeholder for storing the head of each word.
         """
         if s == t:
             return
         if complete:
             r = complete_backtrack[s][t][direction]
             if direction == 0:
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 0, 1, heads)
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r, t, 0, 0, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    s, r, 0, 1, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    r, t, 0, 0, heads)
                 return
             else:
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 1, 0, heads)
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r, t, 1, 1, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    s, r, 1, 0, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    r, t, 1, 1, heads)
                 return
         else:
             r = incomplete_backtrack[s][t][direction]
             if direction == 0:
                 heads[s] = t
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 1, 1, heads)
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r+1, t, 0, 1, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    s, r, 1, 1, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    r + 1, t, 0, 1, heads)
                 return
             else:
                 heads[t] = s
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, s, r, 1, 1, heads)
-                self.eisners_backtrack(incomplete_backtrack, complete_backtrack, r+1, t, 0, 1, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    s, r, 1, 1, heads)
+                self.eisners_backtrack(
+                    incomplete_backtrack, complete_backtrack,
+                    r + 1, t, 0, 1, heads)
                 return

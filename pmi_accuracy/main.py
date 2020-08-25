@@ -167,11 +167,6 @@ def score_observation(observation, pmi_matrix, absolute_value=False):
     return scores
 
 
-EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".", ";",
-                        "!", "?", ":", "``",
-                        "-LRB-", "-RRB-"]
-
-
 class PredictorClass:
     def __init__(self, observation, pmi_matrix, exclude_punctuation=True):
         obs_df = pd.DataFrame(observation).T
