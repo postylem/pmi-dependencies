@@ -16,6 +16,7 @@
 #python pmi-accuracy/main.py --save_npz --model_spec bart-large --pad 60 --batch_size 4 > bart-large-pad60.out
 #python pmi-accuracy/main.py --save_npz --model_spec distilbert-base-cased --pad 60 --batch_size 24 > distilbert-base-cased-pad60.out
 #python pmi-accuracy/main.py --save_npz --model_spec w2v --model_path gensim_w2v.txt --pad 0 > w2v.out
+#python pmi-accuracy/main.py --save_npz --model_spec gpt2 --pad 30 --batch_size 4 > gpt2.out
 
 # # Getting absolute value version (assuming only the just calculated scores are in results-clean/)
 
@@ -58,3 +59,16 @@
 #python pmi-accuracy/pos_probe.py --model_spec bert-large-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
 #python pmi-accuracy/pos_probe.py --model_spec xlnet-base-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
 #python pmi-accuracy/pos_probe.py --model_spec xlnet-large-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
+
+## Scores from bottleneck probe
+
+# evaluate bottleneck probe bert
+#python pmi-accuracy/main.py --save_npz --model_spec bert-base-cased --pad 30 --batch_size 16 --probe_state_dict probe-results/IB_xpos_bert-base-cased_20.07.24-22.10/probe.state_dict --pos_set_type xpos --results_dir results/IB/ --absolute_value > xpos-bert-base-cased.out 2> xpos-bert-base.err
+#python pmi-accuracy/main.py --save_npz --model_spec bert-large-cased --pad 60 --batch_size 4 --probe_state_dict probe-results/IB_xpos_bert-large-cased_20.07.24-22.35/probe.state_dict --pos_set_type xpos --results_dir results/IB/ --absolute_value > xpos-bert-large-cased.out 2> xpos-bert-large.err
+#python pmi-accuracy/main.py --save_npz --model_spec xlnet-base-cased --pad 30 --batch_size 32 --probe_state_dict probe-results/IB_xpos_xlnet-base-cased_20.07.24-23.16/probe.state_dict --pos_set_type xpos --results_dir results/IB/ --absolute_value > xpos-xlnet-base.out 2> xpos-xlnet-base.err
+#python pmi-accuracy/main.py --save_npz --model_spec xlnet-large-cased --pad 30 --batch_size 16 --probe_state_dict probe-results/IB_xpos_xlnet-large-cased_20.07.24-23.50/probe.state_dict --pos_set_type xpos --results_dir results/IB/ --absolute_value > xpos-xlnet-large.out 2> xpos-xlnet-large.err
+
+# xlnet get abs value version also
+#python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_xlnet-base-cased* --absolute_value --results_dir results/upos_xlnet-base-cased*/ > upos-base-abs.out
+#python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_xlnet-large-cased* --absolute_value --results_dir results/upos_xlnet-large-cased*/ > upos-large-abs.out
+
