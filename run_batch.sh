@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/lstm > lstm.out
+#python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/onlstm > onlstm.out
+
 # Checkpointed bert-base-uncased 
 #for  n in 10 50 100 500 1000 1500; do
 #  python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_${n}000.pt --pad 30 --batch_size 16 --save_npz > bert-ckpt${n}k.out

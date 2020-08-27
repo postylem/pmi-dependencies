@@ -1,0 +1,18 @@
+absolute_value:	True
+batch_size:	32
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_path:	lstm-vs-onlstm/lstm
+model_spec:	load_npz
+n_observations:	all
+pad:	0
+pos_set_type:	xpos
+probe_state_dict:	None
+results_dir:	results/
+save_npz:	False
+=========
+mean sentence uuas
+        linear         :  0.504
+        random nonproj :  0.132
+        random proj    :  0.266
+        PMI nonproj    :  {'sum': 0.439, 'triu': 0.09, 'tril': 0.439, 'none': 0.439}
+        PMI proj       :  {'sum': 0.472, 'triu': 0.504, 'tril': 0.472, 'none': 0.498}
