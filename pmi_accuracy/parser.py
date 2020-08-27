@@ -7,13 +7,7 @@ March 2020
 import torch
 import numpy as np
 
-# PTB 'words' that are punctuation marks will be consistently
-# excluded from dependency trees. This corresponds to the symbols
-# which are UPOS tagged as PUNCT
-
-EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".",
-                        ";", "!", "?", ":", "``",
-                        "-LRB-", "-RRB-"]
+from conll_data import EXCLUDED_PUNCTUATION
 
 
 class UnionFind:
@@ -114,10 +108,12 @@ class DepParse:
                 "Unknown symmetrize_method. Use 'sum' 'triu' 'tril' or 'none'")
 
         if self.parsetype == "mst":
-            edges = self.prims(sym_matrix, self.words,
-                               maximum_spanning_tree=maximum_spanning_tree)
+            edges = self.prims(
+                sym_matrix, self.words,
+                maximum_spanning_tree=maximum_spanning_tree)
         elif self.parsetype == "projective":
-            edges = self.eisners(sym_matrix, self.words)
+            edges = self.eisners(
+                sym_matrix, self.words)
         else:
             raise ValueError(
                 "Unknown parsetype.  Choose 'mst' or 'projective'")

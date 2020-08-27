@@ -342,6 +342,19 @@ To run with Li's default hyperparameters:
 python pmi-accuracy/pos_probe.py --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
 ```
 
+
+## LSTM vs ONLSTM
+
+
+- logp matrices are at `lstm_logp_matrices.npz` and `onlstm_logp_matrices.npz`.
+- `inspecting_lstm_matrices.ipynb` converts these to PMI matrices aligned with the PTB data (so, rows and columns of NaNs where missing PMI values)
+  - saved in `lstm-results/lstm` and `lstm-results/onlstm`
+
+Run main.py on these with `--model_spec load_npz` to score, as usual.  _Note that the output matrices are indexed by raw PTB sentences (with punctuation, numbers, and case), however these models were run on cleaned data, lowercase, with no punctuation, and all numbers converted to `'N'`._
+
+```bash
+python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-results/lstm --absolute_value > lstm.out
+```
 <!--
 #### Running on the offline cluster
 To run on compute-canada cluster, which has `pytorch-transformers` (an earlier version) installed in their wheel, we need to change the corresponding import statement.  This is done by setting the additional optional CLI

@@ -12,10 +12,7 @@ from argparse import ArgumentParser
 from collections import namedtuple
 from ast import literal_eval
 
-import main  # to use functions accessing data
-
-
-EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".", ";", "!", "?", ":", "``", "-LRB-", "-RRB-"]
+from conll_data import CONLLReader, EXCLUDED_PUNCTUATION, CONLL_COLS
 
 def is_edge_to_ignore(edge, observation):
     is_d_punct = bool(observation.sentence[edge[1]-1] in EXCLUDED_PUNCTUATION)
@@ -118,20 +115,9 @@ if __name__ == '__main__':
                               or enter 'all' for all.""")
     CLI_ARGS = ARGP.parse_args()
 
-    # Columns of CONLL file
-    CONLL_COLS = ['index',
-                  'sentence',
-                  'lemma_sentence',
-                  'upos_sentence',
-                  'xpos_sentence',
-                  'morph',
-                  'head_indices',
-                  'governance_relations',
-                  'secondary_relations',
-                  'extra_info']
-    ObservationClass = namedtuple("Observation", CONLL_COLS)
-    OBSERVATIONS = main.load_conll_dataset(CLI_ARGS.conllx_file,
-                                           ObservationClass)
+    OBSERVATIONS = CONLLReader(CONLL_COLS).load_conll_dataset(
+        CLI_ARGS.conllx_file)
+
     OUTPUTDIR = os.path.dirname(CLI_ARGS.input_file)
     EDGES_DF = pd.read_csv(CLI_ARGS.input_file)
 
@@ -142,7 +128,7 @@ if __name__ == '__main__':
             'projective.edges.tril', 'projective.edges.none',
             'nonproj.edges.sum', 'nonproj.edges.triu',
             'nonproj.edges.tril', 'nonproj.edges.none'
-            ]
+        ]
     for edge_type in CLI_ARGS.edge_types:
         edgetype = edge_type.split(".")
         label = f'{edgetype[2]}.{edgetype[0]}'
@@ -170,7 +156,7 @@ if __name__ == '__main__':
             "fill = white, %opacity = 0, text opacity = 0 "
             "% uncomment to hide all labels\n},%\n}\n"
             "\\begin{document}\n\n% % Put tikz dependencies here, like\n"
-            )
+        )
         tex_file.write(f"% dependencies for {OUTPUTDIR}\n")
         TIKZFILES = glob.glob(os.path.join(OUTPUTDIR, '*.tikz'))
         TIKZFILES = [os.path.basename(x) for x in TIKZFILES]

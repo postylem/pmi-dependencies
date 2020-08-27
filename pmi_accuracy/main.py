@@ -6,7 +6,7 @@ on PTB CONLL data.
 import os
 from datetime import datetime
 from argparse import ArgumentParser
-from collections import namedtuple, OrderedDict
+from collections import OrderedDict
 from itertools import combinations
 import pandas as pd
 import numpy as np
@@ -18,69 +18,7 @@ import parser
 import languagemodel
 import languagemodel_pos
 import embedding
-
-
-class CONLLReader():
-    def __init__(self, conll_cols, additional_field_name=None):
-        if additional_field_name:
-            conll_cols += [additional_field_name]
-        self.conll_cols = conll_cols
-        self.observation_class = namedtuple("Observation", conll_cols)
-        self.additional_field_name = additional_field_name
-
-    # Data input
-    @staticmethod
-    def generate_lines_for_sent(lines):
-        '''Yields batches of lines describing a sentence in conllx.
-
-        Args:
-            lines: Each line of a conllx file.
-        Yields:
-            a list of lines describing a single sentence in conllx.
-        '''
-        buf = []
-        for line in lines:
-            if line.startswith('#'):
-                continue
-            if not line.strip():
-                if buf:
-                    yield buf
-                    buf = []
-                else:
-                    continue
-            else:
-                buf.append(line.strip())
-        if buf:
-            yield buf
-
-    def load_conll_dataset(self, filepath):
-        '''Reads in a conllx file; generates Observation objects
-
-        For each sentence in a conllx file, generates a single Observation
-        object.
-
-        Args:
-            filepath: the filesystem path to the conll dataset
-            observation_class: namedtuple for observations
-
-        Returns:
-        A list of Observations
-        '''
-        observations = []
-        lines = (x for x in open(filepath))
-        for buf in self.generate_lines_for_sent(lines):
-            conllx_lines = []
-            for line in buf:
-                conllx_lines.append(line.strip().split('\t'))
-            if self.additional_field_name:
-                newfield = [None for x in range(len(conllx_lines))]
-                observation = self.observation_class(
-                    *zip(*conllx_lines), newfield)
-            else:
-                observation = self.observation_class(
-                    *zip(*conllx_lines))
-            observations.append(observation)
-        return observations
+from conll_data import CONLLReader, CONLL_COLS, EXCLUDED_PUNCTUATION
 
 
 # Running and reporting
@@ -440,7 +378,7 @@ def get_info(directory, key):
     info = os.path.join(directory, 'info.txt')
     with open(info, 'r') as infofile:
         for line in infofile:
-            if line.split()[0] == key+':':
+            if line.split()[0] == key + ':':
                 return(line.split()[1])
 
 
@@ -456,8 +394,9 @@ if __name__ == '__main__':
                       help='''specify model
                       (e.g. "xlnet-base-cased", "bert-large-cased"),
                       or path for offline''')
-    ARGP.add_argument('--conllx_file', default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
-                      help='path/to/treebank.conllx: dependency file, in conllx format')
+    ARGP.add_argument('--conllx_file',
+                      default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
+                      help='path/to/treebank.conllx')
     ARGP.add_argument('--results_dir', default='results/',
                       help='specify path/to/results/directory/')
     ARGP.add_argument('--model_path',
@@ -482,9 +421,9 @@ if __name__ == '__main__':
         print(torch.cuda.get_device_name(0))
         print('Memory Usage:')
         print('Allocated:',
-              round(torch.cuda.memory_allocated(0)/1024**3, 1), 'GB')
+              round(torch.cuda.memory_allocated(0) / 1024**3, 1), 'GB')
         print('Cached:   ',
-              round(torch.cuda.memory_cached(0)/1024**3, 1), 'GB')
+              round(torch.cuda.memory_cached(0) / 1024**3, 1), 'GB')
 
     SPEC_STRING = str(CLI_ARGS.model_spec)
     if CLI_ARGS.model_path and CLI_ARGS.model_spec == 'bert-base-uncased':
@@ -549,7 +488,7 @@ if __name__ == '__main__':
     print(f'RESULTS_DIR: {RESULTS_DIR}\n')
 
     print('Running with CLI_ARGS:')
-    with open(RESULTS_DIR+'info.txt', mode='w') as infofile:
+    with open(RESULTS_DIR + 'info.txt', mode='w') as infofile:
         for arg, value in sorted(vars(CLI_ARGS).items()):
             argvalue = f"{arg}:\t{value}"
             infofile.write(argvalue+'\n')
@@ -600,21 +539,6 @@ if __name__ == '__main__':
             else:
                 raise ValueError(
                     f'Model spec string {CLI_ARGS.model_spec} not recognized.')
-
-    EXCLUDED_PUNCTUATION = ["", "'", "''", ",", ".", ";",
-                            "!", "?", ":", "``",
-                            "-LRB-", "-RRB-"]
-    # Columns of CONLL file
-    CONLL_COLS = ['index',
-                  'sentence',
-                  'lemma_sentence',
-                  'upos_sentence',
-                  'xpos_sentence',
-                  'morph',
-                  'head_indices',
-                  'governance_relations',
-                  'secondary_relations',
-                  'extra_info']
 
     OBSERVATIONS = CONLLReader(CONLL_COLS).load_conll_dataset(
         CLI_ARGS.conllx_file)

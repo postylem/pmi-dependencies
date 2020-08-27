@@ -1,0 +1,2 @@
+model_spec:	onlstm
+pad:	0
