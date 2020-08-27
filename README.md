@@ -364,8 +364,8 @@ python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-results/lstm
 
 |  onlstm                   | tril  | tril absolute value |
 |---------------------------|-------|---------------------|
-|  nonproj                  | 0.??? | 0.442               |
-|  proj                     | 0.??? | 0.475               |
+|  nonproj                  | 0.428 | 0.442               |
+|  proj                     | 0.464 | 0.475               |
 
 <!--
 #### Running on the offline cluster
