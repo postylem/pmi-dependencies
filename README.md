@@ -356,13 +356,20 @@ Run main.py on these with `--model_spec load_npz` to score, as usual.  _Note tha
 python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-results/lstm --absolute_value > lstm.out
 ```
 
+
 |  lstm                     | tril  | tril absolute value |
+|---------------------------|-------|---------------------|
+|  nonproj                  | 0.420 | 0.435               |
+|  proj                     | 0.458 | 0.469               |
+
+
+|  onlstm                   | tril  | tril absolute value |
 |---------------------------|-------|---------------------|
 |  nonproj                  | 0.425 | 0.439               |
 |  proj                     | 0.461 | 0.472               |
 
 
-|  onlstm                   | tril  | tril absolute value |
+|  onlstm_syd               | tril  | tril absolute value |
 |---------------------------|-------|---------------------|
 |  nonproj                  | 0.428 | 0.442               |
 |  proj                     | 0.464 | 0.475               |

@@ -1,0 +1,18 @@
+absolute_value:	False
+batch_size:	4
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_path:	None
+model_spec:	gpt2
+n_observations:	all
+pad:	30
+pos_set_type:	xpos
+probe_state_dict:	None
+results_dir:	results/
+save_npz:	True
+=========
+mean sentence uuas
+        linear         :  0.504
+        random nonproj :  0.132
+        random proj    :  0.269
+        PMI nonproj    :  {'sum': 0.29, 'triu': 0.09, 'tril': 0.29, 'none': 0.29}
+        PMI proj       :  {'sum': 0.386, 'triu': 0.504, 'tril': 0.386, 'none': 0.407}

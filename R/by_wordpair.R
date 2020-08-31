@@ -2,7 +2,7 @@ library(tidyverse)
 library(gridExtra)
 theme_set(theme_minimal())
 library(ggthemes)
-scale_colour_discrete <- scale_colour_colorblind
+#scale_colour_discrete <- scale_colour_colorblind
 #setwd("/Users/j/McGill/PhD-miasma/pmi-dependencies/R")
 
 
@@ -72,22 +72,19 @@ add_class_predictor <- function(df){
 
 
 # Prepare data with added columns ####
-bert <- read_csv("by_wordpair/wordpair_bert-large-cased_pad60_2020-04-09-13-57.csv")
-xlnet<- read_csv("by_wordpair/wordpair_xlnet-base-cased_pad30_2020-04-09-19-11.csv")
-xlm  <- read_csv("by_wordpair/wordpair_xlm-mlm-en-2048_pad60_2020-04-09-20-43.csv")
-bart <- read_csv("by_wordpair/wordpair_bart-large_pad60_2020-04-27-01-20.csv")
-gpt2 <- read_csv("by_wordpair/wordpair_gpt2_pad30_2020-04-24-13-45.csv")
-dbert<- read_csv("by_wordpair/wordpair_distilbert-base-cased_pad60_2020-04-29-19-35.csv")
-w2v  <- read_csv("by_wordpair/wordpair_w2v_pad0_2020-05-17-00-47.csv")
+#
+# with absolute value
+bert <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=bert-large-cased_pad60*.csv"))
+xlnet<- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=xlnet-base-cased_pad30*.csv"))
+xlm  <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=xlm-mlm-en-2048_pad60*.csv"))
+bart <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=bart-large_pad60*.csv"))
+gpt2 <- read_csv(Sys.glob("by_wordpair/wordpair_gpt2_pad30*.csv"))
+dbert<- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=distilbert-base-cased_pad60*.csv"))
+w2v  <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=w2v*.csv"))
 
-bert <- read_csv("by_wordpair/wordpair_abs-loaded=bert-large-cased_pad60_2020-07-05-16-29.csv")
-xlnet<- read_csv("by_wordpair/wordpair_abs-loaded=xlnet-base-cased_pad30_2020-07-05-17-41.csv")
-xlm  <- read_csv("by_wordpair/wordpair_abs-loaded=xlm-mlm-en-2048_pad60_2020-07-05-17-29.csv")
-bart <- read_csv("by_wordpair/wordpair_abs-loaded=bart-large_pad60_2020-07-05-16-06.csv")
-# gpt2 <- read_csv("by_wordpair/wordpair_gpt2_pad30_2020-04-24-13-45.csv")
-dbert<- read_csv("by_wordpair/wordpair_abs-loaded=distilbert-base-cased_pad60_2020-07-05-17-05.csv")
-w2v  <- read_csv("by_wordpair/wordpair_abs-loaded=w2v_pad0_2020-07-05-17-17.csv")
-
+lstm  <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=lstm*.csv"))
+onlstm <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_pad*.csv"))
+onlstm_syd <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_syd*.csv"))
 
 dbert$model <- "DistilBERT"
 xlnet$model <- "XLNet"
@@ -97,12 +94,17 @@ bart$model  <- "Bart"
 gpt2$model  <- "GPT2"
 w2v$model   <- "Word2Vec"
 
+lstm$model <- "LSTM"
+onlstm$model <- "ONLSTM"
+onlstm_syd$model <- "ONLSTM-SYD"
+
 prepare_df <- function(df){
   df <- df %>% mutate(acc=gold_edge==pmi_edge_sum)
   df$relation[is.na(df$relation)]<-"NONE"
   df <- df %>% prepare_POS() %>% add_class_predictor()
   return(df)
 }
+
 bert <- prepare_df(bert)
 xlnet<- prepare_df(xlnet)
 xlm  <- prepare_df(xlm)
@@ -110,10 +112,58 @@ bart <- prepare_df(bart)
 gpt2 <- prepare_df(gpt2)
 dbert<- prepare_df(dbert)
 w2v  <- prepare_df(w2v)
-all <- bind_rows(bert, xlnet,xlm,  bart, gpt2, dbert,w2v)
+lstm <- prepare_df(lstm)
+onlstm  <- prepare_df(onlstm)
+onlstm_syd  <- prepare_df(onlstm_syd)
+
+all_bidir <- bind_rows(bert,xlnet,xlm,bart,dbert,w2v)
+all_bidir$pmi_edge <- all_bidir$pmi_edge_sum
+all_onedir <- bind_rows(gpt2,lstm,onlstm,onlstm_syd)
+all_onedir$pmi_edge = all_onedir$pmi_edge_tril
+all <- bind_rows(all_bidir,all_onedir)
 
 
-# Exploratory analysis
+## Exploratory analysis ####
+# ######################## #
+
+## Correlation between models
+
+compare_onedir <- all_onedir %>%
+  group_by(sentence_index, i1, i2, model) %>% summarise(pmi_edge) %>%
+  pivot_wider(names_from = model, values_from = pmi_edge) %>% ungroup()
+
+compare_all <- all %>%
+  group_by(sentence_index, i1, i2, model) %>% summarise(pmi_edge) %>%
+  pivot_wider(names_from = model, values_from = pmi_edge) %>% ungroup()
+
+corrcol <- function(data, mapping, method="pearson", use="pairwise", ...){
+  # grab data
+  x <- eval_data_col(data, mapping$x)
+  y <- eval_data_col(data, mapping$y)
+
+  # calculate correlation
+  corr <- cor(x, y, method=method, use=use)
+
+  # calculate colour based on correlation value
+  # Here I have set a correlation of minus one to blue,
+  # zero to white, and one to red
+  # Change this to suit: possibly extend to add as an argument
+  colFn <- colorRampPalette(c("blue", "white", "red"), interpolate ='spline')
+  fill <- colFn(100)[findInterval(corr, seq(-1, 1, length=100))]
+
+  ggally_cor(data = data, mapping = mapping, ...) +
+    theme_void() +
+    theme(panel.background = element_rect(fill=fill))
+}
+
+library("GGally")
+ggpairs(compare_onedir %>% select(-c("sentence_index","i1","i2")),
+        upper = list(discrete= wrap(corrcol, colour = "black")))
+
+ggpairs(compare_all %>% select(-c("sentence_index","i1","i2")),
+        upper = list(discrete= wrap(corrcol, colour = "black")))
+
+
 ## Finding examples of bad correspondence ####
 
 # gold
@@ -225,12 +275,12 @@ joined  %>%
 make_classdf_gold <- function(df,name){
   return(df %>% filter(gold_edge==TRUE) %>%
            group_by(class12,acc) %>% summarise(n = n()) %>%
-    pivot_wider(names_from = acc, values_from = n, values_fill = list(n = 0)) %>% mutate(n=`FALSE`+`TRUE`, acc = `TRUE`/n, model=name) %>% ungroup())
+           pivot_wider(names_from = acc, values_from = n, values_fill = list(n = 0)) %>% mutate(n=`FALSE`+`TRUE`, acc = `TRUE`/n, model=name) %>% ungroup())
 }
 make_classdf <- function(df,name,condition){
   return(df %>% filter(eval(parse(text=condition))) %>%
            group_by(class12,acc) %>% summarise(n = n()) %>%
-    pivot_wider(names_from = acc, values_from = n, values_fill = list(n = 0)) %>% mutate(n=`FALSE`+`TRUE`, acc = `TRUE`/n, model=name) %>% ungroup())
+           pivot_wider(names_from = acc, values_from = n, values_fill = list(n = 0)) %>% mutate(n=`FALSE`+`TRUE`, acc = `TRUE`/n, model=name) %>% ungroup())
 }
 
 
@@ -256,13 +306,13 @@ five.acc_by_class <- function(
       theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust=0.5)) +
       ggtitle(paste("Accuracy (", ylabel[[1]], ") by word-class pair ", title_suffix, sep = ""))
     if(ylabel[[1]]=="precision"){
-        plot <- plot + geom_text(aes(label=paste("n =",n),y=acc, colour=model), alpha=0.75,
-                                 show.legend = F,
-                                 vjust = 0.5, hjust=-.5, size = 3, angle=90)
-      }
+      plot <- plot + geom_text(aes(label=paste("n =",n),y=acc, colour=model), alpha=0.75,
+                               show.legend = F,
+                               vjust = 0.5, hjust=-.5, size = 3, angle=90)
+    }
     if(ylabel[[1]]=="recall"){
-        plot <- plot + geom_text(aes(x="DistilBERT",label=paste("n =",n),y=0.95), colour="darkgrey",
-                                 show.legend = F, size = 3)
+      plot <- plot + geom_text(aes(x="DistilBERT",label=paste("n =",n),y=0.95), colour="darkgrey",
+                               show.legend = F, size = 3)
     }
     return(plot)
   }
@@ -336,12 +386,12 @@ maxhub.df<-bind_rows(purrr::map2(
        bart %>% filter(pmi_edge_sum==T),
        #gpt2 %>% filter(pmi_edge_sum==T),
        w2v %>% filter(pmi_edge_sum==T)
-       ),
+  ),
   list("gold","Bart","BERT","DistilBERT","Word2Vec","XLM","XLNet" #,"GPT2"
-       ),
+  ),
   maxhub))
 maxhub.df$model <- maxhub.df$model %>% fct_relevel(levels=c("gold","Bart","BERT","DistilBERT","Word2Vec","XLM","XLNet" #,"GPT2",
-                                                            ))
+))
 p.maxhub<-maxhub.df %>% filter(model!="gold") %>%
   ggplot(aes(x=max_hub)) + geom_histogram(binwidth = 1, aes(fill=model),show.legend=F) +
   xlab("max arity in sentence") + scale_y_continuous(limits = c(0,900)) +
@@ -671,7 +721,7 @@ grid.arrange(arrangeGrob(hgold,
                          nrow=2),
              nrow=1,widths=c(1,3),
              top="Dependency arc length histograms")
-                                                                 # sun   sum(abs)
+# sun   sum(abs)
 gold.len[1,]$n/(bert %>% filter(gold_edge==T) %>%  count())      # 0.478 0.478
 bart.len[1,]$n/(xlm %>% filter(pmi_edge_sum==T) %>%  count())    # 0.576 0.546
 bert.len[1,]$n/(bert %>% filter(pmi_edge_sum==T) %>%  count())   # 0.709 0.737
@@ -1087,10 +1137,10 @@ plotvarimp(bert %>% filter(lin_dist>1))
 
 
 p.vi <-exec("ggarrange",plotlist=map(model_list,plotvarimp),
-     ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
+            ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
   annotate_figure(bottom=text_grob("Variable importance - PMI subset"))
 p.vi1<-exec("ggarrange",plotlist=map(model_list1,plotvarimp),
-     ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
+            ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
   annotate_figure(bottom=text_grob("Variable importance - PMI subset, len>1"))
 
 pdp<-function(input.df){
@@ -1135,10 +1185,10 @@ theme_update()
 # pdp(bert %>% filter(lin_dist>1))
 
 p.pdp <-exec("ggarrange",plotlist=map(model_list,pdp),
-     ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
+             ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
   annotate_figure(bottom=text_grob("Random forest predictions"))
 p.pdp1<-exec("ggarrange",plotlist=map(model_list1,pdp),
-     ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
+             ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
   annotate_figure(bottom=text_grob("Random forest predictions, len>1"))
 
 pdp.comparison<-function(input.df){
@@ -1160,10 +1210,10 @@ pdp.comparison<-function(input.df){
 }
 
 p.pdpc <-exec("ggarrange",!!!map(model_list,pdp.comparison),
-     ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
+              ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
   annotate_figure(bottom=text_grob("Actual values"))
 p.pdpc1<-exec("ggarrange",!!!map(model_list1,pdp.comparison),
-     ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
+              ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
   annotate_figure(bottom=text_grob("Actual values, len>1"))
 
 ggsave("pdp.pdf",  plot=p.pdp,  width=14,height=9,units="in")
