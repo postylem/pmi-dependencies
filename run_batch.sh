@@ -1,7 +1,18 @@
 #!/bin/bash
 
-#python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/lstm > lstm.out
-#python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/onlstm > onlstm.out
+#-------- LSTMs ----------#
+
+# # lstm, onlstm, onlstm_syd
+# python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/lstm > lstm.out
+# python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/onlstm > onlstm.out
+# python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/onlstm_syd > onlstm_syd.out
+
+# python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/lstm --absolute_value > lstm-abs.out
+# python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/onlstm --absolute_value > onlstm-abs.out
+# python pmi_accuracy/main.py --model_spec load_npz --model_path lstm-vs-onlstm/onlstm_syd --absolute_value > onlstm_syd-abs.out
+
+
+#-------- CEMs  ----------#
 
 # Checkpointed bert-base-uncased 
 #for  n in 10 50 100 500 1000 1500; do
