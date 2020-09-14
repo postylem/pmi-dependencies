@@ -24,7 +24,8 @@ scores_xlnet_base <-  prepareppl(read_csv("by_sentence/scores_abs-loaded=xlnet-b
 scores_xlm <-         prepareppl(read_csv("by_sentence/scores_abs-loaded=xlm-mlm-en-2048_pad60_2020-08-09-07-00.csv"))
 scores_bart <-        prepareppl(read_csv("by_sentence/scores_abs-loaded=bart-large_pad60_2020-08-09-04-25.csv"))
 scores_dbert <-       prepareppl(read_csv("by_sentence/scores_abs-loaded=distilbert-base-cased_pad60_2020-08-09-06-36.csv"))
-scores_w2v <-            prepareppl(read_csv("by_sentence/scores_abs-loaded=w2v_pad0_2020-08-09-06-48.csv"))
+# scores_w2v <-            prepareppl(read_csv("by_sentence/scores_abs-loaded=w2v_pad0_2020-08-09-06-48.csv"))
+scores_w2v <-            prepareppl(read_csv("by_sentence/scores_w2v_pad0_2020-08-08-00-28.csv"))
 scores_gpt2 <-        prepareppl(read_csv("by_sentence/scores_abs-loaded=gpt2_pad30_2020-08-25-00-19.csv"))
 
 scores_lstm <-           prepareppl(read_csv("by_sentence/scores_abs-loaded=lstm_pad0_2020-08-31-10-17.csv"))
@@ -101,7 +102,9 @@ scores_models_lstms_filtered %>% filter(sentence_length %in% 4:61) %>%
   labs(x="sentence length",
        y="PMI dependency accuracy")
 
-selected_models <- c('DistilBERT','BERT large','BERT base', 'XLNet large','XLNet base', 'XLM', 'Bart', 'Word2Vec')
+selected_models <- c('DistilBERT','BERT large','BERT base',
+                     # 'XLNet large','XLM', 'Bart',
+                     'XLNet base', 'Word2Vec')
 selected_models_lstms <- append(selected_models, lstms)
 
 
@@ -110,7 +113,7 @@ baselines_violin <- scores_models %>%
   filter(model=="XLM", str_detect(score_method,"^baseline")) %>%
   ggplot(aes(x=score_method,y=uuas)) +
   geom_violin() + geom_boxplot(width=0.1) +
-  scale_x_discrete(labels=c('linear','random','random proj.')) +
+  scale_x_discrete(labels=c('random','random proj.','linear')) +
   labs(x="baseline", y="dependency accuracy (UUAS)") +
   ggtitle("Baselines")
 w2v_violin <- scores_models_lstms_filtered %>%
@@ -120,6 +123,7 @@ w2v_violin <- scores_models_lstms_filtered %>%
              # colour=score_method,
              y=uuas)) +
   geom_violin() + geom_boxplot(width=0.1) + # facet_wrap(~model,nrow = 1) +
+  ylim(0,1) +
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) + xlab("") +
@@ -134,9 +138,9 @@ models_violin <- scores_models_lstms_filtered %>%
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) + xlab("model") +
-  ggtitle("Contextualized PMI models")
+  ggtitle("Selected contextualized PMI models")
 library(gridExtra)
-grid.arrange(arrangeGrob(baselines_violin,w2v_violin,models_violin,widths=c(3,1,7)))
+grid.arrange(arrangeGrob(baselines_violin,w2v_violin,models_violin,widths=c(3,1,length(selected_models)-1)))
 
 ## exploring the pseudo loglikelihood measure
 ##

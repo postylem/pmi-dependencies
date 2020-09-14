@@ -1,0 +1,29 @@
+% dependencies for results-clean/contextual_embedding_models/w2v_pad0_2020-08-08-00-28/loaded=w2v_pad0_2020-08-09-06-48
+\begin{dependency}
+	\begin{deptext}
+		It\& is\& impossible\& to\& know\& whether\& that\& theory\& is\& realistic\& . \\
+	\end{deptext}
+	\depedge{3}{1}{nsubj}
+	\depedge{3}{2}{cop}
+	\depedge{5}{4}{dep}
+	\depedge{3}{5}{ccomp}
+	\depedge{10}{6}{mark}
+	\depedge{8}{7}{det}
+	\depedge{10}{8}{nsubj}
+	\depedge{10}{9}{cop}
+	\depedge{5}{10}{ccomp}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{4}{5}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{5}{10}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{2}{3}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{5}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{6}{7}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{5}{7}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{5}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{5}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{5}{8}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\tiny\textsf{w2v-abs}};
+%	\node (R2) at (R1.north) {\tiny\textsf{sum.projective}};
+%	\node (R3) at (R2.north) {\tiny\textsf{442}};
+	\node (R4) at (R1.south) {\tiny $ 3/9 = 33\% $};
+\end{dependency}

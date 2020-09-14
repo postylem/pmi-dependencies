@@ -100,7 +100,8 @@ if __name__ == '__main__':
     ARGP.add_argument('--info',
                       default='',
                       help='model name or other info to print')
-    ARGP.add_argument('--edge_types', type=str, default='projective.edges.sum',
+    ARGP.add_argument('--edge_types', type=str,
+                      default=['projective.edges.sum'],
                       nargs='+',
                       help="""Edge type to plot against the gold.
                               Chose any subset of
