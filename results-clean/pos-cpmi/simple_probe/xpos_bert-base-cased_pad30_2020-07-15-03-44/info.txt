@@ -1,0 +1,17 @@
+absolute_value:	False
+batch_size:	16
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_path:	None
+model_spec:	bert-base-cased
+n_observations:	all
+pad:	30
+probe_state_dict:	probe-results/bert-base-cased_20.07.12-12.48/probe.state_dict
+results_dir:	results/
+save_npz:	True
+=========
+mean sentence uuas
+        linear         :  0.504
+        random nonproj :  0.131
+        random proj    :  0.265
+        PMI nonproj    :  {'sum': 0.493, 'triu': 0.449, 'tril': 0.46, 'none': 0.496}
+        PMI proj       :  {'sum': 0.502, 'triu': 0.463, 'tril': 0.476, 'none': 0.483}

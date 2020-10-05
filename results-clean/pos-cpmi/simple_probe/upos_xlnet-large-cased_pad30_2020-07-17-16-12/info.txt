@@ -1,0 +1,18 @@
+absolute_value:	False
+batch_size:	16
+conllx_file:	ptb3-wsj-data/ptb3-wsj-dev.conllx
+model_path:	None
+model_spec:	xlnet-large-cased
+n_observations:	all
+pad:	30
+pos_set_type:	upos
+probe_state_dict:	probe-results/upos_xlnet-large-cased_20.07.17-13.05/probe.state_dict
+results_dir:	results/
+save_npz:	True
+=========
+mean sentence uuas
+        linear         :  0.504
+        random nonproj :  0.132
+        random proj    :  0.265
+        PMI nonproj    :  {'sum': 0.272, 'triu': 0.248, 'tril': 0.205, 'none': 0.279}
+        PMI proj       :  {'sum': 0.345, 'triu': 0.348, 'tril': 0.336, 'none': 0.343}
