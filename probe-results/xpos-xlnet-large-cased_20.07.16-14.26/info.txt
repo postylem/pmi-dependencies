@@ -1,0 +1,28 @@
+device: device(type='cuda')
+spec: 'xlnet-large-cased'
+batch_size: 32
+epochs: 40
+hidden_dim: 1024
+pad_token_id: 5
+pad_pos_id: -1
+results_path: 'probe-results/xlnet-large-cased_20.07.16-14.26/'
+corpus: 
+    root: 'ptb3-wsj-data/'
+    train_path: 'ptb3-wsj-train.conllx'
+    dev_path: 'ptb3-wsj-dev.conllx'
+    test_path: 'ptb3-wsj-test.conllx'
+conll_fieldnames: ['index', 'sentence', 'lemma_sentence', 'upos_sentence', 'xpos_sentence', 'morph', 'head_indices', 'governance_relations', 'secondary_relations', 'extra_info']
+pos_set_type: 'xpos'
+pos_set: ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
+epoch  0 dev acc = 17.39130401611328 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch  1 dev acc = 45.16128921508789 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch  3 dev acc = 78.57142639160156 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch  4 dev acc = 80.46875 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch  6 dev acc = 84.0 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch  9 dev acc = 86.66666412353516 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch 11 dev acc = 86.73469543457031 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch 16 dev acc = 89.23076629638672 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch 18 dev acc = 90.0 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch 19 dev acc = 90.51724243164062 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch 20 dev acc = 92.85713958740234 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch 23 dev acc = 94.51219177246094 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}

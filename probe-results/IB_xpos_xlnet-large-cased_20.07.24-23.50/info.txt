@@ -1,0 +1,30 @@
+bottleneck: True
+device: device(type='cuda')
+spec: 'xlnet-large-cased'
+batch_size: 32
+epochs: 40
+beta: 1e-05
+hidden_dim: 1024
+pad_token_id: 5
+pad_pos_id: -1
+results_path: 'probe-results/IB_xpos_xlnet-large-cased_20.07.24-23.50/'
+corpus: 
+    root: 'ptb3-wsj-data/'
+    train_path: 'ptb3-wsj-train.conllx'
+    dev_path: 'ptb3-wsj-dev.conllx'
+    test_path: 'ptb3-wsj-test.conllx'
+conll_fieldnames: ['index', 'sentence', 'lemma_sentence', 'upos_sentence', 'xpos_sentence', 'morph', 'head_indices', 'governance_relations', 'secondary_relations', 'extra_info']
+pos_set_type: 'xpos'
+pos_set: ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
+training_options: 
+    algorithm: 'adam'
+    hyperparams: 
+        lr: 0.001
+        weight_decay: 0.0001
+epoch  0 dev acc = 85.44303894042969 % 
+epoch  1 dev acc = 87.70491790771484 % 
+epoch  2 dev acc = 89.83050537109375 % 
+epoch  4 dev acc = 91.07142639160156 % 
+epoch  7 dev acc = 91.26983642578125 % 
+epoch  9 dev acc = 94.31818389892578 % 
+epoch 12 dev acc = 95.77465057373047 % 

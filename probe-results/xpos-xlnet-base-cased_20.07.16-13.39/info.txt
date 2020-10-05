@@ -1,0 +1,19 @@
+device: device(type='cuda')
+spec: 'xlnet-base-cased'
+batch_size: 32
+epochs: 40
+hidden_dim: 768
+pad_token_id: 5
+pad_pos_id: -1
+results_path: 'probe-results/xlnet-base-cased_20.07.16-13.39/'
+corpus: 
+    root: 'ptb3-wsj-data/'
+    train_path: 'ptb3-wsj-train.conllx'
+    dev_path: 'ptb3-wsj-dev.conllx'
+    test_path: 'ptb3-wsj-test.conllx'
+conll_fieldnames: ['index', 'sentence', 'lemma_sentence', 'upos_sentence', 'xpos_sentence', 'morph', 'head_indices', 'governance_relations', 'secondary_relations', 'extra_info']
+pos_set_type: 'xpos'
+pos_set: ['#', '$', "''", ',', '-LRB-', '-RRB-', '.', ':', 'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN', 'NNP', 'NNPS', 'NNS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP', 'SYM', 'TO', 'UH', 'VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ', 'WDT', 'WP', 'WP$', 'WRB', '``']
+epoch  0 dev acc = 72.17391204833984 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch  2 dev acc = 90.67796325683594 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}
+epoch  4 dev acc = 92.0 % {'alg': 'sgd', 'hyper': {'lr': 0.33, 'weight_decay': 0.0005, 'momentum': 0.9}}

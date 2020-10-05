@@ -1,0 +1,28 @@
+device: device(type='cuda')
+spec: 'xlnet-large-cased'
+batch_size: 32
+epochs: 40
+hidden_dim: 1024
+pad_token_id: 5
+pad_pos_id: -1
+results_path: 'probe-results/upos_xlnet-large-cased_20.07.17-13.05/'
+corpus: 
+    root: 'ptb3-wsj-data/'
+    train_path: 'ptb3-wsj-train.conllx'
+    dev_path: 'ptb3-wsj-dev.conllx'
+    test_path: 'ptb3-wsj-test.conllx'
+conll_fieldnames: ['index', 'sentence', 'lemma_sentence', 'upos_sentence', 'xpos_sentence', 'morph', 'head_indices', 'governance_relations', 'secondary_relations', 'extra_info']
+pos_set_type: 'upos'
+pos_set: ['ADJ', 'ADP', 'ADV', 'AUX', 'CONJ', 'DET', 'INTJ', 'NOUN', 'NUM', 'PART', 'PRON', 'PROPN', 'PUNCT', 'SCONJ', 'SYM', 'VERB', 'X']
+training_options: 
+    algorithm: 'sgd'
+    hyperparams: 
+        lr: 0.33
+        weight_decay: 0.0005
+        momentum: 0.9
+epoch  0 dev acc = 57.69230651855469 % 
+epoch  1 dev acc = 62.393165588378906 % 
+epoch  2 dev acc = 72.93233489990234 % 
+epoch  3 dev acc = 81.05262756347656 % 
+epoch  5 dev acc = 91.22806549072266 % 
+epoch 11 dev acc = 94.01709747314453 % 
