@@ -233,15 +233,26 @@ python pmi-accuracy/pos_probe.py
 - `--epochs`, default=40
 
 
-Currently the probe achieves the following validation accuracy see [probe-results/](/pmi-accuracy/probe-results/):
+Currently the probes achieve the following validation accuracy see [probe-results/](/pmi-accuracy/probe-results/):
 
+
+#### Simple
 | model             | accuracy (xpos)| accuracy (upos)|
 | ------------------|----------------|----------------|
 |`bert-base-cased`  | 97.50 %        | 96.83 %        |
 |`bert-large-cased` | 93.52 %        | 91.96 %        |
 |`xlnet-base-cased` | 92.00 %        | 96.12 %        |
 |`xlnet-large-cased`| 94.51 %        | 94.01 %        |
+|`distilbert-base-cased` | 96.84 %   | TODO           |
 
+#### IB
+| model             | accuracy (xpos)| accuracy (upos)|
+| ------------------|----------------|----------------|
+|`bert-base-cased`  | 97.44 %        | TODO           |
+|`bert-large-cased` | 91.55 %        | TODO           |
+|`xlnet-base-cased` | 97.14 %        | TODO           |
+|`xlnet-large-cased`| 95.77 %        | TODO           |
+|`distilbert-base-cased` | 98.10 %   | TODO           |
 
 ## Using the POS-embeddings to get a POS-CPMI score
 
@@ -324,6 +335,16 @@ a lot _lower_ than CPMI:
 |  nonproj absolute value   |  0.285 |  0.250 |  0.218 |  0.284 |
 |  proj    absolute value   |  0.327 |  0.313 |  0.308 |  0.315 |
 
+#### DistilBERT (XPOS)
+a bit _lower_ than CPMI:
+
+| `distilbert-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
+|--------------------------------|--------|--------|--------|--------|
+|  nonproj                       |  TODO  |  TODO  |  TODO  |  TODO  |
+|  proj                          |  TODO  |  TODO  |  TODO  |  TODO  |
+|  nonproj absolute value        |  0.480 |  0.430 |  0.452 |  0.476 |
+|  proj    absolute value        |  0.490 |  0.444 |  0.471 |  0.473 |
+
 ## POS probe with information bottleneck
 
 Projection by a linear probe is a rough way to get a compressed representations from contextual embeddings.  A more correct way of extracting these representations is by a variational information bottleneck technique.  We implement this technique roughly following (Li and Eisner 2019)[https://www.aclweb.org/anthology/D19-1276.pdf].
@@ -341,6 +362,37 @@ To run with Li's default hyperparameters:
 ```bash
 python pmi-accuracy/pos_probe.py --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
 ```
+
+#### BERT (XPOS) - IB
+
+| `bert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj absolute value   |  0.376 |  0.297 |  0.320 |  0.372 |
+|  proj    absolute value   |  0.415 |  0.340 |  0.370 |  0.393 |
+
+| `bert-large-cased` pad 60 |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj absolute value   |  0.423 |  0.358 |  0.362 |  0.416 |
+|  proj    absolute value   |  0.448 |  0.388 |  0.397 |  0.417 |
+
+#### XLNet (XPOS) - IB
+
+| `xlnet-base-cased` pad 30 |  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj absolute value   |  0.401 |  0.324 |  0.350 |  0.396 |
+|  proj    absolute value   |  0.435 |  0.364 |  0.389 |  0.401 |
+
+| `xlnet-large-cased` pad 30|  sum   |  triu  |  tril  |  none  |
+|---------------------------|--------|--------|--------|--------|
+|  nonproj absolute value   |  0.331 |  0.284 |  0.300 |  0.323 |
+|  proj    absolute value   |  0.379 |  0.330 |  0.349 |  0.349 |
+
+#### DilstilBERT (XPOS) - IB
+
+| `distilbert-base-cased` pad 30  |  sum   |  triu  |  tril  |  none  |
+|---------------------------------|--------|--------|--------|--------|
+|  nonproj absolute value         |  0.366 |  0.302 |  0.335 |  0.358 |
+|  proj    absolute value         |  0.399 |  0.343 |  0.377 |  0.382 |
 
 
 ## LSTM vs ONLSTM
