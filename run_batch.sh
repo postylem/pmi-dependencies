@@ -14,7 +14,7 @@
 
 #-------- CEMs  ----------#
 
-# Checkpointed bert-base-uncased 
+# Checkpointed bert-base-uncased
 #for  n in 10 50 100 500 1000 1500; do
 #  python pmi-accuracy/main.py --model_spec bert-base-uncased --model_path ~/bert_base_ckpt/model_steps_${n}000.pt --pad 30 --batch_size 16 --save_npz > bert-ckpt${n}k.out
 #done
@@ -47,10 +47,10 @@
 #python pmi-accuracy/pos_probe.py --model_spec bert-base-cased --pos_set_type upos
 #python pmi-accuracy/pos_probe.py --model_spec bert-large-cased --pos_set_type upos
 
+
 # evaluate linear probe bert
 #python pmi-accuracy/main.py --save_npz --model_spec bert-base-cased --pad 30 --batch_size 16 --probe_state_dict probe-results/bert-base-cased_20.07.15-20.06/probe.state_dict --pos_set_type upos > upos-bert-base-cased.out 2> upos-base.err
 #python pmi-accuracy/main.py --save_npz --model_spec bert-large-cased --pad 60 --batch_size 4 --probe_state_dict probe-results/bert-large-cased_20.07.15-20.28/probe.state_dict --pos_set_type upos > upos-bert-large-cased.out 2> upos-large.err
-
 # bert get abs value version also
 #python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_bert-base-cased_pad30_2020-07-15-21-55 --absolute_value --results_dir results/upos_bert-base-cased_pad30_2020-07-15-21-55/ > upos-base-abs.out
 #python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_bert-large-cased_pad60_2020-07-15-22-52 --absolute_value --results_dir results/upos_bert-large-cased_pad60_2020-07-15-22-52/ > upos-large-abs.out
@@ -85,4 +85,12 @@
 # xlnet get abs value version also
 #python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_xlnet-base-cased* --absolute_value --results_dir results/upos_xlnet-base-cased*/ > upos-base-abs.out
 #python pmi-accuracy/main.py --model_spec load_npz --model_path results/upos_xlnet-large-cased* --absolute_value --results_dir results/upos_xlnet-large-cased*/ > upos-large-abs.out
+
+# distilbert simple probe
+#python pmi-accuracy/pos_probe.py --model_spec distilbert-base-cased --pos_set_type xpos
+#python pmi-accuracy/main.py --save_npz --model_spec distilbert-base-cased --pad 60 --batch_size 24 --probe_state_dict probe-results/xpos_distilbert-base-cased_20.10.05-14.32/probe.state_dict --pos_set_type xpos --absolute_value > xpos-distilbert.out 2> xpos-distilbert.err
+
+# distilbert ib probe
+#python pmi-accuracy/pos_probe.py --model_spec distilbert-base-cased --bottleneck --beta 1e-5 --optimizer adam --lr 0.001 --weight_decay 0.0001
+#python pmi-accuracy/main.py --save_npz --model_spec distilbert-base-cased --pad 60 --batch_size 24 --probe_state_dict probe-results/IB_xpos_distilbert*/probe.state_dict --pos_set_type xpos --results_dir results/IB/ --absolute_value > ib-xpos-distilbert-base.out 2> ib-xpos-distilbert-base.err
 

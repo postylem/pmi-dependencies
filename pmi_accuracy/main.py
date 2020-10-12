@@ -496,7 +496,8 @@ if __name__ == '__main__':
 
     if not LOAD_NPZ:
         if CLI_ARGS.probe_state_dict:
-            if CLI_ARGS.model_spec.startswith('bert'):
+            if (CLI_ARGS.model_spec.startswith('bert') or
+                CLI_ARGS.model_spec.startswith('distilbert')):
                 POS_MODEL = languagemodel_pos.BERT(
                     DEVICE, CLI_ARGS.model_spec, CLI_ARGS.batch_size,
                     POS_TAGSET, PROBE_STATE, probe_type=PROBE_TYPE)
