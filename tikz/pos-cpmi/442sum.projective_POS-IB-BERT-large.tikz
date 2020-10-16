@@ -1,0 +1,29 @@
+% dependencies for tikz/pos-cpmi/
+\begin{dependency}
+	\begin{deptext}
+		It\& is\& impossible\& to\& know\& whether\& that\& theory\& is\& realistic\& . \\
+	\end{deptext}
+	\depedge{3}{1}{nsubj}
+	\depedge{3}{2}{cop}
+	\depedge{5}{4}{dep}
+	\depedge{3}{5}{ccomp}
+	\depedge{10}{6}{mark}
+	\depedge{8}{7}{det}
+	\depedge{10}{8}{nsubj}
+	\depedge{10}{9}{cop}
+	\depedge{5}{10}{ccomp}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{9}{10}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{7}{8}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{2}{3}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{2}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{6}{7}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{5}{6}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{8}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{7}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{3}{4}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\tiny\textsf{POS-IB-BERT-large}};
+%	\node (R2) at (R1.north) {\tiny\textsf{sum.projective}};
+%	\node (R3) at (R2.north) {\tiny\textsf{442}};
+	\node (R4) at (R1.south) {\tiny $ 3/9 = 33\% $};
+\end{dependency}

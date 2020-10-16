@@ -1,0 +1,31 @@
+% dependencies for tikz/lstms/
+\begin{dependency}
+	\begin{deptext}
+		You\& know\& what\& the\& law\& of\& averages\& is\& ,\& do\& n't\& you\& ? \\
+	\end{deptext}
+	\depedge{2}{1}{nsubj}
+	\depedge{8}{3}{dobj}
+	\depedge{5}{4}{det}
+	\depedge{8}{5}{nsubj}
+	\depedge{5}{6}{prep}
+	\depedge{6}{7}{pobj}
+	\depedge{2}{8}{ccomp}
+	\depedge{2}{10}{dep}
+	\depedge{10}{11}{neg}
+	\depedge{10}{12}{nsubj}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{1}{2}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{10}{11}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{4}{5}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{6}{7}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{6}{8}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{12}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{4}{8}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{3}{11}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{8}{10}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{3}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\tiny\textsf{ONLSTM}};
+%	\node (R2) at (R1.north) {\tiny\textsf{sum.projective}};
+%	\node (R3) at (R2.north) {\tiny\textsf{78}};
+	\node (R4) at (R1.south) {\tiny $ 4/10 = 40\% $};
+\end{dependency}

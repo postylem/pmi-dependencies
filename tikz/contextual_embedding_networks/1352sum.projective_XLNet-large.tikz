@@ -1,0 +1,37 @@
+% dependencies for printedtikz/
+\begin{dependency}
+	\begin{deptext}
+		Gold\& was\& nowhere\& the\& spectacular\& performer\& it\& was\& two\& years\& ago\& on\& Black\& Monday\& . \\
+	\end{deptext}
+	\depedge{6}{1}{nsubj}
+	\depedge{6}{2}{cop}
+	\depedge{6}{3}{advmod}
+	\depedge{6}{4}{det}
+	\depedge{6}{5}{amod}
+	\depedge{8}{7}{nsubj}
+	\depedge{6}{8}{rcmod}
+	\depedge{10}{9}{num}
+	\depedge{11}{10}{npadvmod}
+	\depedge{8}{11}{advmod}
+	\depedge{8}{12}{prep}
+	\depedge{14}{13}{nn}
+	\depedge{12}{14}{pobj}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{10}{11}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{12}{14}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{4}{6}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{5}{6}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{13}{14}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{9}{10}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{1}{6}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{7}{8}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{6}{7}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{1}{14}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{10}{14}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{3}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{3}{4}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\tiny\textsf{XLNet-large}};
+%	\node (R2) at (R1.north) {\tiny\textsf{sum.projective}};
+%	\node (R3) at (R2.north) {\tiny\textsf{1352}};
+	\node (R4) at (R1.south) {\tiny $ 8/13 = 62\% $};
+\end{dependency}
