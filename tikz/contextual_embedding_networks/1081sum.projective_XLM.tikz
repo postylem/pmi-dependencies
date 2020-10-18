@@ -1,0 +1,45 @@
+% dependencies for printedtikz/
+\begin{dependency}
+	\begin{deptext}
+		The\& offer\& ,\& which\& also\& includes\& common\& and\& preferred\& stock\& purchase\& rights\& ,\& was\& to\& expire\& last\& night\& at\& midnight\& . \\
+	\end{deptext}
+	\depedge{2}{1}{det}
+	\depedge{14}{2}{nsubj}
+	\depedge{6}{4}{nsubj}
+	\depedge{6}{5}{advmod}
+	\depedge{2}{6}{rcmod}
+	\depedge{12}{7}{amod}
+	\depedge{7}{8}{cc}
+	\depedge{7}{9}{conj}
+	\depedge{12}{10}{nn}
+	\depedge{12}{11}{nn}
+	\depedge{6}{12}{dobj}
+	\depedge{16}{15}{aux}
+	\depedge{14}{16}{xcomp}
+	\depedge{18}{17}{amod}
+	\depedge{16}{18}{tmod}
+	\depedge{16}{19}{prep}
+	\depedge{19}{20}{pobj}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{1}{2}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{17}{18}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{7}{8}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{14}{16}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{5}{6}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{15}{16}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{19}{20}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{11}{12}{}
+	\depedge[hide label, edge below, edge style={-, blue, opacity=0.5}]{7}{9}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{16}{17}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{16}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{10}{11}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{6}{11}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{11}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{7}{10}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{2}{4}{}
+	\depedge[hide label, edge below, edge style={-, red, opacity=0.5}]{18}{20}{}
+	\node (R) at (\matrixref.east) {{}};
+	\node (R1) [right of = R] {\tiny\textsf{XLM}};
+%	\node (R2) at (R1.north) {\tiny\textsf{sum.projective}};
+%	\node (R3) at (R2.north) {\tiny\textsf{1081}};
+	\node (R4) at (R1.south) {\tiny $ 9/17 = 53\% $};
+\end{dependency}

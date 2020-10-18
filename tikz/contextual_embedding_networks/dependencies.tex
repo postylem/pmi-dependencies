@@ -1,0 +1,80 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz,tikz-dependency}
+\pgfkeys{%
+/depgraph/edge unit distance=.75ex,%
+%/depgraph/edge horizontal padding=2,%
+/depgraph/reserved/edge style/.style = {
+->, % arrow properties
+semithick, solid, line cap=round, % line properties
+rounded corners=2, % make corners round
+},%
+/depgraph/reserved/label style/.style = {%
+% anchor = mid, draw, solid, black, rotate = 0,rounded corners = 2pt,%
+scale = .5,%
+text height = 1.5ex,text depth = 0.25ex, % needed to center text vertically
+inner sep=.2ex,%
+outer sep = 0pt,%
+text = black,%
+fill = white, %opacity = 0, text opacity = 0 % uncomment to hide all labels
+},%
+}
+\begin{document}
+
+% % Put tikz dependencies here, like
+% dependencies for printedtikz/
+\input{1081sum.projective_BERT-base.tikz}
+\input{1081sum.projective_BERT-large.tikz}
+\input{1081sum.projective_Bart.tikz}
+\input{1081sum.projective_DistilBERT.tikz}
+\input{1081sum.projective_GPT2.tikz}
+\input{1081sum.projective_W2V-signed.tikz}
+\input{1081sum.projective_XLM.tikz}
+\input{1081sum.projective_XLNet-base.tikz}
+\input{1081sum.projective_XLNet-large.tikz}
+\input{1352sum.projective_BERT-base.tikz}
+\input{1352sum.projective_BERT-large.tikz}
+\input{1352sum.projective_Bart.tikz}
+\input{1352sum.projective_DistilBERT.tikz}
+\input{1352sum.projective_GPT2.tikz}
+\input{1352sum.projective_W2V-signed.tikz}
+\input{1352sum.projective_XLM.tikz}
+\input{1352sum.projective_XLNet-base.tikz}
+\input{1352sum.projective_XLNet-large.tikz}
+\input{381sum.projective_BERT-base.tikz}
+\input{381sum.projective_BERT-large.tikz}
+\input{381sum.projective_Bart.tikz}
+\input{381sum.projective_DistilBERT.tikz}
+\input{381sum.projective_GPT2.tikz}
+\input{381sum.projective_W2V-signed.tikz}
+\input{381sum.projective_XLM.tikz}
+\input{381sum.projective_XLNet-base.tikz}
+\input{381sum.projective_XLNet-large.tikz}
+\input{405sum.projective_BERT-base.tikz}
+\input{405sum.projective_BERT-large.tikz}
+\input{405sum.projective_Bart.tikz}
+\input{405sum.projective_DistilBERT.tikz}
+\input{405sum.projective_GPT2.tikz}
+\input{405sum.projective_W2V-signed.tikz}
+\input{405sum.projective_XLM.tikz}
+\input{405sum.projective_XLNet-base.tikz}
+\input{405sum.projective_XLNet-large.tikz}
+\input{442sum.projective_BERT-base.tikz}
+\input{442sum.projective_BERT-large.tikz}
+\input{442sum.projective_Bart.tikz}
+\input{442sum.projective_DistilBERT.tikz}
+\input{442sum.projective_GPT2.tikz}
+\input{442sum.projective_W2V-signed.tikz}
+\input{442sum.projective_XLM.tikz}
+\input{442sum.projective_XLNet-base.tikz}
+\input{442sum.projective_XLNet-large.tikz}
+\input{78sum.projective_BERT-base.tikz}
+\input{78sum.projective_BERT-large.tikz}
+\input{78sum.projective_Bart.tikz}
+\input{78sum.projective_DistilBERT.tikz}
+\input{78sum.projective_GPT2.tikz}
+\input{78sum.projective_W2V-signed.tikz}
+\input{78sum.projective_XLM.tikz}
+\input{78sum.projective_XLNet-base.tikz}
+\input{78sum.projective_XLNet-large.tikz}
+
+\end{document}

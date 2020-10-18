@@ -9,10 +9,10 @@ import pandas as pd
 import numpy as np
 
 from argparse import ArgumentParser
-from collections import namedtuple
 from ast import literal_eval
 
 from conll_data import CONLLReader, EXCLUDED_PUNCTUATION, CONLL_COLS
+
 
 def is_edge_to_ignore(edge, observation):
     is_d_punct = bool(observation.sentence[edge[1]-1] in EXCLUDED_PUNCTUATION)
@@ -34,7 +34,8 @@ def make_tikz_string(
     gold_edges_set = {tuple(sorted(e)) for e in gold_edge_to_label.keys()}
 
     # note converting to 1-indexing
-    predicted_edges_set = {tuple(sorted((x[0]+1, x[1]+1))) for x in predicted_edges}
+    predicted_edges_set = {
+            tuple(sorted((x[0]+1, x[1]+1))) for x in predicted_edges}
     correct_edges = list(gold_edges_set.intersection(predicted_edges_set))
     incorrect_edges = list(predicted_edges_set.difference(gold_edges_set))
     num_correct = len(correct_edges)
@@ -42,13 +43,13 @@ def make_tikz_string(
     uuas = num_correct/float(num_total) if num_total != 0 else np.NaN
 
     # replace non-TeXsafe characters... add as needed
-    tex_replace = {'$': '\$', '&': '+', '%': '\%',
-                   '~': '\textasciitilde', '#': '\#'}
+    tex_replace = {'$': '\\$', '&': '+', '%': '\\%',
+                   '~': '\\textasciitilde', '#': '\\#'}
 
     # make string
     string = "\\begin{dependency}\n\t\\begin{deptext}\n\t\t"
     string += "\\& ".join([tex_replace[x] if x in tex_replace
-                           else x for x in observation.sentence]) + " \\\\" + '\n'
+        else x for x in observation.sentence]) + " \\\\" + '\n'
     string += "\t\\end{deptext}" + '\n'
     for i_index, j_index in gold_edge_to_label:
         string += f'\t\\depedge{{{i_index}}}{{{j_index}}}{{{gold_edge_to_label[(i_index, j_index)]}}}\n'
@@ -70,7 +71,7 @@ def write_tikz_files(
         outputdir, edges_df, sentence_indices,
         edge_type, output_suffix='', info_text=''):
     ''' writes TikZ string to outputdir,
-    a seperate file for each sentence index'''
+    a separate file for each sentence index'''
     for sentence_index in sentence_indices:
         predicted_edges = literal_eval(edges_df.at[sentence_index, edge_type])
         tikz_string = make_tikz_string(predicted_edges,
@@ -94,6 +95,10 @@ if __name__ == '__main__':
     ARGP.add_argument('--input_file',
                       default='scores.csv',
                       help='specify path/to/scores.csv')
+    ARGP.add_argument('--output_dir',
+                      default='',
+                      help='''path to print tikz to.
+                      If none, put in same place as input''')
     ARGP.add_argument('--conllx_file',
                       default='ptb3-wsj-data/ptb3-wsj-dev.conllx',
                       help='path/to/treebank.conllx: dependency file')
@@ -118,8 +123,10 @@ if __name__ == '__main__':
 
     OBSERVATIONS = CONLLReader(CONLL_COLS).load_conll_dataset(
         CLI_ARGS.conllx_file)
-
-    OUTPUTDIR = os.path.dirname(CLI_ARGS.input_file)
+    if CLI_ARGS.output_dir == '':
+        OUTPUTDIR = os.path.dirname(CLI_ARGS.input_file)
+    else:
+        OUTPUTDIR = CLI_ARGS.output_dir
     EDGES_DF = pd.read_csv(CLI_ARGS.input_file)
 
     if CLI_ARGS.edge_types == ['all']:
