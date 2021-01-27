@@ -19,7 +19,8 @@ onlstm <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_pad*.csv"))
 onlstm_syd <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_syd*.csv"))
 
 baseline_linear <- read_csv(Sys.glob("by_wordpair/wordpair_linear_baseline*.csv"))
-baseline_random <- read_csv(Sys.glob("by_wordpair/wordpair_random_baseline*.csv"))
+baseline_random <- read_csv(Sys.glob("by_wordpair/wordpair_random_baseline_pad0_2021-01-26*.csv"))
+baseline_random2 <- read_csv(Sys.glob("by_wordpair/wordpair_random_baseline_pad0_2021-01-27*.csv"))
 
 dbert$model <- "DistilBERT"
 xlnet$model <- "XLNet"
@@ -39,8 +40,9 @@ onlstm_syd$model <- "ONLSTM-SYD"
 
 baseline_linear$model <- "baseline_linear"
 baseline_random$model <- "baseline_random"
+baseline_random2$model <- "baseline_random2"
 
-all_models_raw = list(dbert,bert_base,bert_large,xlnet_base,xlnet_large,xlm,bart,gpt2,w2v,lstm,onlstm,onlstm_syd,baseline_linear,baseline_random)
+all_models_raw = list(dbert,bert_base,bert_large,xlnet_base,xlnet_large,xlm,bart,gpt2,w2v,lstm,onlstm,onlstm_syd,baseline_linear,baseline_random,baseline_random2)
 
 make_dep_len_nopunct <- function(dataframe,verbose=TRUE) {
   # makes a dep_len feature, which records the distance ignoring tokens not in gold tree
@@ -65,6 +67,7 @@ make_dep_len_nopunct <- function(dataframe,verbose=TRUE) {
 }
 # THIS TAKES AN HOUR:
 all_models = lapply(all_models_raw, FUN=make_dep_len_nopunct)
+## all_models[[15]] = make_dep_len_nopunct(baseline_random2)
 
 # the avg_recall of the linear model is just the avg
 # number of len1 / number of len1 edges in sentence
