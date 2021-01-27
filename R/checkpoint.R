@@ -78,3 +78,4 @@ get_lgppl("../results-clean/bert-base-uncased.ckpt-1500k_pad30_2020-07-06-05-58/
 get_lgppl("../results-clean/bert-base-uncased_pad30_2020-07-04-12-15/scores_bert-base-uncased_pad30_2020-07-04-12-15.csv"))
 
 # ==> 8.972310 8.515644 6.195083 5.938785 5.753842 6.092419 3.302884
+

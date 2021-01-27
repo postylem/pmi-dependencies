@@ -10,6 +10,8 @@ to-ignore/
 gensim_w2v.txt
 w2v.txt
 w2v100.txt
+ptb3-wsj-data/CUSTOM*
+
 
 # repos
 hewitt-repo/

@@ -381,6 +381,28 @@ def get_info(directory, key):
             if line.split()[0] == key + ':':
                 return(line.split()[1])
 
+class Baseline:
+    """ Simple hack to compute a linear or random baseline as if it were a model. """
+    def __init__(self, baseline_spec):
+        self.baseline_spec = baseline_spec
+        print(f"\nUsing baseline, type {baseline_spec}")
+
+    def ptb_tokenlist_to_pmi_matrix(
+            self, ptb_tokenlist, add_special_tokens=True,
+            pad_left=None, pad_right=None, verbose=True):
+        pseudo_loglik = None
+        fake_observation = [ptb_tokenlist]
+        if self.baseline_spec == 'linear_baseline':
+            distances = task.LinearBaselineTask.labels(fake_observation)
+            fake_pmi_matrix = 1/(distances+1e-15)
+            return fake_pmi_matrix, pseudo_loglik 
+        elif self.baseline_spec == 'random_baseline':
+            fake_pmi_matrix = task.RandomBaselineTask.labels(ptb_tokenlist)
+            return fake_pmi_matrix, pseudo_loglik 
+        else:
+            raise ValueError(f"Baseline spec '{baseline_spec}' not recognized.")
+
+
 
 if __name__ == '__main__':
     ARGP = ArgumentParser()
@@ -537,6 +559,10 @@ if __name__ == '__main__':
                 W2V_PATH = CLI_ARGS.model_path
                 MODEL = embedding.Word2Vec(
                     DEVICE, CLI_ARGS.model_spec, W2V_PATH)
+            elif CLI_ARGS.model_spec == 'linear_baseline':
+                MODEL = Baseline('linear_baseline')
+            elif CLI_ARGS.model_spec == 'random_baseline':
+                MODEL = Baseline('random_baseline')
             else:
                 raise ValueError(
                     f'Model spec string {CLI_ARGS.model_spec} not recognized.')

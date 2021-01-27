@@ -67,6 +67,16 @@ scores_models = rbind(
   scores_gpt2,
   scores_w2v)
 
+scores_models_bidir = rbind(
+  scores_dbert,
+  scores_bert_base,
+  scores_bert_large,
+  scores_xlnet_base,
+  scores_xlnet_large,
+  scores_xlm,
+  scores_bart,
+  scores_w2v)
+
 scores_models$model <- factor(
   scores_models$model,
   levels = c("DistilBERT",
@@ -79,9 +89,20 @@ scores_models$model <- factor(
              "GPT2",
              "Word2Vec"))
 
-scores_models_lstms = rbind(scores_models, scores_lstms)
+scores_models_bidir$model <- factor(
+  scores_models$model,
+  levels = c("DistilBERT",
+             "BERT base",
+             "BERT large",
+             "XLNet base",
+             "XLNet large",
+             "XLM",
+             "Bart",
+             "Word2Vec"))
 
-
+scores_models_lstms = rbind(scores_models
+                            #,scores_lstms
+                            )
 scores_models %>% filter(sentence_index == 0, score_method == 'projective.uuas.sum')
 scores_lstms %>% filter(sentence_index==0, score_method == 'projective.uuas.sum')
 
@@ -90,7 +111,6 @@ lstms <- c("LSTM","ONLSTM","ONLSTM_SYD")
 scores_models_lstms_filtered <- scores_models_lstms %>% filter(
   (score_method == 'projective.uuas.sum' & model %notin% lstms) |
      (score_method == 'projective.uuas.tril' & model %in% lstms))
-
 
 
 scores_models_lstms_filtered %>% filter(sentence_length %in% 4:61) %>%
@@ -103,7 +123,7 @@ scores_models_lstms_filtered %>% filter(sentence_length %in% 4:61) %>%
        y="PMI dependency accuracy")
 
 selected_models <- c('DistilBERT','BERT large','BERT base',
-                     # 'XLNet large','XLM', 'Bart',
+                     'XLNet large','XLM', 'Bart',
                      'XLNet base', 'Word2Vec')
 selected_models_lstms <- append(selected_models, lstms)
 
@@ -146,6 +166,7 @@ grid.arrange(arrangeGrob(baselines_violin,w2v_violin,models_violin,widths=c(3,1,
 ##
 scores_models_lstms_filtered <- scores_models_lstms_filtered %>%
   mutate(model = relevel(model, "Bart")) %>% mutate(model = relevel(model, "GPT2"))
+
 
 
 scores_models_lstms_filtered %>% filter(model %in% selected_models) %>% filter(model!="Word2Vec") %>%
@@ -212,6 +233,8 @@ coin::independence_test(formula = uuas ~ sentence_logperplexity, alternative = "
 compare_models <- scores_models_lstms_filtered %>%
   group_by(sentence_index, model) %>% summarise(uuas, sentence_logperplexity) %>%
   pivot_wider(names_from = model, values_from = c(uuas, sentence_logperplexity)) %>% ungroup()
+
+
 
 # some examples...
 # compare_models %>% ggplot(aes(x=`uuas_BERT large`,y=`uuas_Word2Vec`)) +
@@ -294,4 +317,3 @@ ggpairs(compare_ppl %>% log(),
         lower = list(continuous = pointsmooth),
         title = "Sentence log perplexity (by sentence, pearson) correlogram (log scale)"
 )
-

@@ -74,13 +74,18 @@ add_class_predictor <- function(df){
 # Prepare data with added columns ####
 #
 # with absolute value
+
 bert <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=bert-large-cased_pad60*.csv"))
+# bert_base <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=bert-base-cased*.csv"))
+# bert_large <- bert
 xlnet<- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=xlnet-base-cased_pad30*.csv"))
+# xlnet_base <- xlnet
+# xlnet_large <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=xlnet-large-cased*.csv"))
 xlm  <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=xlm-mlm-en-2048_pad60*.csv"))
 bart <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=bart-large_pad60*.csv"))
 gpt2 <- read_csv(Sys.glob("by_wordpair/wordpair_gpt2_pad30*.csv"))
 dbert<- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=distilbert-base-cased_pad60*.csv"))
-w2v  <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=w2v*.csv"))
+w2v  <- read_csv(Sys.glob("by_wordpair/wordpair_w2v_pad0*.csv"))
 
 lstm  <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=lstm*.csv"))
 onlstm <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_pad*.csv"))
@@ -88,7 +93,11 @@ onlstm_syd <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_syd*.csv
 
 dbert$model <- "DistilBERT"
 xlnet$model <- "XLNet"
+# xlnet_large$model <- "XLNet-large"
+# xlnet_base$model <- "XLNet-base"
 bert$model  <- "BERT"
+# bert_base$model  <- "BERT-base"
+# bert_large$model  <- "BERT-large"
 xlm$model   <- "XLM"
 bart$model  <- "Bart"
 gpt2$model  <- "GPT2"
@@ -105,8 +114,13 @@ prepare_df <- function(df){
   return(df)
 }
 
+
 bert <- prepare_df(bert)
+# bert_large <- prepare_df(bert_large)
+# bert_base <- prepare_df(bert_base)
 xlnet<- prepare_df(xlnet)
+# xlnet_large <- prepare_df(xlnet_large)
+# xlnet_base <- prepare_df(xlnet_base)
 xlm  <- prepare_df(xlm)
 bart <- prepare_df(bart)
 gpt2 <- prepare_df(gpt2)
@@ -116,19 +130,83 @@ lstm <- prepare_df(lstm)
 onlstm  <- prepare_df(onlstm)
 onlstm_syd  <- prepare_df(onlstm_syd)
 
-all_bidir <- bind_rows(bert,xlnet,xlm,bart,dbert,w2v)
+all_bidir <- bind_rows(bert_base,bert_large,xlnet_base,xlnet_large,xlm,bart,dbert,w2v)
 all_bidir$pmi_edge <- all_bidir$pmi_edge_sum
 all_onedir <- bind_rows(gpt2,lstm,onlstm,onlstm_syd)
 all_onedir$pmi_edge = all_onedir$pmi_edge_tril
 all <- bind_rows(all_bidir,all_onedir)
 
 
+# Joining: Getting all n models in one df  ####
+join_three <- function(df1, df2, df3,
+                       #' to full_join three data frames
+                       by=c("n","meanlen"),
+                       suffixes=c(".BERT",".XLNet",".XLM")){
+  return(
+    full_join(df1,df2,by=by,suffix=suffixes[1:2]) %>%
+      full_join(rename_at(df3, vars(-by), function(x){paste0(x,suffixes[3])}), by=by) %>%
+      pivot_longer(cols = -by, names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)"))
+}
+
+# All four models in one df
+join_four <- function(df1, df2, df3, df4,
+                      #' to full_join four data frames
+                      by=c("n","meanlen"),
+                      suffixes=c(".Bart",".BERT",".XLNet",".XLM")){
+  return(
+    full_join(df1,df2,by=by,suffix=suffixes[1:2]) %>%
+      full_join(rename_at(df3, vars(-by), function(x){paste0(x,suffixes[3])}), by=by) %>%
+      full_join(rename_at(df4, vars(-by), function(x){paste0(x,suffixes[4])}), by=by) %>%
+      pivot_longer(cols = -by, names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)"))
+}
+
+# All five models in one df
+join_five <- function(df1, df2, df3, df4, df5,
+                      #' to full_join five data frames
+                      by=c("n","meanlen"),
+                      suffixes=c(".DistilBERT",".Bart",".BERT",".XLNet",".XLM")){
+  return(
+    full_join(df1,df2,by=by,suffix=suffixes[1:2]) %>%
+      full_join(rename_at(df3, vars(-by), function(x){paste0(x,suffixes[3])}), by=by) %>%
+      full_join(rename_at(df4, vars(-by), function(x){paste0(x,suffixes[4])}), by=by) %>%
+      full_join(rename_at(df5, vars(-by), function(x){paste0(x,suffixes[5])}), by=by) %>%
+      pivot_longer(cols = -by, names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)"))
+}
+
 ## Exploratory analysis ####
 # ######################## #
 
-## Correlation between models
+jaccard <- function(x, y, center=FALSE, px=NULL, py=NULL) {
+  if(length(x) != length(y)) {
+    stop("x and y must be of the same length.")
+  }
+
+  if(is.null(px) | is.null(py)){
+    px <- mean(x)
+    py <- mean(y)
+  }
+
+  sumxy <- sum(x & y)
+  unionxy <- sum(x)+sum(y)-sumxy
+  if(unionxy == 0) {
+    j <- (px*py)/(px+py-px*py)
+  } else {
+    j <- sumxy/unionxy
+  }
+  if(center == FALSE) {
+    return(j)
+  } else {
+    return(j - (px*py)/(px+py-px*py))
+  }
+}
+
+## Correlation between models ####
 
 compare_onedir <- all_onedir %>%
+  group_by(sentence_index, i1, i2, model) %>% summarise(pmi_edge) %>%
+  pivot_wider(names_from = model, values_from = pmi_edge) %>% ungroup()
+
+compare_bidir <- all_bidir %>%
   group_by(sentence_index, i1, i2, model) %>% summarise(pmi_edge) %>%
   pivot_wider(names_from = model, values_from = pmi_edge) %>% ungroup()
 
@@ -136,13 +214,43 @@ compare_all <- all %>%
   group_by(sentence_index, i1, i2, model) %>% summarise(pmi_edge) %>%
   pivot_wider(names_from = model, values_from = pmi_edge) %>% ungroup()
 
+
+## simple with jaccard
+
+jaccard_simil_cols <- function(d) {
+  proxy::simil(t(d %>% select(-c("sentence_index","i1","i2"))), method = 'jaccard')
+}
+jacc_onedir <- jaccard_simil_cols(compare_onedir)
+jacc_bidir <- jaccard_simil_cols(compare_bidir)
+# jacc_all <- jaccard_simil_cols(compare_all)
+plotjacc <- function(M){
+  col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+  corrplot::corrplot(M, method="color", col=col(200),
+                     cl.pos = "n",#tl.pos = "n",
+                     type="upper", order="FPC",
+                     addCoef.col = "black", # Add coefficient of correlation
+                     tl.col="black", tl.srt=35, #Text label color and rotation
+                     diag=F,
+                     mar = c(0, 0, 0, 0))
+}
+
+plotjacc(as.matrix(jacc_bidir))
+plotjacc(as.matrix(jacc_onedir))
+
+## with pearson
+
+
 corrcol <- function(data, mapping, method="pearson", use="pairwise", ...){
   # grab data
   x <- eval_data_col(data, mapping$x)
   y <- eval_data_col(data, mapping$y)
 
   # calculate correlation
-  corr <- cor(x, y, method=method, use=use)
+  if (method=="jaccard") {
+    corr <- jaccard(x,y)
+  } else {
+    corr <- cor(x, y, method=method, use=use)
+  }
 
   # calculate colour based on correlation value
   # Here I have set a correlation of minus one to blue,
@@ -150,7 +258,6 @@ corrcol <- function(data, mapping, method="pearson", use="pairwise", ...){
   # Change this to suit: possibly extend to add as an argument
   colFn <- colorRampPalette(c("blue", "white", "red"), interpolate ='spline')
   fill <- colFn(100)[findInterval(corr, seq(-1, 1, length=100))]
-
   ggally_cor(data = data, mapping = mapping, ...) +
     theme_void() +
     theme(panel.background = element_rect(fill=fill))
@@ -158,10 +265,23 @@ corrcol <- function(data, mapping, method="pearson", use="pairwise", ...){
 
 library("GGally")
 ggpairs(compare_onedir %>% select(-c("sentence_index","i1","i2")),
-        upper = list(discrete= wrap(corrcol, colour = "black")))
+        axisLabels = 'none',
+        diag = list(discrete='blankDiag'),
+        upper = list(discrete= wrap(corrcol, colour = "black")),
+        lower = list(discrete='blank'),
+        title = "Model correlation by wordpair (Jaccard index) correlogram")
+
+ggpairs(compare_bidir %>% select(-c("sentence_index","i1","i2")),
+        axisLabels = 'none',
+        diag = list(discrete='blankDiag'),
+        upper = list(discrete= wrap(corrcol, colour = "black")),
+        lower = list(discrete='blank'),
+        title = "Model correlation by wordpair (Jaccard index) correlogram")
 
 ggpairs(compare_all %>% select(-c("sentence_index","i1","i2")),
-        upper = list(discrete= wrap(corrcol, colour = "black")))
+        upper = list(discrete= wrap(corrcol, colour = "black")),
+        title = "Model correlation by wordpair (Jaccard index) correlogram")
+
 
 
 ## Finding examples of bad correspondence ####
@@ -390,8 +510,8 @@ maxhub.df<-bind_rows(purrr::map2(
   list("gold","Bart","BERT","DistilBERT","Word2Vec","XLM","XLNet" #,"GPT2"
   ),
   maxhub))
-maxhub.df$model <- maxhub.df$model %>% fct_relevel(levels=c("gold","Bart","BERT","DistilBERT","Word2Vec","XLM","XLNet" #,"GPT2",
-))
+# maxhub.df$model <- maxhub.df$model %>% fct_relevel(levels=c("gold","Bart","BERT","DistilBERT","Word2Vec","XLM","XLNet" #,"GPT2",
+# ))
 p.maxhub<-maxhub.df %>% filter(model!="gold") %>%
   ggplot(aes(x=max_hub)) + geom_histogram(binwidth = 1, aes(fill=model),show.legend=F) +
   xlab("max arity in sentence") + scale_y_continuous(limits = c(0,900)) +
@@ -463,17 +583,20 @@ sentacc<-function(x){group_by(x,sentence_index) %>% group_map(~acc(.x)) %>% unli
 # sentence averaged are a little higher,
 # since gives less weight to edges in longer sentences
 # but the difference is only like 0.01--0.03
-sentacc(dbert) - acc(dbert)# 0.010
-sentacc(xlnet) - acc(xlnet)# 0.011
-sentacc(bert)  - acc(bert) # 0.014
-sentacc(xlm)   - acc(xlm)  # 0.016
-sentacc(bart)  - acc(bart) # 0.018
-sentacc(gpt2)  - acc(gpt2) # 0.028
+accdiff <- function(df){
+  return(sentacc(df) - acc(df))
+}
+accdiff(dbert)      # 0.011
+accdiff(xlnet)      # 0.011
+accdiff(bert)       # 0.013
+accdiff(xlm)        # 0.018
+accdiff(bart)       # 0.019
+accdiff(gpt2)       # 0.015
+accdiff(w2v)        # 0.018
 
-sentacc(w2v)   - acc(w2v)  # 0.018
-
-
-
+accdiff(lstm)       # 0.013
+accdiff(onlstm)     # 0.013
+accdiff(onlstm_syd) # 0.014
 
 ## Relation #####################
 
@@ -493,141 +616,80 @@ prepare_by_relation <- function(dataframe,length_greater_than=0){
   return(dataframe)
 }
 
-# xlnet.relation <-prepare_by_relation(read_csv("by_wordpair/wordpair_xlnet-base-cased_pad30_2020-04-09-19-11.csv"))
-# bert.relation <- prepare_by_relation(read_csv("by_wordpair/wordpair_bert-large-cased_pad60_2020-04-09-13-57.csv"))
-# xlm.relation <-  prepare_by_relation(read_csv("by_wordpair/wordpair_xlm-mlm-en-2048_pad60_2020-04-09-20-43.csv"))
-# bart.relation <- prepare_by_relation(read_csv("by_wordpair/wordpair_bart-large_pad60_2020-04-27-01-20.csv"))
-# dbert.relation <-prepare_by_relation(read_csv("by_wordpair/wordpair_distilbert-base-cased_pad60_2020-04-29-19-35.csv"))
-# gpt2.relation <- prepare_by_relation(read_csv("by_wordpair/wordpair_gpt2_pad30_2020-04-24-13-45.csv"))
-# w2v.relation  <- prepare_by_relation(read_csv("by_wordpair/wordpair_w2v_pad0_2020-05-17-00-47.csv"))
+xlnet.relation <-prepare_by_relation(xlnet)
+bert.relation <- prepare_by_relation(bert)
+xlm.relation <-  prepare_by_relation(xlm)
+bart.relation <- prepare_by_relation(bart)
+dbert.relation <-prepare_by_relation(dbert)
+gpt2.relation <- prepare_by_relation(gpt2)
+w2v.relation  <- prepare_by_relation(w2v)
 
-xlnet.relation <-prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=xlnet-base-cased_pad30_2020-07-05-17-41.csv"))
-bert.relation <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=bert-large-cased_pad60_2020-07-05-16-29.csv"))
-xlm.relation <-  prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=xlm-mlm-en-2048_pad60_2020-07-05-17-29.csv"))
-bart.relation <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=bart-large_pad60_2020-07-05-16-06.csv"))
-dbert.relation <-prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=distilbert-base-cased_pad60_2020-07-05-17-05.csv"))
-# gpt2.relation <- prepare_by_relation(read_csv("by_wordpair/wordpair_gpt2_pad30_2020-04-24-13-45.csv"))
-w2v.relation  <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=w2v_pad0_2020-07-05-17-17.csv"))
-
-
-# All three models in one df
-join_three <- function(df1, df2, df3,
-                       #' to full_join three data frames
-                       by=c("n","meanlen"),
-                       suffixes=c(".BERT",".XLNet",".XLM")){
-  return(
-    full_join(df1,df2,by=by,suffix=c(".BERT",".XLNet")) %>%
-      full_join(rename_at(df3, vars(-by), function(x){paste0(x,suffixes[3])}), by=by) %>%
-      pivot_longer(cols = -by, names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)"))
-}
-
-three.relation <- join_three(bert.relation,xlnet.relation,xlm.relation,
-                             by=c("n","relation","meanlen"),
-                             suffixes=c(".BERT",".XLNet",".XLM"))
-
-# All four models in one df
-join_four <- function(df1, df2, df3, df4,
-                      #' to full_join four data frames
-                      by=c("n","meanlen"),
-                      suffixes=c(".Bart",".BERT",".XLNet",".XLM")){
-  return(
-    full_join(df1,df2,by=by,suffix=suffixes[1:2]) %>%
-      full_join(rename_at(df3, vars(-by), function(x){paste0(x,suffixes[3])}), by=by) %>%
-      full_join(rename_at(df4, vars(-by), function(x){paste0(x,suffixes[4])}), by=by) %>%
-      pivot_longer(cols = -by, names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)"))
-}
-
-four.relation <- join_four(bart.relation,bert.relation,xlnet.relation,xlm.relation,
-                           by=c("n","relation","meanlen"),
-                           suffixes=c(".Bart",".BERT",".XLNet",".XLM"))
-# All five models in one df
-join_five <- function(df1, df2, df3, df4, df5,
-                      #' to full_join five data frames
-                      by=c("n","meanlen"),
-                      suffixes=c(".DistilBERT",".Bart",".BERT",".XLNet",".XLM")){
-  return(
-    full_join(df1,df2,by=by,suffix=suffixes[1:2]) %>%
-      full_join(rename_at(df3, vars(-by), function(x){paste0(x,suffixes[3])}), by=by) %>%
-      full_join(rename_at(df4, vars(-by), function(x){paste0(x,suffixes[4])}), by=by) %>%
-      full_join(rename_at(df5, vars(-by), function(x){paste0(x,suffixes[5])}), by=by) %>%
-      pivot_longer(cols = -by, names_to = c(".value", "model"), names_pattern = "(.*)\\.(.*)"))
-}
+lstm.relation  <- prepare_by_relation(lstm)
+onlstm.relation  <- prepare_by_relation(onlstm)
+onlstm_syd.relation  <- prepare_by_relation(onlstm_syd)
 
 five.relation <- join_five(dbert.relation,bart.relation,bert.relation,xlnet.relation,w2v.relation,
                            by=c("n","relation","meanlen"),
                            suffixes=c(".DistilBERT",".Bart",".BERT",".XLNet",".Word2Vec"))
 
-
-# A plot exploring accuracy by relation with respect to linear distance, model, and n
-p.rel <-
-  five.relation %>%  filter(n>50) %>%
-  ggplot(aes(y=pct_acc, x=reorder(relation, meanlen))) +
-  annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0,colour="grey") +
-  geom_text(aes(label=paste("",n,sep=""),y=Inf), hjust=0, size=3, colour="grey") +  # to print n
-  annotate("text",x=Inf,y=-Inf, label="mean arclength", size=3, hjust=0, vjust=0) +
-  geom_text(aes(label=round(meanlen, digits=1), y=-Inf), hjust=0, size=3, alpha=0.2) +
-  geom_line(aes(group=relation), colour="grey") +
-  geom_point(aes(size=n, colour=model), alpha=0.6) +
-  coord_flip(clip = "off") +
-  theme(legend.position="top", legend.box="vertical",legend.margin = margin(),
-        plot.margin = ggplot2::margin(0, 50, 2, 2, "pt"),
-        axis.ticks = element_blank()) +
-  ylab("recall (# CPMI arc = gold arc)/(# gold arcs)") +
-  xlab("gold dependency label (ordered by mean arc length)") +
-  ggtitle("all arc lengths") +
-  theme(plot.title = element_text(hjust = 0.5),
-        legend.spacing = unit(0, 'cm'))
-
+lstms.relation <- join_three(lstm.relation,onlstm.relation,onlstm_syd.relation,
+                                 by=c("n","meanlen"),
+                                 suffixes=c(".LSTM",".ONLSTM",".ONLSTM_SYD"))
 
 ## same, only for arc-length ≥ 1 ####
 
-# xlnet.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_xlnet-base-cased_pad30_2020-04-09-19-11.csv"),length_greater_than = 1)
-# bert.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_bert-large-cased_pad60_2020-04-09-13-57.csv"),length_greater_than = 1)
-# xlm.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_xlm-mlm-en-2048_pad60_2020-04-09-20-43.csv"),length_greater_than = 1)
-# bart.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_bart-large_pad60_2020-04-27-01-20.csv"),length_greater_than = 1)
-# dbert.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_distilbert-base-cased_pad60_2020-04-29-19-35.csv"),length_greater_than = 1)
-# gpt2.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_gpt2_pad30_2020-04-24-13-45.csv"),length_greater_than = 1)
-# w2v.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_w2v_pad0_2020-05-17-00-47.csv"), length_greater_than = 1)
+xlnet.relation.gt1<- prepare_by_relation(xlnet,length_greater_than = 1)
+bert.relation.gt1 <- prepare_by_relation(bert,length_greater_than = 1)
+xlm.relation.gt1 <-  prepare_by_relation(xlm,length_greater_than = 1)
+bart.relation.gt1 <- prepare_by_relation(bart,length_greater_than = 1)
+dbert.relation.gt1 <-prepare_by_relation(dbert,length_greater_than = 1)
+gpt2.relation.gt1 <- prepare_by_relation(gpt2,length_greater_than = 1)
+w2v.relation.gt1 <-  prepare_by_relation(w2v, length_greater_than = 1)
 
-xlnet.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=xlnet-base-cased_pad30_2020-07-05-17-41.csv"),length_greater_than = 1)
-bert.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=bert-large-cased_pad60_2020-07-05-16-29.csv.csv"),length_greater_than = 1)
-xlm.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=xlm-mlm-en-2048_pad60_2020-07-05-17-29.csvv"),length_greater_than = 1)
-bart.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=bart-large_pad60_2020-07-05-16-06.csv"),length_greater_than = 1)
-dbert.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=distilbert-base-cased_pad60_2020-07-05-17-05.csv"),length_greater_than = 1)
-# gpt2.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_gpt2_pad30_2020-04-24-13-45.csv"),length_greater_than = 1)
-w2v.relation.gt1 <- prepare_by_relation(read_csv("by_wordpair/wordpair_abs-loaded=w2v_pad0_2020-07-05-17-17.csv"), length_greater_than = 1)
+lstm.relation.gt1        <- prepare_by_relation(lstm, length_greater_than = 1)
+onlstm.relation.gt1      <- prepare_by_relation(onlstm, length_greater_than = 1)
+onlstm_syd.relation.gt1  <- prepare_by_relation(onlstm_syd, length_greater_than = 1)
 
-
-three.relation.gt1 <- join_three(bert.relation.gt1,xlnet.relation.gt1,xlm.relation.gt1,
-                                 by=c("n","meanlen"),
-                                 suffixes=c(".BERT",".XLNet",".XLM"))
-four.relation.gt1 <- join_four(bart.relation.gt1,bert.relation.gt1,xlnet.relation.gt1,xlm.relation.gt1,
-                               by=c("n","meanlen"),
-                               suffixes=c(".Bart",".BERT",".XLNet",".XLM"))
 five.relation.gt1 <- join_five(dbert.relation.gt1,bart.relation.gt1,bert.relation.gt1,xlnet.relation.gt1,w2v.relation.gt1,
                                by=c("n","meanlen"),
                                suffixes=c(".DistilBERT",".Bart",".BERT",".XLNet",".Word2Vec"))
-p.rel.gt1<-
-  five.relation.gt1 %>%  filter(n>50) %>%
-  ggplot(aes(y=pct_acc, x=reorder(relation, meanlen))) +
-  annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0,colour="grey") +
-  geom_text(aes(label=paste("",n,sep=""),y=Inf), hjust=0, size=3, colour="grey") +  # to print n
-  annotate("text",x=Inf,y=-Inf, label="mean arclength", size=3, hjust=0.5, vjust=0) +
-  geom_text(aes(label=round(meanlen, digits=1), y=-Inf), hjust=0, size=3, alpha=0.2) +
-  geom_line(aes(group=relation), colour="grey") +
-  geom_point(aes(size=n, colour=model), alpha=0.6) +
-  coord_flip(clip = "off") +
-  theme(legend.position="top", legend.box="vertical",legend.margin = margin(),
-        plot.margin = ggplot2::margin(0, 50, 2, 2, "pt"),
-        axis.ticks = element_blank()) +
-  ylab("recall (# CPMI arc = gold arc)/(# gold arcs)") +
-  xlab("gold dependency label (ordered by mean arc length)") +
-  ggtitle("arc length > 1") +
-  theme(plot.title = element_text(hjust = 0.5),
-        legend.spacing = unit(0, 'cm'))
-p.rel.gt1 +ggtitle("Accuracy (recall) by gold label (n>50, arc length > 1)")
 
-grid.arrange(p.rel,p.rel.gt1,ncol=2,top="Accuracy (recall) by gold label (n>50)")
+lstms.relation.gt1 <- join_three(lstm.relation.gt1,onlstm.relation.gt1,onlstm_syd.relation.gt1,
+                                 by=c("n","meanlen"),
+                                 suffixes=c(".LSTM",".ONLSTM",".ONLSTM_SYD"))
+
+
+# A plot exploring accuracy by relation with respect to linear distance, model, and n
+plotby_rel <- function(df, title="all arc lengths") {
+  df %>%  filter(n>50) %>%
+    ggplot(aes(y=pct_acc, x=reorder(relation, meanlen))) +
+    annotate("text",x=Inf,y=Inf, label="n", size=3, hjust=0, vjust=0,colour="grey") +
+    geom_text(aes(label=paste("",n,sep=""),y=Inf), hjust=0, size=3, colour="grey") +  # to print n
+    annotate("text",x=Inf,y=-Inf, label="mean arclength", size=3, hjust=0, vjust=0) +
+    geom_text(aes(label=round(meanlen, digits=1), y=-Inf), hjust=0, size=3, alpha=0.2) +
+    geom_line(aes(group=relation), colour="grey") +
+    geom_point(aes(size=n, colour=model), alpha=0.6) +
+    coord_flip(clip = "off") +
+    theme(legend.position="top", legend.box="vertical",legend.margin = margin(),
+          plot.margin = ggplot2::margin(0, 50, 2, 2, "pt"),
+          axis.ticks = element_blank()) +
+    ylab("recall (# CPMI arc = gold arc)/(# gold arcs)") +
+    xlab("gold dependency label (ordered by mean arc length)") +
+    ggtitle(title) +
+    theme(plot.title = element_text(hjust = 0.5),
+          legend.spacing = unit(0, 'cm'))
+}
+
+p.rel <- plotby_rel(five.relation, title="all arc lengths")
+p.rel.gt1<- plotby_rel(five.relation.gt1, title="arc length > 1")
+
+p.lstms.rel <- plotby_rel(lstms.relation)
+p.lstms.rel.gt1<- plotby_rel(lstms.relation.gt1)
+
+p.rel.gt1 + ggtitle("Accuracy (recall) by gold label (n>50, arc length > 1)")
+
+grid.arrange(p.rel,p.rel.gt1,ncol=2,top="Accuracy (recall) by gold label (only labels with n>50)")
+grid.arrange(p.lstms.rel,p.lstms.rel.gt1,ncol=2,top="Accuracy (recall) by gold label (n>50)\nLSTM models")
 
 # PMI value ####
 #
@@ -667,6 +729,9 @@ five.relation %>% filter(n>50) %>%
 
 
 # len / lin_dist ####
+
+# Getting a precision and recall score grouped by whether lin_dist =1 or >1
+# in precis_recall.R
 
 # quick histograms
 gold.len <- bert %>% filter(gold_edge==T) %>% group_by(lin_dist) %>% count
@@ -731,12 +796,13 @@ xlnet.len[1,]$n/(xlnet %>% filter(pmi_edge_sum==T) %>%  count()) # 0.535 0.552
 gpt2.len[1,]$n/(gpt2 %>% filter(pmi_edge_sum==T) %>%  count())   # 0.767 0.767
 w2v.len[1,]$n/(w2v %>% filter(pmi_edge_sum==T) %>%  count())     # 0.389 0.161
 
+
 # GOLD LEN
 prepare_by_len_gold <- function(dataframe){
   #' Prepare csv as df data grouped by 'lin_dist'
-  len = dataframe %>% filter(!is.na(relation)) %>%
+  len = dataframe %>% filter(relation!="NONE") %>%
     group_by(lin_dist) %>% summarise(meanpmi=mean(pmi_sum), varpmi=var(pmi_sum), n=n())
-  dataframe = dataframe %>% filter(!is.na(relation)) %>%
+  dataframe = dataframe %>% filter(relation!="NONE") %>%
     mutate(acc=gold_edge==pmi_edge_sum) %>%
     group_by(lin_dist,acc) %>% summarise(n=n()) %>%
     pivot_wider(names_from = acc, names_prefix = "pmi", values_from = c(n), values_fill = list(n = 0)) %>%
@@ -753,13 +819,17 @@ prepare_by_len_gold <- function(dataframe){
 # dbert.len.gold <- prepare_by_len_gold(read_csv("by_wordpair/wordpair_distilbert-base-cased_pad60_2020-04-29-19-35.csv"))
 # w2v.len.gold <-   prepare_by_len_gold(read_csv("by_wordpair/wordpair_w2v_pad0_2020-05-17-00-47.csv"))
 
-xlnet.len.gold <- prepare_by_len_gold(read_csv("by_wordpair/wordpair_abs-loaded=xlnet-base-cased_pad30_2020-07-05-17-41.csv"))
-bert.len.gold <-  prepare_by_len_gold(read_csv("by_wordpair/wordpair_abs-loaded=bert-large-cased_pad60_2020-07-05-16-29.csv"))
-xlm.len.gold <-   prepare_by_len_gold(read_csv("by_wordpair/wordpair_abs-loaded=xlm-mlm-en-2048_pad60_2020-07-05-17-29.csv"))
-bart.len.gold <-  prepare_by_len_gold(read_csv("by_wordpair/wordpair_abs-loaded=bart-large_pad60_2020-07-05-16-06.csv"))
-# gpt2.len.gold <-  prepare_by_len_gold(read_csv("by_wordpair/wordpair_gpt2_pad30_2020-04-24-13-45.csv"))
-dbert.len.gold <- prepare_by_len_gold(read_csv("by_wordpair/wordpair_abs-loaded=distilbert-base-cased_pad60_2020-07-05-17-05.csv"))
-w2v.len.gold <-   prepare_by_len_gold(read_csv("by_wordpair/wordpair_abs-loaded=w2v_pad0_2020-07-05-17-17.csv"))
+xlnet.len.gold <- prepare_by_len_gold(xlnet)
+bert.len.gold <-  prepare_by_len_gold(bert)
+xlm.len.gold <-   prepare_by_len_gold(xlm)
+bart.len.gold <-  prepare_by_len_gold(bart)
+gpt2.len.gold <-  prepare_by_len_gold(gpt2)
+dbert.len.gold <- prepare_by_len_gold(dbert)
+w2v.len.gold <-   prepare_by_len_gold(w2v)
+
+lstm.len.gold <-   prepare_by_len_gold(lstm)
+onlstm.len.gold <-   prepare_by_len_gold(onlstm)
+onlstm_syd.len.gold <-   prepare_by_len_gold(onlstm_syd)
 
 # All three models in one df
 three.len.gold <- join_three(bert.len.gold,xlnet.len.gold,xlm.len.gold,
@@ -774,22 +844,29 @@ five.len.gold <- join_five(dbert.len.gold,bart.len.gold,bert.len.gold,xlnet.len.
                            by = c("n","lin_dist"),
                            suffixes=c(".DistilBERT",".Bart",".BERT",".XLNet",".Word2Vec"))
 
+lstms.len.gold <- join_three(lstm.len.gold, onlstm.len.gold, onlstm_syd.len.gold,
+                             by = c("n","lin_dist"),
+                             suffixes=c(".LSTM",".ONLSTM",".ONLSTM_SYD"))
+
 # A plot exploring accuracy by lin_dist
-p.lin_dist <-
-  five.len.gold %>% filter(n>25) %>%
-  ggplot(aes(y=pct_acc, x=lin_dist)) +
-  geom_text(aes(label=n, y=Inf), hjust=0, size=2.5, colour="grey") +
-  annotate("text",x=Inf,y=Inf, label="n", size=2.5, hjust=0, vjust=0, colour="grey") +
-  geom_line(aes(group=lin_dist), colour="grey") +
-  geom_point(aes(size=n, colour=model), alpha=0.7) +
-  coord_flip(clip = "off") +
-  theme(legend.position="top", legend.box="vertical",legend.margin = margin(),
-        plot.margin = ggplot2::margin(0, 50, 0, 2, "pt"),
-        legend.spacing = unit(0, 'cm')
-  ) + scale_x_continuous(trans="identity",breaks = seq(1, 23, by = 2), minor_breaks = seq(1, 23, by = 1)) +
-  ylab("recall (# CPMI arc = gold arc)/(# gold arcs)") +
-  xlab("arc length") +
-  ggtitle("Accuracy (recall) by arc length (n>25)")
+plotby_lin_dist <- function(df, title="Accuracy (recall) by arc length"){
+  df %>% filter(n>25) %>%
+    ggplot(aes(y=pct_acc, x=lin_dist)) +
+    geom_text(aes(label=n, y=Inf), hjust=0, size=2.5, colour="grey") +
+    annotate("text",x=Inf,y=Inf, label="n", size=2.5, hjust=0, vjust=0, colour="grey") +
+    geom_line(aes(group=lin_dist), colour="grey") +
+    geom_point(aes(size=n, colour=model), alpha=0.7) +
+    coord_flip(clip = "off") +
+    theme(legend.position="top", legend.box="vertical",legend.margin = margin(),
+          plot.margin = ggplot2::margin(0, 50, 0, 2, "pt"),
+          legend.spacing = unit(0, 'cm')
+    ) + scale_x_continuous(trans="identity",breaks = seq(1, 23, by = 2), minor_breaks = seq(1, 23, by = 1)) +
+    ylab("recall (# CPMI arc = gold arc)/(# gold arcs)") +
+    xlab("arc length") +
+    ggtitle(title)
+}
+p.ce.lin_dist <- plotby_lin_dist(five.len.gold, title="Accuracy (recall) by arc length (n>25)\nCEMs")
+p.lstms.lin_dist <- plotby_lin_dist(lstms.len.gold, title="Accuracy (recall) by arc length (n>25)\nLSTM models")
 
 # PRED PMI LEN
 prepare_by_len_pred <- function(dataframe){
@@ -1030,7 +1107,7 @@ library(pheatmap)
   pheatmap(cm, display_numbers = T, number_format = "%d", cluster_rows = F, cluster_cols = F, legend = F)
   gg_varimp(rf,"discern model for wrong edge ")
 }
-
+# it seems that class2,classpair, are best, with lindist third
 
 
 
@@ -1044,10 +1121,10 @@ maketraindf_gold <- function(df){
            POS2 = XPOS2,
            POS_pair = XPOS12) %>%
     select(c(y #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
-             ,lin_dist,simple_POS_1,simple_POS_2,i1,i2,w1,w2
-             ,class1,class2
+             ,lin_dist,i1,i2,w1,w2#,simple_POS_1,simple_POS_2
+             #,class1,class2
              ,relation
-             ,pmi_tril,pmi_triu,pmi_sum
+             #,pmi_tril,pmi_triu,pmi_sum
              #,UPOS12,UPOS1,UPOS2
              #,class12,simple_POS_12,XPOS1,XPOS2,XPOS12 # these ones are just renamed
              ,class_pair,simple_POS_pair#,POS1,POS2,POS_pair # as these
@@ -1062,10 +1139,10 @@ maketraindf_pmi <- function(df){
            POS2 = XPOS2,
            POS_pair = XPOS12) %>%
     select(c(y #,gold_edge,sentence_index,pmi_edge_sum,pmi_edge_none,pmi_edge_tril,pmi_edge_triu
-             ,lin_dist,simple_POS_1,simple_POS_2,i1,i2,w1,w2
-             ,class1,class2
+             ,lin_dist,i1,i2,w1,w2#,simple_POS_1,simple_POS_2
+             #,class1,class2
              #,relation
-             ,pmi_tril,pmi_triu,pmi_sum
+             #,pmi_tril,pmi_triu,pmi_sum
              #,UPOS12,UPOS1,UPOS2
              #,class12,simple_POS_12,XPOS1,XPOS2,XPOS12 # these ones are just renamed
              ,class_pair,simple_POS_pair#,POS1,POS2,POS_pair # as these
@@ -1118,7 +1195,7 @@ model_list1=map(model_list,filter,lin_dist>1)
 
 plotvarimp<-function(input.df){
   ptm <- proc.time()
-  n = 9800
+  n = 8000
   df = maketraindf_pmi(input.df)
   training.df = df %>% sample_n(n)
   rf <- ranger(
@@ -1133,15 +1210,17 @@ plotvarimp<-function(input.df){
   print(cm)
   return(gg_varimp(rf,paste(input.df$model[[1]], "")))
 }
+# test with just bert:
 plotvarimp(bert %>% filter(lin_dist>1))
 
-
+# predicting on the traindf_gold all lengths, lin dist is all that matters (and pmi).
+# and with len1, something weird happens (mstly negative gini corr, with w1 best predictor?)
 p.vi <-exec("ggarrange",plotlist=map(model_list,plotvarimp),
             ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
-  annotate_figure(bottom=text_grob("Variable importance - PMI subset"))
+  annotate_figure(bottom=text_grob("Variable importance - CPMI edge subset"))
 p.vi1<-exec("ggarrange",plotlist=map(model_list1,plotvarimp),
             ncol=3,nrow=2, common.legend = TRUE, legend="bottom") %>%
-  annotate_figure(bottom=text_grob("Variable importance - PMI subset, len>1"))
+  annotate_figure(bottom=text_grob("Variable importance - CPMI edge subset, len>1"))
 
 pdp<-function(input.df){
   #' Partial dependence plot
