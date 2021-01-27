@@ -18,6 +18,9 @@ lstm  <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=lstm*.csv"))
 onlstm <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_pad*.csv"))
 onlstm_syd <- read_csv(Sys.glob("by_wordpair/wordpair_abs-loaded=onlstm_syd*.csv"))
 
+baseline_linear <- read_csv(Sys.glob("by_wordpair/wordpair_linear_baseline*.csv"))
+baseline_random <- read_csv(Sys.glob("by_wordpair/wordpair_random_baseline*.csv"))
+
 dbert$model <- "DistilBERT"
 xlnet$model <- "XLNet"
 xlnet_large$model <- "XLNet-large"
@@ -34,7 +37,34 @@ lstm$model <- "LSTM"
 onlstm$model <- "ONLSTM"
 onlstm_syd$model <- "ONLSTM-SYD"
 
-all_models = list(dbert,bert_base,bert_large,xlnet_base,xlnet_large,xlm,bart,gpt2,w2v,lstm,onlstm,onlstm_syd)
+baseline_linear$model <- "baseline_linear"
+baseline_random$model <- "baseline_random"
+
+all_models_raw = list(dbert,bert_base,bert_large,xlnet_base,xlnet_large,xlm,bart,gpt2,w2v,lstm,onlstm,onlstm_syd,baseline_linear,baseline_random)
+
+make_dep_len_nopunct <- function(dataframe,verbose=TRUE) {
+  # makes a dep_len feature, which records the distance ignoring tokens not in gold tree
+  # that is, skipping over punctuation or other ignored symbols in calculating distance.
+  if (verbose) {message(dataframe$model[[1]])}
+  newdf = tibble()
+  # dataframe = dataframe %>% filter(sentence_index %in% c(1,2,3,4))
+  pb <- txtProgressBar(style = 3)
+  for (s_index in unique(dataframe$sentence_index)) {
+    # TODO: for loop is very slow. find another way.
+    dfi = dataframe %>% filter(sentence_index==s_index)
+    i1s = filter(dfi,gold_edge==T)$i1
+    i2s = filter(dfi,gold_edge==T)$i2
+    is = sort(union(i1s,i2s))
+    dfi <- mutate(dfi, word_i1 = match(i1,is), word_i2 = match(i2,is), dep_len = word_i2-word_i1) %>%
+      select(sentence_index, i1,i2,lin_dist,word_i1,word_i2,dep_len,everything())
+    newdf <- rbind(newdf,dfi)
+    setTxtProgressBar(pb, s_index/max(unique(dataframe$sentence_index)))
+  }
+  close(pb)
+  return(newdf)
+}
+# THIS TAKES AN HOUR:
+all_models = lapply(all_models_raw, FUN=make_dep_len_nopunct)
 
 # the avg_recall of the linear model is just the avg
 # number of len1 / number of len1 edges in sentence
@@ -42,8 +72,8 @@ all_models = list(dbert,bert_base,bert_large,xlnet_base,xlnet_large,xlm,bart,gpt
 
 # avg_precision for linear model is average of number of len1 / number of edges in sentence
 # that is, the
-# average proportion adjacent for gold edges, which is .49
-avg_proportion_adjacent = bert %>% mutate(shortdep=lin_dist==1,longdep=!shortdep) %>% filter(gold_edge==T) %>%
+# average proportion adjacent for gold edges, which is .50
+avg_proportion_adjacent = all_models[[2]] %>% mutate(longdep=dep_len>1) %>% filter(gold_edge==T) %>%
   group_by(sentence_index,longdep) %>% summarise(n=n()) %>%
   pivot_wider(names_from = longdep, values_from = c(n), names_prefix = "n_long", values_fill = list(n = 0)) %>%
   ungroup() %>% mutate(n_edges=n_longFALSE+n_longTRUE, proportion_adjacent=n_longFALSE/n_edges) %>%
@@ -63,7 +93,7 @@ avg_uuas <- function(dataframe){
 }
 all_avg_uuas_overall = do.call(rbind,c(lapply(all_models,avg_uuas)))
 binary_dist_avg_precis <- function(dataframe){
-  dataframe = mutate(dataframe, longdep=lin_dist>1)
+  dataframe = mutate(dataframe, longdep=dep_len>1)
   #' Prepare csv as df data grouped by 'longdep'
   n_pmi_edges = dataframe %>% filter(pmi_edge_sum==T) %>% group_by(longdep,sentence_index) %>% summarise(n=n())
   precis_df = dataframe %>% filter(pmi_edge_sum==T) %>%
@@ -76,8 +106,8 @@ binary_dist_avg_precis <- function(dataframe){
   return(out_df)
 }
 binary_dist_avg_recall <- function(dataframe){
-  dataframe = mutate(dataframe, longdep=lin_dist>1)
-  #' Prepare csv as df data grouped by 'lin_dist'
+  dataframe = mutate(dataframe, longdep=dep_len>1)
+  #' Prepare csv as df data grouped by 'longdep'
   n_gold_edges = dataframe %>% filter(relation!="NONE") %>% group_by(longdep,sentence_index) %>% summarise(n=n())
   recall_df = dataframe %>% filter(relation!="NONE") %>%
     mutate(acc=gold_edge==pmi_edge_sum) %>%
@@ -91,12 +121,17 @@ binary_dist_avg_recall <- function(dataframe){
 binary_dist_avg_precis_recall <- function(dataframe){
   df = left_join(binary_dist_avg_precis(dataframe), binary_dist_avg_recall(dataframe), by=c("longdep"))
   df %>% select(c("longdep","avg_precis","avg_recall")) %>%
-    pivot_wider(names_from = longdep, values_from = c(avg_precis,avg_recall), names_prefix = "longdep") %>%
-    add_column(model = dataframe$model[[1]]) %>% column_to_rownames("model")
+    pivot_wider(names_from = longdep, values_from = c(avg_precis,avg_recall), names_prefix = "longdep", values_fill = list(n = 0)) %>%
+    add_column(model = dataframe$model[[1]])
 }
-avg_precis_recalls = do.call(rbind,c(lapply(all_models, binary_dist_avg_precis_recall)))
+avg_precis_recalls = do.call(bind_rows,c(lapply(all_models, binary_dist_avg_precis_recall))) %>% column_to_rownames("model")
+
 # Combined table
 avg_accuracy_table = cbind(all_avg_uuas_overall,avg_precis_recalls)
+
+# write the table, with the columns in the right order
+write.csv(avg_accuracy_table[,c(1,2,4,3,5)],"avg_accuracy_table.csv")
+
 
 #### A version averaged over all edges ####
 uuas_overall <- function(dataframe){
@@ -109,9 +144,9 @@ uuas_overall <- function(dataframe){
   return(out_df)
 }
 all_uuas_overall = do.call(rbind,c(lapply(all_models,uuas_overall)))
-# Getting a precision and recall score grouped by whether lin_dist =1 or >1
+# Getting a precision and recall score grouped by whether dep_len =1 or >1
 binary_dist_precis <- function(dataframe){
-  dataframe = mutate(dataframe, longdep=lin_dist>1)
+  dataframe = mutate(dataframe, longdep=dep_len>1)
   #' Prepare csv as df data grouped by 'longdep'
   precis_len = dataframe %>% filter(pmi_edge_sum==T) %>% group_by(longdep) %>% summarise(n=n())
   precis_df = dataframe %>% filter(pmi_edge_sum==T) %>%
@@ -123,8 +158,8 @@ binary_dist_precis <- function(dataframe){
   return(out_df)
 }
 binary_dist_recall <- function(dataframe){
-  dataframe = mutate(dataframe, longdep=lin_dist>1)
-  #' Prepare csv as df data grouped by 'lin_dist'
+  dataframe = mutate(dataframe, longdep=dep_len>1)
+  #' Prepare csv as df data grouped by 'longdep'
   recall_len = dataframe %>% filter(relation!="NONE") %>% group_by(longdep) %>% summarise(n=n())
   recall_df = dataframe %>% filter(relation!="NONE") %>%
     mutate(acc=gold_edge==pmi_edge_sum) %>%
@@ -144,24 +179,8 @@ precis_recalls = do.call(rbind,c(lapply(all_models, binary_dist_precis_recall)))
 # Combined table
 accuracy_table = cbind(all_uuas_overall,precis_recalls)
 
-# We get the following:
-# model           avg_uuas avg_precis_len=1 avg_recall_len=1 avg_precis_len>1 avg_recall_len>1
-# linear_baseline .50     .49               1.               --               0
-# DistilBERT      .51     .59               .77              .36              .25
-# BERT-base       .50     .60               .79              .32              .22
-# BERT-large      .50     .57               .86              .27              .14
-# XLNet-base      .48     .62               .70              .32              .27
-# XLNet-large     .43     .64               .64              .25              .24
-# XLM             .46     .65               .68              .27              .25
-# Bart            .42     .58               .65              .23              .19
-# GPT2            .38     .57               .40              .29              .37
-# Word2Vec        .40     .63               .60              .21              .22
-# LSTM            .46     .57               .74              .27              .21
-# ONLSTM          .47     .58               .74              .28              .21
-# ONLSTM-SYD      .47     .58               .74              .28              .21
 
-
-
+accuracy_table %>% select("uuas",)
 #### POS preliminary ####
 
 pos_bert_base <- read_csv(Sys.glob("../results-clean/pos-cpmi/simple_probe/xpos_bert-base-cased*/loaded*/wordpair_*.csv"))
