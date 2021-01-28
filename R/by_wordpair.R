@@ -731,7 +731,7 @@ five.relation %>% filter(n>50) %>%
 # len / lin_dist ####
 
 # Getting a precision and recall score grouped by whether lin_dist =1 or >1
-# in precis_recall.R
+# is in /precis_recall.R
 
 # quick histograms
 gold.len <- bert %>% filter(gold_edge==T) %>% group_by(lin_dist) %>% count
